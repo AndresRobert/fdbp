@@ -1,0 +1,267 @@
+.no-click {
+    pointer-events: none
+}
+
+label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.isotype {
+    max-height: 110px;
+    margin: 1rem auto;
+    filter:grayscale(1) contrast(1.2);
+}
+
+.font10 > p {
+    font-size: 10px;
+}
+
+.font12 > p {
+    font-size: 12px;
+}
+
+.printable {
+    max-width: 720px;
+}
+
+.padding-top {
+    padding: 5px 0;
+}
+
+.padding-right {
+    padding-right: 30px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.just {
+    text-align: justify;
+}
+
+.sign {
+    border-top: 2px solid #333344;
+    text-align: center;
+    margin-top: 65px;
+}
+
+.preview {
+    background: url("../src/img/preview.svg") center center / 60px auto;
+}
+
+.sign > p {
+    font-weight: bold;
+}
+
+.no-padding-input {
+    padding-left: 80px;
+}
+
+.no-padding-input > label {
+    top: 0;
+}
+
+.no-padding-input > input {
+    margin: 0 !important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.greenI {
+    color: #55CC55;
+}
+
+.redI {
+    color: #CC5555;
+}
+
+td button {
+    margin: 0;
+}
+
+.dataTables_filter,
+.dataTables_info {
+    display: none;
+}
+
+.dataTables_length {
+    display: none;
+}
+
+.dataTables_wrapper {
+    overflow-x: scroll;
+    padding-bottom: 40px;
+}
+
+.dataTables_paginate {
+    position: absolute;
+    left: 0;
+    transform: scale(0.7);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: none !important;
+}
+
+.darkmode .odd {
+    background: #FFF1 !important;
+}
+
+.darkmode .even {
+    background: #FFF2 !important;
+}
+
+.darkmode [class^='sorting_'] {
+    background: #FFF3 !important;
+}
+
+.darkmode .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.darkmode .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #CCCCDD !important;
+}
+
+@media print {
+    .col-1 {
+        width: 8.002%;
+    }
+
+    .col-2 {
+        width: 16.333%;
+    }
+
+    .col-3 {
+        width: 24.666%;
+    }
+
+    .col-4 {
+        width: 33%;
+    }
+
+    .col-5 {
+        width: 41.333%;
+    }
+
+    .col-6 {
+        width: 49.666%;
+    }
+
+    .col-7 {
+        width: 58%;
+    }
+
+    .col-8 {
+        width: 66.333%;
+    }
+
+    .col-9 {
+        width: 74.666%;
+    }
+
+    .col-10 {
+        width: 83%;
+    }
+
+    .col-11 {
+        width: 91.333%;
+    }
+
+    .col-12 {
+        width: 99.7%;
+    }
+
+    .row.form > [class^='col-'] {
+        padding: 0 0.2rem;
+    }
+
+    .hideOnPrint {
+        display: none;
+    }
+
+    button,
+    a.button,
+    input[type='submit']{
+        width: auto;
+    }
+
+    .gallery > .item {
+        margin: 0.1rem;
+        width: calc(25% - 0.2rem);
+    }
+
+    .gallery.gap-1 > .item {
+        margin: 0.3rem;
+        width: calc(25% - 0.6rem);
+    }
+
+    .gallery.gap-2 > .item {
+        margin: 0.5rem;
+        width: calc(25% - 1rem);
+    }
+
+    .gallery.gap-3 > .item {
+        margin: 1rem;
+        width: calc(25% - 2rem);
+    }
+
+    .gallery.two > .item {
+        margin: 0.1rem;
+        width: calc(50% - 0.2rem);
+    }
+
+    .gallery.two.gap-1 > .item {
+        margin: 0.3rem;
+        width: calc(50% - 0.6rem);
+    }
+
+    .gallery.two.gap-2 > .item {
+        margin: 0.5rem;
+        width: calc(50% - 1rem);
+    }
+
+    .gallery.two.gap-3 > .item {
+        margin: 1rem;
+        width: calc(50% - 2rem);
+    }
+
+    .gallery.six > .item {
+        margin: 0.1rem;
+        width: calc(16.666% - 0.2rem);
+    }
+
+    .gallery.six.gap-1 > .item {
+        margin: 0.3rem;
+        width: calc(16.666% - 0.6rem);
+    }
+
+    .gallery.six.gap-2 > .item {
+        margin: 0.5rem;
+        width: calc(16.666% - 1rem);
+    }
+
+    .gallery.six.gap-3 > .item {
+        margin: 1rem;
+        width: calc(16.666% - 2rem);
+    }
+
+    .overlay.sheet-bottom > .card {
+        max-height: 50%;
+    }
+
+    .overlay.sheet-side > .card {
+        max-width: 50%;
+    }
+
+    .snackbarContainer > div {
+        max-width: 30%;
+    }
+
+    .preview p {
+        text-decoration-line: line-through;
+    }
+}
