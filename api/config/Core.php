@@ -51,10 +51,10 @@ try {
 }
 
 // DATABASE
-define('DB_HOST', 'arcodepr_funeraria');
+define('DB_HOST', 'localhost');
 define('DB_NAME', 'arcodepr_funeraria');
-define('DB_USERNAME', 'funeraria.90125');
-define('DB_PASSWORD', 'root');
+define('DB_USERNAME', 'arcodepr_funeraria');
+define('DB_PASSWORD', 'Funeraria.12345');
 define('DB_TABLE_PREFIX', '');
 define('JSQL_FOLDER', 'jsql');
 

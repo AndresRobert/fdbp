@@ -23,14 +23,13 @@ class Dom extends Response {
         }
         $status['database'] = MySQL::Check();
         return [
-            'api' => 'Bienvenido a la API de Funeraria del Buen Pastor',
+            'company' => 'Funeraria del Buen Pastor',
             'contact' => [
-                'welcome' => 'Encuentranos en http://www.funerariadelbuenpastor.cl',
-                'this' => 'https://fdbp.acode.cl/api/home'
+                'website' => 'http://www.funerariadelbuenpastor.cl',
+                'api' => 'https://fdbp.acode.cl/api/home'
             ],
             'status' => $status,
-            'about' => ABOUT
-        ];
+        ] + ABOUT;
     }
 
 }
