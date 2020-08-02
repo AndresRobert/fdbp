@@ -5,7 +5,7 @@ require 'config/Core.php';
 use Api\Route;
 
 // ENDPOINTS SETUP
-Route::Create('VIEW', '/status', 'status/all');
+Route::Create('GET', '/status', 'status/all');
 Route::Create('POST', '/register', 'users/register');
 Route::Create('PUT', '/registerPush', 'users/registerDevice');
 Route::Create('POST', '/push/send', 'push/sendMessage');

@@ -35,7 +35,7 @@ define('VENDOR', ROOT.'vendor'.DS);
 // GLOBALS
 define('ALLOWED_IMG_EXTENSIONS', ['jpeg', 'jpg', 'png']);
 define('HTACCESS_FOLDER', '/api');
-define('ABOUT', ['about' => ['framework' => 'Phasil v0.1.0', 'website' => 'https://fdbp.acode.cl', 'contact' => 'contact@fdbp.acode.cl']]);
+define('ABOUT', ['about' => ['framework' => 'Phasil v0.1.0', 'website' => 'https://phasil.acode.cl', 'contact' => 'contact@acode.cl']]);
 define('APPNAME', 'FDBP Manager');
 
 // ROUTES
