@@ -75,7 +75,8 @@ abstract class Route {
         599 => 'Network Connect Timeout Error',
     ];
 
-    final private static function is_method_allowed (string $request_method) {
+    private static function is_method_allowed (string $request_method): bool
+    {
         return in_array($request_method, ALLOWED_METHODS);
     }
 
@@ -86,7 +87,7 @@ abstract class Route {
      *
      * @return int
      */
-    final private static function get_response_code (string $request_method, string $endpoint): int {
+    private static function get_response_code (string $request_method, string $endpoint): int {
         $routes = Session::Read('Routes');
         if (!self::is_method_allowed($request_method)) {
             return 405;

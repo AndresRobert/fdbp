@@ -26,9 +26,15 @@ class Users extends Response {
                             'message' => 'User successfully registered',
                             'id' => $User->get('id'),
                         ];
-                    } else $response['message'] = 'User could not be registered';
-                } else $response['message'] = 'User name is already taken';
-            } else $response['message'] = 'Email is already taken';
+                    } else {
+                        $response['message'] = 'User could not be registered';
+                    }
+                } else {
+                    $response['message'] = 'User name is already taken';
+                }
+            } else {
+                $response['message'] = 'Email is already taken';
+            }
         }
         return $response;
     }
@@ -42,7 +48,7 @@ class Users extends Response {
             'token' => NULL,
             'expiration' => NULL
         ];
-        if (isset($credentials['password']) && isset($credentials['user_name'])) {
+        if (isset($credentials['password'], $credentials['user_name'])) {
             $User = new User();
             if ($User->readBy(['user_name' => $credentials['user_name']])) {
                 if (Auth::Match($credentials['password'], $User->get('password'))) {
@@ -85,16 +91,22 @@ class Users extends Response {
                             'status' => 'success',
                             'message' => 'Device successfully registered'
                         ];
-                    } else $response['message'] = 'Device failed to be updated';
-                } else $response['message'] = 'User does not exists';
-            } else $response['message'] = 'Invalid User ID';
+                    } else {
+                        $response['message'] = 'Device failed to be updated';
+                    }
+                } else {
+                    $response['message'] = 'User does not exists';
+                }
+            } else {
+                $response['message'] = 'Invalid User ID';
+            }
         }
         return $response;
     }
 
     public function getByFilter (array $filter = []): array {
         return self::RequiresAuthorization(
-            function () use ($filter) {
+            static function () use ($filter) {
                 return (new User())->filter(['*'], $filter);
             }
         );

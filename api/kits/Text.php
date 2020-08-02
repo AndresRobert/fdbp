@@ -5,7 +5,7 @@ namespace Kits;
 abstract class Text {
 
     final public static function StartsWith (string $needle, string $haystack): bool {
-        return substr($haystack, 0, strlen($needle)) === $needle;
+        return strpos($haystack, $needle) === 0;
     }
 
     final public static function EndsWith (string $needle, string $haystack): bool {
@@ -41,7 +41,7 @@ abstract class Text {
     final public static function IsPassword (string $password): bool {
         $uppercase = preg_match('@[A-Z]@', $password);
         $lowercase = preg_match('@[a-z]@', $password);
-        $number = preg_match('@[0-9]@', $password);
+        $number = preg_match('@[\d]@', $password);
         return $uppercase || $lowercase || $number || strlen($password) > 7;
     }
 

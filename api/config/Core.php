@@ -35,8 +35,8 @@ define('VENDOR', ROOT.'vendor'.DS);
 // GLOBALS
 define('ALLOWED_IMG_EXTENSIONS', ['jpeg', 'jpg', 'png']);
 define('HTACCESS_FOLDER', '/api');
-define('ABOUT', ['about' => ['framework' => 'Phasil v0.1.0', 'website' => 'https://phasil.acode.cl', 'contact' => 'phasil@acode.cl']]);
-define('APPNAME', 'Phasil');
+define('ABOUT', ['about' => ['framework' => 'Phasil v0.1.0', 'website' => 'https://fdbp.acode.cl', 'contact' => 'contact@fdbp.acode.cl']]);
+define('APPNAME', 'FDBP Manager');
 
 // ROUTES
 // GET, POST, PUT, PATCH, DELETE, COPY, HEAD, OPTIONS, LINK, UNLINK, PURGE, LOCK, UNLOCK, PROPFIND, VIEW
@@ -46,29 +46,28 @@ define('REQUEST', $_SERVER['REQUEST_URI']);
 define('HEADERS', getallheaders());
 try {
     define('BODY', json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) ?? []);
-} catch (JsonException $e) {
+} catch (Exception $e) {
     define('BODY', []);
 }
 
 // DATABASE
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'phasil');
-define('DB_USERNAME', 'root');
+define('DB_HOST', 'arcodepr_funeraria');
+define('DB_NAME', 'arcodepr_funeraria');
+define('DB_USERNAME', 'funeraria.90125');
 define('DB_PASSWORD', 'root');
 define('DB_TABLE_PREFIX', '');
 define('JSQL_FOLDER', 'jsql');
 
 // JWT
 // You must change this JWT_SECRET for your project
-define('JWT_SECRET', 'wLdkrBuQ36auUFzEd2mv9KyznwtLgaBXgoUUAMJvSXGN4uvy3OjnBUDbgT-gh27fl3AmDS2SdnVZ5KnHcWrWFrd8C13RXIbso4tDg1BVOEVgTZnUxIdiDm0csn--HRqEG-xbB8RZokBZeHTq53Uh0TkuUSPeb_tkfuhmYttIHZU');
-define('JWT_ISSUER', 'PHASIL');
-define('JWT_AUDIENCE', 'THE_AUDIENCE');
+define('JWT_SECRET', 'fUnerArI46auUFzEd2mv9KyznwtLgaBXgoUUAMJvSXGN4uvy3OjnBUDbgT-gh27fl3AmDS2SdnVZ5KnHcWrWFrd8C13RXIbso4tDg1BVOEVgTZnUxIdiDm0csn--HRqEG-xbB8RZokBZeHTq53Uh0TkuUSPeb_tkfuhmYttIHZU');
+define('JWT_ISSUER', 'FDBP');
+define('JWT_AUDIENCE', 'WEBAPI');
 define('JWT_NOT_BEFORE', 5); // in seconds
 define('JWT_EXPIRE', 600); // in seconds
 
 // USES
 require_once ROUTER;
-require_once STATUS;
 require_once MODEL;
 require_once RESPONSE;
 require_once AUTH;
@@ -93,4 +92,3 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 // Status routes
 \Api\Route::Clear();
-\Api\Route::Create('VIEW', '/status', '/status');

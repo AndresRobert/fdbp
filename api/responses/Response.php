@@ -24,7 +24,9 @@ class Response {
 
     protected static function RequiresAuthorization ($function): array {
         $validate = Auth::JWTValidate();
-        if ($validate['status'] === 'success') return $function();
+        if ($validate['status'] === 'success') {
+            return $function();
+        }
         $validate['response_code'] = 401;
         return $validate;
     }
@@ -35,7 +37,8 @@ class Response {
      *
      * @return array|null
      */
-    final public static function Get (string $response, array $payload = []) {
+    final public static function Get (string $response, array $payload = []): ?array
+    {
         [$class, $method] = explode('/', $response) ?? ['', ''];
         if ($class !== '') {
             $class = ucfirst($class);
@@ -47,7 +50,8 @@ class Response {
         if ($file === 'Response.php') {
             return self::$method($payload) ?? [];
         }
-        elseif (File::IsFile(RSP.$file)) {
+
+        if (File::IsFile(RSP.$file)) {
             require_once RSP.$file;
             return (new $class())->$method($payload) ?? [];
         }

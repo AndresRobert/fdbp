@@ -40,7 +40,8 @@ abstract class Auth {
      *
      * @return array
      */
-    final public static function JWToken (User $user) {
+    final public static function JWToken (User $user): array
+    {
         $issue_date = time();
         $token = [
             "iss" => JWT_ISSUER,
