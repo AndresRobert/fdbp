@@ -18,19 +18,15 @@ class Users extends Response {
             $newUser['password'] = Auth::Hash($newUser['password']);
             $User = new User();
             if (isset($newUser['email']) && Text::IsEmail($newUser['email']) && !$User->exists('email', $newUser['email'])) {
-                if (isset($newUser['user_name']) && !$User->exists('user_name', $newUser['user_name'])) {
-                    $User->set($newUser);
-                    if ($User->create()) {
-                        $response = [
-                            'status' => 'success',
-                            'message' => 'User successfully registered',
-                            'id' => $User->get('id'),
-                        ];
-                    } else {
-                        $response['message'] = 'User could not be registered';
-                    }
+                $User->set($newUser);
+                if ($User->create()) {
+                    $response = [
+                        'status' => 'success',
+                        'message' => 'User successfully registered',
+                        'id' => $User->get('id'),
+                    ];
                 } else {
-                    $response['message'] = 'User name is already taken';
+                    $response['message'] = 'User could not be registered';
                 }
             } else {
                 $response['message'] = 'Email is already taken';
@@ -50,7 +46,7 @@ class Users extends Response {
         ];
         if (isset($credentials['password'], $credentials['user_name'])) {
             $User = new User();
-            if ($User->readBy(['user_name' => $credentials['user_name']])) {
+            if ($User->readBy(['email' => $credentials['email']])) {
                 if (Auth::Match($credentials['password'], $User->get('password'))) {
                     $tokenData = Auth::JWToken($User);
                     $response = [
@@ -70,35 +66,6 @@ class Users extends Response {
             else {
                 $response['response_code'] = 401;
                 $response['message'] = 'User not found';
-            }
-        }
-        return $response;
-    }
-
-    public function registerDevice (array $deviceInfo): array {
-        $response = [
-            'status' => 'fail',
-            'message' => 'Invalid Device ID or User ID'
-        ];
-        $User = new User();
-        if (isset($deviceInfo['id'])) {
-            if (isset($deviceInfo['user'])) {
-                $User->set(['id' => $deviceInfo['user']]);
-                if ($User->read()) {
-                    $User->set(['device' => $deviceInfo['id']]);
-                    if ($User->update()) {
-                        $response = [
-                            'status' => 'success',
-                            'message' => 'Device successfully registered'
-                        ];
-                    } else {
-                        $response['message'] = 'Device failed to be updated';
-                    }
-                } else {
-                    $response['message'] = 'User does not exists';
-                }
-            } else {
-                $response['message'] = 'Invalid User ID';
             }
         }
         return $response;

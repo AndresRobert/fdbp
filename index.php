@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-6">
                         <label for="password">Clave</label>
-                        <input id="password" type="password" placeholder="Contrase&ntilde;a">
+                        <input id="password" type="password" placeholder="Contraseña">
                     </div>
                     <div class="col-12 right">
                         <button><i class="fas fa-unlock-alt"></i>Acceder</button>

@@ -5,13 +5,12 @@ require 'config/Core.php';
 use Api\Route;
 
 // ENDPOINTS SETUP
-Route::Create('GET', '/status', 'status/all');
-Route::Create('POST', '/register', 'users/register');
-Route::Create('PUT', '/registerPush', 'users/registerDevice');
-Route::Create('POST', '/push/send', 'push/sendMessage');
-Route::Create('POST', '/login', 'users/login');
-Route::Create('POST', '/users/listAll', 'users/getByFilter');
 Route::Create('GET', '/home', 'dom/info');
+Route::Create('POST', '/register', 'users/register');
+Route::Create('POST', '/login', 'users/login');
+
+Route::Create('POST', '/users/listAll', 'users/getByFilter');
+
 
 // RENDER RESPONSE
 echo Route::Read(METHOD, REQUEST, BODY);

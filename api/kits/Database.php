@@ -142,7 +142,7 @@ abstract class MySQL {
             $rows = $connection->query($_query, PDO::FETCH_ASSOC)->fetchAll();
             $result = [
                 'status' => 'success',
-                'response' => $rows[0],
+                'response' => $rows[0] ?? [],
                 'error' => 'no error'
             ];
             $connection = NULL;
