@@ -44,7 +44,7 @@ class Users extends Response {
             'token' => NULL,
             'expiration' => NULL
         ];
-        if (isset($credentials['password'], $credentials['user_name'])) {
+        if (isset($credentials['password'], $credentials['email'])) {
             $User = new User();
             if ($User->readBy(['email' => $credentials['email']])) {
                 if (Auth::Match($credentials['password'], $User->get('password'))) {

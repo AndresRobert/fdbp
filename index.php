@@ -22,8 +22,8 @@
                 <p class="title">Ingresa tus credenciales</p>
                 <div class="row">
                     <div class="col-6">
-                        <label for="username">Usuario</label>
-                        <input id="username" type="text" placeholder="Nombre de usuario">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" placeholder="Email de usuario">
                     </div>
                     <div class="col-6">
                         <label for="password">Clave</label>
@@ -38,5 +38,18 @@
         <div class="col-3 hideOnSmall"></div>
     </div>
 </div>
+<script>
+    function login () {
+        let email = _$('#email').val(),
+            password = _$('#password').val();
+        _$.ajax('https://fdbp.acode.cl/api/login', {
+            email: email,
+            password: password
+        })
+        .then( response => {
+            console.log(response); // JSON data parsed by 'response.json()' call
+        });
+    }
+</script>
 </body>
 </html>

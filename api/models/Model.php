@@ -208,7 +208,7 @@ class Model {
     public function exists(string $column, string $value): bool
     {
         $columnsAreValid = !array_diff([$column], $this->fields);
-        $rows = [];
+        $rows['response'] = [];
         if ($columnsAreValid) {
             $rows = MySQL::Select(
                 $this->table,
@@ -218,7 +218,7 @@ class Model {
                 '1'
             );
         }
-        return count($rows) > 0;
+        return count($rows['response']) > 0;
     }
 
     public function toArray(): array
