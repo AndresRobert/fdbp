@@ -71,6 +71,12 @@ class Users extends Response {
         return $response;
     }
 
+    public function checkToken (array $token) {
+        return [
+            "status" => Auth::Check($token['key'])
+        ];
+    }
+
     public function getByFilter (array $filter = []): array {
         return self::RequiresAuthorization(
             static function () use ($filter) {

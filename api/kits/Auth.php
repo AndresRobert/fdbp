@@ -51,7 +51,6 @@ abstract class Auth {
             "exp" => $issue_date + JWT_EXPIRE,
             "data" => [
                 "id" => $user->get('id'),
-                "user_name" => $user->get('user_name'),
                 "email" => $user->get('email')
             ]
         ];
@@ -90,6 +89,19 @@ abstract class Auth {
         else {
             return ['status' => 'fail', 'id' => '-1', 'message' => 'Not Authorized'];
         }
+    }
+
+    /**
+     * @param string $token
+     * @return array|string[]
+     */
+    final public static function Check (string $token): array
+    {
+        $body = JWT::decode($token, JWT_SECRET, ['HS256']);
+        if (is_null($body)) {
+            return ['status' => 'fail', 'id' => '-1'];
+        }
+        return ['status' => 'success', 'id' => $body->data->id, 'message' => 'Authorized'];
     }
 
 }

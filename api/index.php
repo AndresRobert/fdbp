@@ -8,6 +8,7 @@ use Api\Route;
 Route::Create('GET', '/home', 'dom/info');
 Route::Create('POST', '/register', 'users/register');
 Route::Create('POST', '/login', 'users/login');
+Route::Create('POST', '/check', 'users/checkToken');
 
 Route::Create('POST', '/users/listAll', 'users/getByFilter');
 

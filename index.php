@@ -45,10 +45,15 @@
         _$.ajax('https://fdbp.acode.cl/api/login', {
             email: email,
             password: password
-        })
-        .then( response => {
-            console.log(response); // JSON data parsed by 'response.json()' call
-        });
+        }).then(
+            ({ status, response }) => {
+                if (status === 'OK' && response.response_code === 200) {
+                    _$.cookie.set('fdbp_key', response.token);
+                    window.location.href = '/admin';
+                } else {
+                    _$.snackbar(response.message)
+                }
+            });
     }
 </script>
 </body>
