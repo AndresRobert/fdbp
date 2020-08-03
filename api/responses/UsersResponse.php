@@ -72,9 +72,7 @@ class Users extends Response {
     }
 
     public function checkToken (array $token) {
-        return [
-            "status" => Auth::Check($token['key'])
-        ];
+        return Auth::Check($token['key']);
     }
 
     public function getByFilter (array $filter = []): array {

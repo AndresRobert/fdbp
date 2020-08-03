@@ -69,26 +69,9 @@ abstract class Auth {
         if (isset(HEADERS['Authorization'])) {
             $token = HEADERS['Authorization'];
             $jwt = Text::StartsWith('Bearer', $token) ? substr($token, 7) : $token;
-            try {
-                $body = JWT::decode($jwt, JWT_SECRET, ['HS256']);
-                if (is_null($body)) {
-                    return ['status' => 'fail', 'id' => '-1'];
-                }
-                return ['status' => 'success', 'id' => $body->data->id, 'message' => 'Authorized'];
-            }
-            catch (DomainException $e) {
-                return ['status' => 'fail', 'id' => '-1', 'message' => 'Invalid token'];
-            }
-            catch (ExpiredException $e) {
-                return ['status' => 'fail', 'id' => '-1', 'message' => 'Expired token'];
-            }
-            catch (Exception $e) {
-                return ['status' => 'fail', 'id' => '-1', 'message' => 'Signature verification failed'];
-            }
+            return self::Check($jwt);
         }
-        else {
-            return ['status' => 'fail', 'id' => '-1', 'message' => 'Not Authorized'];
-        }
+        return ['status' => 'fail', 'id' => '-1', 'message' => 'Not Authorized'];
     }
 
     /**
@@ -97,11 +80,22 @@ abstract class Auth {
      */
     final public static function Check (string $token): array
     {
-        $body = JWT::decode($token, JWT_SECRET, ['HS256']);
-        if (is_null($body)) {
-            return ['status' => 'fail', 'id' => '-1'];
+        try {
+            $body = JWT::decode($token, JWT_SECRET, ['HS256']);
+            if (is_null($body)) {
+                return ['status' => 'fail', 'id' => '-1'];
+            }
+            return ['status' => 'success', 'id' => $body->data->id, 'message' => 'Authorized'];
         }
-        return ['status' => 'success', 'id' => $body->data->id, 'message' => 'Authorized'];
+        catch (DomainException $e) {
+            return ['status' => 'fail', 'id' => '-1', 'message' => 'Invalid token'];
+        }
+        catch (ExpiredException $e) {
+            return ['status' => 'fail', 'id' => '-1', 'message' => 'Expired token'];
+        }
+        catch (Exception $e) {
+            return ['status' => 'fail', 'id' => '-1', 'message' => 'Signature verification failed'];
+        }
     }
 
 }

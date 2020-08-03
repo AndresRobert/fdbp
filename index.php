@@ -6,6 +6,7 @@
     <link href="src/vendor/acode.min.css" rel="stylesheet">
     <link href="src/invoice.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a93fffc8fc.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script async src="src/vendor/acode.js"></script>
     <script async src="src/invoice.js"></script>
 </head>
