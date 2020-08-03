@@ -1266,8 +1266,8 @@
     const key = _$.cookie.get('fdbp_key') || null;
     _$.ajax('https://fdbp.acode.cl/api/check', { key: key }).then(
         ({ status, response }) => {
-            if (status !== 'OK' || response.jwt.status !== 'success') {
-                _$.snackbar(response.jwt.message)
+            if (status !== 'OK' || response.status !== 'success') {
+                _$.snackbar(response.message)
                 window.location.href = '/';
             }
         });

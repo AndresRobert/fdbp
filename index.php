@@ -31,7 +31,7 @@
                         <input id="password" type="password" placeholder="Contraseña">
                     </div>
                     <div class="col-12 right">
-                        <button><i class="fas fa-unlock-alt"></i>Acceder</button>
+                        <button onclick="login()"><i class="fas fa-unlock-alt"></i>Acceder</button>
                     </div>
                 </div>
             </div>
