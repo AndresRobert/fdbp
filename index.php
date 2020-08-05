@@ -43,7 +43,7 @@
     function login () {
         let email = _$('#email').val(),
             password = _$('#password').val();
-        _$.ajax('https://fdbp.acode.cl/api/login', {
+        _$.ajax('/api/login', {
             email: email,
             password: password
         }).then(

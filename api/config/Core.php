@@ -63,8 +63,8 @@ define('JSQL_FOLDER', 'jsql');
 define('JWT_SECRET', 'fUnerArI46auUFzEd2mv9KyznwtLgaBXgoUUAMJvSXGN4uvy3OjnBUDbgT-gh27fl3AmDS2SdnVZ5KnHcWrWFrd8C13RXIbso4tDg1BVOEVgTZnUxIdiDm0csn--HRqEG-xbB8RZokBZeHTq53Uh0TkuUSPeb_tkfuhmYttIHZU');
 define('JWT_ISSUER', 'FDBP');
 define('JWT_AUDIENCE', 'WEBAPI');
-define('JWT_NOT_BEFORE', 5); // in seconds
-define('JWT_EXPIRE', 600); // in seconds
+define('JWT_NOT_BEFORE', 0); // in seconds
+define('JWT_EXPIRE', 3600); // in seconds
 
 // USES
 require_once ROUTER;

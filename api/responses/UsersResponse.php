@@ -5,6 +5,7 @@ require_once MDL.'UserModel.php';
 use Base\Response;
 use Kits\Auth;
 use Kits\Text;
+use Kits\Session;
 
 class Users extends Response {
 
@@ -49,6 +50,7 @@ class Users extends Response {
             if ($User->readBy(['email' => $credentials['email']])) {
                 if (Auth::Match($credentials['password'], $User->get('password'))) {
                     $tokenData = Auth::JWToken($User);
+                    Session::Create('token', $tokenData['token']);
                     $response = [
                         'response_code' => 200,
                         'status' => 'success',
@@ -71,8 +73,13 @@ class Users extends Response {
         return $response;
     }
 
+    public function logout () {
+        Session::Delete('token');
+        return true;
+    }
+
     public function checkToken (array $token) {
-        return Auth::Check($token['key']);
+        return $token === Session::Read('token');
     }
 
     public function getByFilter (array $filter = []): array {
