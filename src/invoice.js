@@ -34,6 +34,19 @@ function logout() {
     ).then( () => { window.location.href = '/' })
 }
 
+function checkAuthStatus () {
+    const key = _$.cookie.get('fdbp_key') || null;
+    _$.ajax('/api/check', { key: key }).then(
+        ({ status, response }) => {
+            if (status !== 'OK' || response.status !== 'success') {
+                _$.snackbar(response.message)
+                window.location.href = '/';
+            } else {
+                _$('#body').style.display = 'block';
+            }
+        });
+}
+
 function toggleDarkMode () {
     _$.darkmode();
     let actual = _$.cookie.get('darkmode');

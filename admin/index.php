@@ -19,18 +19,9 @@
     <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
     <script src="../src/vendor/acode.js"></script>
     <script src="../src/invoice.js"></script>
-    <script>
-        const key = _$.cookie.get('fdbp_key') || null;
-        _$.ajax('/api/check', { key: key }).then(
-            ({ status, response }) => {
-                if (status !== 'OK' || response.status !== 'success') {
-                    _$.snackbar(response.message)
-                    window.location.href = '/';
-                }
-            });
-    </script>
+    <script> checkAuthStatus() </script>
 </head>
-<body class="<?php echo $darkmode ?>">
+<body id="body" class="<?php echo $darkmode ?>" style="display:none">
 <header>
     <img class="logo" src="../src/img/isotype.png" alt="" style="filter:grayscale(1) contrast(0.8)">
     <p style="font-family:'Great Vibes',cursive;font-size:26px">Funeraria del Buen Pastor</p>
