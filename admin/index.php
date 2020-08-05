@@ -1266,7 +1266,6 @@
     const key = _$.cookie.get('fdbp_key') || null;
     _$.ajax('/api/check', { key: key }).then(
         ({ status, response }) => {
-            console.log(status, response);
             if (status !== 'OK' || response.status !== 'success') {
                 _$.snackbar(response.message)
                 window.location.href = '/';

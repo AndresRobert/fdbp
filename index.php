@@ -41,12 +41,10 @@
 </div>
 <script>
     function login () {
-        let email = _$('#email').val(),
-            password = _$('#password').val();
-        _$.ajax('/api/login', {
-            email: email,
-            password: password
-        }).then(
+        _$.ajax(
+            '/api/login',
+            { email: _$('#email').val(), password: _$('#password').val() }
+        ).then(
             ({ status, response }) => {
                 if (status === 'OK' && response.response_code === 200) {
                     _$.cookie.set('fdbp_key', response.token);
@@ -54,7 +52,8 @@
                 } else {
                     _$.snackbar(response.message)
                 }
-            });
+            }
+        );
     }
 </script>
 </body>

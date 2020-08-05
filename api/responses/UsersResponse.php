@@ -75,11 +75,19 @@ class Users extends Response {
 
     public function logout () {
         Session::Delete('token');
-        return true;
+        return [
+            'response_code' => 200,
+            'message' => 'Logged Out',
+            'status' => 'success',
+        ];
     }
 
     public function checkToken (array $token) {
-        return $token === Session::Read('token');
+        return [
+            'response_code' => 200,
+            'message' => 'Token Checked',
+            'status' => $token['key'] === Session::Read('token') ? 'success' : 'fail',
+        ];
     }
 
     public function getByFilter (array $filter = []): array {
