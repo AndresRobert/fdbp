@@ -1,3 +1,4 @@
+<?php $darkmode = $_COOKIE['darkmode']; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,13 +19,24 @@
     <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
     <script src="../src/vendor/acode.js"></script>
     <script src="../src/invoice.js"></script>
+    <script>
+        const key = _$.cookie.get('fdbp_key') || null;
+        _$.ajax('/api/check', { key: key }).then(
+            ({ status, response }) => {
+                if (status !== 'OK' || response.status !== 'success') {
+                    _$.snackbar(response.message)
+                    window.location.href = '/';
+                }
+            });
+    </script>
 </head>
-<body>
+<body class="<?php echo $darkmode ?>">
 <header>
     <img class="logo" src="../src/img/isotype.png" alt="" style="filter:grayscale(1) contrast(0.8)">
     <p style="font-family:'Great Vibes',cursive;font-size:26px">Funeraria del Buen Pastor</p>
     <ul class="icons">
-        <li><i onclick="_$.darkmode()" class="fas fa-adjust"></i></li>
+        <li><i onclick="logout()" class="fas fa-power-off"></i></li>
+        <li><i onclick="toggleDarkMode()" class="fas fa-adjust"></i></li>
     </ul>
 </header>
 <div id="content" class="grid pv-1">
@@ -1262,15 +1274,5 @@
         </div>
     </div>
 </div>
-<script>
-    const key = _$.cookie.get('fdbp_key') || null;
-    _$.ajax('/api/check', { key: key }).then(
-        ({ status, response }) => {
-            if (status !== 'OK' || response.status !== 'success') {
-                _$.snackbar(response.message)
-                window.location.href = '/';
-            }
-        });
-</script>
 </body>
 </html>

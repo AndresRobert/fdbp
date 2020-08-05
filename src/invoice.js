@@ -1,15 +1,49 @@
-function showTabContent (_id, _class) {
-    _$$(_class).forEach(tab => { tab.style.display = 'none' });
-    _$(_id).style.display = 'inherit';
-    window.location.hash = '#t_' +  _id.substring(1, _id.length);
-}
-
 const _subtabs = [
     'tab_service',
     'tab_insurance',
     'tab_invoice',
     'tab_providers'
 ];
+
+function showTabContent (_id, _class) {
+    _$$(_class).forEach(tab => { tab.style.display = 'none' });
+    _$(_id).style.display = 'inherit';
+    window.location.hash = '#t_' +  _id.substring(1, _id.length);
+}
+
+function login () {
+    _$.ajax(
+        '/api/login',
+        { email: _$('#email').val(), password: _$('#password').val() }
+    ).then(
+        ({ status, response }) => {
+            if (status === 'OK' && response.response_code === 200) {
+                _$.cookie.set('fdbp_key', response.token);
+                window.location.href = '/admin';
+            } else {
+                _$.snackbar(response.message)
+            }
+        }
+    );
+}
+
+function logout() {
+    _$.ajax(
+        '/api/logout',
+        { id: 'TKR0NUkHatORfgC3UZb_eERSxlrZtxnI5_cSCRyx5qU' }
+    ).then( () => { window.location.href = '/' })
+}
+
+function toggleDarkMode () {
+    _$.darkmode();
+    let actual = _$.cookie.get('darkmode');
+    if (actual === 'darkmode') {
+        _$.cookie.set('darkmode', '');
+    }
+    else {
+        _$.cookie.set('darkmode', 'darkmode');
+    }
+}
 
 $(() => {
     let _selectedTab = window.location.hash.replace('t_', 'tab_');

@@ -39,22 +39,5 @@
         <div class="col-3 hideOnSmall"></div>
     </div>
 </div>
-<script>
-    function login () {
-        _$.ajax(
-            '/api/login',
-            { email: _$('#email').val(), password: _$('#password').val() }
-        ).then(
-            ({ status, response }) => {
-                if (status === 'OK' && response.response_code === 200) {
-                    _$.cookie.set('fdbp_key', response.token);
-                    window.location.href = '/admin';
-                } else {
-                    _$.snackbar(response.message)
-                }
-            }
-        );
-    }
-</script>
 </body>
 </html>
