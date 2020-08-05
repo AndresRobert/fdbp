@@ -1,6 +1,6 @@
 <?php $darkmode = $_COOKIE['darkmode']; ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="<?php echo $darkmode ?>">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice</title>
@@ -21,7 +21,7 @@
     <script src="../src/invoice.js"></script>
     <script> checkAuthStatus() </script>
 </head>
-<body id="body" class="<?php echo $darkmode ?>" style="display:none">
+<body id="body" style="display:none">
 <header>
     <img class="logo" src="../src/img/isotype.png" alt="" style="filter:grayscale(1) contrast(0.8)">
     <p style="font-family:'Great Vibes',cursive;font-size:26px">Funeraria del Buen Pastor</p>
@@ -457,7 +457,7 @@
                     <th data-placeholder="si/no">Cheque a fecha</th>
                     <th data-placeholder="si/no">Tarjeta de Crédito</th>
                     <th data-placeholder="si/no">Otro</th>
-                    <th>Acciones</th>
+                    <th data-placeholder="none">Acciones</th>
                 </tr>
                 </thead>
                 <tbody>

@@ -66,7 +66,9 @@ $(() => {
         $(this).find('thead tr').clone(true).appendTo($(this).find('thead'));
         $(this).find('thead tr:eq(0) th').each(function (i) {
             let _placeholder = $(this).data('placeholder') || 'Buscar...';
-            $(this).html('<input style="margin:0" type="text" placeholder="' + _placeholder + '">');
+            if (_placeholder !== 'none') {
+                $(this).html('<input style="margin:0" type="text" placeholder="' + _placeholder + '">');
+            }
             $(this).css({ "padding": "1px 2px" });
             $('input', this).on('keyup change', function () {
                 if (_table.column(i).search() !== this.value) {
