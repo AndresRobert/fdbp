@@ -92,10 +92,12 @@ abstract class Auth {
         }
         catch (ExpiredException $e) {
             Session::Delete('token');
+            Session::Delete('user');
             return ['status' => 'fail', 'id' => '-1', 'message' => 'Expired token'];
         }
         catch (Exception $e) {
             Session::Delete('token');
+            Session::Delete('user');
             return ['status' => 'fail', 'id' => '-1', 'message' => 'Signature verification failed'];
         }
     }

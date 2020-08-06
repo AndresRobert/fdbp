@@ -11,104 +11,104 @@
     <h5>Solicitado Por</h5>
     <div class="row">
         <div class="col-4">
-            <label for="solicName">Nombre</label>
-            <input id="solicName" type="text" required>
+            <label for="s_name">Nombre</label>
+            <input id="s_name" type="text" required>
         </div>
         <div class="col-4">
-            <label for="solicLastName">Apellidos</label>
-            <input id="solicLastName" type="text" required>
+            <label for="s_last_name">Apellidos</label>
+            <input id="s_last_name" type="text" required>
         </div>
         <div class="col-4">
-            <label for="solicId">RUT</label>
-            <input id="solicId" type="text" required>
+            <label for="s_id">RUT</label>
+            <input id="s_id" type="text" required>
         </div>
         <div class="col-6">
-            <label for="solicAddress">Dirección</label>
-            <input id="solicAddress" type="text" required>
+            <label for="s_address">Dirección</label>
+            <input id="s_address" type="text" required>
         </div>
         <div class="col-3">
-            <label for="solicState">Región</label>
-            <select id="solicState">
+            <label for="s_state_id">Región</label>
+            <select id="s_state_id">
                 <option value="1">Region 1</option>
                 <option value="2">Region 2</option>
                 <option value="3">Region 3</option>
             </select>
         </div>
         <div class="col-3">
-            <label for="solicDistrict">Comuna</label>
-            <select id="solicDistrict">
+            <label for="s_district_id">Comuna</label>
+            <select id="s_district_id">
                 <option value="1">Comuna 1</option>
                 <option value="2">Comuna 2</option>
                 <option value="3">Comuna 3</option>
             </select>
         </div>
         <div class="col-6">
-            <label for="solicEmail">Email</label>
-            <input id="solicEmail" type="email" required>
+            <label for="s_email">Email</label>
+            <input id="s_email" type="email" required>
         </div>
         <div class="col-3">
-            <label for="solicMobile">Celular</label>
-            <input id="solicMobile" type="tel" required>
+            <label for="s_mobile">Celular</label>
+            <input id="s_mobile" type="tel" required>
         </div>
         <div class="col-3">
-            <label for="solicPhone">Teléfono</label>
-            <input id="solicPhone" type="tel">
+            <label for="s_phone">Teléfono</label>
+            <input id="s_phone" type="tel">
         </div>
     </div>
     <hr>
     <h5>Fallecido</h5>
     <div class="row">
         <div class="col-8">
-            <label for="deceFullName">Nombre Completo (Q.E.P.D.)</label>
-            <input id="deceFullName" type="text" required>
+            <label for="d_name">Nombre Completo (Q.E.P.D.)</label>
+            <input id="d_name" type="text" required>
         </div>
         <div class="col-4">
-            <label for="deceId">RUT</label>
-            <input id="deceId" type="text" required>
+            <label for="d_id">RUT</label>
+            <input id="d_id" type="text" required>
         </div>
         <div class="col-6">
-            <label for="deceAddress">Dirección</label>
-            <input id="deceAddress" type="text">
+            <label for="d_address">Dirección</label>
+            <input id="d_address" type="text">
         </div>
         <div class="col-3">
-            <label for="deceState">Región</label>
-            <select id="deceState">
+            <label for="d_state_id">Región</label>
+            <select id="d_state_id">
                 <option value="1">Region 1</option>
                 <option value="2">Region 2</option>
                 <option value="3">Region 3</option>
             </select>
         </div>
         <div class="col-3">
-            <label for="deceDistrict">Comuna</label>
-            <select id="deceDistrict">
+            <label for="d_district_id">Comuna</label>
+            <select id="d_district_id">
                 <option value="1">Comuna 1</option>
                 <option value="2">Comuna 2</option>
                 <option value="3">Comuna 3</option>
             </select>
         </div>
         <div class="col-12">
-            <label for="decePlace">Lugar de Fallecimiento</label>
-            <input id="decePlace" type="text">
+            <label for="d_place">Lugar de Fallecimiento</label>
+            <input id="d_place" type="text">
         </div>
         <div class="col-4">
-            <label for="deceMaritalStatus">Estado Civil</label>
-            <select id="deceMaritalStatus">
+            <label for="d_marital_status_id">Estado Civil</label>
+            <select id="d_marital_status_id">
                 <option value="1">Estado 1</option>
                 <option value="2">Estado 2</option>
                 <option value="3">Estado 3</option>
             </select>
         </div>
         <div class="col-4">
-            <label for="deceOccupation">Ocupación</label>
-            <select id="deceOccupation">
+            <label for="d_occupation_id">Ocupación</label>
+            <select id="d_occupation_id">
                 <option value="1">Ocupacion 1</option>
                 <option value="2">Ocupacion 2</option>
                 <option value="3">Ocupacion 3</option>
             </select>
         </div>
         <div class="col-4">
-            <label for="deceGrade">Estudios</label>
-            <select id="deceGrade">
+            <label for="d_education_id">Estudios</label>
+            <select id="d_education_id">
                 <option value="1">Estudio 1</option>
                 <option value="2">Estudio 2</option>
                 <option value="3">Estudio 3</option>
@@ -119,24 +119,24 @@
     <h5>Velatorio</h5>
     <div class="row">
         <div class="col-12">
-            <label for="churchName">Capilla</label>
-            <input id="churchName" type="text">
+            <label for="c_church">Capilla</label>
+            <input id="c_church" type="text">
         </div>
         <div class="col-6">
-            <label for="churchAddress">Dirección Capilla</label>
-            <input id="churchAddress" type="text">
+            <label for="c_address">Dirección Capilla</label>
+            <input id="c_address" type="text">
         </div>
         <div class="col-3">
-            <label for="churchState">Región</label>
-            <select id="churchState">
+            <label for="c_state_id">Región</label>
+            <select id="c_state_id">
                 <option value="1">Region 1</option>
                 <option value="2">Region 2</option>
                 <option value="3">Region 3</option>
             </select>
         </div>
         <div class="col-3">
-            <label for="churchDistrict">Comuna</label>
-            <select id="churchDistrict">
+            <label for="c_district_id">Comuna</label>
+            <select id="c_district_id">
                 <option value="1">Comuna 1</option>
                 <option value="2">Comuna 2</option>
                 <option value="3">Comuna 3</option>
@@ -147,108 +147,108 @@
     <h5>Funeral</h5>
     <div class="row">
         <div class="col-6">
-            <label for="funeralPlace">Cementerio</label>
-            <select id="funeralPlace">
+            <label for="f_cementery_id">Cementerio</label>
+            <select id="f_cementery_id">
                 <option value="1">Cementerio 1</option>
                 <option value="2">Cementerio 2</option>
                 <option value="3">Cementerio 3</option>
             </select>
         </div>
         <div class="col-2">
-            <label for="funeralPress">Prensa</label>
-            <input id="funeralPress" type="text">
+            <label for="f_press">Prensa</label>
+            <input id="f_press" type="text">
         </div>
         <div class="col-2">
-            <label for="funeralDate">Fecha</label>
-            <input id="funeralDate" type="date" required>
+            <label for="f_date">Fecha</label>
+            <input id="f_date" type="date" required>
         </div>
         <div class="col-2">
-            <label for="funeralTime">Hora</label>
-            <input id="funeralTime" type="time" required>
+            <label for="f_time">Hora</label>
+            <input id="f_time" type="time" required>
         </div>
     </div>
     <hr>
     <h5>Servicio</h5>
     <div class="row">
         <div class="col-4">
-            <label for="serviceType">Tipo</label>
-            <input id="serviceType" type="text" required>
+            <label for="v_type">Tipo</label>
+            <input id="v_type" type="text" required>
         </div>
         <div class="col-4">
-            <label for="serviceProvider">Proveedor</label>
-            <select id="serviceProvider">
+            <label for="v_provider_id">Proveedor</label>
+            <select id="v_provider_id">
                 <option value="1">Proveedor 1</option>
                 <option value="2">Proveedor 2</option>
                 <option value="3">Proveedor 3</option>
             </select>
         </div>
         <div class="col-4">
-            <label for="serviceColor">Color</label>
-            <input id="serviceColor" type="text">
+            <label for="v_color">Color</label>
+            <input id="v_color" type="text">
         </div>
         <div class="col-12">
-            <label for="serviceInclude">Incluye</label>
-            <textarea id="serviceInclude" required></textarea>
+            <label for="v_include">Incluye</label>
+            <textarea id="v_include" required></textarea>
         </div>
         <div class="col-12">
-            <label for="serviceWarning">Aviso</label>
-            <textarea id="serviceWarning"></textarea>
+            <label for="v_warning">Aviso</label>
+            <textarea id="v_warning"></textarea>
         </div>
         <div class="col-12">
-            <label for="serviceObservation">Observación</label>
-            <textarea id="serviceObservation"></textarea>
+            <label for="v_observation">Observación</label>
+            <textarea id="v_observation"></textarea>
         </div>
         <div class="col-4">
-            <label for="serviceCost">Valor del Servicio</label>
-            <input id="serviceCost" type="number">
+            <label for="v_cost">Valor del Servicio</label>
+            <input id="v_cost" type="number">
         </div>
         <div class="col-4">
-            <label for="serviceDiscount">Descuento</label>
-            <input id="serviceDiscount" type="number">
+            <label for="v_discount">Descuento</label>
+            <input id="v_discount" type="number">
         </div>
         <div class="col-4">
-            <label for="serviceTotal">Valor Total</label>
-            <input id="serviceTotal" type="number" readonly>
+            <label for="v_total">Valor Total</label>
+            <input id="v_total" type="number" readonly>
         </div>
         <div class="col-4">
-            <label for="serviceDiscount2Name">Nombre Previsión</label>
-            <select id="serviceDiscount2Name">
+            <label for="v_insurance_id">Nombre Previsión</label>
+            <select id="v_insurance_id">
                 <option value="1">Nombre 1</option>
                 <option value="1">Nombre 2</option>
                 <option value="1">Nombre 3</option>
             </select>
         </div>
         <div class="col-4">
-            <label for="serviceDiscount2">Aporte Previsión</label>
-            <input id="serviceDiscount2" type="number">
+            <label for="v_coverage">Aporte Previsión</label>
+            <input id="v_coverage" type="number">
         </div>
         <div class="col-4">
-            <label for="total2">Saldo</label>
-            <input id="total2" type="number" readonly>
+            <label for="v_payment">Saldo</label>
+            <input id="v_payment" type="number" readonly>
         </div>
         <div class="col-4">
-            <label for="payment1" class="checkbox">Transferencia</label>
-            <input id="payment1" type="checkbox">
+            <label for="p_transfer" class="checkbox">Transferencia</label>
+            <input id="p_transfer" type="checkbox">
         </div>
         <div class="col-4">
-            <label for="payment2" class="checkbox">Efectivo</label>
-            <input id="payment2" type="checkbox">
+            <label for="p_cash" class="checkbox">Efectivo</label>
+            <input id="p_cash" type="checkbox">
         </div>
         <div class="col-4">
-            <label for="payment3" class="checkbox">Cheque al día</label>
-            <input id="payment3" type="checkbox">
+            <label for="p_check" class="checkbox">Cheque al día</label>
+            <input id="p_check" type="checkbox">
         </div>
         <div class="col-4">
-            <label for="payment4" class="checkbox">Cheque a Fecha</label>
-            <input id="payment4" type="checkbox">
+            <label for="p_check_defered" class="checkbox">Cheque a Fecha</label>
+            <input id="p_check_defered" type="checkbox">
         </div>
         <div class="col-4">
-            <label for="payment5" class="checkbox">Tarjeta de Crédito</label>
-            <input id="payment5" type="checkbox">
+            <label for="p_credit_card" class="checkbox">Tarjeta de Crédito</label>
+            <input id="p_credit_card" type="checkbox">
         </div>
         <div class="col-4">
-            <label for="payment6" class="checkbox">Otro</label>
-            <input id="payment6" type="checkbox">
+            <label for="p_other" class="checkbox">Otro</label>
+            <input id="p_other" type="checkbox">
         </div>
     </div>
     <hr>
@@ -315,103 +315,109 @@
 
     function saveContract () {
         let _contract = {
-            solicName: $('#solicName').val(),
-            solicLastName: $('#solicLastName').val(),
-            solicId: $('#solicId').val(),
-            solicAddress: $('#solicAddress').val(),
-            solicState: $('#solicState').val(),
-            solicDistrict: $('#solicDistrict').val(),
-            solicEmail: $('#solicEmail').val(),
-            solicMobile: $('#solicMobile').val(),
-            solicPhone: $('#solicPhone').val(),
-            deceFullName: $('#deceFullName').val(),
-            deceId: $('#deceId').val(),
-            deceAddress: $('#deceAddress').val(),
-            deceState: $('#deceState').val(),
-            deceDistrict: $('#deceDistrict').val(),
-            decePlace: $('#decePlace').val(),
-            deceMaritalStatus: $('#deceMaritalStatus').val(),
-            deceOccupation: $('#deceOccupation').val(),
-            deceGrade: $('#deceGrade').val(),
-            churchName: $('#churchName').val(),
-            churchAddress: $('#churchAddress').val(),
-            churchState: $('#churchState').val(),
-            churchDistrict: $('#churchDistrict').val(),
-            funeralPlace: $('#funeralPlace').val(),
-            funeralPress: $('#funeralPress').val(),
-            funeralDate: $('#funeralDate').val(),
-            funeralTime: $('#funeralTime').val(),
-            serviceType: $('#serviceType').val(),
-            serviceProvider: $('#serviceProvider').val(),
-            serviceColor: $('#serviceColor').val(),
-            serviceInclude: $('#serviceInclude').val(),
-            serviceWarning: $('#serviceWarning').val(),
-            serviceObservation: $('#serviceObservation').val(),
-            serviceCost: $('#serviceCost').val(),
-            serviceDiscount: $('#serviceDiscount').val(),
-            serviceTotal: $('#serviceTotal').val(),
-            serviceDiscount2Name: $('#serviceDiscount2Name').val(),
-            serviceDiscount2: $('#serviceDiscount2').val(),
-            total2: $('#total2').val(),
-            payment1: $('#payment1').is(':checked'),
-            payment2: $('#payment2').is(':checked'),
-            payment3: $('#payment3').is(':checked'),
-            payment4: $('#payment4').is(':checked'),
-            payment5: $('#payment5').is(':checked'),
-            payment6: $('#payment6').is(':checked')
+            s_name: $('#s_name').val(),
+            s_last_name: $('#s_last_name').val(),
+            s_id: $('#s_id').val(),
+            s_address: $('#s_address').val(),
+            s_state_id: $('#s_state_id').val(),
+            s_district_id: $('#s_district_id').val(),
+            s_email: $('#s_email').val(),
+            s_mobile: $('#s_mobile').val(),
+            s_phone: $('#s_phone').val(),
+            d_name: $('#d_name').val(),
+            d_id: $('#d_id').val(),
+            d_address: $('#d_address').val(),
+            d_state_id: $('#d_state_id').val(),
+            d_district_id: $('#d_district_id').val(),
+            d_place: $('#d_place').val(),
+            d_marital_status_id: $('#d_marital_status_id').val(),
+            d_occupation_id: $('#d_occupation_id').val(),
+            d_education_id: $('#d_education_id').val(),
+            c_church: $('#c_church').val(),
+            c_address: $('#c_address').val(),
+            c_state_id: $('#c_state_id').val(),
+            c_district_id: $('#c_district_id').val(),
+            f_cementery_id: $('#f_cementery_id').val(),
+            f_press: $('#f_press').val(),
+            f_date: $('#f_date').val(),
+            f_time: $('#f_time').val(),
+            v_type: $('#v_type').val(),
+            v_provider_id: $('#v_provider_id').val(),
+            v_color: $('#v_color').val(),
+            v_include: $('#v_include').val(),
+            v_warning: $('#v_warning').val(),
+            v_observation: $('#v_observation').val(),
+            v_cost: $('#v_cost').val(),
+            v_discount: $('#v_discount').val(),
+            v_total: $('#v_total').val(),
+            v_insurance_id: $('#v_insurance_id').val(),
+            v_coverage: $('#v_coverage').val(),
+            v_payment: $('#v_payment').val(),
+            p_transfer: $('#p_transfer').is(':checked'),
+            p_cash: $('#p_cash').is(':checked'),
+            p_check: $('#p_check').is(':checked'),
+            p_check_defered: $('#p_check_defered').is(':checked'),
+            p_credit_card: $('#p_credit_card').is(':checked'),
+            p_other: $('#p_other').is(':checked')
         };
         if (validateContract(_contract)) {
             _$.ajax('/api/contracts/save', _contract, { headers: getBearerHeaders()}).then(
                 ({ status, response }) => {
-                    console.log(status, response);
-                    _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
-                    // open contract
-                    goToLink('/admin/contract.php', '_blank');
+                    if (status !== 'OK') {
+                        _$.snackbar('No fue posible guardar el contrato, revise su conexión e intentelo nuevamente');
+                    } else {
+                        if (response.status === 'fail') {
+                            _$.snackbar(response.message);
+                        } else {
+                            _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
+                            goToLink('/admin/contract.php?contract=' + response.id, '_blank');
+                        }
+                    }
                 }
             );
         }
     }
 
     function validateContract(_contract) {
-        if (_contract.solicName === '' || _contract.solicLastName === '' || _contract.solicId === '') {
+        if (_contract.s_name === '' || _contract.s_last_name === '' || _contract.s_id === '') {
             _$.snackbar('Debe ingresar el nombre, apellido y RUT del solicitante');
-            _$('#solicName').addClass('error');
-            _$('#solicLastName').addClass('error');
-            _$('#solicId').addClass('error');
+            _$('#s_name').addClass('error');
+            _$('#s_last_name').addClass('error');
+            _$('#s_id').addClass('error');
             return false;
         }
-        if (_contract.solicEmail === '' || _contract.solicMobile === '') {
+        if (_contract.s_email === '' || _contract.s_mobile === '') {
             _$.snackbar('Debe ingresar un email y un número de telefono móvil para el solicitante');
-            _$('#solicEmail').addClass('error');
-            _$('#solicMobile').addClass('error');
+            _$('#s_email').addClass('error');
+            _$('#s_mobile').addClass('error');
             return false;
         }
-        if (_contract.deceFullName === '' || _contract.deceId === '') {
+        if (_contract.d_name === '' || _contract.d_id === '') {
             _$.snackbar('Debe ingresar un nombre y un rut para identificar al fallecido');
-            _$('#deceFullName').addClass('error');
-            _$('#deceId').addClass('error');
+            _$('#d_name').addClass('error');
+            _$('#d_id').addClass('error');
             return false;
         }
-        if (_contract.funeralDate === '' || _contract.funeralTime === '') {
+        if (_contract.f_date === '' || _contract.f_time === '') {
             _$.snackbar('Debe ingresar una fecha y una hora del funeral');
-            _$('#funeralDate').addClass('error');
-            _$('#funeralTime').addClass('error');
+            _$('#f_date').addClass('error');
+            _$('#f_time').addClass('error');
             return false;
         }
-        if (_contract.serviceType === '' || _contract.serviceInclude === '') {
+        if (_contract.v_type === '' || _contract.v_include === '') {
             _$.snackbar('Debe ingresar un tipo y lo que incluye el servicio');
-            _$('#serviceType').addClass('error');
-            _$('#serviceInclude').addClass('error');
+            _$('#v_type').addClass('error');
+            _$('#v_include').addClass('error');
             return false;
         }
-        if (_contract.serviceCost === '' || _contract.serviceCost === 0) {
+        if (_contract.v_cost === '' || _contract.v_cost === 0) {
             _$.snackbar('Debe ingresar el valor del servicio');
-            _$('#serviceCost').addClass('error');
+            _$('#v_cost').addClass('error');
             return false;
         }
-        if (_contract.payment1 === false && _contract.payment2 === false &&
-            _contract.payment3 === false && _contract.payment4 === false &&
-            _contract.payment5 === false && _contract.payment6 === false) {
+        if (_contract.p_transfer === false && _contract.p_cash === false &&
+            _contract.p_check === false && _contract.p_check_defered === false &&
+            _contract.p_credit_card === false && _contract.p_other === false) {
             _$.snackbar('Debe ingresar al menos un medio de pago para el servicio');
             return false;
         }

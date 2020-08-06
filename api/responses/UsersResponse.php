@@ -51,6 +51,7 @@ class Users extends Response {
                 if (Auth::Match($credentials['password'], $User->get('password'))) {
                     $tokenData = Auth::JWToken($User);
                     Session::Create('token', $tokenData['token']);
+                    Session::Create('user', $User->get('id'));
                     $response = [
                         'response_code' => 200,
                         'status' => 'success',
