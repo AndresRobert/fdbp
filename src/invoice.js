@@ -5,7 +5,7 @@ const _subtabs = [
     'tab_providers'
 ];
 
-function showTabContent (_id, _class) {
+function showTabContent (_id = '#search', _class = '.tab-content') {
     _$$(_class).forEach(tab => { tab.style.display = 'none' });
     _$(_id).style.display = 'inherit';
     window.location.hash = '#t_' +  _id.substring(1, _id.length);
@@ -60,8 +60,12 @@ function toggleDarkMode () {
 
 $(() => {
     let _selectedTab = window.location.hash.replace('t_', 'tab_');
-    if (_subtabs.indexOf(_selectedTab)) { $('#tab_database').click() }
-    $(_selectedTab).click();
+    if (_selectedTab === '') {
+        $('#tab_search').click()
+    } else {
+        if (_subtabs.indexOf(_selectedTab)) { $('#tab_database').click() }
+        $(_selectedTab).click();
+    }
     $('.dTable').each( function() {
         $(this).find('thead tr').clone(true).appendTo($(this).find('thead'));
         $(this).find('thead tr:eq(0) th').each(function (i) {
@@ -77,14 +81,9 @@ $(() => {
             });
         });
         let _table = $(this).DataTable({
-            "language": {
-                "paginate": { "previous": "<", "next": ">" },
-                "pageLength": 50
-            },
+            "language": { "paginate": { "previous": "<", "next": ">" }, "pageLength": 50 },
             dom: 'Bfrtip',
-            buttons: [
-                'csv', 'excel', 'pdf'
-            ]
+            buttons: [ 'csv', 'excel', 'pdf' ]
         });
     } );
 });
