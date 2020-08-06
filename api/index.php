@@ -13,6 +13,7 @@ Route::Create('POST', '/check', 'users/checkToken');
 
 Route::Create('POST', '/users/listAll', 'users/getByFilter');
 
+Route::Create('POST', '/contracts/save', 'contracts/save');
 
 // RENDER RESPONSE
 echo Route::Read(METHOD, REQUEST, BODY);

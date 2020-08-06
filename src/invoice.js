@@ -34,6 +34,13 @@ function logout() {
     ).then( () => { window.location.href = '/' })
 }
 
+function getBearerHeaders () {
+    return {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + _$.cookie.get('fdbp_key')
+    };
+}
+
 function checkAuthStatus () {
     const key = _$.cookie.get('fdbp_key') || null;
     _$.ajax('/api/check', { key: key }).then(

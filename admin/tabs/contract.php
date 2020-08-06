@@ -301,17 +301,22 @@
             serviceDiscount2Name: $('#serviceDiscount2Name').val(),
             serviceDiscount2: $('#serviceDiscount2').val(),
             total2: $('#total2').val(),
-            payment1: $('#payment1').val(),
-            payment2: $('#payment2').val(),
-            payment3: $('#payment3').val(),
-            payment4: $('#payment4').val(),
-            payment5: $('#payment5').val(),
-            payment6: $('#payment6').val()
+            payment1: $('#payment1').is(':checked'),
+            payment2: $('#payment2').is(':checked'),
+            payment3: $('#payment3').is(':checked'),
+            payment4: $('#payment4').is(':checked'),
+            payment5: $('#payment5').is(':checked'),
+            payment6: $('#payment6').is(':checked')
         };
         console.log(_contract);
-        // store it on a cookie
-        // open contract preview
-        goToLink('/admin/contract.php', '_blank')
+        _$.ajax('/api/contract/save', _contract, getBearerHeaders()).then(
+            ({ status, response }) => {
+                console.log(status, response);
+                _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
+                // open contract preview
+                goToLink('/admin/contract.php', '_blank');
+            }
+        );
     }
 
     function saveContract () {
