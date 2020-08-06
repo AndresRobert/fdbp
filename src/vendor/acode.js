@@ -276,8 +276,8 @@ _$.ajax = async function (url = '', data = {}, options = {}) {
     const method = _$.isset(options.method)
         ? options.method
         : 'POST', // *GET, POST, PUT, DELETE, etc.
-        contentType = _$.isset(options.content_type)
-            ? options.content_type
+        headers = _$.isset(options.headers)
+            ? options.headers
             : { 'Content-Type': 'application/json' }, // 'Content-Type': 'application/x-www-form-urlencoded'
         cors = _$.isset(options.cors)
             ? options.cors // no-cors, *cors, same-origin
@@ -301,7 +301,7 @@ _$.ajax = async function (url = '', data = {}, options = {}) {
             credentials: credentials,
             redirect: redirect,
             referrerPolicy: policy,
-            headers: contentType,
+            headers: headers,
             body: JSON.stringify(data) // body data type must match 'Content-Type' header
         });
     return await response.json(); // parses JSON response into native JavaScript objects

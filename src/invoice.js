@@ -106,4 +106,6 @@ $(() => {
             buttons: [ 'csv', 'excel', 'pdf' ]
         });
     } );
+    $('input, textarea, select')
+        .on('change', function () { $(this).removeClass('error') });
 });

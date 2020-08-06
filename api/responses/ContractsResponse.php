@@ -10,13 +10,17 @@ use Kits\Session;
 class Contracts extends Response {
 
     public function save (array $fields): array {
-        $response = [
-            'status' => 'fail',
-            'message' => 'Testing',
-            'id' => '0',
-            fields => $fields
-        ];
-        return $response;
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $response = [
+                    'status' => 'fail',
+                    'message' => 'Testing',
+                    'id' => '0',
+                    'fields' => $fields
+                ];
+                return $response;
+            }
+        );
     }
 
 }

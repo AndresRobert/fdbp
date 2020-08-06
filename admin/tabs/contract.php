@@ -309,20 +309,112 @@
             payment6: $('#payment6').is(':checked')
         };
         console.log(_contract);
-        _$.ajax('/api/contract/save', _contract, getBearerHeaders()).then(
-            ({ status, response }) => {
-                console.log(status, response);
-                _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
-                // open contract preview
-                goToLink('/admin/contract.php', '_blank');
-            }
-        );
+        _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
+        goToLink('/admin/contract.php', '_blank');
     }
 
     function saveContract () {
-        // get all data
-        // api save contract
-        // open contract
-        goToLink('/admin/contract.php', '_blank')
+        let _contract = {
+            solicName: $('#solicName').val(),
+            solicLastName: $('#solicLastName').val(),
+            solicId: $('#solicId').val(),
+            solicAddress: $('#solicAddress').val(),
+            solicState: $('#solicState').val(),
+            solicDistrict: $('#solicDistrict').val(),
+            solicEmail: $('#solicEmail').val(),
+            solicMobile: $('#solicMobile').val(),
+            solicPhone: $('#solicPhone').val(),
+            deceFullName: $('#deceFullName').val(),
+            deceId: $('#deceId').val(),
+            deceAddress: $('#deceAddress').val(),
+            deceState: $('#deceState').val(),
+            deceDistrict: $('#deceDistrict').val(),
+            decePlace: $('#decePlace').val(),
+            deceMaritalStatus: $('#deceMaritalStatus').val(),
+            deceOccupation: $('#deceOccupation').val(),
+            deceGrade: $('#deceGrade').val(),
+            churchName: $('#churchName').val(),
+            churchAddress: $('#churchAddress').val(),
+            churchState: $('#churchState').val(),
+            churchDistrict: $('#churchDistrict').val(),
+            funeralPlace: $('#funeralPlace').val(),
+            funeralPress: $('#funeralPress').val(),
+            funeralDate: $('#funeralDate').val(),
+            funeralTime: $('#funeralTime').val(),
+            serviceType: $('#serviceType').val(),
+            serviceProvider: $('#serviceProvider').val(),
+            serviceColor: $('#serviceColor').val(),
+            serviceInclude: $('#serviceInclude').val(),
+            serviceWarning: $('#serviceWarning').val(),
+            serviceObservation: $('#serviceObservation').val(),
+            serviceCost: $('#serviceCost').val(),
+            serviceDiscount: $('#serviceDiscount').val(),
+            serviceTotal: $('#serviceTotal').val(),
+            serviceDiscount2Name: $('#serviceDiscount2Name').val(),
+            serviceDiscount2: $('#serviceDiscount2').val(),
+            total2: $('#total2').val(),
+            payment1: $('#payment1').is(':checked'),
+            payment2: $('#payment2').is(':checked'),
+            payment3: $('#payment3').is(':checked'),
+            payment4: $('#payment4').is(':checked'),
+            payment5: $('#payment5').is(':checked'),
+            payment6: $('#payment6').is(':checked')
+        };
+        if (validateContract(_contract)) {
+            _$.ajax('/api/contracts/save', _contract, { headers: getBearerHeaders()}).then(
+                ({ status, response }) => {
+                    console.log(status, response);
+                    _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
+                    // open contract
+                    goToLink('/admin/contract.php', '_blank');
+                }
+            );
+        }
+    }
+
+    function validateContract(_contract) {
+        if (_contract.solicName === '' || _contract.solicLastName === '' || _contract.solicId === '') {
+            _$.snackbar('Debe ingresar el nombre, apellido y RUT del solicitante');
+            _$('#solicName').addClass('error');
+            _$('#solicLastName').addClass('error');
+            _$('#solicId').addClass('error');
+            return false;
+        }
+        if (_contract.solicEmail === '' || _contract.solicMobile === '') {
+            _$.snackbar('Debe ingresar un email y un número de telefono móvil para el solicitante');
+            _$('#solicEmail').addClass('error');
+            _$('#solicMobile').addClass('error');
+            return false;
+        }
+        if (_contract.deceFullName === '' || _contract.deceId === '') {
+            _$.snackbar('Debe ingresar un nombre y un rut para identificar al fallecido');
+            _$('#deceFullName').addClass('error');
+            _$('#deceId').addClass('error');
+            return false;
+        }
+        if (_contract.funeralDate === '' || _contract.funeralTime === '') {
+            _$.snackbar('Debe ingresar una fecha y una hora del funeral');
+            _$('#funeralDate').addClass('error');
+            _$('#funeralTime').addClass('error');
+            return false;
+        }
+        if (_contract.serviceType === '' || _contract.serviceInclude === '') {
+            _$.snackbar('Debe ingresar un tipo y lo que incluye el servicio');
+            _$('#serviceType').addClass('error');
+            _$('#serviceInclude').addClass('error');
+            return false;
+        }
+        if (_contract.serviceCost === '' || _contract.serviceCost === 0) {
+            _$.snackbar('Debe ingresar el valor del servicio');
+            _$('#serviceCost').addClass('error');
+            return false;
+        }
+        if (_contract.payment1 === false && _contract.payment2 === false &&
+            _contract.payment3 === false && _contract.payment4 === false &&
+            _contract.payment5 === false && _contract.payment6 === false) {
+            _$.snackbar('Debe ingresar al menos un medio de pago para el servicio');
+            return false;
+        }
+        return true;
     }
 </script>
