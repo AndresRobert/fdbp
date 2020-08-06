@@ -1,10 +1,10 @@
 <div id="contract" class="tab-content col-12 card">
     <div class="row">
         <div class="col-12 right">
-            Contrato / Presupuesto Interno Nº: <b>123456789</b>
+            Contrato / Presupuesto Interno Nº: <b>Nuevo</b>
         </div>
         <div class="col-12 right">
-            Fecha: 2020-01-01
+            Fecha: <?php echo date('Y-m-d') ?>
         </div>
     </div>
     <hr>
@@ -12,19 +12,19 @@
     <div class="row">
         <div class="col-4">
             <label for="solicName">Nombre</label>
-            <input id="solicName" type="text">
+            <input id="solicName" type="text" required>
         </div>
         <div class="col-4">
             <label for="solicLastName">Apellidos</label>
-            <input id="solicLastName" type="text">
+            <input id="solicLastName" type="text" required>
         </div>
         <div class="col-4">
             <label for="solicId">RUT</label>
-            <input id="solicId" type="text">
+            <input id="solicId" type="text" required>
         </div>
         <div class="col-6">
             <label for="solicAddress">Dirección</label>
-            <input id="solicAddress" type="text">
+            <input id="solicAddress" type="text" required>
         </div>
         <div class="col-3">
             <label for="solicState">Región</label>
@@ -44,15 +44,15 @@
         </div>
         <div class="col-6">
             <label for="solicEmail">Email</label>
-            <input id="solicEmail" type="text">
+            <input id="solicEmail" type="email" required>
         </div>
         <div class="col-3">
             <label for="solicMobile">Celular</label>
-            <input id="solicMobile" type="text">
+            <input id="solicMobile" type="tel" required>
         </div>
         <div class="col-3">
             <label for="solicPhone">Teléfono</label>
-            <input id="solicPhone" type="text">
+            <input id="solicPhone" type="tel">
         </div>
     </div>
     <hr>
@@ -60,11 +60,11 @@
     <div class="row">
         <div class="col-8">
             <label for="deceFullName">Nombre Completo (Q.E.P.D.)</label>
-            <input id="deceFullName" type="text">
+            <input id="deceFullName" type="text" required>
         </div>
         <div class="col-4">
             <label for="deceId">RUT</label>
-            <input id="deceId" type="text">
+            <input id="deceId" type="text" required>
         </div>
         <div class="col-6">
             <label for="deceAddress">Dirección</label>
@@ -160,11 +160,11 @@
         </div>
         <div class="col-2">
             <label for="funeralDate">Fecha</label>
-            <input id="funeralDate" type="date">
+            <input id="funeralDate" type="date" required>
         </div>
         <div class="col-2">
             <label for="funeralTime">Hora</label>
-            <input id="funeralTime" type="time">
+            <input id="funeralTime" type="time" required>
         </div>
     </div>
     <hr>
@@ -172,7 +172,7 @@
     <div class="row">
         <div class="col-4">
             <label for="serviceType">Tipo</label>
-            <input id="serviceType" type="text">
+            <input id="serviceType" type="text" required>
         </div>
         <div class="col-4">
             <label for="serviceProvider">Proveedor</label>
@@ -188,7 +188,7 @@
         </div>
         <div class="col-12">
             <label for="serviceInclude">Incluye</label>
-            <textarea id="serviceInclude"></textarea>
+            <textarea id="serviceInclude" required></textarea>
         </div>
         <div class="col-12">
             <label for="serviceWarning">Aviso</label>
@@ -254,9 +254,70 @@
     <hr>
     <div class="row">
         <div class="col-12 right">
-            <button class="text">Limpiar</button>
-            <button>Vista Previa</button>
-            <button class="fill">Guardar</button>
+            <button class="text" onclick="clearAllFields('#contract')">Limpiar</button>
+            <button onclick="showContractPreview()">Vista Previa</button>
+            <button class="fill" onclick="saveContract()">Guardar</button>
         </div>
     </div>
 </div>
+<script>
+    function showContractPreview () {
+        let _contract = {
+            solicName: $('#solicName').val(),
+            solicLastName: $('#solicLastName').val(),
+            solicId: $('#solicId').val(),
+            solicAddress: $('#solicAddress').val(),
+            solicState: $('#solicState').val(),
+            solicDistrict: $('#solicDistrict').val(),
+            solicEmail: $('#solicEmail').val(),
+            solicMobile: $('#solicMobile').val(),
+            solicPhone: $('#solicPhone').val(),
+            deceFullName: $('#deceFullName').val(),
+            deceId: $('#deceId').val(),
+            deceAddress: $('#deceAddress').val(),
+            deceState: $('#deceState').val(),
+            deceDistrict: $('#deceDistrict').val(),
+            decePlace: $('#decePlace').val(),
+            deceMaritalStatus: $('#deceMaritalStatus').val(),
+            deceOccupation: $('#deceOccupation').val(),
+            deceGrade: $('#deceGrade').val(),
+            churchName: $('#churchName').val(),
+            churchAddress: $('#churchAddress').val(),
+            churchState: $('#churchState').val(),
+            churchDistrict: $('#churchDistrict').val(),
+            funeralPlace: $('#funeralPlace').val(),
+            funeralPress: $('#funeralPress').val(),
+            funeralDate: $('#funeralDate').val(),
+            funeralTime: $('#funeralTime').val(),
+            serviceType: $('#serviceType').val(),
+            serviceProvider: $('#serviceProvider').val(),
+            serviceColor: $('#serviceColor').val(),
+            serviceInclude: $('#serviceInclude').val(),
+            serviceWarning: $('#serviceWarning').val(),
+            serviceObservation: $('#serviceObservation').val(),
+            serviceCost: $('#serviceCost').val(),
+            serviceDiscount: $('#serviceDiscount').val(),
+            serviceTotal: $('#serviceTotal').val(),
+            serviceDiscount2Name: $('#serviceDiscount2Name').val(),
+            serviceDiscount2: $('#serviceDiscount2').val(),
+            total2: $('#total2').val(),
+            payment1: $('#payment1').val(),
+            payment2: $('#payment2').val(),
+            payment3: $('#payment3').val(),
+            payment4: $('#payment4').val(),
+            payment5: $('#payment5').val(),
+            payment6: $('#payment6').val()
+        };
+        console.log(_contract);
+        // store it on a cookie
+        // open contract preview
+        goToLink('/admin/contract.php', '_blank')
+    }
+
+    function saveContract () {
+        // get all data
+        // api save contract
+        // open contract
+        goToLink('/admin/contract.php', '_blank')
+    }
+</script>
