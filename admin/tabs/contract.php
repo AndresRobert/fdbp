@@ -325,7 +325,7 @@
                 ({ status, response }) => {
                     if (status !== 'OK') {
                         _$.snackbar('No fue posible guardar el contrato, revise su conexión e intentelo nuevamente');
-                        window.location.href = '/';
+                        //window.location.href = '/';
                     } else {
                         if (response.status === 'fail' || response.id === -1) {
                             _$.snackbar(response.message);
