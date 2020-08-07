@@ -327,9 +327,10 @@
                         _$.snackbar('No fue posible guardar el contrato, revise su conexión e intentelo nuevamente');
                         window.location.href = '/';
                     } else {
-                        if (response.status === 'fail') {
+                        if (response.status === 'fail' || response.id === -1) {
                             _$.snackbar(response.message);
                         } else {
+
                             _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
                             goToLink('/admin/contract.php?contract=' + response.id, '_blank');
                         }
