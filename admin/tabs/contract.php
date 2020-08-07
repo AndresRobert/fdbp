@@ -323,14 +323,16 @@
         if (validateContract(_contract)) {
             _$.ajax('/api/contracts/save', _contract, { headers: getBearerHeaders()}).then(
                 ({ status, response }) => {
-                    if (status !== 'OK') {
-                        _$.snackbar('No fue posible guardar el contrato, revise su conexión e intentelo nuevamente');
-                        //window.location.href = '/';
+                    if (status === 'error') {
+                        _$.snackbar('Error de servidor: contacte al administrador en support@acode.cl');
+                    }
+                    if (status === 'fail') {
+                        _$.snackbar('Error de conexión');
+                        window.location.href = '/';
                     } else {
                         if (response.status === 'fail' || response.id === -1) {
                             _$.snackbar(response.message);
                         } else {
-
                             _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
                             goToLink('/admin/contract.php?contract=' + response.id, '_blank');
                         }

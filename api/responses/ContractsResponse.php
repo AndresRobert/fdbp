@@ -56,7 +56,7 @@ class Contracts extends Response {
                 $Contract = new Contract();
                 $fields['date'] = date('Y-m-d');
                 $fields['user_id'] = Session::Read('user');
-                $fields['s_total'] = $fields['s_cost'] - (intVal($fields['s_discount']) ?? 0);
+                $fields['v_total'] = $fields['v_cost'] - (intVal($fields['v_discount']) ?? 0);
                 $fields['v_payment'] = $fields['v_total'] - (intVal($fields['v_coverage']) ?? 0);
                 $fields['f_datetime'] = $fields['f_date'].' '.$fields['f_time'];
                 unset($fields['f_date'], $fields['f_time']);
