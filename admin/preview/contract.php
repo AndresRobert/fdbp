@@ -9,6 +9,32 @@
     <script src="https://kit.fontawesome.com/a93fffc8fc.js" crossorigin="anonymous"></script>
     <script src="../src/vendor/acode.js"></script>
     <script src="../src/invoice.js"></script>
+    <script>
+        let data = _$.cookie.get('fdbp_contract_data');
+        const urlParams = new URLSearchParams(queryString);
+        if (urlParams.get('contract') !== '') {
+            $('body').removeClass('preview');
+            _$.ajax('/api/contracts/get', { 'id' => urlParams.get('contract') }, { headers: getBearerHeaders()}).then(
+                ({ status, response }) => {
+                    if (status === 'error') {
+                        $('body').addClass('preview');
+                        _$.snackbar('Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo', 'Cerrar');
+                    }
+                    if (status === 'fail') {
+                        _$.snackbar('Session expirada, cierre esta vista y vuelva a intentarlo', 'Cerrar');
+                    } else {
+                        if (response.status !== 'fail' && response.contract !== []) {
+                            data = response.contract;
+                        } else {
+                            _$.snackbar('Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo', 'Cerrar');
+                        }
+                    }
+                }
+            ).catch(e => console.log(e));
+        }
+        // Load data
+        console.log(data);
+    </script>
 </head>
 <body class="preview">
 <div id="content" class="grid printable">

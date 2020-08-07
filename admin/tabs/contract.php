@@ -315,7 +315,7 @@
         let _contract = getContract();
         console.log(_contract);
         _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
-        goToLink('/admin/contract.php', '_blank');
+        goToLink('/admin/preview/contract.php', '_blank');
     }
 
     function saveContract () {
@@ -334,7 +334,7 @@
                         if (response.status !== 'fail' && response.id !== -1) {
                             _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
                             clearAllFields('#contract');
-                            openLink('/admin/contract.php?contract=' + response.id, '_blank');
+                            openLink('/admin/preview/contract.php?contract=' + response.id, '_blank');
                         }
                     }
                 }
