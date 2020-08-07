@@ -1,6 +1,6 @@
 <?php
 
-error_reporting( E_ALL);
+error_reporting( E_ERROR | E_COMPILE_ERROR | E_WARNING);
 ini_set('display_errors', 0);
 
 function json_error($severity, $message, $file, $line)
