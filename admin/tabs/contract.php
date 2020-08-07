@@ -261,60 +261,9 @@
     </div>
 </div>
 <script>
-    function showContractPreview () {
-        let _contract = {
-            solicName: $('#solicName').val(),
-            solicLastName: $('#solicLastName').val(),
-            solicId: $('#solicId').val(),
-            solicAddress: $('#solicAddress').val(),
-            solicState: $('#solicState').val(),
-            solicDistrict: $('#solicDistrict').val(),
-            solicEmail: $('#solicEmail').val(),
-            solicMobile: $('#solicMobile').val(),
-            solicPhone: $('#solicPhone').val(),
-            deceFullName: $('#deceFullName').val(),
-            deceId: $('#deceId').val(),
-            deceAddress: $('#deceAddress').val(),
-            deceState: $('#deceState').val(),
-            deceDistrict: $('#deceDistrict').val(),
-            decePlace: $('#decePlace').val(),
-            deceMaritalStatus: $('#deceMaritalStatus').val(),
-            deceOccupation: $('#deceOccupation').val(),
-            deceGrade: $('#deceGrade').val(),
-            churchName: $('#churchName').val(),
-            churchAddress: $('#churchAddress').val(),
-            churchState: $('#churchState').val(),
-            churchDistrict: $('#churchDistrict').val(),
-            funeralPlace: $('#funeralPlace').val(),
-            funeralPress: $('#funeralPress').val(),
-            funeralDate: $('#funeralDate').val(),
-            funeralTime: $('#funeralTime').val(),
-            serviceType: $('#serviceType').val(),
-            serviceProvider: $('#serviceProvider').val(),
-            serviceColor: $('#serviceColor').val(),
-            serviceInclude: $('#serviceInclude').val(),
-            serviceWarning: $('#serviceWarning').val(),
-            serviceObservation: $('#serviceObservation').val(),
-            serviceCost: $('#serviceCost').val(),
-            serviceDiscount: $('#serviceDiscount').val(),
-            serviceTotal: $('#serviceTotal').val(),
-            serviceDiscount2Name: $('#serviceDiscount2Name').val(),
-            serviceDiscount2: $('#serviceDiscount2').val(),
-            total2: $('#total2').val(),
-            payment1: $('#payment1').is(':checked'),
-            payment2: $('#payment2').is(':checked'),
-            payment3: $('#payment3').is(':checked'),
-            payment4: $('#payment4').is(':checked'),
-            payment5: $('#payment5').is(':checked'),
-            payment6: $('#payment6').is(':checked')
-        };
-        console.log(_contract);
-        _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
-        goToLink('/admin/contract.php', '_blank');
-    }
 
-    function saveContract () {
-        let _contract = {
+    function getContract () {
+        return {
             s_name: $('#s_name').val(),
             s_last_name: $('#s_last_name').val(),
             s_id: $('#s_id').val(),
@@ -360,11 +309,23 @@
             p_credit_card: $('#p_credit_card').is(':checked'),
             p_other: $('#p_other').is(':checked')
         };
+    }
+
+    function showContractPreview () {
+        let _contract = getContract();
+        console.log(_contract);
+        _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
+        goToLink('/admin/contract.php', '_blank');
+    }
+
+    function saveContract () {
+        let _contract = getContract();
         if (validateContract(_contract)) {
             _$.ajax('/api/contracts/save', _contract, { headers: getBearerHeaders()}).then(
                 ({ status, response }) => {
                     if (status !== 'OK') {
                         _$.snackbar('No fue posible guardar el contrato, revise su conexión e intentelo nuevamente');
+                        window.location.href = '/';
                     } else {
                         if (response.status === 'fail') {
                             _$.snackbar(response.message);
@@ -374,7 +335,9 @@
                         }
                     }
                 }
-            );
+            ).catch(function (error) {
+                console.log(error)
+            });
         }
     }
 
