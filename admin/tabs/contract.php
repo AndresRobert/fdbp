@@ -324,23 +324,21 @@
             _$.ajax('/api/contracts/save', _contract, { headers: getBearerHeaders()}).then(
                 ({ status, response }) => {
                     if (status === 'error') {
-                        _$.snackbar('Error de servidor: contacte al administrador en support@acode.cl');
+                        _$.snackbar('Error de servidor: contacte al administrador en support@acode.cl', 'Cerrar');
                     }
                     if (status === 'fail') {
-                        _$.snackbar('Error de conexión');
-                        window.location.href = '/';
+                        _$.snackbar('Session expirada');
+                        openLink('/');
                     } else {
-                        if (response.status === 'fail' || response.id === -1) {
-                            _$.snackbar(response.message);
-                        } else {
+                        _$.snackbar(response.message, 'Cerrar');
+                        if (response.status !== 'fail' && response.id !== -1) {
                             _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
-                            goToLink('/admin/contract.php?contract=' + response.id, '_blank');
+                            clearAllFields('#contract');
+                            openLink('/admin/contract.php?contract=' + response.id, '_blank');
                         }
                     }
                 }
-            ).catch(function (error) {
-                console.log(error)
-            });
+            ).catch(e => console.log(e));
         }
     }
 
