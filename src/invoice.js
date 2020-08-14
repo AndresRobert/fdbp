@@ -65,11 +65,6 @@ function toggleDarkMode () {
     }
 }
 
-function clearAllFields(_id) {
-    let _container = $(_id);
-    _container.find('input, textarea, select').each( function () { this.val('') });
-}
-
 function openLink(_link, _target) {
     if (_target === '_blank') {
         window.open(_link);

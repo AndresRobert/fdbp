@@ -311,6 +311,11 @@
         };
     }
 
+    function clearAllFields(_id) {
+        let _container = $(_id);
+        _container.find('input, textarea, select').each( function () { this.val('') });
+    }
+
     function showContractPreview () {
         let _contract = getContract();
         console.log(_contract);

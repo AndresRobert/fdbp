@@ -3,21 +3,21 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contract</title>
-    <link href="../src/vendor/acode.min.css" rel="stylesheet">
+    <link href="../../src/vendor/acode.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="../src/invoice.css" rel="stylesheet">
+    <link href="../../src/invoice.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a93fffc8fc.js" crossorigin="anonymous"></script>
-    <script src="../src/vendor/acode.js"></script>
-    <script src="../src/invoice.js"></script>
+    <script src="../../src/vendor/acode.js"></script>
+    <script src="../../src/invoice.js"></script>
     <script>
         let data = _$.cookie.get('fdbp_contract_data');
         const urlParams = new URLSearchParams(queryString);
-        if (urlParams.get('contract') !== '') {
-            $('body').removeClass('preview');
+        if (urlParams.get('contract') !== 'preview') {
+            _$('#body').removeClass('');
             _$.ajax('/api/contracts/get', { 'id' => urlParams.get('contract') }, { headers: getBearerHeaders()}).then(
                 ({ status, response }) => {
                     if (status === 'error') {
-                        $('body').addClass('preview');
+                        _$('#body').addClass('preview');
                         _$.snackbar('Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo', 'Cerrar');
                     }
                     if (status === 'fail') {
@@ -36,7 +36,7 @@
         console.log(data);
     </script>
 </head>
-<body class="preview">
+<body id="body" class="preview">
 <div id="content" class="grid printable">
     <div class="row center">
         <div class="col-3">
