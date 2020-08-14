@@ -3,8 +3,6 @@
 require_once MDL.'ContractModel.php';
 
 use Base\Response;
-use Kits\Auth;
-use Kits\Text;
 use Kits\Session;
 
 class Contracts extends Response {

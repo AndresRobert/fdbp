@@ -15,7 +15,7 @@ abstract class Session {
      * @return mixed
      */
     final public static function Read (string $name) {
-        return $_SESSION[APPNAME][$name]??null;
+        return $_SESSION[APPNAME][$name] ?? null;
     }
 
     /**

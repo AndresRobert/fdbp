@@ -3,12 +3,12 @@
 use Base\Model;
 
 /**
- * Class Contract
+ * Class Occupation
  */
-class Contract extends Model {
+class Occupation extends Model {
 
     public function __construct () {
-        $this->table = 'contracts';
+        $this->table = 'occupations';
         parent::__construct();
     }
 
