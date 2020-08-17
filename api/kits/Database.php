@@ -5,6 +5,7 @@ namespace Kits\Database;
 use PDO;
 use PDOException;
 use Kits\Text;
+use PDOStatement;
 
 abstract class MySQL {
 
@@ -67,6 +68,24 @@ abstract class MySQL {
         $_query = strtolower($query);
         return Text::StartsWith('select', $_query);
     }
+
+    private static function fetchToArrray (PDOStatement $stmt): array {
+        $rows = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $rows[] = self::safeUTF8($row);
+        }
+        return $rows;
+    }
+
+    private static function safeUTF8 (array $array): array {
+        return array_map(static function ($string) {
+            if (mb_detect_encoding($string, 'UTF-8', true)) {
+                return $string;
+            }
+            return utf8_encode($string);
+        }, $array);
+    }
+
 
     public static function Check (): ?array
     {
@@ -139,10 +158,10 @@ abstract class MySQL {
         $_query = "SELECT {$_columns} FROM {$_table} WHERE ({$_filters}) {$_order} {$_limit}";
         try {
             $connection = self::Open();
-            $rows = $connection->query($_query, PDO::FETCH_ASSOC)->fetchAll();
+            $stmt = $connection->query($_query);
             $result = [
                 'status' => 'success',
-                'response' => $rows[0] ?? [],
+                'response' => self::fetchToArrray($stmt) ?? [],
                 'error' => 'no error'
             ];
             $connection = NULL;
@@ -215,11 +234,11 @@ abstract class MySQL {
         ];
         if (self::IsSelectQuery($query)) {
             try {
-                $connection = self::open();
-                $rows = $connection->query($query, PDO::FETCH_ASSOC)->fetchAll();
+                $connection = self::Open();
+                $stmt = $connection->query($query);
                 $result = [
                     'status' => 'success',
-                    'response' => $rows,
+                    'response' => self::fetchToArrray($stmt) ?? [],
                     'error' => 'no error'
                 ];
                 $connection = NULL;

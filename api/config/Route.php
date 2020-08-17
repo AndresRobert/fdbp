@@ -144,7 +144,7 @@ abstract class Route {
         $response = $responseCode === 200 ? Response::Get($routes[$request_method][$endpoint], $payload) : [];
         $responseCode = $response['response_code'] ?? $responseCode;
         http_response_code($responseCode);
-        return Toolbox::ArrayToJson(['status' => self::$responseCodes[$responseCode], 'response' => $response]);
+        return Toolbox::ArrayToJson(['status' => self::$responseCodes[$responseCode], 'response' => $response, 'routes' => $routes, 'method' => $request_method]);
     }
 
 }

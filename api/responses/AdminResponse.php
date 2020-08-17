@@ -16,7 +16,7 @@ class Admin extends Response {
 
     public function getCementeries() {
         $table = 'cementeries';
-        $list = Session::Exists($table)
+        $list = false && Session::Exists($table)
             ? Session::Read($table)
             : (new Cementery())->filter(['id', 'name'], ['active' => 1]);
         Session::Create($table, $list);

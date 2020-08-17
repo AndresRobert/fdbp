@@ -199,7 +199,7 @@ class Model {
                 $limit
             );
             if ($result['status'] === 'success') {
-                return $result['response'];
+                return $result;
             }
         }
         return [];
