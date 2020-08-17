@@ -99,7 +99,7 @@
     <div class="row">
         <div class="col-12 right">
             <button class="text">Limpiar</button>
-            <button>Vista Previa</button>
+            <button onclick="openLink('/admin/preview/quotation.php', '_blank')">Vista Previa</button>
             <button class="fill">Guardar</button>
         </div>
     </div>
