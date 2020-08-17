@@ -320,7 +320,7 @@
         let _contract = getContract();
         console.log(_contract);
         _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
-        goToLink('/admin/preview/contract.php', '_blank');
+        openLink('/admin/preview/contract.php', '_blank');
     }
 
     function saveContract () {
