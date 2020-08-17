@@ -25,12 +25,12 @@ abstract class Auth {
      * Validate a passcode matching its hashed version
      *
      * @param string $passcode
-     * @param string $hash
+     * @param ?string $hash
      *
      * @return bool
      */
-    final public static function Match (string $passcode, string $hash): bool {
-        return password_verify($passcode, $hash);
+    final public static function Match (string $passcode, ?string $hash): bool {
+        return $hash !== null ? password_verify($passcode, $hash) : false;
     }
 
     /**

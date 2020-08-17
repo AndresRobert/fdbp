@@ -113,7 +113,7 @@ class Model {
                 ['id' => $this->get('id')]
             );
             if ($result['status'] === 'success') {
-                $this->set($result['response']);
+                $this->set($result['response'][0]);
                 return TRUE;
             }
         }
@@ -134,7 +134,7 @@ class Model {
             $filter
         );
         if ($result['status'] === 'success') {
-            $this->set($result['response']);
+            $this->set($result['response'][0]);
             return TRUE;
         }
         return FALSE;
