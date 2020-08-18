@@ -200,15 +200,15 @@
         </div>
         <div class="col-4">
             <label for="v_cost">Valor del Servicio</label>
-            <input id="v_cost" type="number">
+            <input id="v_cost" type="text" min="0" value="0">
         </div>
         <div class="col-4">
             <label for="v_discount">Descuento</label>
-            <input id="v_discount" type="number">
+            <input id="v_discount" type="text" min="0" value="0">
         </div>
         <div class="col-4">
             <label for="v_total">Valor Total</label>
-            <input id="v_total" type="number" readonly>
+            <input id="v_total" type="text" value="0" class="total" readonly>
         </div>
         <div class="col-4">
             <label for="v_insurance_id">Nombre Previsión</label>
@@ -220,11 +220,11 @@
         </div>
         <div class="col-4">
             <label for="v_coverage">Aporte Previsión</label>
-            <input id="v_coverage" type="number">
+            <input id="v_coverage" type="text" min="0" value="0">
         </div>
         <div class="col-4">
             <label for="v_payment">Saldo</label>
-            <input id="v_payment" type="number" readonly>
+            <input id="v_payment" type="text" value="0" class="total" readonly>
         </div>
         <div class="col-4">
             <label for="p_transfer" class="checkbox">Transferencia</label>
@@ -262,7 +262,7 @@
 </div>
 <script>
 
-    function getContractData () {
+    function getContractData() {
         return {
             s_name: $('#s_name').val(),
             s_last_name: $('#s_last_name').val(),
@@ -369,7 +369,7 @@
         openLink('/admin/preview/contract.php', '_blank');
     }
 
-    function saveContract () {
+    function saveContract() {
         let _contract = getContract();
         if (validateContract(_contract)) {
             _$.ajax('/api/contracts/save', _contract, { headers: getBearerHeaders()}).then(
@@ -393,6 +393,14 @@
         }
     }
 
+    function calcTotal() {
+        const v_cost = $('#v_cost').val(),
+            v_discount = $('#v_discount').val(),
+            v_coverage = $('#v_coverage').val();
+        $('#v_total').val(v_cost - v_discount);
+        $('#v_payment').val(v_cost - v_discount - v_coverage);
+    }
+
     loadSelect('#s_region_id', getData('fdbp_regions'));
     loadSelect('#d_region_id', getData('fdbp_regions'));
     loadSelect('#c_region_id', getData('fdbp_regions'));
@@ -405,5 +413,6 @@
     $('#d_region_id').on('change', function() { loadComunes('#d_comune_id', this.value) });
     $('#c_region_id').on('change', function() { loadComunes('#c_comune_id', this.value) });
 
+    $('#v_cost, #v_discount, #v_coverage').on('change', () => { calcTotal() });
 
 </script>

@@ -111,6 +111,15 @@ td button {
     background: none !important;
 }
 
+.total {
+    font-weight: bold;
+    color: #344;
+}
+
+.darkmode .total {
+    color: #FFF;
+}
+
 .darkmode .odd {
     background: #FFF1 !important;
 }
