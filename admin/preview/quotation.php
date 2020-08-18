@@ -2,19 +2,19 @@
 <html lang="es">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice</title>
-    <link href="../src/vendor/acode.min.css" rel="stylesheet">
+    <title>Contract</title>
+    <link href="../../src/vendor/acode.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="../src/invoice.css" rel="stylesheet">
+    <link href="../../src/invoice.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a93fffc8fc.js" crossorigin="anonymous"></script>
-    <script async src="../src/vendor/acode.js"></script>
-    <script async src="../src/invoice.js"></script>
+    <script src="../../src/vendor/acode.js"></script>
+    <script src="../../src/invoice.js"></script>
 </head>
 <body class="preview">
 <div id="content" class="grid printable">
     <div class="row center">
         <div class="col-3">
-            <img src="../src/img/isotype.png" alt="" class="isotype">
+            <img src="../../src/img/isotype.png" alt="" class="isotype">
         </div>
         <div class="col-9">
             <div class="row center">

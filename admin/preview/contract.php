@@ -40,7 +40,7 @@
 <div id="content" class="grid printable">
     <div class="row center">
         <div class="col-3">
-            <img src="../src/img/isotype.png" alt="" class="isotype">
+            <img src="../../src/img/isotype.png" alt="" class="isotype">
         </div>
         <div class="col-9">
             <div class="row center">
