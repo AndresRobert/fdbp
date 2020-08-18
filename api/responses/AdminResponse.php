@@ -54,22 +54,24 @@ class Admin extends Response {
         return self::RequiresAuthorization(
             static function () {
                 $table = 'comunesByRegion';
-                $list = Session::Exists($table)
-                    ? Session::Read($table)
-                    : (new Comune())->byRegion();
-                $byRegion = [];
-                foreach ($list as $item) {
-                    $byRegion[$item['region_id']][] = [
-                        'id' => $item['id'],
-                        'name' => $item['name']
-                    ];
+                if (Session::Exists($table)) {
+                    $list = Session::Read($table);
+                } else {
+                    $byRegion = (new Comune())->byRegion();
+                    $list = [];
+                    foreach ($byRegion as $item) {
+                        $list[$item['region_id']][] = [
+                            'id' => $item['id'],
+                            'name' => $item['name']
+                        ];
+                    }
+                    Session::Create($table, $list);
                 }
-                Session::Create($table, $byRegion);
 
                 return [
                     'status' => 'success',
                     'message' => 'Comunas cargadas',
-                    'list' => $byRegion,
+                    'list' => $list,
                 ];
             }
         );

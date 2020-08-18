@@ -144,6 +144,7 @@ function loadComunes(_selectId, _regionId) {
                 } else {
                     if (response.status !== 'fail') {
                         _comunes = response.list;
+                        console.log(_comunes);
                         loadSelect(_selectId, _comunes[_regionId]);
                     } else {
                         _$.snackbar('No se encontraron comunas: contacte al administrador en support@acode.cl', 'Cerrar');
