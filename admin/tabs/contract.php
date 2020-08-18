@@ -159,8 +159,8 @@
     <h5>Servicio</h5>
     <div class="row">
         <div class="col-4">
-            <label for="v_services_id">Tipo</label>
-            <select id="v_services_id">
+            <label for="v_service_id">Tipo</label>
+            <select id="v_service_id">
                 <option value="1">Nombre 1</option>
                 <option value="1">Nombre 2</option>
                 <option value="1">Nombre 3</option>
@@ -188,15 +188,15 @@
         </div>
         <div class="col-4">
             <label for="v_cost">Valor del Servicio</label>
-            <input id="v_cost" type="text" min="0" value="0">
+            <input id="v_cost" type="number" min="0" value="0">
         </div>
         <div class="col-4">
             <label for="v_discount">Descuento</label>
-            <input id="v_discount" type="text" min="0" value="0">
+            <input id="v_discount" type="number" min="0" value="0">
         </div>
         <div class="col-4">
             <label for="v_total">Valor Total</label>
-            <input id="v_total" type="text" value="0" class="total" readonly>
+            <input id="v_total" type="number" value="0" class="total" readonly>
         </div>
         <div class="col-4">
             <label for="v_insurance_id">Nombre Previsión</label>
@@ -208,11 +208,11 @@
         </div>
         <div class="col-4">
             <label for="v_coverage">Aporte Previsión</label>
-            <input id="v_coverage" type="text" min="0" value="0">
+            <input id="v_coverage" type="number" min="0" value="0">
         </div>
         <div class="col-4">
             <label for="v_payment">Saldo</label>
-            <input id="v_payment" type="text" value="0" class="total" readonly>
+            <input id="v_payment" type="number" value="0" class="total" readonly>
         </div>
         <div class="col-4">
             <label for="p_transfer" class="checkbox">Transferencia</label>

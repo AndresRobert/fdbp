@@ -1,20 +1,18 @@
+<?php
+setlocale(LC_ALL,"es_ES");
+$date = DateTime::createFromFormat("Y-m-d", date('Y-m-d'));
+$strDate = strftime("%e de %B del %G",$date->getTimestamp());
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contract</title>
-    <link href="../../src/vendor/acode.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="../../src/invoice.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a93fffc8fc.js" crossorigin="anonymous"></script>
-    <script src="../../src/vendor/acode.js"></script>
-    <script src="../../src/invoice.js"></script>
+    <head><?php include '../layout/head.php' ?></head>
     <script>
-        let data = _$.cookie.get('fdbp_contract_data');
-        const urlParams = new URLSearchParams(queryString);
-        if (urlParams.get('contract') !== 'preview') {
-            _$('#body').removeClass('');
-            _$.ajax('/api/contracts/get', { 'id' => urlParams.get('contract') }, { headers: getBearerHeaders()}).then(
+        let data = JSON.parse(_$.cookie.get('fdbp_contract_data'));
+        const urlParams = new URLSearchParams(location.search);
+        if (urlParams.get('contract') !== null) {
+            _$('#body').removeClass('preview');
+            _$.ajax('/api/contracts/get', { id: urlParams.get('contract') }, { headers: getBearerHeaders()}).then(
                 ({ status, response }) => {
                     if (status === 'error') {
                         _$('#body').addClass('preview');
@@ -55,68 +53,68 @@
                 </div>
                 <div class="col-5">
                     <p class="bold">CONTRATO / PRESUPUESTO INTERNO</p>
-                    <p class="bold" style="font-size:18px">Nº: 32</p>
+                    <p class="bold" style="font-size:18px">Nº: <span id="id">99999</span></p>
                 </div>
             </div>
         </div>
     </div>
     <div class="row right">
-        <div class="col-12">STGO, 4 de Mayo del 2020</div>
+        <div class="col-12">STGO, <?php echo $strDate ?></div>
     </div>
     <div class="row padding-top">
         <div class="col-8">
-            <p><b>Solicitado por</b>: Julio Humberto Ortíz Puga</p>
-            <p>Dirección: Avenida La Escuela Nº 813</p>
-            <p>Teléfono: 12345678</p>
-            <p>Email: email@email.com</p>
+            <p><b>Solicitado por</b>: <span id="s_name">Julio Humberto </span><span id="s_last_name">Ortíz Puga</span></p>
+            <p>Dirección: <span id="s_address">Avenida La Escuela Nº 813</span></p>
+            <p>Teléfono: <span id="s_mobile">12345678</span></p>
+            <p>Email: <span id="s_email">email@email.com</span></p>
         </div>
         <div class="col-4">
-            <p>R.U.T. 12.345.678-9</p>
-            <p>Comuna: Las Condes</p>
-            <p>Región: Metropolitana</p>
+            <p>R.U.T. <span id="s_id">12345678-9</span></p>
+            <p>Comuna: <span id="s_comune_name">Las Condes</span></p>
+            <p>Región: <span id="s_region_name">Metropolitana</span></p>
         </div>
     </div>
     <div class="row padding-top">
         <div class="col-8">
-            <p><b>Nombre del Fallecido</b>: Julia Viola Puga Michaud</p>
-            <p>R.U.T. 12.345.678-9</p>
-            <p>Estado Civil: Viuda</p>
-            <p>Dirección: Colombia Nº 9072</p>
-            <p>Lugar de Fallecimiento: Hogar Acalis</p>
+            <p><b>Nombre del Fallecido</b>: <span id="d_name">Julia Viola Puga Michaud</span></p>
+            <p>R.U.T. <span id="d_id">12345678-9</span></p>
+            <p>Estado Civil: <span id="d_marital_status">Viuda</span></p>
+            <p>Dirección: <span id="d_address">Colombia Nº 9072</span></p>
+            <p>Lugar de Fallecimiento: <span id="d_place">Hogar Acalis</span></p>
         </div>
         <div class="col-4">
             <p>Q.E.P.D.</p>
-            <p>Ocupación: Pensionada</p>
-            <p>Estudios: Básicos</p>
-            <p>Comuna: La Florida</p>
-            <p>Región: Metropolitana</p>
+            <p>Ocupación: <span id="d_occupation">Pensionada</span></p>
+            <p>Estudios: <span id="d_education">Básicos</span></p>
+            <p>Comuna: <span id="d_comune_name">La Florida</span></p>
+            <p>Región: <span id="d_region_name">Metropolitana</span></p>
         </div>
     </div>
     <div class="row padding-top">
         <div class="col-8">
-            <p><b>Lugar del Velatorio</b>: Parroquia Santa Clara</p>
-            <p>Dirección: Santa Elisa Nº 050</p>
+            <p><b>Lugar del Velatorio</b>: <span id="c_church">Parroquia Santa Clara</span></p>
+            <p>Dirección: <span id="c_address">Santa Elisa Nº 050</span></p>
         </div>
         <div class="col-4">
             <p>&nbsp;</p>
-            <p>Comuna: La Cisterna</p>
-            <p>Región: Metropolitana</p>
+            <p>Comuna: <span id="c_comune_name">La Cisterna</span></p>
+            <p>Región: <span id="c_region_name">Metropolitana</span></p>
         </div>
     </div>
     <div class="row padding-top">
         <div class="col-12">
-            <p><b>Tipo Servicio</b>: Mackelita Eco. Lisa Brillo</p>
-            <p>El servicio Incluye: Int. capilla ardiente, t. registro civil, libro de condolencias, tarjetas de agradecimiento. Valor médico $50.000</p>
+            <p><b>Tipo Servicio</b>: <span id="v_service_name">Mackelita Eco. Lisa Brillo</span></p>
+            <p>El servicio Incluye: <span id="v_include">Int. capilla ardiente, t. registro civil, libro de condolencias, tarjetas de agradecimiento.</span> <span id="v_warning"></span> <span id="v_observation">Valor médico $50.000</span></p>
         </div>
     </div>
     <div class="row padding-top">
         <div class="col-12">
-            <p><b>Cementerio</b>: Parque del Recuerdo Vespucio</p>
+            <p><b>Cementerio</b>: <span id="f_cementery_name">Parque del Recuerdo Vespucio</span></p>
         </div>
         <div class="col-8">
-            <p>Fecha Funeral: 05-05-2020</p></div>
+            <p>Fecha Funeral: <span id="f_date">05-05-2020</span></p></div>
         <div class="col-4">
-            <p>Hora de Llegada: 12:39</p>
+            <p>Hora de Llegada: <span id="f_time">12:39</span></p>
         </div>
     </div>
     <div class="row padding-top">
@@ -142,16 +140,16 @@
                     <p>Descuento</p>
                     <p>Valor Total</p>
                     <p>Aporte</p>
-                    <p>CAPREDENA</p>
+                    <p><span id="v_insurance_name">CAPREDENA</span></p>
                     <p>Saldo</p>
                 </div>
                 <div class="col-4">
-                    <p class="bold">650.000</p>
-                    <p class="bold">0</p>
-                    <p class="bold">650.000</p>
-                    <p class="bold">365.000</p>
+                    <p class="bold"><span id="v_cost">650.000</span></p>
+                    <p class="bold"><span id="v_discount">0</span></p>
+                    <p class="bold"><span id="v_total">650.000</span></p>
+                    <p class="bold"><span id="v_coverage">365.000</span></p>
                     <p>&nbsp;</p>
-                    <p class="bold">280.000</p>
+                    <p class="bold"><span id="v_payment">280.000</span></p>
                 </div>
             </div>
         </div>
@@ -169,22 +167,22 @@
             <p>El saldo es pagado con:</p>
             <div class="row">
                 <div class="col-12 no-padding-input">
-                    <p><i class="far fa-check-square"></i> Transferencia</p>
+                    <p><i id="p_transfer" class="far fa-check-square"></i> Transferencia</p>
                 </div>
                 <div class="col-12 no-padding-input">
-                    <p><i class="far fa-square"></i> Efectivo</p>
+                    <p><i id="p_cash" class="far fa-square"></i> Efectivo</p>
                 </div>
                 <div class="col-12 no-padding-input">
-                    <p><i class="far fa-square"></i> Cheque al día</p>
+                    <p><i id="p_check" class="far fa-square"></i> Cheque al día</p>
                 </div>
                 <div class="col-12 no-padding-input">
-                    <p><i class="far fa-square"></i> Cheque a fecha</p>
+                    <p><i id="p_check_defered" class="far fa-square"></i> Cheque a fecha</p>
                 </div>
                 <div class="col-12 no-padding-input">
-                    <p><i class="far fa-square"></i> Tarjeta de crédito</p>
+                    <p><i id="p_credit_card" class="far fa-square"></i> Tarjeta de crédito</p>
                 </div>
                 <div class="col-12 no-padding-input">
-                    <p><i class="far fa-square"></i> Otro</p>
+                    <p><i id="p_other" class="far fa-square"></i> Otro</p>
                 </div>
             </div>
         </div>

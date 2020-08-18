@@ -47,12 +47,11 @@ label {
     text-align: center;
     margin-top: 65px;
 }
-/*
+
 .preview {
     background: url("../src/img/preview.svg") center center / 60px auto;
 }
 
- */
 
 .sign > p {
     font-weight: bold;
@@ -271,9 +270,9 @@ td button {
     .snackbarContainer > div {
         max-width: 30%;
     }
-/*
+
     .preview p {
         text-decoration-line: line-through;
     }
- */
+
 }

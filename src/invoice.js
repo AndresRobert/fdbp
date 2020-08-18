@@ -141,6 +141,28 @@ function loadSelect(_selectId, _endpoint) {
     }
 }
 
+function setRegions() {
+    _$.ajax('/api/regions', {id: 'hbwef73238edbak'}, {headers: getBearerHeaders()}).then(
+        ({status, response}) => {
+            if (status === 'error') {
+                _$.snackbar('Error de servidor: contacte al administrador');
+                openLink('/');
+            }
+            if (status === 'fail') {
+                _$.snackbar('Session expirada');
+                openLink('/');
+            } else {
+                if (response.status !== 'fail') {
+                    _lists['api_regions'] = response.list;
+                } else {
+                    _$.snackbar('No se encontro información: contacte al administrador');
+                    openLink('/');
+                }
+            }
+        }
+    ).catch(e => console.log(e, 'api_regions'));
+}
+
 function loadComunes(_selectId, _regionId) {
     if (_$.size(_lists['api_comunes']) === 0) {
         _$.ajax('/api/comunes', {id: 'hbwef73238edbak'}, { headers: getBearerHeaders()}).then(
