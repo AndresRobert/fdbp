@@ -393,8 +393,8 @@
         }
     }
 
-    loadRegions('#s_region_id');
-    loadRegions('#d_region_id');
-    loadRegions('#c_region_id');
+    loadSelect('#s_region_id', 'fdbp_regions');
+    loadSelect('#d_region_id', 'fdbp_regions');
+    loadSelect('#c_region_id', 'fdbp_regions');
 
 </script>

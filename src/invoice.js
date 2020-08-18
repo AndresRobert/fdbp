@@ -5,6 +5,10 @@ const _subtabs = [
     'tab_providers'
 ];
 
+const _cookieURL = {
+    'fdbp_regions': '/api/regions'
+};
+
 function showTabContent (_id = '#search', _class = '.tab-content') {
     _$$(_class).forEach(tab => { tab.style.display = 'none' });
     _$(_id).style.display = 'inherit';
@@ -105,8 +109,8 @@ $(() => {
         .on('change', function () { $(this).removeClass('error') });
 });
 
-function getRegions () {
-    _$.ajax('/api/regions', {id: 'hbwef73238edbak'}, { headers: getBearerHeaders()}).then(
+function getSelectData (_cookieName) {
+    _$.ajax(_cookieURL[_cookieName], {id: 'hbwef73238edbak'}, { headers: getBearerHeaders()}).then(
         ({ status, response }) => {
             console.log(response);
             if (status === 'error') {
@@ -117,7 +121,7 @@ function getRegions () {
                 openLink('/');
             } else {
                 if (response.status !== 'fail') {
-                    _$.cookie.set('fdbp_regions', JSON.stringify(response.list));
+                    _$.cookie.set(_cookieName, JSON.stringify(response.list));
                 } else {
                     _$.snackbar('No se encontraron regiones: contacte al administrador en support@acode.cl', 'Cerrar');
                 }
@@ -126,11 +130,11 @@ function getRegions () {
     ).catch(e => console.log(e));
 }
 
-function loadRegions (_selectId) {
-    if (_$.cookie.get('fdbp_regions') === null) {
-        getRegions();
+function loadSelect (_selectId, _cookieName) {
+    if (_$.cookie.get(_cookieName) === null) {
+        getSelectData(_cookieName);
     }
-    const regions = JSON.parse(_$.cookie.get('fdbp_regions'));
+    const regions = JSON.parse(_$.cookie.get(_cookieName));
     let _select = $(_selectId);
     _select.empty();
     _select.prop('selectedIndex', 0);
