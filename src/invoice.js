@@ -139,6 +139,6 @@ function loadSelect (_selectId, _cookieName) {
     _select.empty();
     _select.prop('selectedIndex', 0);
     $.each(regions, function (key, entry) {
-        _select.append($('<option></option>').attr('value', entry.region_id).text(entry.region_name));
+        _select.append($('<option></option>').attr('value', entry.id).text(entry.name));
     });
 }

@@ -14,7 +14,7 @@ class Comune extends Model {
     }
 
     public function regions() {
-        $query = 'SELECT region_id, region_name FROM comunes WHERE active = 1 GROUP BY region_id';
+        $query = 'SELECT region_id id, region_name name FROM comunes WHERE active = 1 GROUP BY region_id';
         $statement = MySQL::ComplexSelect($query);
         return $statement['status'] === 'success' ? $statement['response'] : [];
     }
