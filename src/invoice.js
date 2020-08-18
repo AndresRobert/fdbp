@@ -5,10 +5,13 @@ const _subtabs = [
     'tab_providers'
 ];
 
-const _cookieURL = {
-    'fdbp_regions': '/api/regions',
-    'fdbp_insurances': '/api/insurances'
+const _url = {
+    'api_regions': '/api/regions',
+    'api_insurances': '/api/insurances',
+    'api_cementeries': '/api/cementeries'
 };
+
+let _lists = {};
 
 function showTabContent(_id = '#search', _class = '.tab-content') {
     _$$(_class).forEach(tab => { tab.style.display = 'none' });
@@ -110,31 +113,35 @@ $(() => {
         .on('change', function () { $(this).removeClass('error') });
 });
 
-function getSelectData(_cookieName) {
-    _$.ajax(_cookieURL[_cookieName], {id: 'hbwef73238edbak'}, { headers: getBearerHeaders()}).then(
-        ({ status, response }) => {
-            if (status === 'error') {
-                _$.snackbar('Error de servidor: contacte al administrador', 'Cerrar');
-            }
-            if (status === 'fail') {
-                _$.snackbar('Session expirada');
-                openLink('/');
-            } else {
-                if (response.status !== 'fail') {
-                    _$.cookie.set(_cookieName, JSON.stringify(response.list));
-                } else {
-                    _$.snackbar('No se encontro información: contacte al administrador');
+function loadSelect(_selectId, _endpoint) {
+    if (_$.size(_lists[_endpoint]) === 0) {
+        _$.ajax(_url[_endpoint], {id: 'hbwef73238edbak'}, {headers: getBearerHeaders()}).then(
+            ({status, response}) => {
+                if (status === 'error') {
+                    _$.snackbar('Error de servidor: contacte al administrador');
                     openLink('/');
                 }
+                if (status === 'fail') {
+                    _$.snackbar('Session expirada');
+                    openLink('/');
+                } else {
+                    if (response.status !== 'fail') {
+                        _lists[_endpoint] = response.list;
+                        setSelectData(_selectId, _lists[_endpoint]);
+                    } else {
+                        _$.snackbar('No se encontro información: contacte al administrador');
+                        openLink('/');
+                    }
+                }
             }
-        }
-    ).catch(e => console.log(e));
+        ).catch(e => console.log(e, _endpoint));
+    } else {
+        setSelectData(_selectId, _lists[_endpoint]);
+    }
 }
 
-let _comunes = {};
-
 function loadComunes(_selectId, _regionId) {
-    if (!_$.isset(_comunes[1])) {
+    if (_$.size(_lists['api_comunes']) === 0) {
         _$.ajax('/api/comunes', {id: 'hbwef73238edbak'}, { headers: getBearerHeaders()}).then(
             ({ status, response }) => {
                 if (status === 'error') {
@@ -145,27 +152,21 @@ function loadComunes(_selectId, _regionId) {
                     openLink('/');
                 } else {
                     if (response.status !== 'fail') {
-                        _comunes = response.list;
-                        loadSelect(_selectId, _comunes[_regionId]);
+                        _lists['api_comunes'] = response.list;
+                        setSelectData(_selectId, _lists['api_comunes'][_regionId]);
                     } else {
-                        _$.snackbar('No se encontraron comunas: contacte al administrador en support@acode.cl', 'Cerrar');
+                        _$.snackbar('No se encontraron comunas: contacte al administrador');
+                        openLink('/');
                     }
                 }
             }
-        ).catch(e => console.log(e));
+        ).catch(e => console.log(e, _selectId, _regionId));
     } else {
-        loadSelect(_selectId, _comunes[_regionId]);
+        setSelectData(_selectId, _lists['api_comunes'][_regionId]);
     }
 }
 
-function getData(_cookieName) {
-    if (_$.cookie.get(_cookieName) === null) {
-        getSelectData(_cookieName);
-    }
-    return JSON.parse(_$.cookie.get(_cookieName));
-}
-
-function loadSelect(_selectId, _data) {
+function setSelectData(_selectId, _data) {
     let _select = $(_selectId);
     _select.empty();
     _select.prop('selectedIndex', 0);

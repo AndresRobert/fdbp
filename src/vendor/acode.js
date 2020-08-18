@@ -15,6 +15,15 @@ _$.evtOptions = { capture: true, once: false, passive: true };
 
 // Prototypes
 
+_$.size = (obj) => {
+    if (typeof obj !== 'object') return 0;
+    let size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
 const pro = HTMLElement.prototype;
 pro.on = function (eventName, eventHandler) {
     this.addEventListener(eventName, eventHandler, _$.evtOptions);

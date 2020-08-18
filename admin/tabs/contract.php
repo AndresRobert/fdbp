@@ -388,10 +388,11 @@
         }
     }
 
-    loadSelect('#s_region_id', getData('fdbp_regions'));
-    loadSelect('#d_region_id', getData('fdbp_regions'));
-    loadSelect('#c_region_id', getData('fdbp_regions'));
-    loadSelect('#v_insurance_id', getData('fdbp_insurances'));
+    loadSelect('#s_region_id', 'api_regions');
+    loadSelect('#d_region_id', 'api_regions');
+    loadSelect('#c_region_id', 'api_regions');
+    loadSelect('#v_insurance_id', 'api_insurances');
+    loadSelect('#f_cementery_id', 'api_cementeries');
 
     loadComunes('#s_comune_id', '1');
     loadComunes('#d_comune_id', '1');
