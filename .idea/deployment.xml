@@ -5,8 +5,11 @@
       <paths name="acode">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/fdbp" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="./.idea" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
