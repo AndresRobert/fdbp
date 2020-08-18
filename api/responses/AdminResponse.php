@@ -46,7 +46,7 @@ class Admin extends Response {
                 return [
                     'status' => 'success',
                     'message' => 'Comunas cargadas',
-                    'list' => $list,
+                    'list' => $list['response'],
                 ];
             }
         );

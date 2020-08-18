@@ -13,6 +13,7 @@ const _url = {
 };
 
 let _lists = {};
+let _pairs = {};
 
 function showTabContent(_id = '#search', _class = '.tab-content') {
     _$$(_class).forEach(tab => { tab.style.display = 'none' });
@@ -82,6 +83,17 @@ function openLink(_link, _target) {
     }
 }
 
+function setList(_listName) {
+    _pairs[_listName] = {};
+    $.each(_lists[_listName], function (_id, _data) {
+        _pairs[_listName][_data.id] = _data.name;
+    });
+}
+
+function setDefault(_string = '', _default = 'No definido') {
+    return _string === '' ? _default : _string;
+}
+
 $(() => {
     let _selectedTab = window.location.hash.replace('t_', 'tab_');
     if (_selectedTab === '') {
@@ -128,6 +140,7 @@ function loadSelect(_selectId, _endpoint) {
                 } else {
                     if (response.status !== 'fail') {
                         _lists[_endpoint] = response.list;
+                        setList(_endpoint);
                         setSelectData(_selectId, _lists[_endpoint]);
                     } else {
                         _$.snackbar('No se encontro información: contacte al administrador');
@@ -154,6 +167,7 @@ function setRegions() {
             } else {
                 if (response.status !== 'fail') {
                     _lists['api_regions'] = response.list;
+                    setList('api_regions');
                 } else {
                     _$.snackbar('No se encontro información: contacte al administrador');
                     openLink('/');
@@ -162,6 +176,31 @@ function setRegions() {
         }
     ).catch(e => console.log(e, 'api_regions'));
 }
+setRegions();
+
+function setComunes() {
+    _$.ajax('/api/comunesListed', {id: 'hbwef73238edbak'}, {headers: getBearerHeaders()}).then(
+        ({status, response}) => {
+            if (status === 'error') {
+                _$.snackbar('Error de servidor: contacte al administrador');
+                openLink('/');
+            }
+            if (status === 'fail') {
+                _$.snackbar('Session expirada');
+                openLink('/');
+            } else {
+                if (response.status !== 'fail') {
+                    _lists['api_comunes_list'] = response.list;
+                    setList('api_comunes_list');
+                } else {
+                    _$.snackbar('No se encontro información: contacte al administrador');
+                    openLink('/');
+                }
+            }
+        }
+    ).catch(e => console.log(e, 'api_regions'));
+}
+setComunes();
 
 function loadComunes(_selectId, _regionId) {
     if (_$.size(_lists['api_comunes']) === 0) {

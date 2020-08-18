@@ -15,6 +15,7 @@ Route::Create('POST', '/users', 'users/getByFilter');
 
 Route::Create('POST', '/cementeries', 'admin/getCementeries');
 Route::Create('POST', '/comunes', 'admin/getComunesByRegion');
+Route::Create('POST', '/comunesListed', 'admin/getComunes');
 Route::Create('POST', '/regions', 'admin/getRegions');
 Route::Create('POST', '/insurances', 'admin/getInsurances');
 Route::Create('POST', '/services', 'admin/getServices');

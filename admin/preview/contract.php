@@ -8,30 +8,45 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 <head>
     <head><?php include '../layout/head.php' ?></head>
     <script>
-        let data = JSON.parse(_$.cookie.get('fdbp_contract_data'));
-        const urlParams = new URLSearchParams(location.search);
-        if (urlParams.get('contract') !== null) {
-            _$('#body').removeClass('preview');
-            _$.ajax('/api/contracts/get', { id: urlParams.get('contract') }, { headers: getBearerHeaders()}).then(
-                ({ status, response }) => {
-                    if (status === 'error') {
-                        _$('#body').addClass('preview');
-                        _$.snackbar('Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo', 'Cerrar');
-                    }
-                    if (status === 'fail') {
-                        _$.snackbar('Session expirada, cierre esta vista y vuelva a intentarlo', 'Cerrar');
-                    } else {
-                        if (response.status !== 'fail' && response.contract !== []) {
-                            data = response.contract;
-                        } else {
+
+        function setPrintable(_data) {
+            console.log(_data);
+            $('#s_name').html(setDefault(_data.s_name, 'Sin nombre'));
+            $('#s_lastname').html(setDefault(_data.s_lastname, 'Sin apellido'));
+            $('#s_address').html(setDefault(_data.s_address, 'Sin dirección'));
+            $('#s_mobile').html(setDefault(_data.s_mobile, '9 0000 0000'));
+            $('#s_email').html(setDefault(_data.s_email, 'sin_mail@mail.cl'));
+            $('#s_id').html(setDefault(_data.s_id, '00000000-K'));
+            $('#s_comune_name').html(setDefault(_pairs['api_comunes_list'][_data.s_comune_id], 'Sin Comuna'));
+            $('#s_region_name').html(setDefault(_pairs['api_regions'][_data.s_region_id], 'Sin Region'));
+        }
+
+        $(() => {
+            let data = JSON.parse(_$.cookie.get('fdbp_contract_data'));
+            const urlParams = new URLSearchParams(location.search);
+            if (urlParams.get('contract') !== null) {
+                _$('#body').removeClass('preview');
+                _$.ajax('/api/contracts/get', { id: urlParams.get('contract') }, { headers: getBearerHeaders()}).then(
+                    ({ status, response }) => {
+                        if (status === 'error') {
+                            _$('#body').addClass('preview');
                             _$.snackbar('Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo', 'Cerrar');
                         }
+                        if (status === 'fail') {
+                            _$.snackbar('Session expirada, cierre esta vista y vuelva a intentarlo', 'Cerrar');
+                        } else {
+                            if (response.status !== 'fail' && response.contract !== []) {
+                                data = response.contract;
+                            } else {
+                                _$.snackbar('Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo', 'Cerrar');
+                            }
+                        }
                     }
-                }
-            ).catch(e => console.log(e));
-        }
-        // Load data
-        console.log(data);
+                ).catch(e => console.log(e));
+            }
+            setPrintable(data);
+        });
+
     </script>
 </head>
 <body id="body" class="preview">
