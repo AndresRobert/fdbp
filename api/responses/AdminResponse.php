@@ -50,6 +50,31 @@ class Admin extends Response {
         );
     }
 
+    public function getComunesByRegion() {
+        return self::RequiresAuthorization(
+            static function () {
+                $table = 'comunesByRegion';
+                $list = Session::Exists($table)
+                    ? Session::Read($table)
+                    : (new Comune())->byRegion();
+                $byRegion = [];
+                foreach ($list as $item) {
+                    $byRegion[$item['region_id']][] = [
+                        'id' => $item['id'],
+                        'name' => $item['name']
+                    ];
+                }
+                Session::Create($table, $byRegion);
+
+                return [
+                    'status' => 'success',
+                    'message' => 'Comunas cargadas',
+                    'list' => $byRegion,
+                ];
+            }
+        );
+    }
+
     public function getRegions() {
         return self::RequiresAuthorization(
             static function () {

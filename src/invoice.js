@@ -9,13 +9,13 @@ const _cookieURL = {
     'fdbp_regions': '/api/regions'
 };
 
-function showTabContent (_id = '#search', _class = '.tab-content') {
+function showTabContent(_id = '#search', _class = '.tab-content') {
     _$$(_class).forEach(tab => { tab.style.display = 'none' });
     _$(_id).style.display = 'inherit';
     window.location.hash = '#t_' +  _id.substring(1, _id.length);
 }
 
-function login () {
+function login() {
     _$.ajax(
         '/api/login',
         { email: _$('#email').val(), password: _$('#password').val() }
@@ -38,14 +38,14 @@ function logout() {
     ).then( () => { window.location.href = '/' })
 }
 
-function getBearerHeaders () {
+function getBearerHeaders() {
     return {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + _$.cookie.get('fdbp_key')
     };
 }
 
-function checkAuthStatus () {
+function checkAuthStatus() {
     const key = _$.cookie.get('fdbp_key') || null;
     _$.ajax('/api/check', { key: key }).then(
         ({ status, response }) => {
@@ -58,7 +58,7 @@ function checkAuthStatus () {
         });
 }
 
-function toggleDarkMode () {
+function toggleDarkMode() {
     _$.darkmode();
     let actual = _$.cookie.get('darkmode');
     if (actual === 'darkmode') {
@@ -109,10 +109,9 @@ $(() => {
         .on('change', function () { $(this).removeClass('error') });
 });
 
-function getSelectData (_cookieName) {
+function getSelectData(_cookieName) {
     _$.ajax(_cookieURL[_cookieName], {id: 'hbwef73238edbak'}, { headers: getBearerHeaders()}).then(
         ({ status, response }) => {
-            console.log(response);
             if (status === 'error') {
                 _$.snackbar('Error de servidor: contacte al administrador en support@acode.cl', 'Cerrar');
             }
@@ -123,22 +122,52 @@ function getSelectData (_cookieName) {
                 if (response.status !== 'fail') {
                     _$.cookie.set(_cookieName, JSON.stringify(response.list));
                 } else {
-                    _$.snackbar('No se encontraron regiones: contacte al administrador en support@acode.cl', 'Cerrar');
+                    _$.snackbar('No se encontro información: contacte al administrador en support@acode.cl', 'Cerrar');
                 }
             }
         }
     ).catch(e => console.log(e));
 }
 
-function loadSelect (_selectId, _cookieName) {
+let _comunes = {};
+
+function loadComunes(_selectId, _regionId) {
+    if (!_$.isset(_comunes[1])) {
+        _$.ajax('/api/comunes', {id: 'hbwef73238edbak'}, { headers: getBearerHeaders()}).then(
+            ({ status, response }) => {
+                if (status === 'error') {
+                    _$.snackbar('Error de servidor: contacte al administrador en support@acode.cl', 'Cerrar');
+                }
+                if (status === 'fail') {
+                    _$.snackbar('Session expirada');
+                    openLink('/');
+                } else {
+                    if (response.status !== 'fail') {
+                        _comunes = response.list;
+                        loadSelect(_selectId, _comunes[_regionId]);
+                    } else {
+                        _$.snackbar('No se encontraron comunas: contacte al administrador en support@acode.cl', 'Cerrar');
+                    }
+                }
+            }
+        ).catch(e => console.log(e));
+    } else {
+        loadSelect(_selectId, _comunes[_regionId]);
+    }
+}
+
+function getData(_cookieName) {
     if (_$.cookie.get(_cookieName) === null) {
         getSelectData(_cookieName);
     }
-    const regions = JSON.parse(_$.cookie.get(_cookieName));
+    return JSON.parse(_$.cookie.get(_cookieName));
+}
+
+function loadSelect(_selectId, _data) {
     let _select = $(_selectId);
     _select.empty();
     _select.prop('selectedIndex', 0);
-    $.each(regions, function (key, entry) {
+    $.each(_data, function (key, entry) {
         _select.append($('<option></option>').attr('value', entry.id).text(entry.name));
     });
 }

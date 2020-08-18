@@ -470,7 +470,6 @@ _$.init = component => {
                                 }
                             });
                             if (scrolledToBottom) {
-                                console.log("scrolledToBottom");
                                 if (!item[last].hasClass('active')) {
                                     item.forEach(e => { e.removeClass('active') });
                                     item[last].addClass('active')

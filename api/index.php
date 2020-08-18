@@ -14,7 +14,7 @@ Route::Create('POST', '/check', 'users/checkToken');
 Route::Create('POST', '/users', 'users/getByFilter');
 
 Route::Create('POST', '/cementeries', 'admin/getCementeries');
-Route::Create('POST', '/comunes', 'admin/getComunes');
+Route::Create('POST', '/comunes', 'admin/getComunesByRegion');
 Route::Create('POST', '/regions', 'admin/getRegions');
 Route::Create('POST', '/educations', 'admin/getEducationLevels');
 Route::Create('POST', '/insurances', 'admin/getInsurances');

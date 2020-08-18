@@ -19,4 +19,10 @@ class Comune extends Model {
         return $statement['status'] === 'success' ? $statement['response'] : [];
     }
 
+    public function byRegion() {
+        $query = 'SELECT region_id, id, name FROM comunes WHERE active = 1 ORDER BY region_id, name';
+        $statement = MySQL::ComplexSelect($query);
+        return $statement['status'] === 'success' ? $statement['response'] : [];
+    }
+
 }

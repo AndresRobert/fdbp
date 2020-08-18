@@ -393,8 +393,17 @@
         }
     }
 
-    loadSelect('#s_region_id', 'fdbp_regions');
-    loadSelect('#d_region_id', 'fdbp_regions');
-    loadSelect('#c_region_id', 'fdbp_regions');
+    loadSelect('#s_region_id', getData('fdbp_regions'));
+    loadSelect('#d_region_id', getData('fdbp_regions'));
+    loadSelect('#c_region_id', getData('fdbp_regions'));
+
+    loadComunes('#s_comune_id', '1');
+    loadComunes('#d_comune_id', '1');
+    loadComunes('#c_comune_id', '1');
+
+    $('#s_region_id').on('change', function() { loadComunes('#s_comune_id', this.value) });
+    $('#d_region_id').on('change', function() { loadComunes('#d_comune_id', this.value) });
+    $('#c_region_id').on('change', function() { loadComunes('#c_comune_id', this.value) });
+
 
 </script>
