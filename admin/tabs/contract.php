@@ -91,28 +91,16 @@
             <input id="d_place" type="text">
         </div>
         <div class="col-4">
-            <label for="d_marital_status_id">Estado Civil</label>
-            <select id="d_marital_status_id">
-                <option value="1">Estado 1</option>
-                <option value="2">Estado 2</option>
-                <option value="3">Estado 3</option>
-            </select>
+            <label for="d_marital_status">Estado Civil</label>
+            <input id="d_marital_status" type="text">
         </div>
         <div class="col-4">
-            <label for="d_occupation_id">Ocupación</label>
-            <select id="d_occupation_id">
-                <option value="1">Ocupacion 1</option>
-                <option value="2">Ocupacion 2</option>
-                <option value="3">Ocupacion 3</option>
-            </select>
+            <label for="d_occupation">Ocupación</label>
+            <input id="d_occupation" type="text">
         </div>
         <div class="col-4">
-            <label for="d_education_id">Estudios</label>
-            <select id="d_education_id">
-                <option value="1">Estudio 1</option>
-                <option value="2">Estudio 2</option>
-                <option value="3">Estudio 3</option>
-            </select>
+            <label for="d_education">Estudios</label>
+            <input id="d_education" type="text">
         </div>
     </div>
     <hr>
@@ -171,16 +159,16 @@
     <h5>Servicio</h5>
     <div class="row">
         <div class="col-4">
-            <label for="v_type">Tipo</label>
-            <input id="v_type" type="text" required>
+            <label for="v_services_id">Tipo</label>
+            <select id="v_services_id">
+                <option value="1">Nombre 1</option>
+                <option value="1">Nombre 2</option>
+                <option value="1">Nombre 3</option>
+            </select>
         </div>
         <div class="col-4">
-            <label for="v_provider_id">Proveedor</label>
-            <select id="v_provider_id">
-                <option value="1">Proveedor 1</option>
-                <option value="2">Proveedor 2</option>
-                <option value="3">Proveedor 3</option>
-            </select>
+            <label for="v_provider">Proveedor</label>
+            <input id="v_provider" type="text">
         </div>
         <div class="col-4">
             <label for="v_color">Color</label>
@@ -279,9 +267,9 @@
             d_region_id: $('#d_region_id').val(),
             d_comune_id: $('#d_comune_id').val(),
             d_place: $('#d_place').val(),
-            d_marital_status_id: $('#d_marital_status_id').val(),
-            d_occupation_id: $('#d_occupation_id').val(),
-            d_education_id: $('#d_education_id').val(),
+            d_marital_status: $('#d_marital_status').val(),
+            d_occupation: $('#d_occupation').val(),
+            d_education: $('#d_education').val(),
             c_church: $('#c_church').val(),
             c_address: $('#c_address').val(),
             c_region_id: $('#c_region_id').val(),
@@ -290,8 +278,8 @@
             f_press: $('#f_press').val(),
             f_date: $('#f_date').val(),
             f_time: $('#f_time').val(),
-            v_type: $('#v_type').val(),
-            v_provider_id: $('#v_provider_id').val(),
+            v_service_id: $('#v_service_id').val(),
+            v_provider: $('#v_provider').val(),
             v_color: $('#v_color').val(),
             v_include: $('#v_include').val(),
             v_warning: $('#v_warning').val(),
@@ -365,7 +353,7 @@
     }
 
     function saveContract() {
-        let _contract = getContract();
+        let _contract = getContractData();
         if (validateContract(_contract)) {
             _$.ajax('/api/contracts/save', _contract, { headers: getBearerHeaders()}).then(
                 ({ status, response }) => {
@@ -393,6 +381,7 @@
     loadSelect('#c_region_id', 'api_regions');
     loadSelect('#v_insurance_id', 'api_insurances');
     loadSelect('#f_cementery_id', 'api_cementeries');
+    loadSelect('#v_services_id', 'api_services');
 
     loadComunes('#s_comune_id', '1');
     loadComunes('#d_comune_id', '1');

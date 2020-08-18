@@ -14,5 +14,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
 <script src="../src/vendor/acode.js"></script>
-<script src="../src/invoice.js?v=1.0.10"></script>
+<script src="../src/invoice.js?v=1.0.11"></script>
 <script> checkAuthStatus() </script>

@@ -8,7 +8,8 @@ const _subtabs = [
 const _url = {
     'api_regions': '/api/regions',
     'api_insurances': '/api/insurances',
-    'api_cementeries': '/api/cementeries'
+    'api_cementeries': '/api/cementeries',
+    'api_services': '/api/services'
 };
 
 let _lists = {};

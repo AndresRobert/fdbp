@@ -14,7 +14,8 @@ use Kits\Session;
 
 class Admin extends Response {
 
-    public function getCementeries() {
+    public function getCementeries(): array
+    {
         return self::RequiresAuthorization(
             static function () {
                 $table = 'cementeries';
@@ -32,7 +33,8 @@ class Admin extends Response {
         );
     }
 
-    public function getComunes() {
+    public function getComunes(): array
+    {
         return self::RequiresAuthorization(
             static function () {
                 $table = 'comunes';
@@ -50,7 +52,8 @@ class Admin extends Response {
         );
     }
 
-    public function getComunesByRegion() {
+    public function getComunesByRegion(): array
+    {
         return self::RequiresAuthorization(
             static function () {
                 $table = 'comunesByRegion';
@@ -77,7 +80,8 @@ class Admin extends Response {
         );
     }
 
-    public function getRegions() {
+    public function getRegions(): array
+    {
         return self::RequiresAuthorization(
             static function () {
                 $table = 'regions';
@@ -95,29 +99,12 @@ class Admin extends Response {
         );
     }
 
-    public function getEducationLevels() {
-        return self::RequiresAuthorization(
-            static function () {
-                $table = 'educations';
-                $list = Session::Exists($table)
-                    ? Session::Read($table)
-                    : (new Education())->filter(['id', 'name'], ['active' => 1]);
-                Session::Create($table, $list);
-
-                return [
-                    'status' => 'success',
-                    'message' => 'Niveles Educacionales cargados',
-                    'list' => $list['response'],
-                ];
-            }
-        );
-    }
-
-    public function getInsurances() {
+    public function getInsurances(): array
+    {
         return self::RequiresAuthorization(
             static function () {
                 $table = 'insurances';
-                $list = false && Session::Exists($table)
+                $list = Session::Exists($table)
                     ? Session::Read($table)
                     : (new Insurance())->filter(['id', 'name'], ['active' => 1]);
                 Session::Create($table, $list);
@@ -131,61 +118,8 @@ class Admin extends Response {
         );
     }
 
-    public function getMaritalStatuses() {
-        return self::RequiresAuthorization(
-            static function () {
-                $table = 'marital_statuses';
-                $list = Session::Exists($table)
-                    ? Session::Read($table)
-                    : (new MaritalStatus())->filter(['id', 'name'], ['active' => 1]);
-                Session::Create($table, $list);
-
-                return [
-                    'status' => 'success',
-                    'message' => 'Estados Civiles cargados',
-                    'list' => $list['response'],
-                ];
-            }
-        );
-    }
-
-    public function getOccupations() {
-        return self::RequiresAuthorization(
-            static function () {
-                $table = 'occupations';
-                $list = Session::Exists($table)
-                    ? Session::Read($table)
-                    : (new Occupation())->filter(['id', 'name'], ['active' => 1]);
-                Session::Create($table, $list);
-
-                return [
-                    'status' => 'success',
-                    'message' => 'Ocupaciones cargadas',
-                    'list' => $list['response'],
-                ];
-            }
-        );
-    }
-
-    public function getProveedores() {
-        return self::RequiresAuthorization(
-            static function () {
-                $table = 'providers';
-                $list = Session::Exists($table)
-                    ? Session::Read($table)
-                    : (new Provider())->filter(['id', 'name'], ['active' => 1]);
-                Session::Create($table, $list);
-
-                return [
-                    'status' => 'success',
-                    'message' => 'Proveedores cargados',
-                    'list' => $list['response'],
-                ];
-            }
-        );
-    }
-
-    public function getServices() {
+    public function getServices(): array
+    {
         return self::RequiresAuthorization(
             static function () {
                 $table = 'services';
