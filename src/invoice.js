@@ -6,7 +6,8 @@ const _subtabs = [
 ];
 
 const _cookieURL = {
-    'fdbp_regions': '/api/regions'
+    'fdbp_regions': '/api/regions',
+    'fdbp_insurances': '/api/insurances'
 };
 
 function showTabContent(_id = '#search', _class = '.tab-content') {
@@ -113,7 +114,7 @@ function getSelectData(_cookieName) {
     _$.ajax(_cookieURL[_cookieName], {id: 'hbwef73238edbak'}, { headers: getBearerHeaders()}).then(
         ({ status, response }) => {
             if (status === 'error') {
-                _$.snackbar('Error de servidor: contacte al administrador en support@acode.cl', 'Cerrar');
+                _$.snackbar('Error de servidor: contacte al administrador', 'Cerrar');
             }
             if (status === 'fail') {
                 _$.snackbar('Session expirada');
@@ -122,7 +123,8 @@ function getSelectData(_cookieName) {
                 if (response.status !== 'fail') {
                     _$.cookie.set(_cookieName, JSON.stringify(response.list));
                 } else {
-                    _$.snackbar('No se encontro información: contacte al administrador en support@acode.cl', 'Cerrar');
+                    _$.snackbar('No se encontro información: contacte al administrador');
+                    openLink('/');
                 }
             }
         }
@@ -144,7 +146,6 @@ function loadComunes(_selectId, _regionId) {
                 } else {
                     if (response.status !== 'fail') {
                         _comunes = response.list;
-                        console.log(_comunes);
                         loadSelect(_selectId, _comunes[_regionId]);
                     } else {
                         _$.snackbar('No se encontraron comunas: contacte al administrador en support@acode.cl', 'Cerrar');
@@ -171,4 +172,17 @@ function loadSelect(_selectId, _data) {
     $.each(_data, function (key, entry) {
         _select.append($('<option></option>').attr('value', entry.id).text(entry.name));
     });
+}
+
+function clearAllFields(_id) {
+    let _container = $(_id);
+    _container.find('input, textarea, select').each( function () { this.val('') });
+}
+
+function calcTotal() {
+    const v_cost = $('#v_cost').val(),
+        v_discount = $('#v_discount').val(),
+        v_coverage = $('#v_coverage').val();
+    $('#v_total').val(v_cost - v_discount);
+    $('#v_payment').val(v_cost - v_discount - v_coverage);
 }

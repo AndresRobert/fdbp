@@ -26,7 +26,7 @@ class Admin extends Response {
                 return [
                     'status' => 'success',
                     'message' => 'Cementerios cargados',
-                    'list' => $list,
+                    'list' => $list['response'],
                 ];
             }
         );
@@ -107,7 +107,7 @@ class Admin extends Response {
                 return [
                     'status' => 'success',
                     'message' => 'Niveles Educacionales cargados',
-                    'list' => $list,
+                    'list' => $list['response'],
                 ];
             }
         );
@@ -117,7 +117,7 @@ class Admin extends Response {
         return self::RequiresAuthorization(
             static function () {
                 $table = 'insurances';
-                $list = Session::Exists($table)
+                $list = false && Session::Exists($table)
                     ? Session::Read($table)
                     : (new Insurance())->filter(['id', 'name'], ['active' => 1]);
                 Session::Create($table, $list);
@@ -125,7 +125,7 @@ class Admin extends Response {
                 return [
                     'status' => 'success',
                     'message' => 'Aseguradoras cargadas',
-                    'list' => $list,
+                    'list' => $list['response'],
                 ];
             }
         );
@@ -143,7 +143,7 @@ class Admin extends Response {
                 return [
                     'status' => 'success',
                     'message' => 'Estados Civiles cargados',
-                    'list' => $list,
+                    'list' => $list['response'],
                 ];
             }
         );
@@ -161,7 +161,7 @@ class Admin extends Response {
                 return [
                     'status' => 'success',
                     'message' => 'Ocupaciones cargadas',
-                    'list' => $list,
+                    'list' => $list['response'],
                 ];
             }
         );
@@ -179,7 +179,7 @@ class Admin extends Response {
                 return [
                     'status' => 'success',
                     'message' => 'Proveedores cargados',
-                    'list' => $list,
+                    'list' => $list['response'],
                 ];
             }
         );
@@ -197,7 +197,7 @@ class Admin extends Response {
                 return [
                     'status' => 'success',
                     'message' => 'Tipos de Servicio cargados',
-                    'list' => $list,
+                    'list' => $list['response'],
                 ];
             }
         );

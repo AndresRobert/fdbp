@@ -311,11 +311,6 @@
         };
     }
 
-    function clearAllFields(_id) {
-        let _container = $(_id);
-        _container.find('input, textarea, select').each( function () { this.val('') });
-    }
-
     function validateContract(_contract) {
         if (_contract.s_name === '' || _contract.s_last_name === '' || _contract.s_id === '') {
             _$.snackbar('Debe ingresar el nombre, apellido y RUT del solicitante');
@@ -393,17 +388,10 @@
         }
     }
 
-    function calcTotal() {
-        const v_cost = $('#v_cost').val(),
-            v_discount = $('#v_discount').val(),
-            v_coverage = $('#v_coverage').val();
-        $('#v_total').val(v_cost - v_discount);
-        $('#v_payment').val(v_cost - v_discount - v_coverage);
-    }
-
     loadSelect('#s_region_id', getData('fdbp_regions'));
     loadSelect('#d_region_id', getData('fdbp_regions'));
     loadSelect('#c_region_id', getData('fdbp_regions'));
+    loadSelect('#v_insurance_id', getData('fdbp_insurances'));
 
     loadComunes('#s_comune_id', '1');
     loadComunes('#d_comune_id', '1');
