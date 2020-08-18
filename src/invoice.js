@@ -104,3 +104,37 @@ $(() => {
     $('input, textarea, select')
         .on('change', function () { $(this).removeClass('error') });
 });
+
+function getRegions () {
+    _$.ajax('/api/regions', {id: 'hbwef73238edbak'}, { headers: getBearerHeaders()}).then(
+        ({ status, response }) => {
+            console.log(response);
+            if (status === 'error') {
+                _$.snackbar('Error de servidor: contacte al administrador en support@acode.cl', 'Cerrar');
+            }
+            if (status === 'fail') {
+                _$.snackbar('Session expirada');
+                openLink('/');
+            } else {
+                if (response.status !== 'fail') {
+                    _$.cookie.set('fdbp_regions', JSON.stringify(response.list));
+                } else {
+                    _$.snackbar('No se encontraron regiones: contacte al administrador en support@acode.cl', 'Cerrar');
+                }
+            }
+        }
+    ).catch(e => console.log(e));
+}
+
+function loadRegions (_selectId) {
+    if (_$.cookie.get('fdbp_regions') === null) {
+        getRegions();
+    }
+    const regions = JSON.parse(_$.cookie.get('fdbp_regions'));
+    let _select = $(_selectId);
+    _select.empty();
+    _select.prop('selectedIndex', 0);
+    $.each(regions, function (key, entry) {
+        _select.append($('<option></option>').attr('value', entry.region_id).text(entry.region_name));
+    });
+}

@@ -27,16 +27,16 @@
             <input id="s_address" type="text" required>
         </div>
         <div class="col-3">
-            <label for="s_state_id">Región</label>
-            <select id="s_state_id">
+            <label for="s_region_id">Región</label>
+            <select id="s_region_id">
                 <option value="1">Region 1</option>
                 <option value="2">Region 2</option>
                 <option value="3">Region 3</option>
             </select>
         </div>
         <div class="col-3">
-            <label for="s_district_id">Comuna</label>
-            <select id="s_district_id">
+            <label for="s_comune_id">Comuna</label>
+            <select id="s_comune_id">
                 <option value="1">Comuna 1</option>
                 <option value="2">Comuna 2</option>
                 <option value="3">Comuna 3</option>
@@ -71,16 +71,16 @@
             <input id="d_address" type="text">
         </div>
         <div class="col-3">
-            <label for="d_state_id">Región</label>
-            <select id="d_state_id">
+            <label for="d_region_id">Región</label>
+            <select id="d_region_id">
                 <option value="1">Region 1</option>
                 <option value="2">Region 2</option>
                 <option value="3">Region 3</option>
             </select>
         </div>
         <div class="col-3">
-            <label for="d_district_id">Comuna</label>
-            <select id="d_district_id">
+            <label for="d_comune_id">Comuna</label>
+            <select id="d_comune_id">
                 <option value="1">Comuna 1</option>
                 <option value="2">Comuna 2</option>
                 <option value="3">Comuna 3</option>
@@ -127,16 +127,16 @@
             <input id="c_address" type="text">
         </div>
         <div class="col-3">
-            <label for="c_state_id">Región</label>
-            <select id="c_state_id">
+            <label for="c_region_id">Región</label>
+            <select id="c_region_id">
                 <option value="1">Region 1</option>
                 <option value="2">Region 2</option>
                 <option value="3">Region 3</option>
             </select>
         </div>
         <div class="col-3">
-            <label for="c_district_id">Comuna</label>
-            <select id="c_district_id">
+            <label for="c_comune_id">Comuna</label>
+            <select id="c_comune_id">
                 <option value="1">Comuna 1</option>
                 <option value="2">Comuna 2</option>
                 <option value="3">Comuna 3</option>
@@ -262,30 +262,30 @@
 </div>
 <script>
 
-    function getContract () {
+    function getContractData () {
         return {
             s_name: $('#s_name').val(),
             s_last_name: $('#s_last_name').val(),
             s_id: $('#s_id').val(),
             s_address: $('#s_address').val(),
-            s_state_id: $('#s_state_id').val(),
-            s_district_id: $('#s_district_id').val(),
+            s_region_id: $('#s_region_id').val(),
+            s_comune_id: $('#s_comune_id').val(),
             s_email: $('#s_email').val(),
             s_mobile: $('#s_mobile').val(),
             s_phone: $('#s_phone').val(),
             d_name: $('#d_name').val(),
             d_id: $('#d_id').val(),
             d_address: $('#d_address').val(),
-            d_state_id: $('#d_state_id').val(),
-            d_district_id: $('#d_district_id').val(),
+            d_region_id: $('#d_region_id').val(),
+            d_comune_id: $('#d_comune_id').val(),
             d_place: $('#d_place').val(),
             d_marital_status_id: $('#d_marital_status_id').val(),
             d_occupation_id: $('#d_occupation_id').val(),
             d_education_id: $('#d_education_id').val(),
             c_church: $('#c_church').val(),
             c_address: $('#c_address').val(),
-            c_state_id: $('#c_state_id').val(),
-            c_district_id: $('#c_district_id').val(),
+            c_region_id: $('#c_region_id').val(),
+            c_comune_id: $('#c_comune_id').val(),
             f_cementery_id: $('#f_cementery_id').val(),
             f_press: $('#f_press').val(),
             f_date: $('#f_date').val(),
@@ -314,37 +314,6 @@
     function clearAllFields(_id) {
         let _container = $(_id);
         _container.find('input, textarea, select').each( function () { this.val('') });
-    }
-
-    function showContractPreview () {
-        let _contract = getContract();
-        console.log(_contract);
-        _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
-        openLink('/admin/preview/contract.php', '_blank');
-    }
-
-    function saveContract () {
-        let _contract = getContract();
-        if (validateContract(_contract)) {
-            _$.ajax('/api/contracts/save', _contract, { headers: getBearerHeaders()}).then(
-                ({ status, response }) => {
-                    if (status === 'error') {
-                        _$.snackbar('Error de servidor: contacte al administrador en support@acode.cl', 'Cerrar');
-                    }
-                    if (status === 'fail') {
-                        _$.snackbar('Session expirada');
-                        openLink('/');
-                    } else {
-                        _$.snackbar(response.message, 'Cerrar');
-                        if (response.status !== 'fail' && response.id !== -1) {
-                            _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
-                            clearAllFields('#contract');
-                            openLink('/admin/preview/contract.php?contract=' + response.id, '_blank');
-                        }
-                    }
-                }
-            ).catch(e => console.log(e));
-        }
     }
 
     function validateContract(_contract) {
@@ -392,4 +361,40 @@
         }
         return true;
     }
+
+    function showContractPreview () {
+        let _contract = getContractData();
+        console.log(_contract);
+        _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
+        openLink('/admin/preview/contract.php', '_blank');
+    }
+
+    function saveContract () {
+        let _contract = getContract();
+        if (validateContract(_contract)) {
+            _$.ajax('/api/contracts/save', _contract, { headers: getBearerHeaders()}).then(
+                ({ status, response }) => {
+                    if (status === 'error') {
+                        _$.snackbar('Error de servidor: contacte al administrador en support@acode.cl', 'Cerrar');
+                    }
+                    if (status === 'fail') {
+                        _$.snackbar('Session expirada');
+                        openLink('/');
+                    } else {
+                        _$.snackbar(response.message, 'Cerrar');
+                        if (response.status !== 'fail' && response.id !== -1) {
+                            _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
+                            clearAllFields('#contract');
+                            openLink('/admin/preview/contract.php?contract=' + response.id, '_blank');
+                        }
+                    }
+                }
+            ).catch(e => console.log(e));
+        }
+    }
+
+    loadRegions('#s_region_id');
+    loadRegions('#d_region_id');
+    loadRegions('#c_region_id');
+
 </script>
