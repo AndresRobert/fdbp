@@ -78,7 +78,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     </div>
     <div class="row padding-top">
         <div class="col-8">
-            <p><b>Solicitado por</b>: <span id="s_name">Julio Humberto </span><span id="s_last_name">Ortíz Puga</span></p>
+            <p><b>Solicitado por</b>: <span id="s_name">Julio Humberto </span> <span id="s_lastname">Ortíz Puga</span></p>
             <p>Dirección: <span id="s_address">Avenida La Escuela Nº 813</span></p>
             <p>Teléfono: <span id="s_mobile">12345678</span></p>
             <p>Email: <span id="s_email">email@email.com</span></p>

@@ -84,10 +84,15 @@ function openLink(_link, _target) {
 }
 
 function setList(_listName) {
-    _pairs[_listName] = {};
-    $.each(_lists[_listName], function (_id, _data) {
-        _pairs[_listName][_data.id] = _data.name;
-    });
+    if (_$.cookie.get(_listName) === null) {
+        _pairs[_listName] = {};
+        $.each(_lists[_listName], function (_id, _data) {
+            _pairs[_listName][_data.id] = _data.name;
+        });
+        _$.cookie.get(_listName, _pairs[_listName]);
+    } else {
+        _pairs[_listName] = JSON.parse(_$.cookie.get(_listName));
+    }
 }
 
 function setDefault(_string = '', _default = 'No definido') {
