@@ -250,6 +250,9 @@
 </div>
 <script>
 
+    setRegions();
+    setComunes();
+
     function getContractData() {
         return {
             s_name: $('#s_name').val(),
@@ -257,7 +260,9 @@
             s_id: $('#s_id').val(),
             s_address: $('#s_address').val(),
             s_region_id: $('#s_region_id').val(),
+            s_region_name: _pairs['api_regions'][$('#s_region_id').val()],
             s_comune_id: $('#s_comune_id').val(),
+            s_comune_name: _pairs['api_comunes_list'][$('#s_comune_id').val()],
             s_email: $('#s_email').val(),
             s_mobile: $('#s_mobile').val(),
             s_phone: $('#s_phone').val(),
@@ -265,7 +270,9 @@
             d_id: $('#d_id').val(),
             d_address: $('#d_address').val(),
             d_region_id: $('#d_region_id').val(),
+            d_region_name: _pairs['api_regions'][$('#d_region_id').val()],
             d_comune_id: $('#d_comune_id').val(),
+            d_comune_name: _pairs['api_comunes_list'][$('#d_comune_id').val()],
             d_place: $('#d_place').val(),
             d_marital_status: $('#d_marital_status').val(),
             d_occupation: $('#d_occupation').val(),
@@ -273,12 +280,16 @@
             c_church: $('#c_church').val(),
             c_address: $('#c_address').val(),
             c_region_id: $('#c_region_id').val(),
+            c_region_name: _pairs['api_regions'][$('#c_region_id').val()],
             c_comune_id: $('#c_comune_id').val(),
+            c_comune_name: _pairs['api_comunes_list'][$('#c_comune_id').val()],
             f_cementery_id: $('#f_cementery_id').val(),
+            f_cementery_name: _pairs['api_cementeries'][$('#f_cementery_id').val()],
             f_press: $('#f_press').val(),
             f_date: $('#f_date').val(),
             f_time: $('#f_time').val(),
             v_service_id: $('#v_service_id').val(),
+            v_service_name: _pairs['api_services'][$('#v_service_id').val()],
             v_provider: $('#v_provider').val(),
             v_color: $('#v_color').val(),
             v_include: $('#v_include').val(),
@@ -288,6 +299,7 @@
             v_discount: $('#v_discount').val(),
             v_total: $('#v_total').val(),
             v_insurance_id: $('#v_insurance_id').val(),
+            v_insurance_name: _pairs['api_insurances'][$('#v_insurance_id').val()],
             v_coverage: $('#v_coverage').val(),
             v_payment: $('#v_payment').val(),
             p_transfer: $('#p_transfer').is(':checked'),

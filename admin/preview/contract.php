@@ -11,14 +11,25 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
         function setPrintable(_data) {
             console.log(_data);
+
             $('#s_name').html(setDefault(_data.s_name, 'Sin nombre'));
             $('#s_lastname').html(setDefault(_data.s_lastname, 'Sin apellido'));
             $('#s_address').html(setDefault(_data.s_address, 'Sin dirección'));
             $('#s_mobile').html(setDefault(_data.s_mobile, '9 0000 0000'));
             $('#s_email').html(setDefault(_data.s_email, 'sin_mail@mail.cl'));
             $('#s_id').html(setDefault(_data.s_id, '00000000-K'));
-            $('#s_comune_name').html(setDefault(_pairs['api_comunes_list'][_data.s_comune_id], 'Sin Comuna'));
-            $('#s_region_name').html(setDefault(_pairs['api_regions'][_data.s_region_id], 'Sin Region'));
+            $('#s_comune_name').html(setDefault(_data.s_comune_name, 'Sin Comuna'));
+            $('#s_region_name').html(setDefault(_data.s_region_name, 'Sin Region'));
+
+            $('#d_name').html(setDefault(_data.d_name, 'Sin nombre'));
+            $('#d_id').html(setDefault(_data.d_id, '00000000-K'));
+            $('#d_marital_status').html(setDefault(_data.d_marital_status, 'No informado'));
+            $('#d_address').html(setDefault(_data.d_address, 'Sin dirección'));
+            $('#d_place').html(setDefault(_data.d_place, 'No informado'));
+            $('#d_occupation').html(setDefault(_data.d_occupation, 'No informado'));
+            $('#d_education').html(setDefault(_data.d_education, 'No informado'));
+            $('#d_comune_name').html(setDefault(_data.d_comune_name, 'Sin Comuna'));
+            $('#d_region_name').html(setDefault(_data.d_region_name, 'Sin Region'));
         }
 
         $(() => {

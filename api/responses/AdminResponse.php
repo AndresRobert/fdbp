@@ -35,68 +35,56 @@ class Admin extends Response {
 
     public function getComunes(): array
     {
-        return self::RequiresAuthorization(
-            static function () {
-                $table = 'comunes';
-                $list = Session::Exists($table)
-                    ? Session::Read($table)
-                    : (new Comune())->filter(['id', 'name'], ['active' => 1]);
-                Session::Create($table, $list);
+        $table = 'comunes';
+        $list = Session::Exists($table)
+            ? Session::Read($table)
+            : (new Comune())->filter(['id', 'name'], ['active' => 1]);
+        Session::Create($table, $list);
 
-                return [
-                    'status' => 'success',
-                    'message' => 'Comunas cargadas',
-                    'list' => $list['response'],
-                ];
-            }
-        );
+        return [
+            'status' => 'success',
+            'message' => 'Comunas cargadas',
+            'list' => $list['response'],
+        ];
     }
 
     public function getComunesByRegion(): array
     {
-        return self::RequiresAuthorization(
-            static function () {
-                $table = 'comunesByRegion';
-                if (Session::Exists($table)) {
-                    $list = Session::Read($table);
-                } else {
-                    $byRegion = (new Comune())->byRegion();
-                    $list = [];
-                    foreach ($byRegion as $item) {
-                        $list[$item['region_id']][] = [
-                            'id' => $item['id'],
-                            'name' => $item['name']
-                        ];
-                    }
-                    Session::Create($table, $list);
-                }
-
-                return [
-                    'status' => 'success',
-                    'message' => 'Comunas cargadas',
-                    'list' => $list,
+        $table = 'comunesByRegion';
+        if (Session::Exists($table)) {
+            $list = Session::Read($table);
+        } else {
+            $byRegion = (new Comune())->byRegion();
+            $list = [];
+            foreach ($byRegion as $item) {
+                $list[$item['region_id']][] = [
+                    'id' => $item['id'],
+                    'name' => $item['name']
                 ];
             }
-        );
+            Session::Create($table, $list);
+        }
+
+        return [
+            'status' => 'success',
+            'message' => 'Comunas cargadas',
+            'list' => $list,
+        ];
     }
 
     public function getRegions(): array
     {
-        return self::RequiresAuthorization(
-            static function () {
-                $table = 'regions';
-                $list = Session::Exists($table)
-                    ? Session::Read($table)
-                    : (new Comune())->regions();
-                Session::Create($table, $list);
+        $table = 'regions';
+        $list = Session::Exists($table)
+            ? Session::Read($table)
+            : (new Comune())->regions();
+        Session::Create($table, $list);
 
-                return [
-                    'status' => 'success',
-                    'message' => 'Regiones cargadas',
-                    'list' => $list,
-                ];
-            }
-        );
+        return [
+            'status' => 'success',
+            'message' => 'Regiones cargadas',
+            'list' => $list,
+        ];
     }
 
     public function getInsurances(): array

@@ -12,7 +12,7 @@ const _url = {
     'api_services': '/api/services'
 };
 
-let _lists = {};
+const _lists = {};
 let _pairs = {};
 
 function showTabContent(_id = '#search', _class = '.tab-content') {
@@ -89,7 +89,7 @@ function setList(_listName) {
         $.each(_lists[_listName], function (_id, _data) {
             _pairs[_listName][_data.id] = _data.name;
         });
-        _$.cookie.get(_listName, _pairs[_listName]);
+        _$.cookie.set(_listName, JSON.stringify(_pairs[_listName]));
     } else {
         _pairs[_listName] = JSON.parse(_$.cookie.get(_listName));
     }
@@ -136,8 +136,7 @@ function loadSelect(_selectId, _endpoint) {
         _$.ajax(_url[_endpoint], {id: 'hbwef73238edbak'}, {headers: getBearerHeaders()}).then(
             ({status, response}) => {
                 if (status === 'error') {
-                    _$.snackbar('Error de servidor: contacte al administrador');
-                    openLink('/');
+                    _$.snackbar('Error de servidor: contacte al administrador', 'Cerrar');
                 }
                 if (status === 'fail') {
                     _$.snackbar('Session expirada');
@@ -149,7 +148,6 @@ function loadSelect(_selectId, _endpoint) {
                         setSelectData(_selectId, _lists[_endpoint]);
                     } else {
                         _$.snackbar('No se encontro información: contacte al administrador');
-                        openLink('/');
                     }
                 }
             }
@@ -163,8 +161,7 @@ function setRegions() {
     _$.ajax('/api/regions', {id: 'hbwef73238edbak'}, {headers: getBearerHeaders()}).then(
         ({status, response}) => {
             if (status === 'error') {
-                _$.snackbar('Error de servidor: contacte al administrador');
-                openLink('/');
+                _$.snackbar('Error de servidor: contacte al administrador', 'Cerrar');
             }
             if (status === 'fail') {
                 _$.snackbar('Session expirada');
@@ -175,20 +172,17 @@ function setRegions() {
                     setList('api_regions');
                 } else {
                     _$.snackbar('No se encontro información: contacte al administrador');
-                    openLink('/');
                 }
             }
         }
     ).catch(e => console.log(e, 'api_regions'));
 }
-setRegions();
 
 function setComunes() {
     _$.ajax('/api/comunesListed', {id: 'hbwef73238edbak'}, {headers: getBearerHeaders()}).then(
         ({status, response}) => {
             if (status === 'error') {
-                _$.snackbar('Error de servidor: contacte al administrador');
-                openLink('/');
+                _$.snackbar('Error de servidor: contacte al administrador', 'Cerrar');
             }
             if (status === 'fail') {
                 _$.snackbar('Session expirada');
@@ -199,20 +193,18 @@ function setComunes() {
                     setList('api_comunes_list');
                 } else {
                     _$.snackbar('No se encontro información: contacte al administrador');
-                    openLink('/');
                 }
             }
         }
-    ).catch(e => console.log(e, 'api_regions'));
+    ).catch(e => console.log(e, 'api_comunes_list'));
 }
-setComunes();
 
 function loadComunes(_selectId, _regionId) {
     if (_$.size(_lists['api_comunes']) === 0) {
         _$.ajax('/api/comunes', {id: 'hbwef73238edbak'}, { headers: getBearerHeaders()}).then(
             ({ status, response }) => {
                 if (status === 'error') {
-                    _$.snackbar('Error de servidor: contacte al administrador en support@acode.cl', 'Cerrar');
+                    _$.snackbar('Error de servidor: contacte al administrador', 'Cerrar');
                 }
                 if (status === 'fail') {
                     _$.snackbar('Session expirada');
@@ -223,7 +215,6 @@ function loadComunes(_selectId, _regionId) {
                         setSelectData(_selectId, _lists['api_comunes'][_regionId]);
                     } else {
                         _$.snackbar('No se encontraron comunas: contacte al administrador');
-                        openLink('/');
                     }
                 }
             }
