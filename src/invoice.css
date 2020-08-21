@@ -52,6 +52,10 @@ label {
     background: url("../src/img/preview.svg") center center / 60px auto;
 }
 
+p span {
+    all:inherit;
+    display:initial
+}
 
 .sign > p {
     font-weight: bold;

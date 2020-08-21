@@ -64,16 +64,16 @@ class Contracts extends Response {
                     $contractId = $Contract->get('id');
                 }
 
-                $response = [
+                return [
                     'status' => $status,
                     'message' => $message,
                     'id' => $contractId,
                     'errors' => $errorIds,
                 ];
-
-                return $response;
             }
         );
     }
+
+
 
 }

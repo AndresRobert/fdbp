@@ -35,58 +35,58 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     </div>
     <div class="row padding-top">
         <div class="col-8">
-            <p><b>Solicitado por</b>: <span id="s_name">Julio Humberto </span> <span id="s_lastname">Ortíz Puga</span></p>
-            <p>Dirección: <span id="s_address">Avenida La Escuela Nº 813</span></p>
-            <p>Teléfono: <span id="s_mobile">12345678</span></p>
-            <p>Email: <span id="s_email">email@email.com</span></p>
+            <p><b>Solicitado por</b>: <span id="s_name">No informado</span> <span id="s_last_name">No informado</span></p>
+            <p>Dirección: <span id="s_address">No informado</span></p>
+            <p>Teléfono: <span id="s_mobile">No informado</span></p>
+            <p>Email: <span id="s_email">No informado</span></p>
         </div>
         <div class="col-4">
-            <p>R.U.T. <span id="s_id">12345678-9</span></p>
-            <p>Comuna: <span id="s_comune_name">Las Condes</span></p>
-            <p>Región: <span id="s_region_name">Metropolitana</span></p>
+            <p>R.U.T. <span id="s_id">No informado</span></p>
+            <p>Comuna: <span id="s_comune_name">No informado</span></p>
+            <p>Región: <span id="s_region_name">No informado</span></p>
         </div>
     </div>
     <div class="row padding-top">
         <div class="col-8">
-            <p><b>Nombre del Fallecido</b>: <span id="d_name">Julia Viola Puga Michaud</span></p>
-            <p>R.U.T. <span id="d_id">12345678-9</span></p>
-            <p>Estado Civil: <span id="d_marital_status">Viuda</span></p>
-            <p>Dirección: <span id="d_address">Colombia Nº 9072</span></p>
-            <p>Lugar de Fallecimiento: <span id="d_place">Hogar Acalis</span></p>
+            <p><b>Nombre del Fallecido</b>: <span id="d_name">No informado</span></p>
+            <p>R.U.T. <span id="d_id">No informado</span></p>
+            <p>Estado Civil: <span id="d_marital_status">No informado</span></p>
+            <p>Dirección: <span id="d_address">No informado</span></p>
+            <p>Lugar de Fallecimiento: <span id="d_place">No informado</span></p>
         </div>
         <div class="col-4">
             <p>Q.E.P.D.</p>
-            <p>Ocupación: <span id="d_occupation">Pensionada</span></p>
-            <p>Estudios: <span id="d_education">Básicos</span></p>
-            <p>Comuna: <span id="d_comune_name">La Florida</span></p>
-            <p>Región: <span id="d_region_name">Metropolitana</span></p>
+            <p>Ocupación: <span id="d_occupation">No informado</span></p>
+            <p>Estudios: <span id="d_education">No informado</span></p>
+            <p>Comuna: <span id="d_comune_name">No informado</span></p>
+            <p>Región: <span id="d_region_name">No informado</span></p>
         </div>
     </div>
     <div class="row padding-top">
         <div class="col-8">
-            <p><b>Lugar del Velatorio</b>: <span id="c_church">Parroquia Santa Clara</span></p>
-            <p>Dirección: <span id="c_address">Santa Elisa Nº 050</span></p>
+            <p><b>Lugar del Velatorio</b>: <span id="c_church">No informado</span></p>
+            <p>Dirección: <span id="c_address">No informado</span></p>
         </div>
         <div class="col-4">
             <p>&nbsp;</p>
-            <p>Comuna: <span id="c_comune_name">La Cisterna</span></p>
-            <p>Región: <span id="c_region_name">Metropolitana</span></p>
+            <p>Comuna: <span id="c_comune_name">No informado</span></p>
+            <p>Región: <span id="c_region_name">No informado</span></p>
         </div>
     </div>
     <div class="row padding-top">
         <div class="col-12">
-            <p><b>Tipo Servicio</b>: <span id="v_service_name">Mackelita Eco. Lisa Brillo</span></p>
-            <p>El servicio Incluye: <span id="v_include">Int. capilla ardiente, t. registro civil, libro de condolencias, tarjetas de agradecimiento.</span> <span id="v_warning"></span> <span id="v_observation">Valor médico $50.000</span></p>
+            <p><b>Tipo Servicio</b>: <span id="v_service_name">No informado</span></p>
+            <p>El servicio Incluye: <span id="v_include">No informado</span></p>
         </div>
     </div>
     <div class="row padding-top">
         <div class="col-12">
-            <p><b>Cementerio</b>: <span id="f_cementery_name">Parque del Recuerdo Vespucio</span></p>
+            <p><b>Cementerio</b>: <span id="f_cementery_name">No informado</span></p>
         </div>
         <div class="col-8">
-            <p>Fecha Funeral: <span id="f_date">05-05-2020</span></p></div>
+            <p>Fecha Funeral: <span id="f_date">No informado</span></p></div>
         <div class="col-4">
-            <p>Hora de Llegada: <span id="f_time">12:39</span></p>
+            <p>Hora de Llegada: <span id="f_time">No informado</span></p>
         </div>
     </div>
     <div class="row padding-top">
@@ -112,16 +112,16 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                     <p>Descuento</p>
                     <p>Valor Total</p>
                     <p>Aporte</p>
-                    <p><span id="v_insurance_name">CAPREDENA</span></p>
+                    <p><span id="v_insurance_name">No informado</span></p>
                     <p>Saldo</p>
                 </div>
                 <div class="col-4">
-                    <p class="bold"><span id="v_cost">650.000</span></p>
+                    <p class="bold"><span id="v_cost">0</span></p>
                     <p class="bold"><span id="v_discount">0</span></p>
-                    <p class="bold"><span id="v_total">650.000</span></p>
-                    <p class="bold"><span id="v_coverage">365.000</span></p>
+                    <p class="bold"><span id="v_total">0</span></p>
+                    <p class="bold"><span id="v_coverage">0</span></p>
                     <p>&nbsp;</p>
-                    <p class="bold"><span id="v_payment">280.000</span></p>
+                    <p class="bold"><span id="v_payment">0</span></p>
                 </div>
             </div>
         </div>
@@ -175,7 +175,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         console.log(_data);
 
         $('#s_name').html(setDefault(_data.s_name, 'Sin nombre'));
-        $('#s_lastname').html(setDefault(_data.s_lastname, 'Sin apellido'));
+        $('#s_last_name').html(setDefault(_data.s_last_name, 'Sin apellido'));
         $('#s_address').html(setDefault(_data.s_address, 'Sin dirección'));
         $('#s_mobile').html(setDefault(_data.s_mobile, '9 0000 0000'));
         $('#s_email').html(setDefault(_data.s_email, 'sin_mail@mail.cl'));
@@ -238,6 +238,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         const urlParams = new URLSearchParams(location.search);
         if (urlParams.get('contract') !== null) {
             _$('#body').removeClass('preview');
+            $('#id').html(urlParams.get('contract'));
             _$.ajax('/api/contracts/get', { id: urlParams.get('contract') }, { headers: getBearerHeaders()}).then(
                 ({ status, response }) => {
                     if (status === 'error') {
