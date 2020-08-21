@@ -393,7 +393,7 @@
     loadSelect('#c_region_id', 'api_regions');
     loadSelect('#v_insurance_id', 'api_insurances');
     loadSelect('#f_cementery_id', 'api_cementeries');
-    loadSelect('#v_services_id', 'api_services');
+    loadSelect('#v_service_id', 'api_services');
 
     loadComunes('#s_comune_id', '1');
     loadComunes('#d_comune_id', '1');

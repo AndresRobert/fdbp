@@ -38,7 +38,7 @@ class Contracts extends Response {
                 }
                 if ($fields['v_type'] === '' || $fields['v_include'] === '') {
                     $message = 'Debe ingresar un tipo y lo que incluye el servicio';
-                    $errorIds[] = 'v_type';
+                    $errorIds[] = 'v_service_id';
                     $errorIds[] = 'v_include';
                 }
                 if ($fields['v_cost'] === '' || $fields['v_cost'] <= 0) {
