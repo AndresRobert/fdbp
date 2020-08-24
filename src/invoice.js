@@ -1,10 +1,4 @@
 let Helper = {};
-Helper.include = (file_path) => {
-    const js = document.createElement("script");
-    js.type = "text/javascript";
-    js.src = file_path;
-    document.body.appendChild(js);
-};
 Helper.openLink = (link, target) => {
     if (target === '_blank') {
         window.open(link);
@@ -109,17 +103,6 @@ Auth.checkStatus = () => {
 };
 
 Helper.ready(() => {
-    Helper.include('https://kit.fontawesome.com/a93fffc8fc.js');
-    Helper.include('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js');
-    Helper.include('https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js');
-    Helper.include('https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js');
-    Helper.include('https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js');
-    Helper.include('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js');
-    Helper.include('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js');
-    Helper.include('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js');
-    Helper.include('https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js');
-    Helper.include('./vendor/acode.js');
-
     Helper.Datatable.init();
     $('input, textarea, select')
         .on('change', function () { $(this).removeClass('error') });

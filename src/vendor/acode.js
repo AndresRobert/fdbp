@@ -24,83 +24,83 @@ _$.size = (obj) => {
     return size;
 };
 
-const pro = HTMLElement.prototype;
-pro.on = function (eventName, eventHandler) {
+const _pro = HTMLElement.prototype;
+_pro.on = function (eventName, eventHandler) {
     this.addEventListener(eventName, eventHandler, _$.evtOptions);
     return this;
 };
-pro.val = function (newVal) {
+_pro.val = function (newVal) {
     if (newVal === undefined)  return this.value;
     this.value = newVal;
     return this;
 };
-pro.html = function (html) {
+_pro.html = function (html) {
     if (html === undefined) return this.innerHTML;
     this.innerHTML = html;
     return this;
 };
-pro.append = function (html) {
+_pro.append = function (html) {
     this.innerHTML = this.innerHTML + html;
     return this;
 };
-pro.prepend = function (html) {
+_pro.prepend = function (html) {
     this.innerHTML = html + this.innerHTML;
     return this;
 };
-pro.addClass = function (className) {
+_pro.addClass = function (className) {
     this.classList.add(className);
     return this;
 };
-pro.removeClass = function (className) {
+_pro.removeClass = function (className) {
     this.classList.remove(className);
     return this;
 };
-pro.toggleClass = function (className) {
+_pro.toggleClass = function (className) {
     this.classList.toggle(className);
     return this;
 };
-pro.hide = function () {
+_pro.hide = function () {
     this.style.display = 'none';
     return this;
 };
-pro.show = function () {
+_pro.show = function () {
     if (this.style.display === 'none') this.style.display = '';
     return this;
 };
-pro.remove = function () {
+_pro.remove = function () {
     this.parentNode.removeChild(this);
 };
-pro.attr = function (attributeName, value) {
+_pro.attr = function (attributeName, value) {
     if (typeof value === 'undefined') return this.getAttribute(attributeName);
     this.setAttribute(attributeName, value);
     return this;
 };
-pro.hasClass = function (className) {
+_pro.hasClass = function (className) {
     return this.classList.contains(className);
 };
-pro.prev = function () {
+_pro.prev = function () {
     return this.previousElementSibling;
 };
-pro.next = function () {
+_pro.next = function () {
     return this.nextElementSibling;
 };
-pro.parent = function () {
+_pro.parent = function () {
     return this.parentNode;
 };
-pro.find = function (sel) {
+_pro.find = function (sel) {
     return this.querySelectorAll(sel);
 };
-pro.fadeRemove = function () {
+_pro.fadeRemove = function () {
     this.addClass('fadeOut');
     setTimeout(() => this.remove(), 200);
 };
-pro.trigger = function (eventName) {
+_pro.trigger = function (eventName) {
     const event = document.createEvent('HTMLEvents');
     event.initEvent(eventName, true, false);
     this.dispatchEvent(event);
     return this;
 };
-pro.empty = function () {
+_pro.empty = function () {
     this.innerHTML = '';
     return this;
 };
