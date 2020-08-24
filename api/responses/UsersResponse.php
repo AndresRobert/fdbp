@@ -38,7 +38,7 @@ class Users extends Response {
 
     public function login (array $credentials): array {
         $response = [
-            'response_code' => 400,
+            'code' => 400,
             'status' => 'fail',
             'message' => 'Invalid data',
             'email' => NULL,
@@ -53,7 +53,7 @@ class Users extends Response {
                     Session::Create('token', $tokenData['token']);
                     Session::Create('user', $User->get('id'));
                     $response = [
-                        'response_code' => 200,
+                        'code' => 200,
                         'status' => 'success',
                         'message' => 'Successful login',
                         'email' => $User->get('email'),
@@ -62,12 +62,12 @@ class Users extends Response {
                     ];
                 }
                 else {
-                    $response['response_code'] = 401;
+                    $response['code'] = 401;
                     $response['message'] = 'Wrong password';
                 }
             }
             else {
-                $response['response_code'] = 401;
+                $response['code'] = 401;
                 $response['message'] = 'User not found';
             }
         }
@@ -89,14 +89,6 @@ class Users extends Response {
             'message' => 'Token Checked',
             'status' => $token['key'] === Session::Read('token') ? 'success' : 'fail',
         ];
-    }
-
-    public function getByFilter (array $filter = []): array {
-        return self::RequiresAuthorization(
-            static function () use ($filter) {
-                return (new User())->filter(['*'], $filter);
-            }
-        );
     }
 
 }

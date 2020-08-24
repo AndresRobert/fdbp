@@ -13,15 +13,15 @@ Route::Create('POST', '/check', 'users/checkToken');
 
 Route::Create('POST', '/users', 'users/getByFilter');
 
-Route::Create('POST', '/cementeries', 'admin/getCementeries');
-Route::Create('POST', '/comunes', 'admin/getComunesByRegion');
-Route::Create('POST', '/comunesListed', 'admin/getComunes');
 Route::Create('POST', '/regions', 'admin/getRegions');
+Route::Create('POST', '/comunes', 'admin/getComunes');
+Route::Create('POST', '/comunesByRegion', 'admin/getComunesByRegion');
+Route::Create('POST', '/cementeries', 'admin/getCementeries');
 Route::Create('POST', '/insurances', 'admin/getInsurances');
 Route::Create('POST', '/services', 'admin/getServices');
 
-Route::Create('POST', '/contracts/save', 'contracts/save');
-Route::Create('POST', '/contracts/get', 'contracts/getOne');
+Route::Create('POST', '/contract', 'contracts/save');
+Route::Create('GET', '/contract', 'contracts/getOne');
 
 // RENDER RESPONSE
 echo Route::Read(METHOD, REQUEST, BODY);
