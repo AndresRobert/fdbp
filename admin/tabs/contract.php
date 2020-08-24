@@ -1,253 +1,252 @@
-<div id="contract" class="tab-content col-12 card">
-    <div class="row">
-        <div class="col-12 right">
-            Contrato / Presupuesto Interno Nº: <b>Nuevo</b>
-        </div>
-        <div class="col-12 right">
-            Fecha: <?php echo date('Y-m-d') ?>
-        </div>
+<div class="row">
+    <div class="col-12 right">
+        Contrato / Presupuesto Interno Nº: <b>Nuevo</b>
     </div>
-    <hr>
-    <h5>Solicitado Por</h5>
-    <div class="row">
-        <div class="col-4">
-            <label for="s_name">Nombre</label>
-            <input id="s_name" type="text" required>
-        </div>
-        <div class="col-4">
-            <label for="s_last_name">Apellidos</label>
-            <input id="s_last_name" type="text" required>
-        </div>
-        <div class="col-4">
-            <label for="s_id">RUT</label>
-            <input id="s_id" type="text" required>
-        </div>
-        <div class="col-6">
-            <label for="s_address">Dirección</label>
-            <input id="s_address" type="text" required>
-        </div>
-        <div class="col-3">
-            <label for="s_region_id">Región</label>
-            <select id="s_region_id">
-                <option value="1">Region 1</option>
-                <option value="2">Region 2</option>
-                <option value="3">Region 3</option>
-            </select>
-        </div>
-        <div class="col-3">
-            <label for="s_comune_id">Comuna</label>
-            <select id="s_comune_id">
-                <option value="1">Comuna 1</option>
-                <option value="2">Comuna 2</option>
-                <option value="3">Comuna 3</option>
-            </select>
-        </div>
-        <div class="col-6">
-            <label for="s_email">Email</label>
-            <input id="s_email" type="email" required>
-        </div>
-        <div class="col-3">
-            <label for="s_mobile">Celular</label>
-            <input id="s_mobile" type="tel" required>
-        </div>
-        <div class="col-3">
-            <label for="s_phone">Teléfono</label>
-            <input id="s_phone" type="tel">
-        </div>
-    </div>
-    <hr>
-    <h5>Fallecido</h5>
-    <div class="row">
-        <div class="col-8">
-            <label for="d_name">Nombre Completo (Q.E.P.D.)</label>
-            <input id="d_name" type="text" required>
-        </div>
-        <div class="col-4">
-            <label for="d_id">RUT</label>
-            <input id="d_id" type="text" required>
-        </div>
-        <div class="col-6">
-            <label for="d_address">Dirección</label>
-            <input id="d_address" type="text">
-        </div>
-        <div class="col-3">
-            <label for="d_region_id">Región</label>
-            <select id="d_region_id">
-                <option value="1">Region 1</option>
-                <option value="2">Region 2</option>
-                <option value="3">Region 3</option>
-            </select>
-        </div>
-        <div class="col-3">
-            <label for="d_comune_id">Comuna</label>
-            <select id="d_comune_id">
-                <option value="1">Comuna 1</option>
-                <option value="2">Comuna 2</option>
-                <option value="3">Comuna 3</option>
-            </select>
-        </div>
-        <div class="col-12">
-            <label for="d_place">Lugar de Fallecimiento</label>
-            <input id="d_place" type="text">
-        </div>
-        <div class="col-4">
-            <label for="d_marital_status">Estado Civil</label>
-            <input id="d_marital_status" type="text">
-        </div>
-        <div class="col-4">
-            <label for="d_occupation">Ocupación</label>
-            <input id="d_occupation" type="text">
-        </div>
-        <div class="col-4">
-            <label for="d_education">Estudios</label>
-            <input id="d_education" type="text">
-        </div>
-    </div>
-    <hr>
-    <h5>Velatorio</h5>
-    <div class="row">
-        <div class="col-12">
-            <label for="c_church">Capilla</label>
-            <input id="c_church" type="text">
-        </div>
-        <div class="col-6">
-            <label for="c_address">Dirección Capilla</label>
-            <input id="c_address" type="text">
-        </div>
-        <div class="col-3">
-            <label for="c_region_id">Región</label>
-            <select id="c_region_id">
-                <option value="1">Region 1</option>
-                <option value="2">Region 2</option>
-                <option value="3">Region 3</option>
-            </select>
-        </div>
-        <div class="col-3">
-            <label for="c_comune_id">Comuna</label>
-            <select id="c_comune_id">
-                <option value="1">Comuna 1</option>
-                <option value="2">Comuna 2</option>
-                <option value="3">Comuna 3</option>
-            </select>
-        </div>
-    </div>
-    <hr>
-    <h5>Funeral</h5>
-    <div class="row">
-        <div class="col-6">
-            <label for="f_cementery_id">Cementerio</label>
-            <select id="f_cementery_id">
-                <option value="1">Cementerio 1</option>
-                <option value="2">Cementerio 2</option>
-                <option value="3">Cementerio 3</option>
-            </select>
-        </div>
-        <div class="col-2">
-            <label for="f_press">Prensa</label>
-            <input id="f_press" type="text">
-        </div>
-        <div class="col-2">
-            <label for="f_date">Fecha</label>
-            <input id="f_date" type="date" required>
-        </div>
-        <div class="col-2">
-            <label for="f_time">Hora</label>
-            <input id="f_time" type="time" required>
-        </div>
-    </div>
-    <hr>
-    <h5>Servicio</h5>
-    <div class="row">
-        <div class="col-4">
-            <label for="v_service_id">Tipo</label>
-            <select id="v_service_id">
-                <option value="1">Nombre 1</option>
-                <option value="1">Nombre 2</option>
-                <option value="1">Nombre 3</option>
-            </select>
-        </div>
-        <div class="col-4">
-            <label for="v_provider">Proveedor</label>
-            <input id="v_provider" type="text">
-        </div>
-        <div class="col-4">
-            <label for="v_color">Color</label>
-            <input id="v_color" type="text">
-        </div>
-        <div class="col-12">
-            <label for="v_include">Incluye</label>
-            <textarea id="v_include" required></textarea>
-        </div>
-        <div class="col-12">
-            <label for="v_warning">Aviso</label>
-            <textarea id="v_warning"></textarea>
-        </div>
-        <div class="col-12">
-            <label for="v_observation">Observación</label>
-            <textarea id="v_observation"></textarea>
-        </div>
-        <div class="col-4">
-            <label for="v_cost">Valor del Servicio</label>
-            <input id="v_cost" type="number" min="0" value="0">
-        </div>
-        <div class="col-4">
-            <label for="v_discount">Descuento</label>
-            <input id="v_discount" type="number" min="0" value="0">
-        </div>
-        <div class="col-4">
-            <label for="v_total">Valor Total</label>
-            <input id="v_total" type="number" value="0" class="total" readonly>
-        </div>
-        <div class="col-4">
-            <label for="v_insurance_id">Nombre Previsión</label>
-            <select id="v_insurance_id">
-                <option value="1">Nombre 1</option>
-                <option value="1">Nombre 2</option>
-                <option value="1">Nombre 3</option>
-            </select>
-        </div>
-        <div class="col-4">
-            <label for="v_coverage">Aporte Previsión</label>
-            <input id="v_coverage" type="number" min="0" value="0">
-        </div>
-        <div class="col-4">
-            <label for="v_payment">Saldo</label>
-            <input id="v_payment" type="number" value="0" class="total" readonly>
-        </div>
-        <div class="col-4">
-            <label for="p_transfer" class="checkbox">Transferencia</label>
-            <input id="p_transfer" type="checkbox">
-        </div>
-        <div class="col-4">
-            <label for="p_cash" class="checkbox">Efectivo</label>
-            <input id="p_cash" type="checkbox">
-        </div>
-        <div class="col-4">
-            <label for="p_check" class="checkbox">Cheque al día</label>
-            <input id="p_check" type="checkbox">
-        </div>
-        <div class="col-4">
-            <label for="p_check_defered" class="checkbox">Cheque a Fecha</label>
-            <input id="p_check_defered" type="checkbox">
-        </div>
-        <div class="col-4">
-            <label for="p_credit_card" class="checkbox">Tarjeta de Crédito</label>
-            <input id="p_credit_card" type="checkbox">
-        </div>
-        <div class="col-4">
-            <label for="p_other" class="checkbox">Otro</label>
-            <input id="p_other" type="checkbox">
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-12 right">
-            <button class="text" onclick="clearAllFields('#contract')">Limpiar</button>
-            <button onclick="showContractPreview()">Vista Previa</button>
-            <button class="fill" onclick="saveContract()">Guardar</button>
-        </div>
+    <div class="col-12 right">
+        Fecha: <?php echo date('Y-m-d') ?>
     </div>
 </div>
+<hr>
+<div class="row card">
+    <h5>Solicitado Por</h5>
+    <div class="col-4">
+        <label for="s_name">Nombre</label>
+        <input id="s_name" type="text" required>
+    </div>
+    <div class="col-4">
+        <label for="s_last_name">Apellidos</label>
+        <input id="s_last_name" type="text" required>
+    </div>
+    <div class="col-4">
+        <label for="s_id">RUT</label>
+        <input id="s_id" type="text" required>
+    </div>
+    <div class="col-6">
+        <label for="s_address">Dirección</label>
+        <input id="s_address" type="text" required>
+    </div>
+    <div class="col-3">
+        <label for="s_region_id">Región</label>
+        <select id="s_region_id">
+            <option value="1">Region 1</option>
+            <option value="2">Region 2</option>
+            <option value="3">Region 3</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <label for="s_comune_id">Comuna</label>
+        <select id="s_comune_id">
+            <option value="1">Comuna 1</option>
+            <option value="2">Comuna 2</option>
+            <option value="3">Comuna 3</option>
+        </select>
+    </div>
+    <div class="col-6">
+        <label for="s_email">Email</label>
+        <input id="s_email" type="email" required>
+    </div>
+    <div class="col-3">
+        <label for="s_mobile">Celular</label>
+        <input id="s_mobile" type="tel" required>
+    </div>
+    <div class="col-3">
+        <label for="s_phone">Teléfono</label>
+        <input id="s_phone" type="tel">
+    </div>
+</div>
+<hr>
+<h5>Fallecido</h5>
+<div class="row">
+    <div class="col-8">
+        <label for="d_name">Nombre Completo (Q.E.P.D.)</label>
+        <input id="d_name" type="text" required>
+    </div>
+    <div class="col-4">
+        <label for="d_id">RUT</label>
+        <input id="d_id" type="text" required>
+    </div>
+    <div class="col-6">
+        <label for="d_address">Dirección</label>
+        <input id="d_address" type="text">
+    </div>
+    <div class="col-3">
+        <label for="d_region_id">Región</label>
+        <select id="d_region_id">
+            <option value="1">Region 1</option>
+            <option value="2">Region 2</option>
+            <option value="3">Region 3</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <label for="d_comune_id">Comuna</label>
+        <select id="d_comune_id">
+            <option value="1">Comuna 1</option>
+            <option value="2">Comuna 2</option>
+            <option value="3">Comuna 3</option>
+        </select>
+    </div>
+    <div class="col-12">
+        <label for="d_place">Lugar de Fallecimiento</label>
+        <input id="d_place" type="text">
+    </div>
+    <div class="col-4">
+        <label for="d_marital_status">Estado Civil</label>
+        <input id="d_marital_status" type="text">
+    </div>
+    <div class="col-4">
+        <label for="d_occupation">Ocupación</label>
+        <input id="d_occupation" type="text">
+    </div>
+    <div class="col-4">
+        <label for="d_education">Estudios</label>
+        <input id="d_education" type="text">
+    </div>
+</div>
+<hr>
+<h5>Velatorio</h5>
+<div class="row">
+    <div class="col-12">
+        <label for="c_church">Capilla</label>
+        <input id="c_church" type="text">
+    </div>
+    <div class="col-6">
+        <label for="c_address">Dirección Capilla</label>
+        <input id="c_address" type="text">
+    </div>
+    <div class="col-3">
+        <label for="c_region_id">Región</label>
+        <select id="c_region_id">
+            <option value="1">Region 1</option>
+            <option value="2">Region 2</option>
+            <option value="3">Region 3</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <label for="c_comune_id">Comuna</label>
+        <select id="c_comune_id">
+            <option value="1">Comuna 1</option>
+            <option value="2">Comuna 2</option>
+            <option value="3">Comuna 3</option>
+        </select>
+    </div>
+</div>
+<hr>
+<h5>Funeral</h5>
+<div class="row">
+    <div class="col-6">
+        <label for="f_cementery_id">Cementerio</label>
+        <select id="f_cementery_id">
+            <option value="1">Cementerio 1</option>
+            <option value="2">Cementerio 2</option>
+            <option value="3">Cementerio 3</option>
+        </select>
+    </div>
+    <div class="col-2">
+        <label for="f_press">Prensa</label>
+        <input id="f_press" type="text">
+    </div>
+    <div class="col-2">
+        <label for="f_date">Fecha</label>
+        <input id="f_date" type="date" required>
+    </div>
+    <div class="col-2">
+        <label for="f_time">Hora</label>
+        <input id="f_time" type="time" required>
+    </div>
+</div>
+<hr>
+<h5>Servicio</h5>
+<div class="row">
+    <div class="col-4">
+        <label for="v_service_id">Tipo</label>
+        <select id="v_service_id">
+            <option value="1">Nombre 1</option>
+            <option value="1">Nombre 2</option>
+            <option value="1">Nombre 3</option>
+        </select>
+    </div>
+    <div class="col-4">
+        <label for="v_provider">Proveedor</label>
+        <input id="v_provider" type="text">
+    </div>
+    <div class="col-4">
+        <label for="v_color">Color</label>
+        <input id="v_color" type="text">
+    </div>
+    <div class="col-12">
+        <label for="v_include">Incluye</label>
+        <textarea id="v_include" required></textarea>
+    </div>
+    <div class="col-12">
+        <label for="v_warning">Aviso</label>
+        <textarea id="v_warning"></textarea>
+    </div>
+    <div class="col-12">
+        <label for="v_observation">Observación</label>
+        <textarea id="v_observation"></textarea>
+    </div>
+    <div class="col-4">
+        <label for="v_cost">Valor del Servicio</label>
+        <input id="v_cost" type="number" min="0" value="0">
+    </div>
+    <div class="col-4">
+        <label for="v_discount">Descuento</label>
+        <input id="v_discount" type="number" min="0" value="0">
+    </div>
+    <div class="col-4">
+        <label for="v_total">Valor Total</label>
+        <input id="v_total" type="number" value="0" class="total" readonly>
+    </div>
+    <div class="col-4">
+        <label for="v_insurance_id">Nombre Previsión</label>
+        <select id="v_insurance_id">
+            <option value="1">Nombre 1</option>
+            <option value="1">Nombre 2</option>
+            <option value="1">Nombre 3</option>
+        </select>
+    </div>
+    <div class="col-4">
+        <label for="v_coverage">Aporte Previsión</label>
+        <input id="v_coverage" type="number" min="0" value="0">
+    </div>
+    <div class="col-4">
+        <label for="v_payment">Saldo</label>
+        <input id="v_payment" type="number" value="0" class="total" readonly>
+    </div>
+    <div class="col-4">
+        <label for="p_transfer" class="checkbox">Transferencia</label>
+        <input id="p_transfer" type="checkbox">
+    </div>
+    <div class="col-4">
+        <label for="p_cash" class="checkbox">Efectivo</label>
+        <input id="p_cash" type="checkbox">
+    </div>
+    <div class="col-4">
+        <label for="p_check" class="checkbox">Cheque al día</label>
+        <input id="p_check" type="checkbox">
+    </div>
+    <div class="col-4">
+        <label for="p_check_defered" class="checkbox">Cheque a Fecha</label>
+        <input id="p_check_defered" type="checkbox">
+    </div>
+    <div class="col-4">
+        <label for="p_credit_card" class="checkbox">Tarjeta de Crédito</label>
+        <input id="p_credit_card" type="checkbox">
+    </div>
+    <div class="col-4">
+        <label for="p_other" class="checkbox">Otro</label>
+        <input id="p_other" type="checkbox">
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-12 right">
+        <button class="text" onclick="clearAllFields('#contract')">Limpiar</button>
+        <button onclick="showContractPreview()">Vista Previa</button>
+        <button class="fill" onclick="saveContract()">Guardar</button>
+    </div>
+</div>
+
 <script>
 
     setRegions();

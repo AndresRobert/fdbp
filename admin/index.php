@@ -14,10 +14,10 @@
                 <button id="tab_database" onclick="showTabContent('#database', '.tab-content')" class="tab"><i class="fas fa-database no-click"></i>Base de Datos</button>
             </div>
         </div>
-        <?php include 'tabs/contract.php' ?>
-        <?php include 'tabs/quotation.php' ?>
-        <?php include 'tabs/search.php' ?>
-        <?php include 'tabs/database.php' ?>
+        <div id="contract" class="tab-content col-12 card"><?php include 'tabs/contract.php' ?></div>
+        <div id="quotation" class="tab-content col-12 card" style="display:none"><?php include 'tabs/quotation.php' ?></div>
+        <div id="search" class="tab-content col-12 card" style="display:none"><?php include 'tabs/search.php' ?></div>
+        <div id="database" class="tab-content col-12 card" style="display:none"><?php include 'tabs/database.php' ?></div>
     </div>
 </div>
 </body>
