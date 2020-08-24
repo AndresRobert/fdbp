@@ -235,6 +235,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
     $(() => {
         let data = JSON.parse(_$.cookie.get('fdbp_contract_data'));
+        console.log('first: ', data);
         const urlParams = new URLSearchParams(location.search);
         if (urlParams.get('contract') !== null) {
             _$('#body').removeClass('preview');
@@ -250,6 +251,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                     } else {
                         if (response.status !== 'fail' && response.contract !== []) {
                             data = response.contract;
+                            console.log('second: ', data);
                         } else {
                             _$.snackbar('Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo', 'Cerrar');
                         }
