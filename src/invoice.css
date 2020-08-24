@@ -123,6 +123,11 @@ td button {
     color: #344;
 }
 
+header ul.menu {
+    padding: 0 2rem;
+    display: inline-flex;
+}
+
 .darkmode .total {
     color: #FFF;
 }
