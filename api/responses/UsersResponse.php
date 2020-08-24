@@ -38,12 +38,9 @@ class Users extends Response {
 
     public function login (array $credentials): array {
         $response = [
-            'code' => 400,
-            'status' => 'fail',
+            'response_code' => 400,
             'message' => 'Invalid data',
-            'email' => NULL,
-            'token' => NULL,
-            'expiration' => NULL
+            'token' => NULL
         ];
         if (isset($credentials['password'], $credentials['email'])) {
             $User = new User();
@@ -53,21 +50,18 @@ class Users extends Response {
                     Session::Create('token', $tokenData['token']);
                     Session::Create('user', $User->get('id'));
                     $response = [
-                        'code' => 200,
-                        'status' => 'success',
+                        'response_code' => 200,
                         'message' => 'Successful login',
-                        'email' => $User->get('email'),
-                        'token' => $tokenData['token'],
-                        'expiration' => $tokenData['expire_at']
+                        'token' => $tokenData['token']
                     ];
                 }
                 else {
-                    $response['code'] = 401;
+                    $response['response_code'] = 401;
                     $response['message'] = 'Wrong password';
                 }
             }
             else {
-                $response['code'] = 401;
+                $response['response_code'] = 401;
                 $response['message'] = 'User not found';
             }
         }
