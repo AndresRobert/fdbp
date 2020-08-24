@@ -87,6 +87,7 @@ function openLink(_link, _target) {
 }
 
 function setList(_listName) {
+    console.log('name', _listName);
     if (_$.cookie.get(_listName) === null) {
         _pairs[_listName] = {};
         $.each(_lists[_listName], function (_id, _data) {
@@ -96,6 +97,7 @@ function setList(_listName) {
     } else {
         _pairs[_listName] = JSON.parse(_$.cookie.get(_listName));
     }
+    console.log('name', _listName, _$.cookie.get(_listName));
 }
 
 function getList(_listName) {
@@ -137,7 +139,6 @@ function loadSelect(_selectId, _endpoint) {
 }
 
 function setRegions() {
-
     _$.ajax(_url['api_regions'], {id: 'hbwef73238edbak'}, {headers: getBearerHeaders()}).then(
         ({status, response}) => {
             if (status === 'error') {
