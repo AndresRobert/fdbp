@@ -14,7 +14,7 @@ const _url = {
     'api_insurances': '/api/insurances',
     'api_cementeries': '/api/cementeries',
     'api_services': '/api/services',
-    'api_comunes_listed': '/api/comunesListed'
+    'api_comunes_list': '/api/comunesListed'
 };
 
 const _lists = {};
@@ -98,6 +98,12 @@ function setList(_listName) {
     }
 }
 
+function getList(_listName) {
+    if (_$.cookie.get(_listName) !== null) {
+        _pairs[_listName] = JSON.parse(_$.cookie.get(_listName));
+    }
+}
+
 function setDefault(_string = '', _default = 'No definido') {
     return _string === '' ? _default : _string;
 }
@@ -131,6 +137,7 @@ function loadSelect(_selectId, _endpoint) {
 }
 
 function setRegions() {
+
     _$.ajax(_url['api_regions'], {id: 'hbwef73238edbak'}, {headers: getBearerHeaders()}).then(
         ({status, response}) => {
             if (status === 'error') {
@@ -153,7 +160,7 @@ function setRegions() {
 }
 
 function setComunes() {
-    _$.ajax(_url['api_comunes_listed'], {id: 'hbwef73238edbak'}, {headers: getBearerHeaders()}).then(
+    _$.ajax(_url['api_comunes_list'], {id: 'hbwef73238edbak'}, {headers: getBearerHeaders()}).then(
         ({status, response}) => {
             if (status === 'error') {
                 _$.snackbar('Error de servidor: contacte al administrador', 'Cerrar');
@@ -186,6 +193,7 @@ function loadComunes(_selectId, _regionId) {
                 } else {
                     if (response.status !== 'fail') {
                         _lists['api_comunes'] = response.list;
+                        setList('api_comunes');
                         setSelectData(_selectId, _lists['api_comunes'][_regionId]);
                         return;
                     } else {

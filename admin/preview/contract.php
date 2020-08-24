@@ -172,8 +172,6 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 <script>
 
     function setPrintable(_data) {
-        console.log(_data);
-
         $('#s_name').html(setDefault(_data.s_name, 'Sin nombre'));
         $('#s_last_name').html(setDefault(_data.s_last_name, 'Sin apellido'));
         $('#s_address').html(setDefault(_data.s_address, 'Sin dirección'));
@@ -233,9 +231,14 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         }
     }
 
+    getList('api_regions');
+    getList('api_comunes');
+    getList('api_cementeries');
+    getList('api_insurances');
+    getList('api_services');
+
     $(() => {
         let data = JSON.parse(_$.cookie.get('fdbp_contract_data'));
-        console.log('first: ', data);
         const urlParams = new URLSearchParams(location.search);
         if (urlParams.get('contract') !== null) {
             _$('#body').removeClass('preview');
@@ -251,15 +254,27 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                     } else {
                         if (response.status !== 'fail' && response.contract !== []) {
                             data = response.contract;
-                            console.log('second: ', data);
+                            data['c_comune_name'] = _pairs[data['c_comune_id']];
+                            data['c_region_name'] = _pairs[data['c_region_id']];
+                            data['d_comune_name'] = _pairs[data['d_comune_id']];
+                            data['d_region_name'] = _pairs[data['d_region_id']];
+                            data['f_cementery_name'] = _pairs[data['f_cementery_id']];
+                            data['f_date'] = data['f_datetime'].substring(0,10);
+                            data['f_time'] = data['f_datetime'].substring(0,-8).substring(0,5);
+                            data['s_comune_name'] = _pairs[data['s_comune_id']];
+                            data['s_region_name'] = _pairs[data['s_region_id']];
+                            data['v_insurance_name'] = _pairs[data['v_insurance_id']];
+                            data['v_service_name'] = _pairs[data['v_service_id']];
+                            setPrintable(data);
                         } else {
                             _$.snackbar('Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo', 'Cerrar');
                         }
                     }
                 }
             ).catch(e => console.log(e));
+        } else {
+            setPrintable(data);
         }
-        setPrintable(data);
     });
 
 </script>

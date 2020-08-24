@@ -345,7 +345,6 @@
 
     function showContractPreview () {
         let _contract = getContractData();
-        console.log(_contract);
         _$.cookie.set('fdbp_contract_data', JSON.stringify(_contract));
         openLink('/admin/preview/contract.php', '_blank');
     }
