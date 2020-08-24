@@ -172,6 +172,8 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 <script>
 
     function setPrintable(_data) {
+        $('#id').html(setDefault(_data.id, '999999'));
+
         $('#s_name').html(setDefault(_data.s_name, 'Sin nombre'));
         $('#s_last_name').html(setDefault(_data.s_last_name, 'Sin apellido'));
         $('#s_address').html(setDefault(_data.s_address, 'Sin dirección'));
@@ -211,28 +213,28 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         $('#v_coverage').html(setDefault(Number(_data.v_coverage).toLocaleString('es-CL'), '0'));
         $('#v_payment').html(setDefault(Number(_data.v_payment).toLocaleString('es-CL'), '0'));
 
-        if (_data.p_cash === true) {
+        if (_data.p_cash === true || _data.p_cash === '1') {
             $('#p_cash').removeClass('fa-square').addClass('fa-check-square');
         }
-        if (_data.p_check === true) {
+        if (_data.p_check === true || _data.p_check === '1') {
             $('#p_check').removeClass('fa-square').addClass('fa-check-square');
         }
-        if (_data.p_check_defered === true) {
+        if (_data.p_check_defered === true || _data.p_check_defered === '1') {
             $('#p_check_defered').removeClass('fa-square').addClass('fa-check-square');
         }
-        if (_data.p_credit_card === true) {
+        if (_data.p_credit_card === true || _data.p_credit_card === '1') {
             $('#p_credit_card').removeClass('fa-square').addClass('fa-check-square');
         }
-        if (_data.p_other === true) {
+        if (_data.p_other === true || _data.p_other === '1') {
             $('#p_other').removeClass('fa-square').addClass('fa-check-square');
         }
-        if (_data.p_transfer === true) {
+        if (_data.p_transfer === true || _data.p_transfer === '1') {
             $('#p_transfer').removeClass('fa-square').addClass('fa-check-square');
         }
     }
 
     getList('api_regions');
-    getList('api_comunes');
+    getList('api_comunes_list');
     getList('api_cementeries');
     getList('api_insurances');
     getList('api_services');

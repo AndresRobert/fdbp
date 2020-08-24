@@ -86,24 +86,46 @@ function openLink(_link, _target) {
     }
 }
 
-function setList(_listName) {
-    console.log('name', _listName);
-    if (_$.cookie.get(_listName) === null) {
-        _pairs[_listName] = {};
-        $.each(_lists[_listName], function (_id, _data) {
-            _pairs[_listName][_data.id] = _data.name;
+function setList(listName, list) {
+    console.log('name', listName);
+    if (_$.cookie.get(listName) === null) {
+        _pairs[listName] = {};
+        $.each(list, function (_id, _data) {
+            _pairs[listName][_data.id] = _data.name;
         });
-        _$.cookie.set(_listName, JSON.stringify(_pairs[_listName]));
+        _$.cookie.set(listName, JSON.stringify(_pairs[listName]));
     } else {
-        _pairs[_listName] = JSON.parse(_$.cookie.get(_listName));
+        _pairs[listName] = JSON.parse(_$.cookie.get(listName));
     }
-    console.log('name', _listName, _$.cookie.get(_listName));
+    console.log('name', listName, _$.cookie.get(listName));
 }
 
 function getList(_listName) {
     if (_$.cookie.get(_listName) !== null) {
         _pairs[_listName] = JSON.parse(_$.cookie.get(_listName));
+        if (_pairs[_listName] !== {}) {
+            return;
+        }
     }
+    _$.ajax(_url[_listName], {id: 'hbwef73238edbak'}, {headers: getBearerHeaders()}).then(
+        ({status, response}) => {
+            if (status === 'error') {
+                _$.snackbar('Error de servidor: contacte al administrador', 'Cerrar');
+                checkAuthStatus();
+            }
+            if (status === 'fail') {
+                _$.snackbar('Session expirada');
+                checkAuthStatus();
+            } else {
+                if (response.status !== 'fail') {
+                    setList(_listName, response.list);
+                } else {
+                    _$.snackbar('No se encontro información: contacte al administrador');
+                    checkAuthStatus();
+                }
+            }
+        }
+    ).catch(e => console.log(e, _listName));
 }
 
 function setDefault(_string = '', _default = 'No definido') {
@@ -124,7 +146,7 @@ function loadSelect(_selectId, _endpoint) {
                 } else {
                     if (response.status !== 'fail') {
                         _lists[_endpoint] = response.list;
-                        setList(_endpoint);
+                        setList(_endpoint, response.list);
                         setSelectData(_selectId, _lists[_endpoint]);
                     } else {
                         _$.snackbar('No se encontro información: contacte al administrador');
@@ -149,7 +171,7 @@ function setRegions() {
             } else {
                 if (response.status !== 'fail') {
                     _lists['api_regions'] = response.list;
-                    setList('api_regions');
+                    setList('api_regions', response.list);
                     return;
                 } else {
                     _$.snackbar('No se encontro información: contacte al administrador');
@@ -171,7 +193,7 @@ function setComunes() {
             } else {
                 if (response.status !== 'fail') {
                     _lists['api_comunes_list'] = response.list;
-                    setList('api_comunes_list');
+                    setList('api_comunes_list', response.list);
                     return;
                 } else {
                     _$.snackbar('No se encontro información: contacte al administrador');
@@ -194,7 +216,7 @@ function loadComunes(_selectId, _regionId) {
                 } else {
                     if (response.status !== 'fail') {
                         _lists['api_comunes'] = response.list;
-                        setList('api_comunes');
+                        setList('api_comunes', response.list);
                         setSelectData(_selectId, _lists['api_comunes'][_regionId]);
                         return;
                     } else {
