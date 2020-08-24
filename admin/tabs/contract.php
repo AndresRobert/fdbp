@@ -134,11 +134,11 @@
             <option value="3">Cementerio 3</option>
         </select>
     </div>
-    <div class="col-2">
+    <div class="col-3">
         <label for="f_date">Fecha</label>
         <input id="f_date" type="date" required>
     </div>
-    <div class="col-2">
+    <div class="col-3">
         <label for="f_time">Hora</label>
         <input id="f_time" type="time" required>
     </div>
