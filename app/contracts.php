@@ -3,10 +3,10 @@
 <head><?php include 'layout/head.php' ?></head>
 <body id="body">
 <?php include 'layout/topbar.php' ?>
-<div id="content" class="grid pv-1">
+<div id="content" class="grid">
     <h4>Contratos</h4>
     <div class="row card elevated">
-        <h5>Solicitante</h5>    
+        <h5>Solicitante</h5>
         <div class="col-4">
             <label for="s_id">RUT</label>
             <input id="s_id" type="text" required>
