@@ -55,6 +55,10 @@ table.dataTable thead td {
     border: none;
 }
 
+table.dataTable.no-footer {
+    border-bottom-color: #CCC;
+}
+
 .dataTables_filter,
 .dataTables_info {
     display: none;
