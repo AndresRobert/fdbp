@@ -122,7 +122,10 @@
                     type: 'get',
                     headers: Auth.getHeaders(),
                     dataType: 'json',
-                    success: function (data) {
+                    success: data => {
+                        console.info(data);
+                    },
+                    error: data => {
                         console.info(data);
                     }
                 });

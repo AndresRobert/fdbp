@@ -100,9 +100,6 @@ Auth.login = (email, password) => {
             if (status === 'OK') {
                 Helper.setCookie('fdbp_token', response.token);
                 Helper.openLink('/app');
-            } else {
-                M.toast({html: 'Sesión Expirada'});
-                Helper.openLink('/');
             }
         }, 'json');
 };
