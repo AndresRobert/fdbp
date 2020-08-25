@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="card-action" style="text-align:right">
-                    <a onclick="Auth.login($('#email').val(), $('#password').val())" href="#">Acceder</a>
+                    <a onclick="Auth.login($('#email').val(), $('#password').val())" href="#" class="green-text">Acceder</a>
                 </div>
             </div>
         </div>
