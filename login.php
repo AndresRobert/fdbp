@@ -3,7 +3,7 @@
 <head>
     <head><?php include 'app/layout/head.php' ?></head>
 </head>
-<body class="grey darken-4 valign-wrapper">
+<body class="grey lighten-3 valign-wrapper">
 <div class="container">
     <div class="row">
         <div class="col s3 hide-on-small-only"></div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head><?php include 'layout/head.php' ?></head>
-<body id="body">
+<body class="grey lighten-3">
 <?php include 'layout/topbar.php' ?>
 <div class="container">
     <div class="row">
