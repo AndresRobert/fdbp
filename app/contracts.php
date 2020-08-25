@@ -12,7 +12,7 @@
     </div>
     <div class="row card-panel">
         <div class="col s12">
-            <table class="dTable">
+            <table class="dTable striped highlight">
                 <thead>
                 <tr>
                     <th>Número</th>
