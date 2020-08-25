@@ -166,19 +166,60 @@
                                         { "data" : "v_insurance_name" },
                                         { "data" : "v_coverage" },
                                         { "data" : "v_payment" },
-                                        { "data" : "p_transfer" },
-                                        { "data" : "p_cash" },
-                                        { "data" : "p_check" },
-                                        { "data" : "p_check_defered" },
-                                        { "data" : "p_credit_card" },
-                                        { "data" : "p_other" },
                                         {
-                                            "mRender": function (data, type, full) {
-                                                console.log(data, type, full);
-                                                return '<button onclick="contractView(' + full[1] + ')" class="btn-flat waves-effect waves-googleBlue">Ver</button>' +
-                                                    '<button onclick="contractPublish(' + full[1] + ')" class="btn-flat waves-effect waves-googleGreen">Publicar</button>' +
-                                                    '<button onclick="contractEdit(' + full[1] + ')" class="btn-flat waves-effect waves-googleYellow">Editar</button>' +
-                                                    '<button onclick="contractDelete(' + full[1] + ')" class="btn-flat waves-effect waves-googleRed">Eliminar</button>';
+                                            "mRender": function (d, t, row) {
+                                                if (row.p_transfer === '1') {
+                                                    return '<i class="material-icons">check_box</i>';
+                                                }
+                                                return '<i class="material-icons">crop_din</i>';
+                                            }
+                                        },
+                                        {
+                                            "mRender": function (d, t, row) {
+                                                if (row.p_cash === '1') {
+                                                    return '<i class="material-icons">check_box</i>';
+                                                }
+                                                return '<i class="material-icons">crop_din</i>';
+                                            }
+                                        },
+                                        {
+                                            "mRender": function (d, t, row) {
+                                                if (row.p_check === '1') {
+                                                    return '<i class="material-icons">check_box</i>';
+                                                }
+                                                return '<i class="material-icons">crop_din</i>';
+                                            }
+                                        },
+                                        {
+                                            "mRender": function (d, t, row) {
+                                                if (row.p_check_defered === '1') {
+                                                    return '<i class="material-icons">check_box</i>';
+                                                }
+                                                return '<i class="material-icons">crop_din</i>';
+                                            }
+                                        },
+                                        {
+                                            "mRender": function (d, t, row) {
+                                                if (row.p_credit_card === '1') {
+                                                    return '<i class="material-icons">check_box</i>';
+                                                }
+                                                return '<i class="material-icons">crop_din</i>';
+                                            }
+                                        },
+                                        {
+                                            "mRender": function (d, t, row) {
+                                                if (row.p_other === '1') {
+                                                    return '<i class="material-icons">check_box</i>';
+                                                }
+                                                return '<i class="material-icons">crop_din</i>';
+                                            }
+                                        },
+                                        {
+                                            "mRender": function (d, t, row) {
+                                                return '<button onclick="contractView(' + row.id + ')" class="btn-flat waves-effect waves-googleBlue">Ver</button>' +
+                                                    '<button onclick="contractPublish(' + row.id + ')" class="btn-flat waves-effect waves-googleGreen">Publicar</button>' +
+                                                    '<button onclick="contractEdit(' + row.id + ')" class="btn-flat waves-effect waves-googleYellow">Editar</button>' +
+                                                    '<button onclick="contractDelete(' + row.id + ')" class="btn-flat waves-effect waves-googleRed">Eliminar</button>';
                                             }
                                         }
                                     ]

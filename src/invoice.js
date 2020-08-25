@@ -42,6 +42,9 @@ Helper.Datatable.init = (id, data = {}) => {
     data.language = { "paginate": { "previous": "<", "next": ">" }, "pageLength": 50 };
     data.dom = 'Bfrtip';
     data.buttons = [ 'csv', 'excel', 'pdf' ];
+    data.drawCallback = function ( settings ) {
+        $('.dt-buttons').find('button').addClass('btn-flat waves-effect waves-googleGreen');
+    };
     let _table = dtable.DataTable(data);
 };
 Helper.ready = fn => {
@@ -121,8 +124,6 @@ Auth.checkStatus = () => {
 };
 
 Helper.ready(() => {
-    Helper.Datatable.init();
-    $('.dt-buttons').find('button').addClass('btn-flat waves-effect waves-googleGreen');
     $('input, textarea, select').on('change', function () { $(this).removeClass('error') });
     $('.sidenav').sidenav();
     $('.tooltipped').tooltip();
