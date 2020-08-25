@@ -208,6 +208,29 @@
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
         </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <input placeholder="" id="s_address" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$">
+                <label for="s_address">Dirección</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
+            </div>
+            <div class="input-field col s12 m3">
+                <select id="s_region_id">
+                    <option value="1">Región 1</option>
+                    <option value="2">Región 2</option>
+                    <option value="3">Región 3</option>
+                </select>
+                <label for="s_region_id">Región</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <select id="s_comune_id">
+                    <option value="1">Comuna 1</option>
+                    <option value="2">Comuna 2</option>
+                    <option value="3">Comuna 3</option>
+                </select>
+                <label for="s_comune_id">Comuna</label>
+            </div>
+        </div>
     </div>
     <div class="modal-footer">
         <a href="#!" class="waves-effect waves-light blue btn-small">Vista Previa</a>
