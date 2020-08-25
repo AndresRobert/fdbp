@@ -190,7 +190,7 @@
     </div>
 </div>
 <!-- Modals -->
-<div id="newContract" class="modal bottom-sheet">
+<div id="newContract" class="modal bottom-sheet eighty-percent">
     <div class="modal-content">
         <h5>Solicitante</h5>
         <div class="row">
