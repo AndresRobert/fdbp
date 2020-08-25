@@ -188,7 +188,7 @@
     </div>
 </div>
 <!-- Modals -->
-<div id="newContract" class="modal">
+<div id="newContract" class="modal bottom-sheet">
     <div class="modal-content">
         <h5>Solicitante</h5>
         <div class="row">
@@ -210,7 +210,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-light blue btn-small">Vista Previa</a>
+        <a href="#!" class="waves-effect waves-light blue btn-small">Vista Previa</a>
         <a href="#!" class="modal-close waves-effect waves-light green btn-small">Guardar</a>
         <a href="#!" class="modal-close waves-effect waves-light red btn-small">Eliminar</a>
     </div>
