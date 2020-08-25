@@ -12,7 +12,7 @@
     </div>
     <div class="row card-panel">
         <div class="col s12">
-            <table class="dTable striped highlight">
+            <table id="contracts_list" class="dTable striped highlight">
                 <thead>
                 <tr>
                     <th>Número</th>
@@ -122,8 +122,67 @@
                     type: 'get',
                     headers: Auth.getHeaders(),
                     dataType: 'json',
-                    success: data => {
-                        console.info(data);
+                    success: ({ status, response }) => {
+                        if (status === 'OK') {
+                            $("#contracts_list").DataTable ({
+                                "data" : response.contracts,
+                                "columns" : [
+                                    { "data" : "id" },
+                                    { "data" : "date" },
+                                    { "data" : "s_id" },
+                                    { "data" : "s_name" },
+                                    { "data" : "s_last_name" },
+                                    { "data" : "s_address" },
+                                    { "data" : "s_comune_name" },
+                                    { "data" : "s_region_name" },
+                                    { "data" : "s_mobile" },
+                                    { "data" : "s_email" },
+                                    { "data" : "s_phone" },
+                                    { "data" : "d_name" },
+                                    { "data" : "d_address" },
+                                    { "data" : "d_comune_name" },
+                                    { "data" : "d_region_name" },
+                                    { "data" : "d_marital_status" },
+                                    { "data" : "d_education" },
+                                    { "data" : "d_occupation" },
+                                    { "data" : "d_place" },
+                                    { "data" : "c_church" },
+                                    { "data" : "c_address" },
+                                    { "data" : "c_comune_name" },
+                                    { "data" : "c_region_name" },
+                                    { "data" : "f_cementery_name" },
+                                    { "data" : "f_date" },
+                                    { "data" : "f_time" },
+                                    { "data" : "v_service_name" },
+                                    { "data" : "v_color" },
+                                    { "data" : "v_include" },
+                                    { "data" : "v_observation" },
+                                    { "data" : "v_warning" },
+                                    { "data" : "v_cost" },
+                                    { "data" : "v_discount" },
+                                    { "data" : "v_total" },
+                                    { "data" : "v_insurance_name" },
+                                    { "data" : "v_coverage" },
+                                    { "data" : "v_payment" },
+                                    { "data" : "p_transfer" },
+                                    { "data" : "p_cash" },
+                                    { "data" : "p_check" },
+                                    { "data" : "p_check_defered" },
+                                    { "data" : "p_credit_card" },
+                                    { "data" : "p_other" },
+                                    {
+                                        "mRender": function (data, type, full) {
+                                            return '<button onclick="contractView(' + full[1] + ')" class="btn-flat waves-effect waves-googleBlue">Ver</button>' +
+                                                '<button onclick="contractView(' + full[1] + ')" class="btn-flat waves-effect waves-googleGreen">Publicar</button>' +
+                                                '<button onclick="contractView(' + full[1] + ')" class="btn-flat waves-effect waves-googleYellow">Editar</button>' +
+                                                '<button onclick="contractView(' + full[1] + ')" class="btn-flat waves-effect waves-googleRed">Eliminar</button>';
+                                        }
+                                    }
+                                ]
+                            });
+                        } else {
+                            M.toast({html: 'No se encontraron contratos'});
+                        }
                     },
                     error: data => {
                         if (data.responseJSON.response.response_code === 401) {

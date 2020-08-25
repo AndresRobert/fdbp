@@ -116,7 +116,7 @@ Auth.checkStatus = () => {
     const key = Helper.getCookie('fdbp_token') || null;
     $.post(Api.endpoints['check'], { key: key }, function ({ status, response }) {
         if (status !== 'OK' || response.status !== 'success') {
-            M.toast({html: response.message});
+            //M.toast({html: response.message});
             Helper.openLink('/');
         }
     }, 'json');
