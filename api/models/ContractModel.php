@@ -38,6 +38,7 @@ class Contract extends Model {
             c.s_mobile,
             c.s_email,
             c.s_phone,
+            c.d_id,
             c.d_name,
             c.d_address,
             c.d_comune_id,
