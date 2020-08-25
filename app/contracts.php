@@ -27,6 +27,7 @@
                     <th>Solicitante Celular</th>
                     <th>Solicitante Email</th>
                     <th>Solicitante Teléfono</th>
+                    <th>Fallecido RUT</th>
                     <th>Fallecido Nombre</th>
                     <th>Fallecido Dirección</th>
                     <th>Fallecido Comuna</th>
@@ -88,6 +89,7 @@
                                         { "data" : "s_mobile" },
                                         { "data" : "s_email" },
                                         { "data" : "s_phone" },
+                                        { "data" : "d_id" },
                                         { "data" : "d_name" },
                                         { "data" : "d_address" },
                                         { "data" : "d_comune_name" },
@@ -229,6 +231,57 @@
                     <option value="3">Comuna 3</option>
                 </select>
                 <label for="s_comune_id">Comuna</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input placeholder="ej.: nombre@gmail.com" id="s_email" type="text" class="validate" pattern="^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$">
+                <label for="s_email">Email</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="9 87654321" id="s_mobile" type="text" class="validate" pattern="^(9)( )[98765]\d{3}\d{4}$">
+                <label for="s_mobile">Celular</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="298765432" id="s_phone" type="text">
+                <label for="s_phone">Teléfono</label>
+            </div>
+        </div>
+        <h5>Fallecido</h5>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input placeholder="ej.: 12345678-9" id="d_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$">
+                <label for="d_id">Rut</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
+            </div>
+            <div class="input-field col s12 m8">
+                <input placeholder="" id="d_name" type="text" class="validate" pattern="[\S\s]+[\S]+">
+                <label for="d_name">Nombre</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <input placeholder="" id="d_address" type="text">
+                <label for="d_address">Dirección</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <select id="d_region_id">
+                    <option value="1">Región 1</option>
+                    <option value="2">Región 2</option>
+                    <option value="3">Región 3</option>
+                </select>
+                <label for="d_region_id">Región</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <select id="d_comune_id">
+                    <option value="1">Comuna 1</option>
+                    <option value="2">Comuna 2</option>
+                    <option value="3">Comuna 3</option>
+                </select>
+                <label for="d_comune_id">Comuna</label>
             </div>
         </div>
     </div>
