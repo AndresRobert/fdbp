@@ -107,10 +107,10 @@
                     <td data-search="si" data-sort="si"><i class="material-icons">crop_din</i></td>
                     <td data-search="si" data-sort="si"><i class="material-icons">crop_din</i></td>
                     <td>
-                        <button class="btn-flat waves-effect waves-purple">Ver</button>
-                        <button class="btn-flat waves-effect waves-purplee">Publicar</button>
-                        <button class="btn-flat waves-effect waves-purple">Editar</button>
-                        <button class="btn-flat waves-effect waves-purple">Eliminar</button>
+                        <button class="btn-flat waves-effect waves-googleBlue">Ver</button>
+                        <button class="btn-flat waves-effect waves-googleGreen">Publicar</button>
+                        <button class="btn-flat waves-effect waves-googleYellow">Editar</button>
+                        <button class="btn-flat waves-effect waves-googleRed">Eliminar</button>
                     </td>
                 </tr>
                 </tbody>

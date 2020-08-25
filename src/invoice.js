@@ -123,7 +123,7 @@ Auth.checkStatus = () => {
 
 Helper.ready(() => {
     Helper.Datatable.init();
-    $('.dt-buttons').find('button').addClass('btn-flat waves-effect waves-purple');
+    $('.dt-buttons').find('button').addClass('btn-flat waves-effect waves-googleGreen');
     $('input, textarea, select').on('change', function () { $(this).removeClass('error') });
     $('.sidenav').sidenav();
     $('.tooltipped').tooltip();
