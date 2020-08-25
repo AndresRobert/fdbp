@@ -22,29 +22,27 @@ Helper.calcTotal = () => {
     $('#v_payment').val(v_cost - v_discount - v_coverage);
 };
 Helper.Datatable = {};
-Helper.Datatable.init = () => {
-    $('.dTable').each( function() {
-        $(this).find('thead tr').clone(true).appendTo($(this).find('thead'));
-        $(this).find('thead tr:eq(0) th').each(function (i) {
-            let _placeholder = $(this).data('placeholder') || 'Buscar...';
-            if (_placeholder !== 'none') {
-                $(this).html('<input style="margin:0" type="text" placeholder="' + _placeholder + '">');
-            } else {
-                $(this).html('');
+Helper.Datatable.init = (id, data = {}) => {
+    let datatable = $(id);
+    datatable.find('thead tr').clone(true).appendTo($(this).find('thead'));
+    datatable.find('thead tr:eq(0) th').each(function (i) {
+        let _placeholder = $(this).data('placeholder') || 'Buscar...';
+        if (_placeholder !== 'none') {
+            $(this).html('<input style="margin:0" type="text" placeholder="' + _placeholder + '">');
+        } else {
+            $(this).html('');
+        }
+        $(this).css({ "padding": "1px 2px" });
+        $('input', this).on('keyup change', function () {
+            if (_table.column(i).search() !== this.value) {
+                _table.column(i).search(this.value).draw();
             }
-            $(this).css({ "padding": "1px 2px" });
-            $('input', this).on('keyup change', function () {
-                if (_table.column(i).search() !== this.value) {
-                    _table.column(i).search(this.value).draw();
-                }
-            });
         });
-        let _table = $(this).DataTable({
-            "language": { "paginate": { "previous": "<", "next": ">" }, "pageLength": 50 },
-            dom: 'Bfrtip',
-            buttons: [ 'csv', 'excel', 'pdf' ]
-        });
-    } );
+    });
+    data.language = { "paginate": { "previous": "<", "next": ">" }, "pageLength": 50 };
+    data.dom = 'Bfrtip';
+    data.buttons = [ 'csv', 'excel', 'pdf' ];
+    return datatable.DataTable(data);
 };
 Helper.ready = fn => {
     if (document.readyState !== 'loading') {
