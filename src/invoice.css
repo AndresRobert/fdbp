@@ -9,15 +9,29 @@ body {
     width: 100%;
 }
 
+
+/* Materialize */
+
 thead > tr > th,
 tbody > tr > td {
     white-space: nowrap;
     text-align: center;
 }
 
+.btn-flat {
+    border: 1px solid #DDD;
+}
+
+.btn-flat:hover {
+    border: 1px solid #AAA;
+}
+
 @media only screen and (min-width: 993px) {
     .container { width: 80% }
 }
+
+
+/* Datatables */
 
 .dataTables_filter,
 .dataTables_info {

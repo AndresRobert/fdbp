@@ -10,7 +10,7 @@
             <p>Listado de contratos emitidos</p>
         </div>
     </div>
-    <div class="row card">
+    <div class="row card-panel">
         <div class="col s12">
             <table class="dTable">
                 <thead>
