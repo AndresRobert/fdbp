@@ -23,16 +23,16 @@ Helper.calcTotal = () => {
 };
 Helper.Datatable = {};
 Helper.Datatable.init = (id, data = {}) => {
-    let datatable = $(id);
-    datatable.find('thead tr').clone(true).appendTo($(this).find('thead'));
-    datatable.find('thead tr:eq(0) th').each(function (i) {
-        let _placeholder = $(this).data('placeholder') || 'Buscar...';
+    let dtable = $(id);
+    dtable.find('thead tr').clone(true).appendTo(dtable.find('thead'));
+    dtable.find('thead tr:eq(0) th').each(function (i) {
+        let _placeholder = dtable.data('placeholder') || 'Buscar...';
         if (_placeholder !== 'none') {
-            $(this).html('<input style="margin:0" type="text" placeholder="' + _placeholder + '">');
+            dtable.html('<input style="margin:0" type="text" placeholder="' + _placeholder + '">');
         } else {
-            $(this).html('');
+            dtable.html('');
         }
-        $(this).css({ "padding": "1px 2px" });
+        dtable.css({ "padding": "1px 2px" });
         $('input', this).on('keyup change', function () {
             if (_table.column(i).search() !== this.value) {
                 _table.column(i).search(this.value).draw();
@@ -42,7 +42,7 @@ Helper.Datatable.init = (id, data = {}) => {
     data.language = { "paginate": { "previous": "<", "next": ">" }, "pageLength": 50 };
     data.dom = 'Bfrtip';
     data.buttons = [ 'csv', 'excel', 'pdf' ];
-    return datatable.DataTable(data);
+    let _table = dtable.DataTable(data);
 };
 Helper.ready = fn => {
     if (document.readyState !== 'loading') {
