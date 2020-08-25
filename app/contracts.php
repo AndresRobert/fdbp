@@ -340,11 +340,11 @@
                 <label for="f_cementery_id">Cementerio</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="" id="f_date" type="text" class="datepicker">
+                <input placeholder="Seleccione una fecha" id="f_date" type="text" class="datepicker">
                 <label for="f_date">Fecha</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="" id="f_time" type="time" class="timepicker">
+                <input placeholder="Seleccione una hora" id="f_time" type="text" class="timepicker">
                 <label for="f_time">Hora</label>
             </div>
         </div>
