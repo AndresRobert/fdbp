@@ -82,7 +82,7 @@ class Contracts extends Response {
                 $contracts = [];
                 $Contract = new Contract();
                 if ($fields['id'] === '' || !$Contract->exists('id', $fields['id'])) {
-                    $contracts = $Contract->list();
+                    $contracts = []; //$Contract->list();
                 } else {
                     $Contract->set(['id' => $fields['id']]);
                     $Contract->read();
