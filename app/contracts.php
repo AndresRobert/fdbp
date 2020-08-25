@@ -124,7 +124,6 @@
                     dataType: 'json',
                     success: ({ status, response }) => {
                         if (status === 'OK') {
-                            console.log(response);
                             Helper.Datatable.init(
                                 "#contracts_list",
                                 {
@@ -175,6 +174,7 @@
                                         { "data" : "p_other" },
                                         {
                                             "mRender": function (data, type, full) {
+                                                console.log(data, type, full);
                                                 return '<button onclick="contractView(' + full[1] + ')" class="btn-flat waves-effect waves-googleBlue">Ver</button>' +
                                                     '<button onclick="contractPublish(' + full[1] + ')" class="btn-flat waves-effect waves-googleGreen">Publicar</button>' +
                                                     '<button onclick="contractEdit(' + full[1] + ')" class="btn-flat waves-effect waves-googleYellow">Editar</button>' +
