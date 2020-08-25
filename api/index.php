@@ -21,7 +21,7 @@ Route::Create('POST', '/insurances', 'admin/getInsurances');
 Route::Create('POST', '/services', 'admin/getServices');
 
 Route::Create('POST', '/contract', 'contracts/save');
-Route::Create('GET', '/contract', 'contracts/getOne');
+Route::Create('GET', '/contract', 'contracts/list');
 
 // RENDER RESPONSE
 echo Route::Read(METHOD, REQUEST, BODY);

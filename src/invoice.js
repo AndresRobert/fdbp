@@ -86,7 +86,8 @@ Api.endpoints = {
     'insurances': '/api/insurances',
     'cementeries': '/api/cementeries',
     'services': '/api/services',
-    'comunes': '/api/comunes'
+    'comunes': '/api/comunes',
+    'contracts': '/api/contracts'
 };
 
 let Auth = {};

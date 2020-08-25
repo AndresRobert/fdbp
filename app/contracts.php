@@ -61,7 +61,7 @@
                     <th data-placeholder="none">Acciones</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="contractsTable">
                 <tr>
                     <td>1</td>
                     <td>2020-08-12</td>
@@ -115,6 +115,19 @@
                 </tr>
                 </tbody>
             </table>
+            <script>
+                // TODO: Load contracts
+                $.ajax({
+                    url: Api.endpoints['contracts'],
+                    type: 'get',
+                    headers: Auth.getHeaders(),
+                    dataType: 'json',
+                    success: function (data) {
+                        console.info(data);
+                    }
+                });
+                //$('#contractsTable').html();
+            </script>
         </div>
     </div>
 </div>

@@ -74,15 +74,14 @@ class Contracts extends Response {
         );
     }
 
-    public function getOne (array $fields): array {
+    public function list (array $fields): array {
         return self::RequiresAuthorization(
             static function () use ($fields) {
                 $status = 'success';
                 $message = 'Contrato existente';
                 $Contract = new Contract();
                 if ($fields['id'] === '' || !$Contract->exists('id', $fields['id'])) {
-                    $status = 'fail';
-                    $message = 'Contrato inexistente';
+                    $Contract->list();
                 } else {
                     $Contract->set(['id' => $fields['id']]);
                     $Contract->read();
@@ -95,21 +94,6 @@ class Contracts extends Response {
                 ];
             }
         );
-    }
-
-    public function getRegions(): array
-    {
-        $table = 'regions';
-        $list = Session::Exists($table)
-            ? Session::Read($table)
-            : (new Comune())->regions();
-        Session::Create($table, $list);
-
-        return [
-            'status' => 'success',
-            'message' => 'Regiones cargadas',
-            'list' => $list,
-        ];
     }
 
 }
