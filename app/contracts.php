@@ -126,7 +126,9 @@
                         console.info(data);
                     },
                     error: data => {
-                        console.info(data);
+                        if (data.responseJSON.response.response_code === 401) {
+                            Helper.openLink('/');
+                        }
                     }
                 });
                 //$('#contractsTable').html();
