@@ -190,11 +190,29 @@
 <!-- Modals -->
 <div id="newContract" class="modal">
     <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+        <h5>Solicitante</h5>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input placeholder="ej.: 12345678-9" id="s_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$">
+                <label for="s_id">Rut</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="" id="s_name" type="text" class="validate" pattern="[\S\s]+[\S]+">
+                <label for="s_name">Nombre</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="" id="s_last_name" type="text" class="validate" pattern="[\S\s]+[\S]+">
+                <label for="s_last_name">Apellido</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
+            </div>
+        </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        <a href="#!" class="modal-close waves-effect waves-light blue btn-small">Vista Previa</a>
+        <a href="#!" class="modal-close waves-effect waves-light green btn-small">Guardar</a>
+        <a href="#!" class="modal-close waves-effect waves-light red btn-small">Eliminar</a>
     </div>
 </div>
 </body>
