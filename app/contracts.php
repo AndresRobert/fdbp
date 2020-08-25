@@ -284,6 +284,138 @@
                 <label for="d_comune_id">Comuna</label>
             </div>
         </div>
+        <div class="row">
+            <div class="input-field col s12 m3">
+                <input placeholder="" id="d_place" type="text">
+                <label for="d_place">Lugar de Fallecimiento</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <input placeholder="ej.: Casado(a)" id="d_marital_status" type="text">
+                <label for="d_marital_status">Estado Civil</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <input placeholder="" id="d_occupation" type="text">
+                <label for="d_occupation">Ocupación</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <input placeholder="" id="d_education" type="text">
+                <label for="d_education">Educación</label>
+            </div>
+        </div>
+        <h5>Velatorio</h5>
+        <div class="row">
+            <div class="input-field col s12 m3">
+                <input placeholder="" id="c_church" type="text">
+                <label for="c_church">Capilla</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <input placeholder="" id="c_address" type="text">
+                <label for="c_address">Dirección</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <select id="c_region_id">
+                    <option value="1">Región 1</option>
+                    <option value="2">Región 2</option>
+                    <option value="3">Región 3</option>
+                </select>
+                <label for="c_region_id">Región</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <select id="c_comune_id">
+                    <option value="1">Comuna 1</option>
+                    <option value="2">Comuna 2</option>
+                    <option value="3">Comuna 3</option>
+                </select>
+                <label for="c_comune_id">Comuna</label>
+            </div>
+        </div>
+        <h5>Funeral</h5>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <select id="f_cementery_id">
+                    <option value="1">Cementerio 1</option>
+                    <option value="2">Cementerio 2</option>
+                    <option value="3">Cementerio 3</option>
+                </select>
+                <label for="f_cementery_id">Cementerio</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <input placeholder="" id="f_date" type="text" class="datepicker">
+                <label for="f_date">Fecha</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <input placeholder="" id="f_time" type="time" class="timepicker">
+                <label for="f_time">Hora</label>
+            </div>
+        </div>
+        <h5>Servicio</h5>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <select id="v_service_id">
+                    <option value="1">Tipo 1</option>
+                    <option value="2">Tipo 2</option>
+                    <option value="3">Tipo 3</option>
+                </select>
+                <label for="v_service_id">Tipo</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <input value="Sin Proveedor" id="v_provider_name" type="text" readonly>
+                <label for="v_provider_name">Provider</label>
+            </div>
+            <div class="input-field col s12 m3">
+                <input value="Sin Color" id="v_color" type="text" readonly>
+                <label for="v_color">Color</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="v_include" class="materialize-textarea"></textarea>
+                <label for="v_include">Incluye</label>
+            </div>
+            <div class="input-field col s12">
+                <textarea id="v_observation" class="materialize-textarea"></textarea>
+                <label for="v_observation">Observación</label>
+            </div>
+            <div class="input-field col s12">
+                <textarea id="v_warning" class="materialize-textarea"></textarea>
+                <label for="v_warning">Aviso</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input id="v_cost" type="number" min="1" class="validate">
+                <label for="v_cost">Valor del Servicio</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
+            </div>
+            <div class="input-field col s12 m4">
+                <input id="v_discount" type="number" min="0" class="validate">
+                <label for="v_discount">Descuento</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
+            </div>
+            <div class="input-field col s12 m4">
+                <input value="0" id="v_total" type="number" readonly>
+                <label for="v_color">Total</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <select id="v_insurance_id">
+                    <option value="1">Previsión 1</option>
+                    <option value="2">Previsión 2</option>
+                    <option value="3">Previsión 3</option>
+                </select>
+                <label for="v_insurance_id">Previsión</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input id="v_coverage" type="number" min="0" class="validate">
+                <label for="v_coverage">Aporte Previsión</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
+            </div>
+            <div class="input-field col s12 m4">
+                <input value="0" id="v_payment" type="number" readonly>
+                <label for="v_payment">Saldo</label>
+            </div>
+        </div>
     </div>
     <div class="modal-footer">
         <a href="#!" class="waves-effect waves-light blue btn-small">Vista Previa</a>

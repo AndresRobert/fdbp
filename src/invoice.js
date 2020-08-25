@@ -129,4 +129,5 @@ Helper.ready(() => {
     $('.tooltipped').tooltip();
     $('.modal').modal();
     $('select').formSelect();
+    $('.datepicker').datepicker();
 });
