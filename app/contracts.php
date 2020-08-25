@@ -4,8 +4,13 @@
 <body id="body">
 <?php include 'layout/topbar.php' ?>
 <div class="container">
-    <h4>Contratos</h4>
     <div class="row">
+        <div class="col s12">
+            <h4>Contratos</h4>
+            <p>Listado de contratos emitidos</p>
+        </div>
+    </div>
+    <div class="row card">
         <div class="col s12">
             <table class="dTable">
                 <thead>
@@ -102,10 +107,10 @@
                     <td data-search="si" data-sort="si"><i class="material-icons">crop_din</i></td>
                     <td data-search="si" data-sort="si"><i class="material-icons">crop_din</i></td>
                     <td>
-                        <button class="waves-effect waves-teal btn-flat">Ver</button>
-                        <button class="waves-effect waves-teal btn-flat">Publicar</button>
-                        <button class="waves-effect waves-teal btn-flat">Editar</button>
-                        <button class="waves-effect waves-teal btn-flat">Eliminar</button>
+                        <button class="btn-flat waves-effect waves-purple">Ver</button>
+                        <button class="btn-flat waves-effect waves-purplee">Publicar</button>
+                        <button class="btn-flat waves-effect waves-purple">Editar</button>
+                        <button class="btn-flat waves-effect waves-purple">Eliminar</button>
                     </td>
                 </tr>
                 </tbody>
