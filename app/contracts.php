@@ -416,6 +416,47 @@
                 <label for="v_payment">Saldo</label>
             </div>
         </div>
+        <h5>Forma de Pago</h5>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <label>
+                    <input id="p_cash" type="checkbox">
+                    <span>Efectivo</span>
+                </label>
+            </div>
+            <div class="input-field col s12 m4">
+                <label>
+                    <input id="p_check" type="checkbox">
+                    <span>Cheque al día</span>
+                </label>
+            </div>
+            <div class="input-field col s12 m4">
+                <label>
+                    <input id="p_check_defered" type="checkbox">
+                    <span>Cheque a Fecha</span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <label>
+                    <input id="p_transfer" type="checkbox">
+                    <span>Transferencia</span>
+                </label>
+            </div>
+            <div class="input-field col s12 m4">
+                <label>
+                    <input id="p_credit" type="checkbox">
+                    <span>Tarjeta de Crédito</span>
+                </label>
+            </div>
+            <div class="input-field col s12 m4">
+                <label>
+                    <input id="p_other" type="checkbox">
+                    <span>Otro</span>
+                </label>
+            </div>
+        </div>
     </div>
     <div class="modal-footer">
         <a href="#!" class="waves-effect waves-light blue btn-small">Vista Previa</a>
