@@ -8,7 +8,7 @@
         <div class="col s12">
             <h4>Contratos</h4>
             <p>Listado de contratos emitidos</p>
-            <a class="btn-floating btn-fixed btn-large waves-effect waves-light green tooltipped" data-position="left" data-tooltip="Nuevo Contrato"><i class="material-icons">add</i></a>
+            <a href="#newContract" class="btn-floating btn-fixed btn-large waves-effect waves-light green tooltipped modal-trigger" data-position="left" data-tooltip="Nuevo Contrato"><i class="material-icons">add</i></a>
         </div>
     </div>
     <div class="row card-panel">
@@ -184,6 +184,16 @@
                     }
                 });
             </script>
+        </div>
+    </div>
+    <!-- Modals -->
+    <div id="newContract" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
         </div>
     </div>
 </div>
