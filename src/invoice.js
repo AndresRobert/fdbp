@@ -109,7 +109,7 @@ Auth.logout = () => {
 Auth.getHeaders = () => {
     return {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + Cookies.get('fdbp_token')
+        'Authorization': 'Bearer ' + Helper.getCookie('fdbp_token')
     }
 };
 Auth.checkStatus = () => {
