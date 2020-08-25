@@ -50,6 +50,11 @@ tbody > tr > td {
 
 /* Datatables */
 
+table.dataTable thead th,
+table.dataTable thead td {
+    border: none;
+}
+
 .dataTables_filter,
 .dataTables_info {
     display: none;
