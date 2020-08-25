@@ -79,18 +79,20 @@ class Contracts extends Response {
             static function () use ($fields) {
                 $status = 'success';
                 $message = 'Contrato existente';
+                $contracts = [];
                 $Contract = new Contract();
                 if ($fields['id'] === '' || !$Contract->exists('id', $fields['id'])) {
-                    $Contract->list();
+                    $contracts = $Contract->list();
                 } else {
                     $Contract->set(['id' => $fields['id']]);
                     $Contract->read();
+                    $contracts = $Contract->toArray();
                 }
 
                 return [
                     'status' => $status,
                     'message' => $message,
-                    'contract' => $Contract->toArray()
+                    'contract' => $contracts
                 ];
             }
         );
