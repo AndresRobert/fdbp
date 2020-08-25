@@ -3,7 +3,7 @@
 <head><?php include 'layout/head.php' ?></head>
 <body id="body">
 <?php include 'layout/topbar.php' ?>
-<div id="content" class="grid">
+<div class="container">
     <h4>Contratos</h4>
     <div class="row card elevated">
         <h5>Solicitante</h5>

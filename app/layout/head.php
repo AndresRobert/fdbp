@@ -16,4 +16,3 @@ $ver = '?v=1.2.0';
 <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://<?= $path ?>/src/invoice.js<?= $ver ?>"></script>
-<script> Auth.checkStatus() </script>

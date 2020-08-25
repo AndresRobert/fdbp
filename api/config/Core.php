@@ -44,9 +44,9 @@ define('METHOD', strtoupper($_SERVER['REQUEST_METHOD']));
 define('REQUEST', $_SERVER['REQUEST_URI']);
 define('HEADERS', getallheaders());
 try {
-    define('BODY', json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) ?? []);
+    define('BODY', json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) ?? $_POST);
 } catch (Exception $e) {
-    define('BODY', []);
+    define('BODY', $_POST);
 }
 
 // DATABASE

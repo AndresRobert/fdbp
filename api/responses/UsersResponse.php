@@ -40,6 +40,7 @@ class Users extends Response {
         $response = [
             'response_code' => 400,
             'message' => 'Invalid data',
+            'credentials' => $credentials,
             'token' => NULL
         ];
         if (isset($credentials['password'], $credentials['email'])) {

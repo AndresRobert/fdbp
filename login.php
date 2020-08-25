@@ -1,42 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice</title>
-    <link href="src/vendor/acode.min.css" rel="stylesheet">
-    <link href="src/invoice.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a93fffc8fc.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script async src="src/vendor/acode.js"></script>
-    <script async src="src/invoice.js"></script>
+    <head><?php include 'app/layout/head.php' ?></head>
 </head>
-<body>
-<div id="content" class="grid">
+<body class="grey darken-4 valign-wrapper">
+<div class="container">
     <div class="row">
-        <div class="col-3 hideOnSmall"></div>
-        <div class="col-6">
-            <div style="display:flex">
-                <img src="src/img/logo.png" alt="" style="max-width:80%;margin:1rem auto">
-            </div>
-            <div class="card elevated">
-                <h5>Acceso</h5>
-                <p class="title">Ingresa tus credenciales</p>
-                <div class="row">
-                    <div class="col-6">
-                        <label for="email">Email</label>
-                        <input id="email" type="email" placeholder="Email de usuario">
+        <div class="col s3 hide-on-small-only"></div>
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Acceso</span>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input value="" id="email" type="email" required>
+                            <label class="active" for="email">Email</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input value="" id="password" type="password" required>
+                            <label class="active" for="password">Contraseña</label>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <label for="password">Clave</label>
-                        <input id="password" type="password" placeholder="Contraseña">
-                    </div>
-                    <div class="col-12 right">
-                        <button onclick="Auth.login(_$('#email').value, _$('#password').value)"><i class="fas fa-unlock-alt"></i>Acceder</button>
-                    </div>
+                </div>
+                <div class="card-action" style="text-align:right">
+                    <a onclick="Auth.login($('#email').val(), $('#password').val())" href="#">Acceder</a>
                 </div>
             </div>
         </div>
-        <div class="col-3 hideOnSmall"></div>
+        <div class="col s3 hide-on-small-only"></div>
     </div>
 </div>
 </body>

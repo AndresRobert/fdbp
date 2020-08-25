@@ -52,6 +52,27 @@ Helper.ready = fn => {
         document.addEventListener('DOMContentLoaded', fn, {capture: true, once: false, passive: true});
     }
 };
+Helper.setCookie = (cname, cvalue, exdays = 1) => {
+    let d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+};
+Helper.getCookie = (cname) => {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+};
 
 let Api = {};
 Api.endpoints = {
@@ -68,38 +89,34 @@ Api.endpoints = {
 
 let Auth = {};
 Auth.login = (email, password) => {
-    _$.ajax(Api.endpoints['login'], { email: email, password: password }
-    ).then(
-        ({ status, response }) => {
-            _$.snackbar(response.message);
+    $.post(
+        Api.endpoints['login'],
+        { "email": email, "password": password },
+        function ({ status, response }) {
+            M.toast({html: response.message});
             if (status === 'OK') {
-                _$.cookie.set('fdbp_token', response.token);
+                Helper.setCookie('fdbp_token', response.token);
                 Helper.openLink('/app');
             }
-        }
-    );
+        }, 'json');
 };
 Auth.logout = () => {
-    _$.ajax(Api.endpoints['logout'], { id: 'hbwef73238edbak' })
-        .then( () => { window.location.href = '/' })
+    $.post(Api.endpoints['logout'], function () { Helper.openLink('/') }, 'json');
 };
 Auth.getHeaders = () => {
     return {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + _$.cookie.get('fdbp_token')
+        'Authorization': 'Bearer ' + Cookies.get('fdbp_token')
     }
 };
 Auth.checkStatus = () => {
-    const key = _$.cookie.get('fdbp_token') || null;
-    _$.ajax(Api.endpoints['check'], { key: key })
-        .then(({ status, response }) => {
-            if (status !== 'OK' || response.status !== 'success') {
-                _$.snackbar(response.message)
-                window.location.href = '/';
-            } else {
-                _$('#body').style.display = 'block';
-            }
-        });
+    const key = Helper.getCookie('fdbp_token') || null;
+    $.post(Api.endpoints['check'], { key: key }, function ({ status, response }) {
+        if (status !== 'OK' || response.status !== 'success') {
+            M.toast({html: response.message});
+            Helper.openLink('/');
+        }
+    }, 'json');
 };
 
 Helper.ready(() => {
