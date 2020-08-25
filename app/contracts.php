@@ -128,7 +128,7 @@
                             Helper.Datatable.init(
                                 "#contracts_list",
                                 {
-                                    "data" : response.contracts,
+                                    "data" : response.contract,
                                     "columns" : [
                                         { "data" : "id" },
                                         { "data" : "date" },
