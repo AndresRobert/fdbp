@@ -29,6 +29,12 @@ tbody > tr > td {
     border: 1px solid #AAA;
 }
 
+.btn-floating.btn-fixed {
+    position: absolute;
+    top: 6rem;
+    right: 9rem;
+}
+
 .waves-effect.waves-googleRed .waves-ripple {
     background-color: rgba(219, 68, 55, 0.65);
 }

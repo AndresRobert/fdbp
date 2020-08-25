@@ -4,11 +4,11 @@
 <body class="grey lighten-3">
 <?php include 'layout/topbar.php' ?>
 <div class="container">
-    <a class="btn-floating btn-large waves-effect waves-light green tooltipped" data-position="left" data-tooltip="Nuevo Contrato"><i class="material-icons">add</i></a>
     <div class="row">
         <div class="col s12">
             <h4>Contratos</h4>
             <p>Listado de contratos emitidos</p>
+            <a class="btn-floating btn-fixed btn-large waves-effect waves-light green tooltipped" data-position="left" data-tooltip="Nuevo Contrato"><i class="material-icons">add</i></a>
         </div>
     </div>
     <div class="row card-panel">
