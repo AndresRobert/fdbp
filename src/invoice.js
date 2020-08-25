@@ -26,13 +26,13 @@ Helper.Datatable.init = (id, data = {}) => {
     let dtable = $(id);
     dtable.find('thead tr').clone(true).appendTo(dtable.find('thead'));
     dtable.find('thead tr:eq(0) th').each(function (i) {
-        let _placeholder = dtable.data('placeholder') || 'Buscar...';
+        let _placeholder = $(this).data('placeholder') || 'Buscar...';
         if (_placeholder !== 'none') {
-            dtable.html('<input style="margin:0" type="text" placeholder="' + _placeholder + '">');
+            $(this).html('<input style="margin:0" type="text" placeholder="' + _placeholder + '">');
         } else {
-            dtable.html('');
+            $(this).html('');
         }
-        dtable.css({ "padding": "1px 2px" });
+        $(this).css({ "padding": "1px 2px" });
         $('input', this).on('keyup change', function () {
             if (_table.column(i).search() !== this.value) {
                 _table.column(i).search(this.value).draw();
