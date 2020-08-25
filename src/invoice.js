@@ -29,6 +29,8 @@ Helper.Datatable.init = () => {
             let _placeholder = $(this).data('placeholder') || 'Buscar...';
             if (_placeholder !== 'none') {
                 $(this).html('<input style="margin:0" type="text" placeholder="' + _placeholder + '">');
+            } else {
+                $(this).html('');
             }
             $(this).css({ "padding": "1px 2px" });
             $('input', this).on('keyup change', function () {
@@ -121,6 +123,8 @@ Auth.checkStatus = () => {
 
 Helper.ready(() => {
     Helper.Datatable.init();
-    $('input, textarea, select')
-        .on('change', function () { $(this).removeClass('error') });
+    $('.dt-buttons').find('button').addClass('btn-small');
+    $('input, textarea, select').on('change', function () { $(this).removeClass('error') });
+    $('.sidenav').sidenav();
+    $('.tooltipped').tooltip();
 });

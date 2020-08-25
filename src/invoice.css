@@ -9,6 +9,12 @@ body {
     width: 100%;
 }
 
+thead > tr > th,
+tbody > tr > td {
+    white-space: nowrap;
+    text-align: center;
+}
+
 .dataTables_filter,
 .dataTables_info {
     display: none;
