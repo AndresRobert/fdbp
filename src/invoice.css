@@ -49,6 +49,10 @@ tbody > tr > td {
     background-color: rgba(15, 157, 88, 0.65);
 }
 
+.modal.bottom-sheet.eighty-percent {
+    max-height: 80%;
+}
+
 @media only screen and (min-width: 993px) {
     .container { width: 80% }
 }
