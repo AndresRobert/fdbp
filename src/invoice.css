@@ -3,14 +3,17 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css";
 @import "https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css";
 
+/* Materialize */
+
 body {
     position: fixed;
     height: 100%;
     width: 100%;
 }
 
-
-/* Materialize */
+html {
+    color: #212121;
+}
 
 thead > tr > th,
 tbody > tr > td {
