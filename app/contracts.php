@@ -124,6 +124,7 @@
                     dataType: 'json',
                     success: ({ status, response }) => {
                         if (status === 'OK') {
+                            console.log(response);
                             Helper.Datatable.init(
                                 "#contracts_list",
                                 {
