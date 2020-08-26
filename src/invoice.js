@@ -203,7 +203,8 @@ Adaptor.Connect.Services = (select_id, input_id, listName) => {
     let list = Api.getList(listName);
     $(document).on('change', select_id, function () {
         $.each(list, function( _, item ) {
-            if (parseInt(item.id) === parseInt(this.value)) {
+            console.log(list, item, this.value);
+            if (item.id === this.value) {
                 $(input_id).val(item.name);
                 return false;
             }
