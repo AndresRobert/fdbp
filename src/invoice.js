@@ -241,6 +241,29 @@ Helper.ready(() => {
     $('select').formSelect();
     $('.datepicker').datepicker({
         format: 'yyyy-mm-dd',
+        monthsShort: [
+            'Ene',
+            'Feb',
+            'Mar',
+            'Abr',
+            'May',
+            'Jun',
+            'Jul',
+            'Ago',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dic'
+        ],
+        weekdaysShort: [
+            'Dom',
+            'Lun',
+            'Mar',
+            'Mie',
+            'Jue',
+            'Vie',
+            'Sab'
+        ],
         i18n: {
             cancel: 'Cancelar',
             done: 'Aceptar',
