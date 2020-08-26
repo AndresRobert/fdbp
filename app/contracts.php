@@ -459,10 +459,10 @@ function saveContract() {
         dataType: 'json',
         data: data,
         success: ({ status, response }) => {
-            console.log(status, response);
+            console.log(status, response.message);
             if (status === 'fail') {
                 $.each(response.errors, function( _, id ) {
-                    $(id).addClass('invalid');
+                    $('#' + id).addClass('invalid');
                 });
             }
         },
