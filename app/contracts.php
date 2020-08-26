@@ -472,6 +472,8 @@ Adaptor.Select('#f_cementery_id','cementeries');
 Adaptor.Select('#v_service_id','services');
 Adaptor.Select('#v_insurance_id','insurances');
 Adaptor.Comunes('#s_comune_id', 1);
+Adaptor.Comunes('#d_comune_id', 1);
+Adaptor.Comunes('#c_comune_id', 1);
 </script>
 </body>
 </html>

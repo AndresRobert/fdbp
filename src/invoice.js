@@ -192,6 +192,12 @@ Adaptor.Comunes = (selectId = '', regionId = '') => {
         console.log('select is not present');
     }
 };
+Adaptor.Connect = {};
+Adaptor.Connect.Comunes = (region_id, comune_id) => {
+    $(region_id).on('change', function () {
+        Adaptor.Comunes(comune_id, this.id);
+    });
+};
 
 Api.setList('regions');
 Api.setList('comunes');
