@@ -36,8 +36,8 @@ class Admin extends Response {
     {
         $byRegion = (new Comune())->byRegion();
         $list = [];
-        foreach ($byRegion as $item) {
-            $list[$item['region_id']][] = [
+        foreach ($byRegion['response'] as $item) {
+            $list['response'][$item['region_id']][] = [
                 'id' => $item['id'],
                 'name' => $item['name']
             ];
@@ -46,7 +46,7 @@ class Admin extends Response {
         return [
             'status' => 'success',
             'message' => 'Comunas cargadas',
-            'list' => $list,
+            'list' => $list['response'],
         ];
     }
 
@@ -57,7 +57,7 @@ class Admin extends Response {
         return [
             'status' => 'success',
             'message' => 'Regiones cargadas',
-            'list' => $list,
+            'list' => $list['response'],
         ];
     }
 

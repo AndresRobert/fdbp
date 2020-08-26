@@ -16,13 +16,13 @@ class Comune extends Model {
     public function regions() {
         $query = 'SELECT region_id id, region_name name FROM comunes WHERE active = 1 GROUP BY region_id';
         $statement = MySQL::ComplexSelect($query);
-        return $statement['status'] === 'success' ? $statement['response'] : [];
+        return $statement['status'] === 'success' ? $statement : [];
     }
 
     public function byRegion() {
         $query = 'SELECT region_id, id, name FROM comunes WHERE active = 1 ORDER BY region_id, name';
         $statement = MySQL::ComplexSelect($query);
-        return $statement['status'] === 'success' ? $statement['response'] : [];
+        return $statement['status'] === 'success' ? $statement : [];
     }
 
 }
