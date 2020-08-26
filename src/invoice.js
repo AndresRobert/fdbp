@@ -204,7 +204,6 @@ Adaptor.Connect.Services = (select_id, input_id, listName) => {
     $(document).on('change', select_id, function () {
         let selectedId = this.value;
         $.each(list, function( _, item ) {
-            console.log(list, item, selectedId);
             if (item.id === selectedId) {
                 $(input_id).val(item.name);
                 return false;
