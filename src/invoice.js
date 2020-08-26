@@ -166,11 +166,13 @@ Adaptor.Comunes = (selectId = '', regionId = '') => {
     let select = $(selectId);
     if (select.length > 0) {
         let list = Api.getList('comunes_by_region');
+        console.log(list, list[regionId]);
         if (list === []) {
             console.log('Data not available for select')
         } else {
             select.empty();
             $.each(list[regionId], function( _, { id, name } ) {
+                console.log(id, name);
                 select.append('<option value="' + id + '">' + name + '</option>');
             });
         }
