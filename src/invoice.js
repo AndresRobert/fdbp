@@ -76,6 +76,20 @@ Helper.getCookie = (cname) => {
     }
     return "";
 };
+Helper.Object = {};
+Helper.Object.save = (name, object) => {
+    localStorage.setItem(name, JSON.stringify(object));
+};
+Helper.Object.load = (name) => {
+    let item = localStorage.getItem(name);
+    return item === null ? [] : JSON.parse(localStorage.getItem(name));
+};
+Helper.Object.remove = (name) => {
+    return localStorage.removeItem(name);
+};
+Helper.Object.clearAll = () => {
+    localStorage.clear();
+};
 
 let Api = {};
 Api.endpoints = {
@@ -93,27 +107,27 @@ Api.endpoints = {
     'colors_by_service': '/api/list/colorsByService',
     'contracts': '/api/contract'
 };
-Api.setList = (id = 'none') => {
-    if (id === 'none') {
-        console.error('setList', 'No name cookie');
+Api.setList = (name = 'none') => {
+    if (name === 'none') {
+        console.error('setList', 'No name');
         return;
     }
-    $.get(Api.endpoints[id], ({ _, response }) => {
-        console.log(id, response.list);
-        Helper.setCookie(id, JSON.stringify(response.list));
-        console.log(JSON.parse(Helper.getCookie(id)));
+    $.get(Api.endpoints[name], ({ _, response }) => {
+        console.log(name, response.list);
+        Helper.Object.save(name, JSON.stringify(response.list));
+        console.log(Helper.Object.load(name));
     });
 };
 
-Api.getList = (id = 'none') => {
-    if (id === 'none') {
-        console.error('getList', 'No name cookie');
+Api.getList = (name = 'none') => {
+    if (name === 'none') {
+        console.error('getList', 'No name');
         return;
     }
-    if (Helper.getCookie(id) === '') {
+    if (Helper.Object.load(name) === '') {
         return [];
     }
-    return JSON.parse(Helper.getCookie(id));
+    return Helper.Object.load(name);
 };
 
 let Auth = {};
