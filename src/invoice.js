@@ -146,9 +146,9 @@ Auth.checkStatus = () => {
 };
 
 let Adaptor = {};
-Adaptor.Select = (selectId = '', list = '') => {
+Adaptor.Select = (selectId = '', listName = '') => {
     if ($(selectId).length > 0) {
-        let list = Api.getList(list);
+        let list = Api.getList(listName);
         if (list === []) {
             console.log('Data not available for select')
         } else {
