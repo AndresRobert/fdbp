@@ -468,6 +468,9 @@
 Adaptor.Select('#s_region_id','regions');
 Adaptor.Select('#d_region_id','regions');
 Adaptor.Select('#c_region_id','regions');
+Adaptor.Select('#f_cementery_id','cementeries');
+Adaptor.Select('#v_service_id','services');
+Adaptor.Select('#v_insurance_id','insurances');
 </script>
 </body>
 </html>
