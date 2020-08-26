@@ -474,6 +474,9 @@ Adaptor.Select('#v_insurance_id','insurances');
 Adaptor.Comunes('#s_comune_id', 1);
 Adaptor.Comunes('#d_comune_id', 1);
 Adaptor.Comunes('#c_comune_id', 1);
+Adaptor.Connect.Comunes('#s_region_id', '#s_comune_id');
+Adaptor.Connect.Comunes('#d_region_id', '#d_comune_id');
+Adaptor.Connect.Comunes('#c_region_id', '#c_comune_id');
 </script>
 </body>
 </html>
