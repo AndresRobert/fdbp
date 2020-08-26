@@ -91,67 +91,73 @@ Helper.Object.clearAll = () => {
     localStorage.clear();
 };
 Helper.Options = {};
-Helper.Options.timepicker = () => {
-    return {
-        months: [
-            'Enero',
-            'Febrero',
-            'Marzo',
-            'Abril',
-            'Mayo',
-            'Junio',
-            'Julio',
-            'Agosto',
-            'Septiembre',
-            'Octubre',
-            'Noviembre',
-            'Diciembre'
-        ],
-        monthsShort: [
-            'Ene',
-            'Feb',
-            'Mar',
-            'Abr',
-            'May',
-            'Jun',
-            'Jul',
-            'Ago',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dic'
-        ],
-        weekdays: [
-            'Domingo',
-            'Lunes',
-            'Martes',
-            'Miércoles',
-            'Jueves',
-            'Viernes',
-            'Sábado'
-        ],
-        weekdaysShort: [
-            'Dom',
-            'Lun',
-            'Mar',
-            'Mie',
-            'Jue',
-            'Vie',
-            'Sab'
-        ],
-        weekdaysAbbrev: [
-            'D','L','M','M','J','V','S'
-        ],
-        cancel: 'Cancelar',
-        done: 'Aceptar',
-        clear: 'Limpiar'
-    };
-};
 Helper.Options.datepicker = () => {
     return {
-        cancel: 'Cancelar',
-        done: 'Aceptar',
-        clear: 'Limpiar'
+        format: 'yyyy-mm-dd',
+        i18n: {
+            months: [
+                'Enero',
+                'Febrero',
+                'Marzo',
+                'Abril',
+                'Mayo',
+                'Junio',
+                'Julio',
+                'Agosto',
+                'Septiembre',
+                'Octubre',
+                'Noviembre',
+                'Diciembre'
+            ],
+            monthsShort: [
+                'Ene',
+                'Feb',
+                'Mar',
+                'Abr',
+                'May',
+                'Jun',
+                'Jul',
+                'Ago',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dic'
+            ],
+            weekdays: [
+                'Domingo',
+                'Lunes',
+                'Martes',
+                'Miércoles',
+                'Jueves',
+                'Viernes',
+                'Sábado'
+            ],
+            weekdaysShort: [
+                'Dom',
+                'Lun',
+                'Mar',
+                'Mie',
+                'Jue',
+                'Vie',
+                'Sab'
+            ],
+            weekdaysAbbrev: [
+                'D','L','M','M','J','V','S'
+            ],
+            cancel: 'Cancelar',
+            done: 'Aceptar',
+            clear: 'Limpiar'
+        }
+    };
+};
+Helper.Options.timepicker = () => {
+    return {
+        twelveHour: false,
+        i18n: {
+            cancel: 'Cancelar',
+            done: 'Aceptar',
+            clear: 'Limpiar'
+        }
     };
 };
 
@@ -278,13 +284,20 @@ Adaptor.Connect.services = (selectId, inputId, listName) => {
 let Form = {};
 Form.getValues = (containerId) => {
     let formData = [];
-    $(containerId).find('select, textarea, input[type=text], input[type=number]').each( function () {
+    let container = $(containerId);
+    container.find('select, textarea, input[type=text]').each( function () {
         let form = $(this);
         if (typeof form.attr("id") !== 'undefined') {
             formData[form.attr("id")] = $(this).val();
         }
     });
-    $(containerId).find('input[type=checkbox]').each( function () {
+    container.find('input[type=number]').each( function () {
+        let form = $(this);
+        if (typeof form.attr("id") !== 'undefined') {
+            formData[form.attr("id")] = parseInt($(this).val());
+        }
+    });
+    container.find('input[type=checkbox]').each( function () {
         let form = $(this);
         if (typeof form.attr("id") !== 'undefined') {
             if (form.prop("checked") === true) {
@@ -295,6 +308,14 @@ Form.getValues = (containerId) => {
         }
     });
     console.log(formData);
+};
+Form.Calc = {};
+Form.Calc.payment = () => {
+    let cost = parseInt($('#v_cost').val());
+    let discount = parseInt($('#v_discount').val());
+    $('#v_total').val(cost - discount);
+    let coverage = parseInt($('#v_coverage').val());
+    $('#v_payment').val(cost - discount - coverage);
 };
 
 // Pre-Init
@@ -316,12 +337,6 @@ Helper.ready(() => {
     $('.tooltipped').tooltip();
     $('.modal').modal();
     $('select').formSelect();
-    $('.datepicker').datepicker({
-        format: 'yyyy-mm-dd',
-        i18n: Helper.Options.datepicker()
-    });
-    $('.timepicker').timepicker({
-        twelveHour: false,
-        i18n: Helper.Options.timepicker()
-    });
+    $('.datepicker').datepicker(Helper.Options.datepicker());
+    $('.timepicker').timepicker(Helper.Options.timepicker());
 });

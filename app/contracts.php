@@ -227,7 +227,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="ej.: nombre@gmail.com" id="s_email" type="text" class="validate" pattern="^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$">
+                <input placeholder="ej.: nombre@gmail.com" id="s_email" type="text" class="validate" pattern="^((?!\.)[\w_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$">
                 <label for="s_email">Email</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
@@ -354,12 +354,12 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input id="v_cost" type="number" min="1" class="validate">
+                <input id="v_cost" onchange="Form.Calc.payment()" type="number" min="1" class="validate">
                 <label for="v_cost">Valor del Servicio</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input id="v_discount" type="number" min="0" class="validate">
+                <input id="v_discount" onchange="Form.Calc.payment()" type="number" min="0" class="validate">
                 <label for="v_discount">Descuento</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
@@ -374,7 +374,7 @@
                 <label for="v_insurance_id">Previsión</label>
             </div>
             <div class="input-field col s12 m4">
-                <input id="v_coverage" type="number" min="0" class="validate">
+                <input id="v_coverage" onchange="Form.Calc.payment()" type="number" min="0" class="validate">
                 <label for="v_coverage">Aporte Previsión</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
