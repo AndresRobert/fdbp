@@ -67,7 +67,7 @@
             </table>
             <script>
                 $.ajax({
-                    url: Api.endpoints['contracts'],
+                    url: Api.endpoints['contract'],
                     type: 'get',
                     headers: Auth.getHeaders(),
                     dataType: 'json',
@@ -427,7 +427,7 @@
     </div>
     <div class="modal-footer">
         <a href="#!" class="waves-effect waves-light blue btn-small">Vista Previa</a>
-        <a href="#!" onclick="Form.getValues('#newContract')" class="waves-effect waves-light teal btn-small">Guardar</a>
+        <a href="#!" onclick="saveContract()" class="waves-effect waves-light teal btn-small">Guardar</a>
         <a href="#!" class="waves-effect waves-light grey btn-small left">Eliminar</a>
     </div>
 </div>
@@ -446,6 +446,24 @@ Adaptor.Connect.comunes('#d_region_id', '#d_comune_id');
 Adaptor.Connect.comunes('#c_region_id', '#c_comune_id');
 Adaptor.Connect.services('#v_service_id', '#v_provider_name', 'providers_by_service');
 Adaptor.Connect.services('#v_service_id', '#v_color', 'colors_by_service');
+
+function saveContract() {
+    let data = Form.getValues('#newContract');
+    $.ajax({ url: Api.endpoints['contract'],
+        type: 'post',
+        headers: Auth.getHeaders(),
+        dataType: 'json',
+        data: data,
+        success: ({ status, response }) => {
+            console.log(status, response);
+        },
+        error: data => {
+            if (data.responseJSON.response.response_code === 401) {
+                Helper.openLink('/');
+            }
+        }
+    });
+}
 </script>
 </body>
 </html>

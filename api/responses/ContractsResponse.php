@@ -57,7 +57,6 @@ class Contracts extends Response {
                 $fields['v_total'] = $fields['v_cost'] - (intVal($fields['v_discount']) ?? 0);
                 $fields['v_payment'] = $fields['v_total'] - (intVal($fields['v_coverage']) ?? 0);
                 $fields['f_datetime'] = $fields['f_date'].' '.$fields['f_time'];
-                unset($fields['f_date'], $fields['f_time']);
                 $Contract->set($fields);
 
                 if ($Contract->create()) {

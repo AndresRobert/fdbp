@@ -175,7 +175,7 @@ Api.endpoints = {
     'providers': '/api/list/providers',
     'providers_by_service': '/api/list/providersByService',
     'colors_by_service': '/api/list/colorsByService',
-    'contracts': '/api/contract'
+    'contract': '/api/contract'
 };
 Api.setList = (name = 'none') => {
     if (name === 'none') {
@@ -307,7 +307,7 @@ Form.getValues = (containerId) => {
             }
         }
     });
-    console.log(formData);
+    return formData;
 };
 Form.Calc = {};
 Form.Calc.payment = () => {
