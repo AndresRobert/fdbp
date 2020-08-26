@@ -153,7 +153,7 @@ Adaptor.Select = (selectId = '', listName = '') => {
             console.log('Data not available for select')
         } else {
             $.each(list, function( _, { value, text } ) {
-                console.log(value, text);
+                console.log(value, text, listName, list);
                 $(selectId).append('<option value="' + value + '">' + text + '</option>');
             });
         }
