@@ -464,5 +464,16 @@
         <a href="#!" class="modal-close waves-effect waves-light red btn-small">Eliminar</a>
     </div>
 </div>
+<script>
+    let regionsList = Api.getList();
+    if (regionsList === []) {
+        M.Toast({ html: 'Regiones no disponibles' });
+    } else {
+        $.each(regionsList, function( index, value ) {
+            console.log( index, value );
+        });
+        //$('#s_region_id')
+    }
+</script>
 </body>
 </html>

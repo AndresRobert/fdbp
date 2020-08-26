@@ -99,6 +99,13 @@ Api.setList = (id) => {
     });
 };
 
+Api.getList = (id) => {
+    if (Helper.getCookie(id) === '') {
+        return [];
+    }
+    return JSON.parse(Helper.getCookie(id));
+};
+
 let Auth = {};
 Auth.login = (email, password) => {
     $.post(
@@ -131,6 +138,16 @@ Auth.checkStatus = () => {
     }, 'json');
 };
 
+Api.setList('regions');
+Api.setList('comunes');
+Api.setList('comunes_by_region');
+Api.setList('insurances');
+Api.setList('cementeries');
+Api.setList('services');
+Api.setList('providers');
+Api.setList('providers_by_service');
+Api.setList('colors_by_service');
+
 Helper.ready(() => {
     $('input, textarea, select').on('change', function () { $(this).removeClass('error') });
     $('.sidenav').sidenav();
@@ -138,13 +155,4 @@ Helper.ready(() => {
     $('.modal').modal();
     $('select').formSelect();
     $('.datepicker').datepicker();
-    Api.setList('regions');
-    Api.setList('comunes');
-    Api.setList('comunes_by_region');
-    Api.setList('insurances');
-    Api.setList('cementeries');
-    Api.setList('services');
-    Api.setList('providers');
-    Api.setList('providers_by_service');
-    Api.setList('colors_by_service');
 });
