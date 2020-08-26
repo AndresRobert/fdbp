@@ -8,7 +8,7 @@
         <div class="col s12">
             <h4>Contratos</h4>
             <p>Listado de contratos emitidos</p>
-            <a href="#newContract" class="btn-floating btn-fixed btn-large waves-effect waves-light green tooltipped modal-trigger" data-position="left" data-tooltip="Nuevo Contrato"><i class="material-icons">add</i></a>
+            <a href="#newContract" class="btn-floating btn-fixed btn-large waves-effect waves-light teal tooltipped modal-trigger" data-position="left" data-tooltip="Nuevo Contrato"><i class="material-icons">add</i></a>
         </div>
     </div>
     <div class="row card-panel">
@@ -460,7 +460,7 @@
     </div>
     <div class="modal-footer">
         <a href="#!" class="waves-effect waves-light blue btn-small">Vista Previa</a>
-        <a href="#!" class="modal-close waves-effect waves-light green btn-small">Guardar</a>
+        <a href="#!" class="modal-close waves-effect waves-light teal btn-small">Guardar</a>
         <a href="#!" class="modal-close waves-effect waves-light red btn-small">Eliminar</a>
     </div>
 </div>
