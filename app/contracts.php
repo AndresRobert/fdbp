@@ -456,7 +456,7 @@ function saveContract() {
         url: Api.endpoints['contract'],
         type: 'post',
         headers: Auth.getHeaders(),
-        dataType: 'json',
+        contentType: 'application/json',
         data: JSON.stringify(data),
         success: ({ status, response }) => {
             console.log(status, response);
