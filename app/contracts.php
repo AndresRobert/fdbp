@@ -465,15 +465,9 @@
     </div>
 </div>
 <script>
-    let regionsList = Api.getList('regions');
-    if (regionsList === []) {
-        M.Toast({ html: 'Regiones no disponibles' });
-    } else {
-        $.each(regionsList, function( _, { id, name } ) {
-            console.log( id, name );
-        });
-        //$('#s_region_id')
-    }
+Adaptor.select('#s_region_id','regions');
+Adaptor.select('#d_region_id','regions');
+Adaptor.select('#c_region_id','regions');
 </script>
 </body>
 </html>

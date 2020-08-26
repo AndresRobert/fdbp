@@ -145,6 +145,22 @@ Auth.checkStatus = () => {
     }, 'json');
 };
 
+let Adaptor = {};
+Adaptor.Select = (selectId = '', list = '') => {
+    if ($(selectId).length > 0) {
+        let list = Api.getList(list);
+        if (list === []) {
+            console.log('Data not available for select')
+        } else {
+            $.each(list, function( _, { value, text } ) {
+                $(selectId).append('<option value="' + value + '">' + text + '</option>');
+            });
+        }
+    } else {
+        console.log('select is not present');
+    }
+};
+
 Api.setList('regions');
 Api.setList('comunes');
 Api.setList('comunes_by_region');
