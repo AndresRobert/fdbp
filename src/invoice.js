@@ -202,9 +202,10 @@ Adaptor.Connect.Comunes = (region_id, comune_id) => {
 Adaptor.Connect.Services = (select_id, input_id, listName) => {
     let list = Api.getList(listName);
     $(document).on('change', select_id, function () {
+        let selectedId = this.value;
         $.each(list, function( _, item ) {
-            console.log(list, item, this.value);
-            if (item.id === this.value) {
+            console.log(list, item, selectedId);
+            if (item.id === selectedId) {
                 $(input_id).val(item.name);
                 return false;
             }
