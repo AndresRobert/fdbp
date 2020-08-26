@@ -16,21 +16,17 @@ class Admin extends Response {
 
     public function getCementeries(): array
     {
-        return self::RequiresAuthorization(
-            static function () {
-                $table = 'cementeries';
-                $list = Session::Exists($table)
-                    ? Session::Read($table)
-                    : (new Cementery())->filter(['id', 'name'], ['active' => 1]);
-                Session::Create($table, $list);
+        $table = 'cementeries';
+        $list = Session::Exists($table)
+            ? Session::Read($table)
+            : (new Cementery())->filter(['id', 'name'], ['active' => 1]);
+        Session::Create($table, $list);
 
-                return [
-                    'status' => 'success',
-                    'message' => 'Cementerios cargados',
-                    'list' => $list['response'],
-                ];
-            }
-        );
+        return [
+            'status' => 'success',
+            'message' => 'Cementerios cargados',
+            'list' => $list['response'],
+        ];
     }
 
     public function getComunes(): array
@@ -89,40 +85,77 @@ class Admin extends Response {
 
     public function getInsurances(): array
     {
-        return self::RequiresAuthorization(
-            static function () {
-                $table = 'insurances';
-                $list = Session::Exists($table)
-                    ? Session::Read($table)
-                    : (new Insurance())->filter(['id', 'name'], ['active' => 1]);
-                Session::Create($table, $list);
+        $table = 'insurances';
+        $list = Session::Exists($table)
+            ? Session::Read($table)
+            : (new Insurance())->filter(['id', 'name'], ['active' => 1]);
+        Session::Create($table, $list);
 
-                return [
-                    'status' => 'success',
-                    'message' => 'Aseguradoras cargadas',
-                    'list' => $list['response'],
-                ];
-            }
-        );
+        return [
+            'status' => 'success',
+            'message' => 'Aseguradoras cargadas',
+            'list' => $list['response'],
+        ];
     }
 
     public function getServices(): array
     {
-        return self::RequiresAuthorization(
-            static function () {
-                $table = 'services';
-                $list = Session::Exists($table)
-                    ? Session::Read($table)
-                    : (new Service())->filter(['id', 'name'], ['active' => 1]);
-                Session::Create($table, $list);
+        $table = 'services';
+        $list = Session::Exists($table)
+            ? Session::Read($table)
+            : (new Service())->filter(['id', 'name'], ['active' => 1]);
+        Session::Create($table, $list);
 
-                return [
-                    'status' => 'success',
-                    'message' => 'Tipos de Servicio cargados',
-                    'list' => $list['response'],
-                ];
-            }
-        );
+        return [
+            'status' => 'success',
+            'message' => 'Tipos de Servicio cargados',
+            'list' => $list['response'],
+        ];
+    }
+
+    public function getProviders(): array
+    {
+        $table = 'providers';
+        $list = Session::Exists($table)
+            ? Session::Read($table)
+            : (new Provider())->filter(['id', 'name'], ['active' => 1]);
+        Session::Create($table, $list);
+
+        return [
+            'status' => 'success',
+            'message' => 'Proveedores cargados',
+            'list' => $list['response'],
+        ];
+    }
+
+    public function getProvidersByService(): array
+    {
+        $table = 'providersByService';
+        $list = Session::Exists($table)
+            ? Session::Read($table)
+            : (new Service())->providers();
+        Session::Create($table, $list);
+
+        return [
+            'status' => 'success',
+            'message' => 'Proveedores por servicio cargados',
+            'list' => $list['response'],
+        ];
+    }
+
+    public function getColorsByService(): array
+    {
+        $table = 'colorsByService';
+        $list = Session::Exists($table)
+            ? Session::Read($table)
+            : (new Service())->colors();
+        Session::Create($table, $list);
+
+        return [
+            'status' => 'success',
+            'message' => 'Colores por servicio cargados',
+            'list' => $list['response'],
+        ];
     }
 
 }

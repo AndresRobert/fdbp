@@ -13,12 +13,15 @@ Route::Create('POST', '/check', 'users/checkToken');
 
 Route::Create('POST', '/users', 'users/getByFilter');
 
-Route::Create('POST', '/regions', 'admin/getRegions');
-Route::Create('POST', '/comunes', 'admin/getComunes');
-Route::Create('POST', '/comunesByRegion', 'admin/getComunesByRegion');
-Route::Create('POST', '/cementeries', 'admin/getCementeries');
-Route::Create('POST', '/insurances', 'admin/getInsurances');
-Route::Create('POST', '/services', 'admin/getServices');
+Route::Create('POST', '/list/regions', 'admin/getRegions');
+Route::Create('POST', '/list/comunes', 'admin/getComunes');
+Route::Create('POST', '/list/comunesByRegion', 'admin/getComunesByRegion');
+Route::Create('POST', '/list/cementeries', 'admin/getCementeries');
+Route::Create('POST', '/list/insurances', 'admin/getInsurances');
+Route::Create('POST', '/list/services', 'admin/getServices');
+Route::Create('POST', '/list/providers', 'admin/getProviders');
+Route::Create('POST', '/list/providersByService', 'admin/getProvidersByService');
+Route::Create('POST', '/list/colorsByService', 'admin/getColorsByService');
 
 Route::Create('POST', '/contract', 'contracts/save');
 Route::Create('GET', '/contract', 'contracts/list');
