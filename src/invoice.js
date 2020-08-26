@@ -147,14 +147,15 @@ Auth.checkStatus = () => {
 
 let Adaptor = {};
 Adaptor.Select = (selectId = '', listName = '') => {
-    if ($(selectId).length > 0) {
+    let select = $(selectId);
+    if (select.length > 0) {
         let list = Api.getList(listName);
         if (list === []) {
             console.log('Data not available for select')
         } else {
-            $.each(list, function( _, { value, text } ) {
-                console.log(value, text, listName, list);
-                $(selectId).append('<option value="' + value + '">' + text + '</option>');
+            select.empty();
+            $.each(list, function( _, { id, name } ) {
+                select.append('<option value="' + id + '">' + name + '</option>');
             });
         }
     } else {
