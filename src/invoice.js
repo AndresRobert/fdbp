@@ -213,8 +213,8 @@ Adaptor.Connect.Services = (selectId, inputId, listName) => {
 };
 let Form = {};
 Form.getValues = (containerId) => {
-    $(containerId).find('input').each(input => {
-        console.log(input);
+    $(containerId).find('input').each( function () {
+        console.log($(this).attr("id"), $(this).val());
     });
 };
 
