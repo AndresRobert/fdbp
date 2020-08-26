@@ -93,13 +93,21 @@ Api.endpoints = {
     'colors_by_service': '/api/list/colorsByService',
     'contracts': '/api/contract'
 };
-Api.setList = (id) => {
+Api.setList = (id = 'none') => {
+    if (id === 'none') {
+        console.error('setList', 'No name cookie');
+        return;
+    }
     $.get(Api.endpoints[id], ({ _, response }) => {
         Helper.setCookie(id, JSON.stringify(response.list))
     });
 };
 
-Api.getList = (id) => {
+Api.getList = (id = 'none') => {
+    if (id === 'none') {
+        console.error('getList', 'No name cookie');
+        return;
+    }
     if (Helper.getCookie(id) === '') {
         return [];
     }

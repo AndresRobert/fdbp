@@ -465,7 +465,7 @@
     </div>
 </div>
 <script>
-    let regionsList = Api.getList();
+    let regionsList = Api.getList('regions');
     if (regionsList === []) {
         M.Toast({ html: 'Regiones no disponibles' });
     } else {
