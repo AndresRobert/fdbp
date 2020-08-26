@@ -193,22 +193,28 @@ Adaptor.Comunes = (selectId = '', regionId = '') => {
     }
 };
 Adaptor.Connect = {};
-Adaptor.Connect.Comunes = (region_id, comune_id) => {
-    $(document).on('change', region_id, function () {
-        Adaptor.Comunes(comune_id, this.value);
-        $(comune_id).formSelect();
+Adaptor.Connect.Comunes = (regionId, comuneId) => {
+    $(document).on('change', regionId, function () {
+        Adaptor.Comunes(comuneId, this.value);
+        $(comuneId).formSelect();
     });
 };
-Adaptor.Connect.Services = (select_id, input_id, listName) => {
+Adaptor.Connect.Services = (selectId, inputId, listName) => {
     let list = Api.getList(listName);
-    $(document).on('change', select_id, function () {
+    $(document).on('change', selectId, function () {
         let selectedId = this.value;
         $.each(list, function( _, item ) {
             if (item.id === selectedId) {
-                $(input_id).val(item.name);
+                $(inputId).val(item.name);
                 return false;
             }
         });
+    });
+};
+let Form = {};
+Form.getValues = (containerId) => {
+    $(containerId).find('input').each(input => {
+        console.log(input.id, input.value);
     });
 };
 
