@@ -53,10 +53,13 @@ tbody > tr > td {
     max-height: 80%;
 }
 
+.dropdown-content {
+    max-height: 15rem;
+}
+
 @media only screen and (min-width: 993px) {
     .container { width: 80% }
 }
-
 
 /* Datatables */
 

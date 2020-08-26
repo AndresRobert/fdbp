@@ -162,6 +162,22 @@ Adaptor.Select = (selectId = '', listName = '') => {
         console.log('select is not present');
     }
 };
+Adaptor.Comunes = (selectId = '', regionId = '') => {
+    let select = $(selectId);
+    if (select.length > 0) {
+        let list = Api.getList('comunes_by_region');
+        if (list === []) {
+            console.log('Data not available for select')
+        } else {
+            select.empty();
+            $.each(list[regionId], function( _, { id, name } ) {
+                select.append('<option value="' + id + '">' + name + '</option>');
+            });
+        }
+    } else {
+        console.log('select is not present');
+    }
+};
 
 Api.setList('regions');
 Api.setList('comunes');
