@@ -477,6 +477,8 @@ Adaptor.Comunes('#c_comune_id', 1);
 Adaptor.Connect.Comunes('#s_region_id', '#s_comune_id');
 Adaptor.Connect.Comunes('#d_region_id', '#d_comune_id');
 Adaptor.Connect.Comunes('#c_region_id', '#c_comune_id');
+Adaptor.Connect.Services('#v_service_id', '#v_provider_name', 'providers_by_service');
+Adaptor.Connect.Services('#v_service_id', '#v_color', 'colors_by_servico');
 </script>
 </body>
 </html>
