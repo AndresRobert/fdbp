@@ -80,6 +80,7 @@ class Contracts extends Response {
                     'message' => $message,
                     'id' => $contractId,
                     'errors' => $errorIds,
+                    'fields' => $fields
                 ];
             }
         );
