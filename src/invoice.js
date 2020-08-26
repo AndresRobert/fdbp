@@ -194,7 +194,7 @@ Adaptor.Comunes = (selectId = '', regionId = '') => {
 };
 Adaptor.Connect = {};
 Adaptor.Connect.Comunes = (region_id, comune_id) => {
-    $(region_id).on('change', function () {
+    $(document).on('change', region_id, function () {
         Adaptor.Comunes(comune_id, this.value);
     });
 };
