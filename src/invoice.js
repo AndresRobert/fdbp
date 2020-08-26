@@ -114,7 +114,7 @@ Api.setList = (name = 'none') => {
         return;
     }
     $.get(Api.endpoints[name], ({ _, response }) => {
-        Helper.Object.save(name, JSON.stringify(response.list));
+        Helper.Object.save(name, response.list);
     });
 };
 
