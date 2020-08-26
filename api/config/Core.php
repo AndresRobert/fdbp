@@ -39,16 +39,16 @@ define('APPNAME', 'FDBP Manager');
 
 // ROUTES
 // GET, POST, PUT, PATCH, DELETE, COPY, HEAD, OPTIONS, LINK, UNLINK, PURGE, LOCK, UNLOCK, PROPFIND, VIEW
-define('ALLOWED_METHODS', ['POST', 'GET', 'PUT', 'DELETE', 'VIEW']);
+define('ALLOWED_METHODS', ['POST', 'GET']);
 define('METHOD', strtoupper($_SERVER['REQUEST_METHOD']));
 define('REQUEST', $_SERVER['REQUEST_URI']);
 define('HEADERS', getallheaders());
-$body = $_GET;
+$body = ['get'];
 try {
-    $body = json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) || [0];
+    $body = json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) || ['input'];
 } catch (Exception $e) {
     if (METHOD === 'POST' || METHOD === 'post') {
-        $body = $_POST;
+        $body = ['post'];
     }
 }
 define('BODY', $body);
