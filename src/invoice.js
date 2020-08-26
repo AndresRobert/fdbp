@@ -198,7 +198,7 @@ Adaptor.Connect.Comunes = (region_id, comune_id) => {
     $(document).on('change', region_id, function () {
         console.log(comune_id, this.value);
         Adaptor.Comunes(comune_id, this.value);
-        $(comune_id).trigger('contentChanged');
+        $(comune_id).select();
     });
 };
 
