@@ -214,7 +214,7 @@ Adaptor.Connect.Services = (selectId, inputId, listName) => {
 let Form = {};
 Form.getValues = (containerId) => {
     let formData = [];
-    $(containerId).find('input').each( function () {
+    $(containerId).find('input[type=text], input[type=number]').each( function () {
         let form = $(this);
         if (typeof form.attr("id") !== 'undefined') {
             formData[form.attr("id")] = $(this).val();
@@ -240,4 +240,5 @@ Helper.ready(() => {
     $('.modal').modal();
     $('select').formSelect();
     $('.datepicker').datepicker();
+    $('.timepicker').timepicker();
 });
