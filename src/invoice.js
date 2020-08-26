@@ -239,6 +239,20 @@ Helper.ready(() => {
     $('.tooltipped').tooltip();
     $('.modal').modal();
     $('select').formSelect();
-    $('.datepicker').datepicker();
-    $('.timepicker').timepicker();
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        i18n: {
+            cancel: 'Cancelar',
+            done: 'Aceptar',
+            clear: 'Limpiar'
+        }
+    });
+    $('.timepicker').timepicker({
+        twelveHour: false,
+        i18n: {
+            cancel: 'Cancelar',
+            done: 'Aceptar',
+            clear: 'Limpiar'
+        }
+    });
 });
