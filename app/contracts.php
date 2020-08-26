@@ -462,6 +462,7 @@ function saveContract() {
             console.log(status, response.message);
             if (status === 'fail') {
                 $.each(response.errors, function( _, id ) {
+                    console.log(id);
                     $('#' + id).addClass('invalid');
                 });
             }
