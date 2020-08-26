@@ -113,9 +113,7 @@ Api.setList = (name = 'none') => {
         return;
     }
     $.get(Api.endpoints[name], ({ _, response }) => {
-        console.log(name, response.list);
         Helper.Object.save(name, JSON.stringify(response.list));
-        console.log(Helper.Object.load(name));
     });
 };
 
@@ -166,6 +164,7 @@ Adaptor.Select = (selectId = '', listName = '') => {
     let select = $(selectId);
     if (select.length > 0) {
         let list = Api.getList(listName);
+        console.log(selectId, listName, list);
         if (list === []) {
             console.log('Data not available for select')
         } else {
