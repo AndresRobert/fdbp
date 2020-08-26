@@ -294,7 +294,7 @@ Form.getValues = (containerId) => {
     container.find('input[type=number]').each( function () {
         let form = $(this);
         if (typeof form.attr("id") !== 'undefined') {
-            formData[form.attr("id")] = parseInt($(this).val());
+            formData[form.attr("id")] = parseInt($(this).val()) || 0;
         }
     });
     container.find('input[type=checkbox]').each( function () {
