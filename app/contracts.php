@@ -449,7 +449,8 @@ Adaptor.Connect.services('#v_service_id', '#v_color', 'colors_by_service');
 
 function saveContract() {
     let data = Form.getValues('#newContract');
-    $.ajax({ url: Api.endpoints['contract'],
+    $.ajax({
+        url: Api.endpoints['contract'],
         type: 'post',
         headers: Auth.getHeaders(),
         dataType: 'json',
