@@ -457,7 +457,7 @@ function saveContract() {
         type: 'post',
         headers: Auth.getHeaders(),
         dataType: 'json',
-        data: data,
+        data: JSON.stringify(data),
         success: ({ status, response }) => {
             console.log(status, response);
             if (response.status === 'fail') {
