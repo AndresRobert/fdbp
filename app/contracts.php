@@ -461,7 +461,7 @@
     <div class="modal-footer">
         <a href="#!" class="waves-effect waves-light blue btn-small">Vista Previa</a>
         <a href="#!" onclick="Form.getValues('#newContract')" class="modal-close waves-effect waves-light teal btn-small">Guardar</a>
-        <a href="#!" class="modal-close waves-effect waves-light red btn-small">Eliminar</a>
+        <a href="#!" class="modal-close waves-effect waves-light grey btn-small left">Eliminar</a>
     </div>
 </div>
 <script>

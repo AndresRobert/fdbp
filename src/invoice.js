@@ -214,10 +214,20 @@ Adaptor.Connect.Services = (selectId, inputId, listName) => {
 let Form = {};
 Form.getValues = (containerId) => {
     let formData = [];
-    $(containerId).find('input[type=text], input[type=number]').each( function () {
+    $(containerId).find('select, input[type=text], input[type=number]').each( function () {
         let form = $(this);
         if (typeof form.attr("id") !== 'undefined') {
             formData[form.attr("id")] = $(this).val();
+        }
+    });
+    $(containerId).find('input[type=checkbox]').each( function () {
+        let form = $(this);
+        if (typeof form.attr("id") !== 'undefined') {
+            if (form.prop("checked") === true) {
+                formData[form.attr("id")] = 1;
+            } else {
+                formData[form.attr("id")] = 0;
+            }
         }
     });
     console.log(formData);
