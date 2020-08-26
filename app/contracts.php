@@ -459,6 +459,7 @@ function saveContract() {
         dataType: 'json',
         data: data,
         success: ({ status, response }) => {
+            console.log(status, response);
             M.Toast({ html: response.message });
             if (status === 'fail') {
                 $.each(response.errors, function( _, id ) {
