@@ -22,11 +22,12 @@ tbody > tr > td {
 }
 
 .btn-flat {
-    border: 1px solid #DDD;
+    border: 1px solid #EEE;
+    margin-right: 2px;
 }
 
 .btn-flat:hover {
-    border: 1px solid #AAA;
+    border: 1px solid #CCC;
 }
 
 .btn-floating.btn-fixed {
