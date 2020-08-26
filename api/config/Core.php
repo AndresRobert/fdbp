@@ -43,11 +43,15 @@ define('ALLOWED_METHODS', ['POST', 'GET', 'PUT', 'DELETE', 'VIEW']);
 define('METHOD', strtoupper($_SERVER['REQUEST_METHOD']));
 define('REQUEST', $_SERVER['REQUEST_URI']);
 define('HEADERS', getallheaders());
+$body = $_GET;
 try {
-    define('BODY', json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) ?? $_POST);
+    $body = json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) || [0];
 } catch (Exception $e) {
-    define('BODY', $_POST);
+    if (METHOD === 'POST' || METHOD === 'post') {
+        $body = $_POST;
+    }
 }
+define('BODY', $body);
 
 // DATABASE
 define('DB_HOST', 'localhost');
