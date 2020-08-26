@@ -214,7 +214,7 @@ Adaptor.Connect.Services = (selectId, inputId, listName) => {
 let Form = {};
 Form.getValues = (containerId) => {
     let formData = [];
-    $(containerId).find('select, input[type=text], input[type=number]').each( function () {
+    $(containerId).find('select, textarea, input[type=text], input[type=number]').each( function () {
         let form = $(this);
         if (typeof form.attr("id") !== 'undefined') {
             formData[form.attr("id")] = $(this).val();
