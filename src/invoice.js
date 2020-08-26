@@ -99,6 +99,7 @@ Api.setList = (id = 'none') => {
         return;
     }
     $.get(Api.endpoints[id], ({ _, response }) => {
+        console.log(id, response.list);
         Helper.setCookie(id, JSON.stringify(response.list))
     });
 };
