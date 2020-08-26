@@ -213,9 +213,14 @@ Adaptor.Connect.Services = (selectId, inputId, listName) => {
 };
 let Form = {};
 Form.getValues = (containerId) => {
+    let formData = [];
     $(containerId).find('input').each( function () {
-        console.log($(this).attr("id"), $(this).val());
+        let form = $(this);
+        if (typeof form.attr("id") !== 'undefined') {
+            formData[form.attr("id")] = $(this).val();
+        }
     });
+    console.log(formData);
 };
 
 Api.setList('regions');
