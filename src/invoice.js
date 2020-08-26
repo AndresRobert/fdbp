@@ -116,11 +116,10 @@ Api.getList = (id = 'none') => {
 
 let Auth = {};
 Auth.login = (email, password) => {
-    $.post(
-        Api.endpoints['login'],
+    $.post(Api.endpoints['login'],
         { "email": email, "password": password },
-        function ({ status, response }) {
-            M.toast({html: response.message});
+        ({ status, response }) => {
+            M.toast({ html: response.message });
             if (status === 'OK') {
                 Helper.setCookie('fdbp_token', response.token);
                 Helper.openLink('/app');

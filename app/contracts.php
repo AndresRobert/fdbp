@@ -469,8 +469,8 @@
     if (regionsList === []) {
         M.Toast({ html: 'Regiones no disponibles' });
     } else {
-        $.each(regionsList, function( index, value ) {
-            console.log( index, value );
+        $.each(regionsList, function( _, { id, name } ) {
+            console.log( id, name );
         });
         //$('#s_region_id')
     }
