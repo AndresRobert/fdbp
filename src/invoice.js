@@ -202,7 +202,7 @@ Adaptor.Connect.Comunes = (region_id, comune_id) => {
 Adaptor.Connect.Services = (select_id, input_id, listName) => {
     let list = Api.getList(listName);
     $(document).on('change', select_id, function () {
-        $(input_id).val(list[this.value]);
+        $(input_id).val(list[this.value+1].name);
     });
 };
 
