@@ -212,24 +212,16 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input placeholder="" id="s_address" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$">
+                <input placeholder="" id="s_address" type="text" class="validate" pattern="[\S\s]+[\S]+">
                 <label for="s_address">Dirección</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m3">
-                <select id="s_region_id">
-                    <option value="1">Región 1</option>
-                    <option value="2">Región 2</option>
-                    <option value="3">Región 3</option>
-                </select>
+                <select id="s_region_id"></select>
                 <label for="s_region_id">Región</label>
             </div>
             <div class="input-field col s12 m3">
-                <select id="s_comune_id">
-                    <option value="1">Comuna 1</option>
-                    <option value="2">Comuna 2</option>
-                    <option value="3">Comuna 3</option>
-                </select>
+                <select id="s_comune_id"></select>
                 <label for="s_comune_id">Comuna</label>
             </div>
         </div>
@@ -240,12 +232,12 @@
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="9 87654321" id="s_mobile" type="text" class="validate" pattern="^(9)( )[98765]\d{3}\d{4}$">
+                <input placeholder="9 8765 4321" id="s_mobile" type="text" class="validate" pattern="^(9)( ?)[98765]\d{3}( ?)\d{4}$">
                 <label for="s_mobile">Celular</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="298765432" id="s_phone" type="text">
+                <input placeholder="2 9876 5432" id="s_phone" type="text">
                 <label for="s_phone">Teléfono</label>
             </div>
         </div>
@@ -268,19 +260,11 @@
                 <label for="d_address">Dirección</label>
             </div>
             <div class="input-field col s12 m3">
-                <select id="d_region_id">
-                    <option value="1">Región 1</option>
-                    <option value="2">Región 2</option>
-                    <option value="3">Región 3</option>
-                </select>
+                <select id="d_region_id"></select>
                 <label for="d_region_id">Región</label>
             </div>
             <div class="input-field col s12 m3">
-                <select id="d_comune_id">
-                    <option value="1">Comuna 1</option>
-                    <option value="2">Comuna 2</option>
-                    <option value="3">Comuna 3</option>
-                </select>
+                <select id="d_comune_id"></select>
                 <label for="d_comune_id">Comuna</label>
             </div>
         </div>
@@ -294,11 +278,11 @@
                 <label for="d_marital_status">Estado Civil</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="" id="d_occupation" type="text">
+                <input placeholder="ej.: Profesor(a)" id="d_occupation" type="text">
                 <label for="d_occupation">Ocupación</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="" id="d_education" type="text">
+                <input placeholder="ej.: Media Completa" id="d_education" type="text">
                 <label for="d_education">Educación</label>
             </div>
         </div>
@@ -313,30 +297,18 @@
                 <label for="c_address">Dirección</label>
             </div>
             <div class="input-field col s12 m3">
-                <select id="c_region_id">
-                    <option value="1">Región 1</option>
-                    <option value="2">Región 2</option>
-                    <option value="3">Región 3</option>
-                </select>
+                <select id="c_region_id"></select>
                 <label for="c_region_id">Región</label>
             </div>
             <div class="input-field col s12 m3">
-                <select id="c_comune_id">
-                    <option value="1">Comuna 1</option>
-                    <option value="2">Comuna 2</option>
-                    <option value="3">Comuna 3</option>
-                </select>
+                <select id="c_comune_id"></select>
                 <label for="c_comune_id">Comuna</label>
             </div>
         </div>
         <h5>Funeral</h5>
         <div class="row">
             <div class="input-field col s12 m6">
-                <select id="f_cementery_id">
-                    <option value="1">Cementerio 1</option>
-                    <option value="2">Cementerio 2</option>
-                    <option value="3">Cementerio 3</option>
-                </select>
+                <select id="f_cementery_id"></select>
                 <label for="f_cementery_id">Cementerio</label>
             </div>
             <div class="input-field col s12 m3">
@@ -344,27 +316,25 @@
                 <label for="f_date">Fecha</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="Seleccione una hora" id="f_time" type="text" class="timepicker">
+                <input placeholder="Seleccione una hora (24H)" id="f_time" type="text" class="timepicker">
                 <label for="f_time">Hora</label>
             </div>
         </div>
         <h5>Servicio</h5>
         <div class="row">
             <div class="input-field col s12 m6">
-                <select id="v_service_id">
-                    <option value="1">Tipo 1</option>
-                    <option value="2">Tipo 2</option>
-                    <option value="3">Tipo 3</option>
-                </select>
+                <select id="v_service_id"></select>
                 <label for="v_service_id">Tipo</label>
             </div>
             <div class="input-field col s12 m3">
-                <input value="Sin Proveedor" id="v_provider_name" type="text" readonly>
+                <input value="Sin proveedor" id="v_provider_name" type="text" readonly>
                 <label for="v_provider_name">Provider</label>
+                <span class="helper-text">Según tipo de servicio</span>
             </div>
             <div class="input-field col s12 m3">
                 <input value="Sin Color" id="v_color" type="text" readonly>
                 <label for="v_color">Color</label>
+                <span class="helper-text">Según tipo de servicio</span>
             </div>
         </div>
         <div class="row">
@@ -377,8 +347,9 @@
                 <label for="v_observation">Observación</label>
             </div>
             <div class="input-field col s12">
-                <textarea id="v_warning" class="materialize-textarea"></textarea>
+                <textarea placeholder="Obituario" id="v_warning" class="materialize-textarea"></textarea>
                 <label for="v_warning">Aviso</label>
+                <span class="helper-text">Se publicará en redes sociales</span>
             </div>
         </div>
         <div class="row">
@@ -399,11 +370,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m4">
-                <select id="v_insurance_id">
-                    <option value="1">Previsión 1</option>
-                    <option value="2">Previsión 2</option>
-                    <option value="3">Previsión 3</option>
-                </select>
+                <select id="v_insurance_id"></select>
                 <label for="v_insurance_id">Previsión</label>
             </div>
             <div class="input-field col s12 m4">
@@ -460,25 +427,25 @@
     </div>
     <div class="modal-footer">
         <a href="#!" class="waves-effect waves-light blue btn-small">Vista Previa</a>
-        <a href="#!" onclick="Form.getValues('#newContract')" class="modal-close waves-effect waves-light teal btn-small">Guardar</a>
-        <a href="#!" class="modal-close waves-effect waves-light grey btn-small left">Eliminar</a>
+        <a href="#!" onclick="Form.getValues('#newContract')" class="waves-effect waves-light teal btn-small">Guardar</a>
+        <a href="#!" class="waves-effect waves-light grey btn-small left">Eliminar</a>
     </div>
 </div>
 <script>
-Adaptor.Select('#s_region_id','regions');
-Adaptor.Select('#d_region_id','regions');
-Adaptor.Select('#c_region_id','regions');
-Adaptor.Select('#f_cementery_id','cementeries');
-Adaptor.Select('#v_service_id','services');
-Adaptor.Select('#v_insurance_id','insurances');
-Adaptor.Comunes('#s_comune_id', 1);
-Adaptor.Comunes('#d_comune_id', 1);
-Adaptor.Comunes('#c_comune_id', 1);
-Adaptor.Connect.Comunes('#s_region_id', '#s_comune_id');
-Adaptor.Connect.Comunes('#d_region_id', '#d_comune_id');
-Adaptor.Connect.Comunes('#c_region_id', '#c_comune_id');
-Adaptor.Connect.Services('#v_service_id', '#v_provider_name', 'providers_by_service');
-Adaptor.Connect.Services('#v_service_id', '#v_color', 'colors_by_service');
+Adaptor.select('#s_region_id','regions');
+Adaptor.select('#d_region_id','regions');
+Adaptor.select('#c_region_id','regions');
+Adaptor.select('#f_cementery_id','cementeries');
+Adaptor.select('#v_service_id','services');
+Adaptor.select('#v_insurance_id','insurances');
+Adaptor.comunes('#s_comune_id', 1);
+Adaptor.comunes('#d_comune_id', 1);
+Adaptor.comunes('#c_comune_id', 1);
+Adaptor.Connect.comunes('#s_region_id', '#s_comune_id');
+Adaptor.Connect.comunes('#d_region_id', '#d_comune_id');
+Adaptor.Connect.comunes('#c_region_id', '#c_comune_id');
+Adaptor.Connect.services('#v_service_id', '#v_provider_name', 'providers_by_service');
+Adaptor.Connect.services('#v_service_id', '#v_color', 'colors_by_service');
 </script>
 </body>
 </html>

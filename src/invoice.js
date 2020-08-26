@@ -90,6 +90,70 @@ Helper.Object.remove = (name) => {
 Helper.Object.clearAll = () => {
     localStorage.clear();
 };
+Helper.Options = {};
+Helper.Options.timepicker = () => {
+    return {
+        months: [
+            'Enero',
+            'Febrero',
+            'Marzo',
+            'Abril',
+            'Mayo',
+            'Junio',
+            'Julio',
+            'Agosto',
+            'Septiembre',
+            'Octubre',
+            'Noviembre',
+            'Diciembre'
+        ],
+        monthsShort: [
+            'Ene',
+            'Feb',
+            'Mar',
+            'Abr',
+            'May',
+            'Jun',
+            'Jul',
+            'Ago',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dic'
+        ],
+        weekdays: [
+            'Domingo',
+            'Lunes',
+            'Martes',
+            'Miércoles',
+            'Jueves',
+            'Viernes',
+            'Sábado'
+        ],
+        weekdaysShort: [
+            'Dom',
+            'Lun',
+            'Mar',
+            'Mie',
+            'Jue',
+            'Vie',
+            'Sab'
+        ],
+        weekdaysAbbrev: [
+            'D','L','M','M','J','V','S'
+        ],
+        cancel: 'Cancelar',
+        done: 'Aceptar',
+        clear: 'Limpiar'
+    };
+};
+Helper.Options.datepicker = () => {
+    return {
+        cancel: 'Cancelar',
+        done: 'Aceptar',
+        clear: 'Limpiar'
+    };
+};
 
 let Api = {};
 Api.endpoints = {
@@ -116,7 +180,6 @@ Api.setList = (name = 'none') => {
         Helper.Object.save(name, response.list);
     });
 };
-
 Api.getList = (name = 'none') => {
     if (name === 'none') {
         console.error('getList', 'No name');
@@ -160,7 +223,7 @@ Auth.checkStatus = () => {
 };
 
 let Adaptor = {};
-Adaptor.Select = (selectId = '', listName = '') => {
+Adaptor.select = (selectId = '', listName = '') => {
     let select = $(selectId);
     if (select.length > 0) {
         let list = Api.getList(listName);
@@ -176,7 +239,7 @@ Adaptor.Select = (selectId = '', listName = '') => {
         console.log('select is not present');
     }
 };
-Adaptor.Comunes = (selectId = '', regionId = '') => {
+Adaptor.comunes = (selectId = '', regionId = '') => {
     let select = $(selectId);
     if (select.length > 0) {
         let list = Api.getList('comunes_by_region');
@@ -193,13 +256,13 @@ Adaptor.Comunes = (selectId = '', regionId = '') => {
     }
 };
 Adaptor.Connect = {};
-Adaptor.Connect.Comunes = (regionId, comuneId) => {
+Adaptor.Connect.comunes = (regionId, comuneId) => {
     $(document).on('change', regionId, function () {
-        Adaptor.Comunes(comuneId, this.value);
+        Adaptor.comunes(comuneId, this.value);
         $(comuneId).formSelect();
     });
 };
-Adaptor.Connect.Services = (selectId, inputId, listName) => {
+Adaptor.Connect.services = (selectId, inputId, listName) => {
     let list = Api.getList(listName);
     $(document).on('change', selectId, function () {
         let selectedId = this.value;
@@ -211,6 +274,7 @@ Adaptor.Connect.Services = (selectId, inputId, listName) => {
         });
     });
 };
+
 let Form = {};
 Form.getValues = (containerId) => {
     let formData = [];
@@ -233,6 +297,8 @@ Form.getValues = (containerId) => {
     console.log(formData);
 };
 
+// Pre-Init
+
 Api.setList('regions');
 Api.setList('comunes');
 Api.setList('comunes_by_region');
@@ -243,6 +309,7 @@ Api.setList('providers');
 Api.setList('providers_by_service');
 Api.setList('colors_by_service');
 
+// Init
 Helper.ready(() => {
     $('input, textarea, select').on('change', function () { $(this).removeClass('error') });
     $('.sidenav').sidenav();
@@ -251,67 +318,10 @@ Helper.ready(() => {
     $('select').formSelect();
     $('.datepicker').datepicker({
         format: 'yyyy-mm-dd',
-        i18n: {
-            months: [
-                'Enero',
-                'Febrero',
-                'Marzo',
-                'Abril',
-                'Mayo',
-                'Junio',
-                'Julio',
-                'Agosto',
-                'Septiembre',
-                'Octubre',
-                'Noviembre',
-                'Diciembre'
-            ],
-            monthsShort: [
-                'Ene',
-                'Feb',
-                'Mar',
-                'Abr',
-                'May',
-                'Jun',
-                'Jul',
-                'Ago',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dic'
-            ],
-            weekdays: [
-                'Domingo',
-                'Lunes',
-                'Martes',
-                'Miércoles',
-                'Jueves',
-                'Viernes',
-                'Sábado'
-            ],
-            weekdaysShort: [
-                'Dom',
-                'Lun',
-                'Mar',
-                'Mie',
-                'Jue',
-                'Vie',
-                'Sab'
-            ],
-            weekdaysAbbrev: [
-                'D','L','M','M','J','V','S'
-            ],
-            cancel: 'Cancelar',
-            done: 'Aceptar',
-            clear: 'Limpiar'
-        }
+        i18n: Helper.Options.datepicker()
     });
     $('.timepicker').timepicker({
         twelveHour: false,
-        i18n: {
-            cancel: 'Cancelar',
-            done: 'Aceptar',
-            clear: 'Limpiar'
-        }
+        i18n: Helper.Options.timepicker()
     });
 });
