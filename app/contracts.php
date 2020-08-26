@@ -195,24 +195,24 @@
         <h5>Solicitante</h5>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="ej.: 12345678-9" id="s_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$">
+                <input placeholder="ej.: 12345678-9" id="s_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$" required>
                 <label for="s_id">Rut</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="" id="s_name" type="text" class="validate" pattern="[\S\s]+[\S]+">
+                <input placeholder="" id="s_name" type="text" class="validate" pattern="[\S\s]+[\S]+" required>
                 <label for="s_name">Nombre</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="" id="s_last_name" type="text" class="validate" pattern="[\S\s]+[\S]+">
+                <input placeholder="" id="s_last_name" type="text" class="validate" pattern="[\S\s]+[\S]+" required>
                 <label for="s_last_name">Apellido</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input placeholder="" id="s_address" type="text" class="validate" pattern="[\S\s]+[\S]+">
+                <input placeholder="" id="s_address" type="text" class="validate" pattern="[\S\s]+[\S]+" required>
                 <label for="s_address">Dirección</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
@@ -227,12 +227,12 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="ej.: nombre@gmail.com" id="s_email" type="text" class="validate" pattern="^((?!\.)[\w_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$">
+                <input placeholder="ej.: nombre@gmail.com" id="s_email" type="text" class="validate" pattern="^((?!\.)[\w_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$" required>
                 <label for="s_email">Email</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="9 8765 4321" id="s_mobile" type="text" class="validate" pattern="^(9)( ?)[98765]\d{3}( ?)\d{4}$">
+                <input placeholder="9 8765 4321" id="s_mobile" type="text" class="validate" pattern="^(9)( ?)[98765]\d{3}( ?)\d{4}$" required>
                 <label for="s_mobile">Celular</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
@@ -244,12 +244,12 @@
         <h5>Fallecido</h5>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="ej.: 12345678-9" id="d_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$">
+                <input placeholder="ej.: 12345678-9" id="d_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$" required>
                 <label for="d_id">Rut</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m8">
-                <input placeholder="" id="d_name" type="text" class="validate" pattern="[\S\s]+[\S]+">
+                <input placeholder="" id="d_name" type="text" class="validate" pattern="[\S\s]+[\S]+" required>
                 <label for="d_name">Nombre</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
@@ -312,12 +312,14 @@
                 <label for="f_cementery_id">Cementerio</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="Seleccione una fecha" id="f_date" type="text" class="datepicker">
+                <input placeholder="Seleccione una fecha" id="f_date" type="text" class="datepicker validate" required>
                 <label for="f_date">Fecha</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="Seleccione una hora (24H)" id="f_time" type="text" class="timepicker">
+                <input placeholder="Seleccione una hora (24H)" id="f_time" type="text" class="timepicker validate" required>
                 <label for="f_time">Hora</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
         </div>
         <h5>Servicio</h5>
@@ -339,8 +341,9 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="v_include" class="materialize-textarea"></textarea>
+                <textarea id="v_include" class="materialize-textarea validate" required></textarea>
                 <label for="v_include">Incluye</label>
+                <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12">
                 <textarea id="v_observation" class="materialize-textarea"></textarea>
@@ -354,12 +357,12 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input id="v_cost" onchange="Form.Calc.payment()" type="number" min="1" class="validate">
+                <input id="v_cost" onchange="Form.Calc.payment()" type="number" min="1" class="validate" required>
                 <label for="v_cost">Valor del Servicio</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input id="v_discount" onchange="Form.Calc.payment()" type="number" min="0" class="validate">
+                <input id="v_discount" onchange="Form.Calc.payment()" type="number" min="0" class="validate" required>
                 <label for="v_discount">Descuento</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
@@ -374,7 +377,7 @@
                 <label for="v_insurance_id">Previsión</label>
             </div>
             <div class="input-field col s12 m4">
-                <input id="v_coverage" onchange="Form.Calc.payment()" type="number" min="0" class="validate">
+                <input id="v_coverage" onchange="Form.Calc.payment()" type="number" min="0" class="validate" required>
                 <label for="v_coverage">Aporte Previsión</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
@@ -456,7 +459,12 @@ function saveContract() {
         dataType: 'json',
         data: data,
         success: ({ status, response }) => {
-            console.log(status, response);
+            M.Toast({ html: response.message });
+            if (status === 'fail') {
+                $.each(response.errors, function( _, id ) {
+                    $(id).addClass('invalid');
+                });
+            }
         },
         error: data => {
             if (data.responseJSON.response.response_code === 401) {

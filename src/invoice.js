@@ -332,7 +332,6 @@ Api.setList('colors_by_service');
 
 // Init
 Helper.ready(() => {
-    $('input, textarea, select').on('change', function () { $(this).removeClass('error') });
     $('.sidenav').sidenav();
     $('.tooltipped').tooltip();
     $('.modal').modal();
