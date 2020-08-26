@@ -465,9 +465,9 @@
     </div>
 </div>
 <script>
-Adaptor.select('#s_region_id','regions');
-Adaptor.select('#d_region_id','regions');
-Adaptor.select('#c_region_id','regions');
+Adaptor.Select('#s_region_id','regions');
+Adaptor.Select('#d_region_id','regions');
+Adaptor.Select('#c_region_id','regions');
 </script>
 </body>
 </html>
