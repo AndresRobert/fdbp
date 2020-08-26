@@ -461,7 +461,7 @@ function saveContract() {
         success: ({ status, response }) => {
             console.log(status, response);
             if (response.status === 'fail') {
-                M.Toast({ html: response.message });
+                M.toast({ html: response.message });
                 $.each(response.errors, function( _, id ) {
                     console.log(id);
                     $('#' + id).addClass('invalid');
