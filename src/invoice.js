@@ -311,10 +311,10 @@ Form.getValues = (containerId) => {
 };
 Form.Calc = {};
 Form.Calc.payment = () => {
-    let cost = parseInt($('#v_cost').val());
-    let discount = parseInt($('#v_discount').val());
+    let cost = parseInt($('#v_cost').val()) || 0;
+    let discount = parseInt($('#v_discount').val()) || 0;
     $('#v_total').val(cost - discount);
-    let coverage = parseInt($('#v_coverage').val());
+    let coverage = parseInt($('#v_coverage').val()) || 0;
     $('#v_payment').val(cost - discount - coverage);
 };
 
