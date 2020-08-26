@@ -93,20 +93,11 @@ Api.endpoints = {
     'colors_by_service': '/api/list/colorsByService',
     'contracts': '/api/contract'
 };
-Api.setRegions = () => {
-    $.post(Api.endpoints['regions'], ({ status, response }) => {
-        console.log(status, response)
-        }
-    );
+Api.setList = (id) => {
+    $.get(Api.endpoints[id], ({ _, response }) => {
+        Helper.setCookie(id, JSON.stringify(response.list))
+    });
 };
-Api.setComunes = () => {};
-Api.setComunesByRegion = () => {};
-Api.setInsurances = () => {};
-Api.setCementeries = () => {};
-Api.setServices = () => {};
-Api.setProviders = () => {};
-Api.setProvidersByService = () => {};
-Api.setColorsByService = () => {};
 
 let Auth = {};
 Auth.login = (email, password) => {
@@ -147,5 +138,13 @@ Helper.ready(() => {
     $('.modal').modal();
     $('select').formSelect();
     $('.datepicker').datepicker();
-
+    Api.setList('regions');
+    Api.setList('comunes');
+    Api.setList('comunes_by_region');
+    Api.setList('insurances');
+    Api.setList('cementeries');
+    Api.setList('services');
+    Api.setList('providers');
+    Api.setList('providers_by_service');
+    Api.setList('colors_by_service');
 });
