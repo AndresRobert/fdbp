@@ -82,7 +82,8 @@ Helper.Object.save = (name, object) => {
 };
 Helper.Object.load = (name) => {
     let item = localStorage.getItem(name);
-    return item === null ? [] : JSON.parse(localStorage.getItem(name));
+    console.log(item, JSON.parse(item))
+    return item === null ? [] : JSON.parse(item);
 };
 Helper.Object.remove = (name) => {
     return localStorage.removeItem(name);
