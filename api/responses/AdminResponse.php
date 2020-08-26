@@ -7,17 +7,12 @@ require_once MDL.'ProviderModel.php';
 require_once MDL.'ServiceModel.php';
 
 use Base\Response;
-use Kits\Session;
 
 class Admin extends Response {
 
     public function getCementeries(): array
     {
-        $table = 'cementeries';
-        $list = Session::Exists($table)
-            ? Session::Read($table)
-            : (new Cementery())->filter(['id', 'name'], ['active' => 1]);
-        Session::Create($table, $list);
+        $list = (new Cementery())->filter(['id', 'name'], ['active' => 1]);
 
         return [
             'status' => 'success',
@@ -28,11 +23,7 @@ class Admin extends Response {
 
     public function getComunes(): array
     {
-        $table = 'comunes';
-        $list = Session::Exists($table)
-            ? Session::Read($table)
-            : (new Comune())->filter(['id', 'name'], ['active' => 1]);
-        Session::Create($table, $list);
+        $list = (new Comune())->filter(['id', 'name'], ['active' => 1]);
 
         return [
             'status' => 'success',
@@ -43,19 +34,13 @@ class Admin extends Response {
 
     public function getComunesByRegion(): array
     {
-        $table = 'comunesByRegion';
-        if (Session::Exists($table)) {
-            $list = Session::Read($table);
-        } else {
-            $byRegion = (new Comune())->byRegion();
-            $list = [];
-            foreach ($byRegion as $item) {
-                $list[$item['region_id']][] = [
-                    'id' => $item['id'],
-                    'name' => $item['name']
-                ];
-            }
-            Session::Create($table, $list);
+        $byRegion = (new Comune())->byRegion();
+        $list = [];
+        foreach ($byRegion as $item) {
+            $list[$item['region_id']][] = [
+                'id' => $item['id'],
+                'name' => $item['name']
+            ];
         }
 
         return [
@@ -67,11 +52,7 @@ class Admin extends Response {
 
     public function getRegions(): array
     {
-        $table = 'regions';
-        $list = Session::Exists($table)
-            ? Session::Read($table)
-            : (new Comune())->regions();
-        Session::Create($table, $list);
+        $list = (new Comune())->regions();
 
         return [
             'status' => 'success',
@@ -82,11 +63,7 @@ class Admin extends Response {
 
     public function getInsurances(): array
     {
-        $table = 'insurances';
-        $list = Session::Exists($table)
-            ? Session::Read($table)
-            : (new Insurance())->filter(['id', 'name'], ['active' => 1]);
-        Session::Create($table, $list);
+        $list = (new Insurance())->filter(['id', 'name'], ['active' => 1]);
 
         return [
             'status' => 'success',
@@ -97,11 +74,7 @@ class Admin extends Response {
 
     public function getServices(): array
     {
-        $table = 'services';
-        $list = Session::Exists($table)
-            ? Session::Read($table)
-            : (new Service())->filter(['id', 'name'], ['active' => 1]);
-        Session::Create($table, $list);
+        $list = (new Service())->filter(['id', 'name'], ['active' => 1]);
 
         return [
             'status' => 'success',
@@ -112,11 +85,7 @@ class Admin extends Response {
 
     public function getProviders(): array
     {
-        $table = 'providers';
-        $list = Session::Exists($table)
-            ? Session::Read($table)
-            : (new Provider())->filter(['id', 'name'], ['active' => 1]);
-        Session::Create($table, $list);
+        $list = (new Provider())->filter(['id', 'name'], ['active' => 1]);
 
         return [
             'status' => 'success',
@@ -127,11 +96,7 @@ class Admin extends Response {
 
     public function getProvidersByService(): array
     {
-        $table = 'providersByService';
-        $list = Session::Exists($table)
-            ? Session::Read($table)
-            : (new Service())->providers();
-        Session::Create($table, $list);
+        $list = (new Service())->providers();
 
         return [
             'status' => 'success',
@@ -142,11 +107,7 @@ class Admin extends Response {
 
     public function getColorsByService(): array
     {
-        $table = 'colorsByService';
-        $list = Session::Exists($table)
-            ? Session::Read($table)
-            : (new Service())->colors();
-        Session::Create($table, $list);
+        $list = (new Service())->colors();
 
         return [
             'status' => 'success',
