@@ -2,10 +2,7 @@
 
 require_once MDL.'CementeryModel.php';
 require_once MDL.'ComuneModel.php';
-require_once MDL.'EducationModel.php';
 require_once MDL.'InsuranceModel.php';
-require_once MDL.'MaritalStatusModel.php';
-require_once MDL.'OccupationModel.php';
 require_once MDL.'ProviderModel.php';
 require_once MDL.'ServiceModel.php';
 

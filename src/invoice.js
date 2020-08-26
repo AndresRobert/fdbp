@@ -83,16 +83,30 @@ Api.endpoints = {
     'logout': '/api/logout',
     'check': '/api/check',
     'regions': '/api/list/regions',
+    'comunes': '/api/list/comunes',
     'comunes_by_region': '/api/list/comunesByRegion',
     'insurances': '/api/list/insurances',
     'cementeries': '/api/list/cementeries',
     'services': '/api/list/services',
-    'comunes': '/api/list/comunes',
     'providers': '/api/list/providers',
     'providers_by_service': '/api/list/providersByService',
     'colors_by_service': '/api/list/colorsByService',
     'contracts': '/api/contract'
 };
+Api.setRegions = () => {
+    $.post(Api.endpoints['regions'], ({ status, response }) => {
+        console.log(status, response)
+        }
+    );
+};
+Api.setComunes = () => {};
+Api.setComunesByRegion = () => {};
+Api.setInsurances = () => {};
+Api.setCementeries = () => {};
+Api.setServices = () => {};
+Api.setProviders = () => {};
+Api.setProvidersByService = () => {};
+Api.setColorsByService = () => {};
 
 let Auth = {};
 Auth.login = (email, password) => {
@@ -133,4 +147,5 @@ Helper.ready(() => {
     $('.modal').modal();
     $('select').formSelect();
     $('.datepicker').datepicker();
+
 });
