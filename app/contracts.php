@@ -460,7 +460,7 @@
     </div>
     <div class="modal-footer">
         <a href="#!" class="waves-effect waves-light blue btn-small">Vista Previa</a>
-        <a href="#!" class="modal-close waves-effect waves-light teal btn-small">Guardar</a>
+        <a href="#!" onclick="Form.getValues('#newContract')" class="modal-close waves-effect waves-light teal btn-small">Guardar</a>
         <a href="#!" class="modal-close waves-effect waves-light red btn-small">Eliminar</a>
     </div>
 </div>
@@ -479,8 +479,6 @@ Adaptor.Connect.Comunes('#d_region_id', '#d_comune_id');
 Adaptor.Connect.Comunes('#c_region_id', '#c_comune_id');
 Adaptor.Connect.Services('#v_service_id', '#v_provider_name', 'providers_by_service');
 Adaptor.Connect.Services('#v_service_id', '#v_color', 'colors_by_service');
-
-Form.getValues('#newContract');
 </script>
 </body>
 </html>
