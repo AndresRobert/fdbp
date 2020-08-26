@@ -14,13 +14,13 @@ class Service extends Model {
     }
 
     public function providers() {
-        $query = 'SELECT services.id, providers.name FROM services LEFT JOIN providers ON provider_id = providers.id WHERE services.active = 1';
+        $query = 'SELECT services.id as id, providers.name as name FROM services LEFT JOIN providers ON provider_id = providers.id WHERE services.active = 1';
         $statement = MySQL::ComplexSelect($query);
         return $statement['status'] === 'success' ? $statement['response'] : [];
     }
 
     public function colors() {
-        $query = 'SELECT id, color name FROM services WHERE active = 1';
+        $query = 'SELECT id as id, color as name FROM services WHERE active = 1';
         $statement = MySQL::ComplexSelect($query);
         return $statement['status'] === 'success' ? $statement['response'] : [];
     }
