@@ -43,12 +43,12 @@ define('ALLOWED_METHODS', ['POST', 'GET']);
 define('METHOD', strtoupper($_SERVER['REQUEST_METHOD']));
 define('REQUEST', $_SERVER['REQUEST_URI']);
 define('HEADERS', getallheaders());
-$body = ['get'];
+$body = $_GET;
 try {
-    $body = json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) || ['input'];
+    $body = json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) || ['fail'];
 } catch (Exception $e) {
-    if (METHOD === 'POST' || METHOD === 'post') {
-        $body = ['post'];
+    if (!strcasecmp(METHOD, 'POST')) {
+        $body = $_POST;
     }
 }
 define('BODY', $body);
