@@ -69,7 +69,7 @@
                 <tbody id="contractsTable"></tbody>
             </table>
             <script>
-                Api.get(Api.endpoints['contract'], {}, true)
+                Api.get(Api.endpoints['contract'], true)
                     .then(({ status, response }) => {
                         console.log(status, response);
                         if (status === 'OK') {

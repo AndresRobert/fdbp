@@ -217,14 +217,13 @@ Api.post = async function (endpoint = '', data = {}, auth = false) {
         });
     return await response.json();
 };
-Api.get = async function (endpoint = '', data = {}, auth = false) {
+Api.get = async function (endpoint = '', auth = false) {
     const headers = auth ? Auth.getHeaders() : { 'Content-Type': 'application/json' },
         response = await fetch(endpoint, {
             method: 'GET',
             cache: 'no-cache',
             referrerPolicy: 'no-referrer',
-            headers: headers,
-            body: JSON.stringify(data)
+            headers: headers
         });
     return await response.json();
 };
