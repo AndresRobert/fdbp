@@ -312,26 +312,25 @@ Form.getValues = (containerId) => {
     let container = $(containerId);
     container.find('select, textarea, input[type=text]').each( function () {
         console.log('1', this);
-        let form = $(this);
-        if (typeof form.attr("id") !== 'undefined') {
-            formData[form.attr("id")] = $(this).val();
+        if (typeof this.id !== 'undefined') {
+            formData[this.id] = this.value;
         }
     });
     container.find('input[type=number]').each( function () {
         console.log('2', this);
-        let form = $(this);
-        if (typeof form.attr("id") !== 'undefined') {
-            formData[form.attr("id")] = parseInt($(this).val()) || 0;
+        let input = $(this);
+        if (typeof input.attr("id") !== 'undefined') {
+            formData[input.attr("id")] = parseInt($(this).val()) || 0;
         }
     });
     container.find('input[type=checkbox]').each( function () {
         console.log('3', this);
-        let form = $(this);
-        if (typeof form.attr("id") !== 'undefined') {
-            if (form.prop("checked") === true) {
-                formData[form.attr("id")] = 1;
+        let input = $(this);
+        if (typeof input.attr("id") !== 'undefined') {
+            if (input.prop("checked") === true) {
+                formData[input.attr("id")] = 1;
             } else {
-                formData[form.attr("id")] = 0;
+                formData[input.attr("id")] = 0;
             }
         }
     });
