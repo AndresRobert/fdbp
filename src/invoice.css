@@ -58,6 +58,11 @@ tbody > tr > td {
     max-height: 15rem;
 }
 
+.modal.datepicker-modal.open,
+.modal.timepicker-modal.open {
+    top: 20% !important;
+}
+
 @media only screen and (min-width: 993px) {
     .container { width: 80% }
 }
