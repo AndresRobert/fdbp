@@ -311,7 +311,7 @@ Form.getValues = (containerId) => {
     let formData = [];
     let container = $(containerId);
     container.find('select, textarea, input[type=text]').each( (_, input) => {
-        console.log('1', input);
+        console.log('1', input.id, input.value);
         if (typeof input.id !== 'undefined') {
             formData[input.id] = input.value;
         }
