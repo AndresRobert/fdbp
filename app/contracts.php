@@ -175,6 +175,7 @@
                                 }
                             );
                         } else {
+                            console.log(status, response);
                             M.toast({html: 'No se encontraron contratos'});
                         }
                     })
