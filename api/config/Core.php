@@ -45,7 +45,7 @@ define('REQUEST', $_SERVER['REQUEST_URI']);
 define('HEADERS', getallheaders());
 $body = $_GET;
 try {
-    $body = json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) || ['fail'];
+    $body = json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) || $_POST;
 } catch (Exception $e) {
     if (!strcasecmp(METHOD, 'POST')) {
         $body = $_POST;
