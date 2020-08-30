@@ -323,7 +323,7 @@ Form.getValues = (containerId) => {
             formData[input.id] = parseInt(input.value) || 0;
         }
     });
-    booleans.each( function () {
+    booleans.each( (_, input) => {
         if (input.id !== "") {
             if ($(input).prop("checked") === true) {
                 formData[input.id] = 1;
