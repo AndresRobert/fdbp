@@ -310,10 +310,10 @@ let Form = {};
 Form.getValues = (containerId) => {
     let formData = [];
     let container = $(containerId);
-    container.find('select, textarea, input[type=text]').each( function () {
-        console.log('1', this);
-        if (typeof this.id !== 'undefined') {
-            formData[this.id] = this.value;
+    container.find('select, textarea, input[type=text]').each( (input) => {
+        console.log('1', input);
+        if (typeof input.id !== 'undefined') {
+            formData[input.id] = input.value;
         }
     });
     container.find('input[type=number]').each( function () {
