@@ -71,6 +71,7 @@
             <script>
                 Api.post(Api.endpoints['contract'], {}, true)
                     .then(({ status, response }) => {
+                        console.log(status, response);
                         if (status === 'OK') {
                             Helper.Datatable.init(
                                 "#contracts_list",
