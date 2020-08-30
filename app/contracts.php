@@ -174,8 +174,11 @@
                                     ]
                                 }
                             );
-                        } else {
-                            console.log(status, response);
+                        }
+                        elseif (status === 'Unauthorized') {
+                            Helper.openLink('/');
+                        }
+                        else {
                             M.toast({html: 'No se encontraron contratos'});
                         }
                     })
