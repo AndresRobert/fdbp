@@ -45,15 +45,13 @@ define('REQUEST', $_SERVER['REQUEST_URI']);
 define('HEADERS', getallheaders());
 $body = $_GET;
 try {
-    $body = json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) || $_POST;
-} catch (Exception $e) {
-    if (!strcasecmp(METHOD, 'POST')) {
+    define('BODY', json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) ?? $body);
+} catch (JsonException $e) {
+    if (METHOD === 'POST') {
         $body = $_POST;
-    } else {
-        $body = $_GET;
     }
+    define('BODY', $body);
 }
-define('BODY', $body);
 
 // DATABASE
 define('DB_HOST', 'localhost');
