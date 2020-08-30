@@ -308,7 +308,7 @@ Adaptor.Connect.services = (selectId, inputId, listName) => {
 
 let Form = {};
 Form.getValues = (containerId) => {
-    let formData = [];
+    let formData = {};
     const container = $(containerId),
         strings = container.find('select, textarea, input[type=text]'),
         numerics = container.find('input[type=number]'),
