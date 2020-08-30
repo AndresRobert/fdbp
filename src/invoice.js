@@ -309,21 +309,24 @@ Adaptor.Connect.services = (selectId, inputId, listName) => {
 let Form = {};
 Form.getValues = (containerId) => {
     let formData = [];
-    let container = $(containerId);
-    container.find('select, textarea, input[type=text]').each( (_, input) => {
+    const container = $(containerId),
+        strings = container.find('select, textarea, input[type=text]'),
+        numerics = container.find('input[type=number]'),
+        booleans = container.find('input[type=checkbox]');
+    strings.each( (_, input) => {
         console.log('1', input.id, input.value);
-        if (typeof input.id !== 'undefined') {
+        if (input.id !== "") {
             formData[input.id] = input.value;
         }
     });
-    container.find('input[type=number]').each( function () {
+    numerics.each( function () {
         console.log('2', this);
         let input = $(this);
         if (typeof input.attr("id") !== 'undefined') {
             formData[input.attr("id")] = parseInt($(this).val()) || 0;
         }
     });
-    container.find('input[type=checkbox]').each( function () {
+    booleans.each( function () {
         console.log('3', this);
         let input = $(this);
         if (typeof input.attr("id") !== 'undefined') {
@@ -334,6 +337,7 @@ Form.getValues = (containerId) => {
             }
         }
     });
+    console.log('data', formData);
     return formData;
 };
 Form.Calc = {};
