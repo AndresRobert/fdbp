@@ -42,7 +42,7 @@ Helper.Datatable.init = (id, data = {}) => {
     data.language = { "paginate": { "previous": "<", "next": ">" }, "pageLength": 50 };
     data.dom = 'Bfrtip';
     data.buttons = [ 'csv', 'excel', 'pdf' ];
-    data.drawCallback = function ( settings ) {
+    data.drawCallback = function ( _ ) {
         $('.dt-buttons').find('button').addClass('btn-flat waves-effect waves-googleGreen');
     };
     let _table = dtable.DataTable(data);
@@ -182,9 +182,10 @@ Api.setList = (name = 'none') => {
         console.error('setList', 'No name');
         return;
     }
-    $.get(Api.endpoints[name], ({ _, response }) => {
-        Helper.Object.save(name, response.list);
-    });
+    Api.get(Api.endpoints[name])
+        .then(({ _, response }) => {
+            Helper.Object.save(name, response.list);
+        });
 };
 Api.getList = (name = 'none') => {
     if (name === 'none') {
@@ -196,17 +197,7 @@ Api.getList = (name = 'none') => {
     }
     return Helper.Object.load(name);
 };
-Api.data = (data, method = 'GET', auth = false) => {
-    const headers = auth ? Auth.getHeaders() : { 'Content-Type': 'application/json' };
-    return {
-        method: method,
-        cache: 'no-cache',
-        referrerPolicy: 'no-referrer',
-        headers: headers,
-        body: JSON.stringify(data)
-    }
-};
-Api.post = async function (endpoint = '', data = {}, auth = false) {
+Api.post = async function (endpoint = '', auth = false, data = {}) {
     const headers = auth ? Auth.getHeaders() : { 'Content-Type': 'application/json' },
         response = await fetch(endpoint, {
             method: 'POST',
@@ -230,18 +221,20 @@ Api.get = async function (endpoint = '', auth = false) {
 
 let Auth = {};
 Auth.login = (email, password) => {
-    $.post(Api.endpoints['login'],
-        { "email": email, "password": password },
-        ({ status, response }) => {
+    Api.post(Api.endpoints['login'], false, { "email": email, "password": password })
+        .then(({ status, response }) => {
             M.toast({ html: response.message });
             if (status === 'OK') {
                 Helper.setCookie('fdbp_token', response.token);
                 Helper.openLink('/app');
             }
-        }, 'json');
+        });
 };
 Auth.logout = () => {
-    $.post(Api.endpoints['logout'], function () { Helper.openLink('/') }, 'json');
+    Api.post(Api.endpoints['logout'], false)
+        .then(() => {
+            Helper.openLink('/')
+        });
 };
 Auth.getHeaders = () => {
     return {
@@ -251,13 +244,14 @@ Auth.getHeaders = () => {
 };
 Auth.checkStatus = () => {
     const key = Helper.getCookie('fdbp_token') || null;
-    $.post(Api.endpoints['check'], { key: key }, function ({ status, response }) {
-        if (status !== 'OK' || response.status !== 'success') {
-            //M.toast({html: response.message});
-            Helper.openLink('/');
-        }
-    }, 'json');
-};
+    Api.post(Api.endpoints['check'], false, {key: key})
+        .then(({status, response}) => {
+            if (status !== 'OK' || response.status !== 'success') {
+                //M.toast({html: response.message});
+                Helper.openLink('/');
+            }
+        });
+}
 
 let Adaptor = {};
 Adaptor.select = (selectId = '', listName = '') => {
