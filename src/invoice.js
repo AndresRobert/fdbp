@@ -314,30 +314,25 @@ Form.getValues = (containerId) => {
         numerics = container.find('input[type=number]'),
         booleans = container.find('input[type=checkbox]');
     strings.each( (_, input) => {
-        console.log('1', input.id, input.value);
         if (input.id !== "") {
             formData[input.id] = input.value;
         }
     });
-    numerics.each( function () {
-        console.log('2', this);
-        let input = $(this);
-        if (typeof input.attr("id") !== 'undefined') {
-            formData[input.attr("id")] = parseInt($(this).val()) || 0;
+    numerics.each( (_, input) => {
+        if (input.id !== "") {
+            formData[input.id] = parseInt(input.value) || 0;
         }
     });
     booleans.each( function () {
-        console.log('3', this);
-        let input = $(this);
-        if (typeof input.attr("id") !== 'undefined') {
-            if (input.prop("checked") === true) {
-                formData[input.attr("id")] = 1;
+        if (input.id !== "") {
+            if ($(input).prop("checked") === true) {
+                formData[input.id] = 1;
             } else {
-                formData[input.attr("id")] = 0;
+                formData[input.id] = 0;
             }
         }
     });
-    console.log('data', formData);
+    console.log(formData);
     return formData;
 };
 Form.Calc = {};
