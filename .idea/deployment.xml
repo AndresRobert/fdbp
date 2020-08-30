@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="acode" uploadOnCheckin="86b32cc7-843c-4484-beca-510426427471">
+  <component name="PublishConfigData" uploadOnCheckin="8979e31b-91da-47a3-ac54-e2e077a8a1a9">
     <serverData>
       <paths name="acode">
         <serverdata>
           <mappings>
             <mapping deploy="/fdbp" local="$PROJECT_DIR$" web="/" />
+            <mapping local="" />
           </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="./.idea" />
-          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>

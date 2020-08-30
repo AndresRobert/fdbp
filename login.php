@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <head><?php include 'app/layout/head.php' ?></head>
+    <title>Funeraria del Buen Pastor</title>
+    <?php include 'app/layout/head.php' ?>
 </head>
 <body class="grey lighten-3 valign-wrapper">
 <div class="container">

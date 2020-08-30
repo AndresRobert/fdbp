@@ -49,6 +49,8 @@ try {
 } catch (Exception $e) {
     if (!strcasecmp(METHOD, 'POST')) {
         $body = $_POST;
+    } else {
+        $body = $_GET;
     }
 }
 define('BODY', $body);

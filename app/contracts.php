@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><?php include 'layout/head.php' ?></head>
+<head>
+    <title>Contratos</title>
+    <?php include 'layout/head.php' ?>
+</head>
 <body class="grey lighten-3">
 <?php include 'layout/topbar.php' ?>
 <div class="container">
@@ -368,7 +371,7 @@
             </div>
             <div class="input-field col s12 m4">
                 <input value="0" id="v_total" type="number" readonly>
-                <label for="v_color">Total</label>
+                <label for="v_total">Total</label>
             </div>
         </div>
         <div class="row">
