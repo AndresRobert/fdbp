@@ -1,9 +1,14 @@
 let Helper = {};
-Helper.openLink = (link, target) => {
-    if (target === '_blank') {
-        window.open(link);
-    } else {
-        window.location.href = link;
+Helper.openLink = (link = '', target = '') => {
+    if (link !== '') {
+        if (target === '_blank') {
+            window.open(link);
+        } else {
+            window.location.href = link;
+        }
+    }
+    else {
+        window.location.reload();
     }
 };
 Helper.setDefault = (value = '', _default = 'No definido') => {

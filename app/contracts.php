@@ -453,12 +453,15 @@ function saveThisContract() {
     console.log(data);
     Api.post(Api.endpoints['contract'], true, data)
         .then(({ status, response }) => {
-            console.log('success', status, response);
-            if (response.status === 'fail') {
+            if (status === 'OK') {
                 M.toast({ html: response.message });
-                $.each(response.errors, function( _, id ) {
-                    $('#' + id).addClass('invalid');
-                });
+                if (response.status === 'fail') {
+                    $.each(response.errors, function( _, id ) {
+                        $('#' + id).addClass('invalid');
+                    });
+                } else {
+                    Helper.openLink();
+                }
             }
         })
         .catch(error => { console.log('error', error) });
