@@ -75,6 +75,10 @@ class Contracts extends Response {
                     }
                 }
 
+                if (count($errorIds) > 3) {
+                    $message = 'Formulario incompleto';
+                }
+
                 return [
                     'status' => $status,
                     'message' => $message,

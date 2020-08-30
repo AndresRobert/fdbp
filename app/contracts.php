@@ -453,7 +453,6 @@ function saveThisContract() {
             if (response.status === 'fail') {
                 M.toast({ html: response.message });
                 $.each(response.errors, function( _, id ) {
-                    console.log(id);
                     $('#' + id).addClass('invalid');
                 });
             }
