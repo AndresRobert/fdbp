@@ -175,7 +175,7 @@
                                 }
                             );
                         }
-                        elseif (status === 'Unauthorized') {
+                        else if (status === 'Unauthorized') {
                             Helper.openLink('/');
                         }
                         else {
