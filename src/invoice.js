@@ -196,6 +196,27 @@ Api.getList = (name = 'none') => {
     }
     return Helper.Object.load(name);
 };
+Api.data = (data, method = 'GET', auth = false) => {
+    const headers = auth ? Auth.getHeaders() : { 'Content-Type': 'application/json' };
+    return {
+        method: method,
+        cache: 'no-cache',
+        referrerPolicy: 'no-referrer',
+        headers: headers,
+        body: JSON.stringify(data)
+    }
+};
+Api.post = async function (endpoint = '', data = {}, auth = false) {
+    const headers = auth ? Auth.getHeaders() : { 'Content-Type': 'application/json' },
+        response = await fetch(endpoint, {
+            method: 'POST',
+            cache: 'no-cache',
+            referrerPolicy: 'no-referrer',
+            headers: headers,
+            body: JSON.stringify(data)
+        });
+    return await response.json();
+};
 
 let Auth = {};
 Auth.login = (email, password) => {

@@ -69,12 +69,8 @@
                 <tbody id="contractsTable"></tbody>
             </table>
             <script>
-                $.ajax({
-                    url: Api.endpoints['contract'],
-                    type: 'get',
-                    headers: Auth.getHeaders(),
-                    dataType: 'json',
-                    success: ({ status, response }) => {
+                Api.post(Api.endpoints['contract'], {}, true)
+                    .then(({ status, response }) => {
                         if (status === 'OK') {
                             Helper.Datatable.init(
                                 "#contracts_list",
@@ -181,13 +177,8 @@
                         } else {
                             M.toast({html: 'No se encontraron contratos'});
                         }
-                    },
-                    error: data => {
-                        if (data.responseJSON.response.response_code === 401) {
-                            Helper.openLink('/');
-                        }
-                    }
-                });
+                    })
+                    .catch(error => { console.log(error) });
             </script>
         </div>
     </div>
