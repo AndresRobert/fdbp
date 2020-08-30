@@ -447,9 +447,10 @@ Adaptor.Connect.services('#v_service_id', '#v_color', 'colors_by_service');
 
 function saveThisContract() {
     let data = Form.getValues('#newContract');
+    console.log(data);
     Api.post(Api.endpoints['contract'], true, data)
         .then(({ status, response }) => {
-            console.log(status, response);
+            console.log('success', status, response);
             if (response.status === 'fail') {
                 M.toast({ html: response.message });
                 $.each(response.errors, function( _, id ) {
@@ -458,7 +459,7 @@ function saveThisContract() {
                 });
             }
         })
-        .catch(error => { console.log(error) });
+        .catch(error => { console.log('error', error) });
 }
 </script>
 </body>
