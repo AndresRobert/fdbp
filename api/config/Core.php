@@ -43,13 +43,10 @@ define('ALLOWED_METHODS', ['POST', 'GET']);
 define('METHOD', strtoupper($_SERVER['REQUEST_METHOD']));
 define('REQUEST', $_SERVER['REQUEST_URI']);
 define('HEADERS', getallheaders());
-$body = $_GET;
+$body = METHOD === 'POST' ? $_POST : $_GET;
 try {
     define('BODY', json_decode(file_get_contents('php://input', 'r'), true, 512, JSON_THROW_ON_ERROR) ?? $body);
 } catch (JsonException $e) {
-    if (METHOD === 'POST') {
-        $body = $_POST;
-    }
     define('BODY', $body);
 }
 
