@@ -311,18 +311,21 @@ Form.getValues = (containerId) => {
     let formData = [];
     let container = $(containerId);
     container.find('select, textarea, input[type=text]').each( function () {
+        console.log('1', this);
         let form = $(this);
         if (typeof form.attr("id") !== 'undefined') {
             formData[form.attr("id")] = $(this).val();
         }
     });
     container.find('input[type=number]').each( function () {
+        console.log('2', this);
         let form = $(this);
         if (typeof form.attr("id") !== 'undefined') {
             formData[form.attr("id")] = parseInt($(this).val()) || 0;
         }
     });
     container.find('input[type=checkbox]').each( function () {
+        console.log('3', this);
         let form = $(this);
         if (typeof form.attr("id") !== 'undefined') {
             if (form.prop("checked") === true) {
