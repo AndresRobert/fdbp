@@ -142,12 +142,12 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         </div>
         <div class="col s5">
             El saldo es pagado con:<br>
-            <i class="material-icons t-icon t-icon-padding">check</i> Transferencia<br>
-            <i class="material-icons t-icon t-icon-padding">crop_square</i> Efectivo<br>
-            <i class="material-icons t-icon t-icon-padding">crop_square</i> Cheque al día<br>
-            <i class="material-icons t-icon t-icon-padding">crop_square</i> Cheque a fecha<br>
-            <i class="material-icons t-icon t-icon-padding">crop_square</i> Tarjeta de crédito<br>
-            <i class="material-icons t-icon t-icon-padding">crop_square</i> Otro
+            <i id="p_transfer" class="material-icons t-icon t-icon-padding">crop_square</i> Transferencia<br>
+            <i id="p_cash" class="material-icons t-icon t-icon-padding">crop_square</i> Efectivo<br>
+            <i id="p_check" class="material-icons t-icon t-icon-padding">crop_square</i> Cheque al día<br>
+            <i id="p_check_defered" class="material-icons t-icon t-icon-padding">crop_square</i> Cheque a fecha<br>
+            <i id="p_credit" class="material-icons t-icon t-icon-padding">crop_square</i> Tarjeta de crédito<br>
+            <i id="p_other" class="material-icons t-icon t-icon-padding">crop_square</i> Otro
         </div>
     </div>
 
@@ -204,22 +204,22 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         $('#v_payment').html(Helper.setDefault(Number(_data.v_payment).toLocaleString('es-CL'), '0'));
 
         if (_data.p_cash === true || _data.p_cash === '1') {
-            $('#p_cash').removeClass('fa-square').addClass('fa-check-square');
+            $('#p_cash').html('check');
         }
         if (_data.p_check === true || _data.p_check === '1') {
-            $('#p_check').removeClass('fa-square').addClass('fa-check-square');
+            $('#p_check').html('check');
         }
         if (_data.p_check_defered === true || _data.p_check_defered === '1') {
-            $('#p_check_defered').removeClass('fa-square').addClass('fa-check-square');
+            $('#p_check_defered').html('check');
         }
         if (_data.p_credit_card === true || _data.p_credit_card === '1') {
-            $('#p_credit_card').removeClass('fa-square').addClass('fa-check-square');
+            $('#p_credit_card').html('check');
         }
         if (_data.p_other === true || _data.p_other === '1') {
-            $('#p_other').removeClass('fa-square').addClass('fa-check-square');
+            $('#p_other').html('check');
         }
         if (_data.p_transfer === true || _data.p_transfer === '1') {
-            $('#p_transfer').removeClass('fa-square').addClass('fa-check-square');
+            $('#p_transfer').html('check');
         }
     }
 
