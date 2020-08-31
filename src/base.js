@@ -265,7 +265,7 @@ Auth.checkStatus = () => {
         .then(({status, response}) => {
             if (status !== 'OK' || response.status !== 'success') {
                 //M.toast({html: response.message});
-                Helper.openLink('/');
+                //Helper.openLink('/');
             }
         });
 }

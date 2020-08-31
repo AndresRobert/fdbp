@@ -160,7 +160,7 @@
                         );
                     }
                     else if (status === 'Unauthorized') {
-                        Helper.openLink('/');
+                        //Helper.openLink('/');
                     }
                     else {
                         M.toast({html: 'No se encontraron contratos'});
