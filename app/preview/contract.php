@@ -245,17 +245,8 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                     } else {
                         if (response.status !== 'fail' && response.contract !== []) {
                             data = response.contract;
-                            data['c_comune_name'] = Helper.List.getById(comunes, data['c_comune_id']);
-                            data['c_region_name'] = Helper.List.getById(regions, data['c_region_id']);
-                            data['d_comune_name'] = Helper.List.getById(comunes, data['d_comune_id']);
-                            data['d_region_name'] = Helper.List.getById(regions, data['d_region_id']);
-                            data['f_cementery_name'] = Helper.List.getById(cementeries, data['f_cementery_id']);
                             data['f_date'] = data['f_datetime'].substring(0,10);
                             data['f_time'] = data['f_datetime'].substring(11,16);
-                            data['s_comune_name'] = Helper.List.getById(comunes, data['s_comune_id']);
-                            data['s_region_name'] = Helper.List.getById(regions, data['s_region_id']);
-                            data['v_insurance_name'] = Helper.List.getById(insurances, data['v_insurance_id']);
-                            data['v_service_name'] = Helper.List.getById(services, data['v_service_id']);
                         } else {
                             M.toast({ html: 'Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo' });
                         }
@@ -263,6 +254,15 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                 })
                 .catch( e => console.log(e) );
         }
+        data['c_comune_name'] = Helper.List.getById(comunes, data['c_comune_id']);
+        data['c_region_name'] = Helper.List.getById(regions, data['c_region_id']);
+        data['d_comune_name'] = Helper.List.getById(comunes, data['d_comune_id']);
+        data['d_region_name'] = Helper.List.getById(regions, data['d_region_id']);
+        data['f_cementery_name'] = Helper.List.getById(cementeries, data['f_cementery_id']);
+        data['s_comune_name'] = Helper.List.getById(comunes, data['s_comune_id']);
+        data['s_region_name'] = Helper.List.getById(regions, data['s_region_id']);
+        data['v_insurance_name'] = Helper.List.getById(insurances, data['v_insurance_id']);
+        data['v_service_name'] = Helper.List.getById(services, data['v_service_id']);
         setPrintable(data);
     });
 
