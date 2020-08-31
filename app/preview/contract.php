@@ -11,165 +11,158 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     <script src="/src/base.js"></script>
 </head>
 <body id="body" style="background-color: #EEE">
-<div id="content" class="printable-page">
-
-    <div>
-
-        <div>
-            <div class="isotype">
-                <img src="/src/img/isotype.png" alt="">
+<div class="content printable-page">
+    <div class="row">
+        <div class="col s3 isotype">
+            <img src="/src/img/isotype.png" alt="">
+        </div>
+        <div class="col s9 info">
+            <div class="row">
+                <div class="col s12" style="font-family:'Great Vibes',cursive;font-size:48px">Funeraria del Buen Pastor</div>
             </div>
-            <div class="info">
-                <span style="font-family:'Great Vibes',cursive;font-size:48px">Funeraria del Buen Pastor</span>
-                <table>
-                    <tr>
-                        <td>
-                            <p>Avda. Vicuña Mackenna 10.634</p>
-                            <p>P.23 1/2 La Florida</p>
-                            <p>FONO: 22 318 8248 CELULAR: +569 802 3195</p>
-                            <p>www.funerariadelbuenpastor.cl</p>
-                        </td>
-                        <td>
-                            <p class="bold">CONTRATO / PRESUPUESTO INTERNO</p>
-                            <p class="bold" style="font-size:18px">Nº: <span id="id">99999</span></p>
-                        </td>
-                    </tr>
-                </table>
+            <div class="row">
+                <div class="col s6">
+                    Avda. Vicuña Mackenna 10.634<br>
+                    P.23 1/2 La Florida<br>
+                    FONO: 22 318 8248 CELULAR: +569 802 3195<br>
+                    www.funerariadelbuenpastor.cl
+                </div>
+                <div class="col s6">
+                    <b>CONTRATO / PRESUPUESTO INTERNO</b>
+                    <b style="font-size:18px">Nº: <span id="id">99999</span></b>
+                </div>
             </div>
         </div>
-
-        <div>
-            <div>STGO, <?php echo $strDate ?></div>
-        </div>
-
-        <div>
-            <div>
-                <p><b>Solicitado por</b>: <span id="s_name">No informado</span> <span id="s_last_name">No informado</span></p>
-                <p>Dirección: <span id="s_address">No informado</span></p>
-                <p>Teléfono: <span id="s_mobile">No informado</span></p>
-                <p>Email: <span id="s_email">No informado</span></p>
-            </div>
-            <div>
-                <p>R.U.T. <span id="s_id">No informado</span></p>
-                <p>Comuna: <span id="s_comune_name">No informado</span></p>
-                <p>Región: <span id="s_region_name">No informado</span></p>
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <p><b>Nombre del Fallecido</b>: <span id="d_name">No informado</span></p>
-                <p>R.U.T. <span id="d_id">No informado</span></p>
-                <p>Estado Civil: <span id="d_marital_status">No informado</span></p>
-                <p>Dirección: <span id="d_address">No informado</span></p>
-                <p>Lugar de Fallecimiento: <span id="d_place">No informado</span></p>
-            </div>
-            <div>
-                <p>Q.E.P.D.</p>
-                <p>Ocupación: <span id="d_occupation">No informado</span></p>
-                <p>Estudios: <span id="d_education">No informado</span></p>
-                <p>Comuna: <span id="d_comune_name">No informado</span></p>
-                <p>Región: <span id="d_region_name">No informado</span></p>
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <p><b>Lugar del Velatorio</b>: <span id="c_church">No informado</span></p>
-                <p>Dirección: <span id="c_address">No informado</span></p>
-            </div>
-            <div>
-                <p>&nbsp;</p>
-                <p>Comuna: <span id="c_comune_name">No informado</span></p>
-                <p>Región: <span id="c_region_name">No informado</span></p>
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <p><b>Cementerio</b>: <span id="f_cementery_name">No informado</span></p>
-            </div>
-            <div>
-                <p>Fecha Funeral: <span id="f_date">No informado</span></p>
-            </div>
-            <div>
-                <p>Hora de Llegada: <span id="f_time">No informado</span></p>
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <p><b>Tipo Servicio</b>: <span id="v_service_name">No informado</span></p>
-                <p>El servicio Incluye: <span id="v_include">No informado</span></p>
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <p class="just">
-                    La persona que firma el presente contrato privado, se
-                    responsabiliza por todo el pago del servicio, así como
-                    también de los cheques que pudieran extenderse con el
-                    fin de pagar a la Funeraria del Buen Pastor en los
-                    plazos y fechas pactadas y específicas en el contrato,
-                    las cuotas mortuorias del IPS y de AFP se darán por
-                    pagadas unicamente cuando estas las hagan efectivas, de
-                    lo contrario el contratante se responsabilizará del
-                    pago a la funeraria del total de los aranceles que
-                    cubran estos beneficios, el presente contrato lo firma
-                    exclusivamente el contratante del servicio.
-                </p>
-            </div>
-            <div>
-                <p>Valor del Servicio</p>
-                <p>Descuento</p>
-                <p>Valor Total</p>
-                <p>Aporte</p>
-                <p><span id="v_insurance_name">No informado</span></p>
-                <p>Saldo</p>
-            </div>
-            <div>
-                <p class="bold"><span id="v_cost">0</span></p>
-                <p class="bold"><span id="v_discount">0</span></p>
-                <p class="bold"><span id="v_total">0</span></p>
-                <p class="bold"><span id="v_coverage">0</span></p>
-                <p>&nbsp;</p>
-                <p class="bold"><span id="v_payment">0</span></p>
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <p class="bold just">
-                    Para pago con transferencia electrónica los datos son:
-                    Cuenta Corriente, Banco BBVA Nº 4330100037682,
-                    Rut 12.060.286-1, Alejandra Silva Morales, email:
-                    alejandra@funerariadelbuenpastor.cl
-                </p>
-            </div>
-            <div>
-                <p>El saldo es pagado con:</p>
-                <p><i id="p_transfer" class="far fa-square"></i> Transferencia</p>
-                <p><i id="p_cash" class="far fa-square"></i> Efectivo</p>
-                <p><i id="p_check" class="far fa-square"></i> Cheque al día</p>
-                <p><i id="p_check_defered" class="far fa-square"></i> Cheque a fecha</p>
-                <p><i id="p_credit_card" class="far fa-square"></i> Tarjeta de crédito</p>
-                <p><i id="p_other" class="far fa-square"></i> Otro</p>
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <p>Firma y RUT del contratante</p>
-            </div>
-            <div></div>
-            <div>
-                <p>Firma Jefe de Ventas</p>
-            </div>
-        </div>
-
     </div>
+
+    <div class="row">
+        <div class="col s12 right">STGO, <?php echo $strDate ?></div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            <b>Solicitado por</b>: <span id="s_name">No informado</span> <span id="s_last_name">No informado</span><br>
+            Dirección: <span id="s_address">No informado</span><br>
+            Teléfono: <span id="s_mobile">No informado</span><br>
+            Email: <span id="s_email">No informado</span>
+        </div>
+        <div class="col s6">
+            R.U.T. <span id="s_id">No informado</span><br>
+            Comuna: <span id="s_comune_name">No informado</span><br>
+            Región: <span id="s_region_name">No informado</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            <b>Nombre del Fallecido</b>: <span id="d_name">No informado</span><br>
+            R.U.T. <span id="d_id">No informado</span><br>
+            Estado Civil: <span id="d_marital_status">No informado</span><br>
+            Dirección: <span id="d_address">No informado</span><br>
+            Lugar de Fallecimiento: <span id="d_place">No informado</span>
+        </div>
+        <div class="col s6">
+            Q.E.P.D.<br>
+            Ocupación: <span id="d_occupation">No informado</span><br>
+            Estudios: <span id="d_education">No informado</span><br>
+            Comuna: <span id="d_comune_name">No informado</span><br>
+            Región: <span id="d_region_name">No informado</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            <b>Lugar del Velatorio</b>: <span id="c_church">No informado</span><br>
+            Dirección: <span id="c_address">No informado</span>
+        </div>
+        <div class="col s6">
+            <br>
+            Comuna: <span id="c_comune_name">No informado</span><br>
+            Región: <span id="c_region_name">No informado</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            <b>Cementerio</b>: <span id="f_cementery_name">No informado</span><br>
+        </div>
+        <div class="col s3">
+            Fecha Funeral: <span id="f_date">No informado</span>
+        </div>
+        <div class="col s3">
+            Hora de Llegada: <span id="f_time">No informado</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <b>Tipo Servicio</b>: <span id="v_service_name">No informado</span><br>
+            El servicio Incluye: <span id="v_include">No informado</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            <p class="just">
+                La persona que firma el presente contrato privado, se
+                responsabiliza por todo el pago del servicio, así como
+                también de los cheques que pudieran extenderse con el
+                fin de pagar a la Funeraria del Buen Pastor en los
+                plazos y fechas pactadas y específicas en el contrato,
+                las cuotas mortuorias del IPS y de AFP se darán por
+                pagadas unicamente cuando estas las hagan efectivas, de
+                lo contrario el contratante se responsabilizará del
+                pago a la funeraria del total de los aranceles que
+                cubran estos beneficios, el presente contrato lo firma
+                exclusivamente el contratante del servicio.
+            </p>
+        </div>
+        <div class="col s3">
+            Valor del Servicio<br>
+            Descuento<br>
+            Valor Total<br>
+            Aporte<br>
+            <span id="v_insurance_name">No informado</span><br>
+            Saldo
+        </div>
+        <div class="col s3">
+            <b id="v_cost">0</b><br>
+            <b id="v_discount">0</b><br>
+            <b id="v_total">0</b><br>
+            <b id="v_coverage">0</b><br>
+            <br>
+            <b id="v_payment">0</b>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            <b>
+                Para pago con transferencia electrónica los datos son:
+                Cuenta Corriente, Banco BBVA Nº 4330100037682,
+                Rut 12.060.286-1, Alejandra Silva Morales, email:
+                alejandra@funerariadelbuenpastor.cl
+            </b>
+        </div>
+        <div class="col s6">
+            El saldo es pagado con:<br>
+            <i id="p_transfer" class="far fa-square"></i> Transferencia<br>
+            <i id="p_cash" class="far fa-square"></i> Efectivo<br>
+            <i id="p_check" class="far fa-square"></i> Cheque al día<br>
+            <i id="p_check_defered" class="far fa-square"></i> Cheque a fecha<br>
+            <i id="p_credit_card" class="far fa-square"></i> Tarjeta de crédito<br>
+            <i id="p_other" class="far fa-square"></i> Otro
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s5">Firma y RUT del contratante</div>
+        <div class="col s2"></div>
+        <div class="col s5">Firma Jefe de Ventas</div>
+    </div>
+
 </div>
+
 <script>
 
     function setPrintable(_data) {
