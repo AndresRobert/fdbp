@@ -10,7 +10,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     <link rel="stylesheet" href="/src/base.css">
     <script src="/src/base.js"></script>
 </head>
-<body id="body">
+<body id="body" style="background-color: #EEE">
 <div id="content" class="printable-page">
 
     <div>
