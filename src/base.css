@@ -143,6 +143,10 @@ table.dataTable.no-footer {
 
 /* Preview */
 
+.preview .printable-page {
+    background: #FFF url(../src/img/preview.svg) 0 0 / 8rem 8rem;
+}
+
 .printable-page {
     display: block;
     width: 60rem;
