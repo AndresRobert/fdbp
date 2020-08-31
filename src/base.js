@@ -352,6 +352,28 @@ Form.getValues = (containerId) => {
     Helper.setCookie('fdbp_contract_data', formData);
     return formData;
 };
+Form.clear = (containerId) => {
+    const container = $(containerId),
+        strings = container.find('select, textarea, input[type=text]'),
+        numerics = container.find('input[type=number]'),
+        booleans = container.find('input[type=checkbox]');
+    strings.each( (_, input) => {
+        if (input.id !== "") {
+            input.value = '';
+        }
+    });
+    numerics.each( (_, input) => {
+        if (input.id !== "") {
+            input.value = 0;
+        }
+    });
+    booleans.each( (_, input) => {
+        if (input.id !== "") {
+            $(input).prop("checked", false);
+        }
+    });
+    Helper.setCookie('fdbp_contract_data', {});
+};
 Form.Calc = {};
 Form.Calc.payment = () => {
     let cost = parseInt($('#v_cost').val()) || 0;
