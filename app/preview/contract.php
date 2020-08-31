@@ -29,7 +29,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                 </div>
                 <div class="col s6 center">
                     <b>CONTRATO / PRESUPUESTO<br> INTERNO</b>
-                    <b style="font-size:18px">Nº: <span id="id">99999</span></b>
+                    <b style="font-size:18px"><br>Nº: <span id="id">99999</span></b>
                 </div>
             </div>
         </div>
@@ -40,13 +40,13 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     </div>
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s7">
             <b>Solicitado por</b>: <span id="s_name">No informado</span> <span id="s_last_name">No informado</span><br>
             Dirección: <span id="s_address">No informado</span><br>
             Teléfono: <span id="s_mobile">No informado</span><br>
             Email: <span id="s_email">No informado</span>
         </div>
-        <div class="col s6">
+        <div class="col s5">
             R.U.T. <span id="s_id">No informado</span><br>
             Comuna: <span id="s_comune_name">No informado</span><br>
             Región: <span id="s_region_name">No informado</span>
@@ -54,14 +54,14 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     </div>
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s7">
             <b>Nombre del Fallecido</b>: <span id="d_name">No informado</span><br>
             R.U.T. <span id="d_id">No informado</span><br>
             Estado Civil: <span id="d_marital_status">No informado</span><br>
             Dirección: <span id="d_address">No informado</span><br>
             Lugar de Fallecimiento: <span id="d_place">No informado</span>
         </div>
-        <div class="col s6">
+        <div class="col s5">
             Q.E.P.D.<br>
             Ocupación: <span id="d_occupation">No informado</span><br>
             Estudios: <span id="d_education">No informado</span><br>
@@ -71,11 +71,11 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     </div>
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s7">
             <b>Lugar del Velatorio</b>: <span id="c_church">No informado</span><br>
             Dirección: <span id="c_address">No informado</span>
         </div>
-        <div class="col s6">
+        <div class="col s5">
             <br>
             Comuna: <span id="c_comune_name">No informado</span><br>
             Región: <span id="c_region_name">No informado</span>
@@ -83,13 +83,13 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     </div>
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s7">
             <b>Cementerio</b>: <span id="f_cementery_name">No informado</span><br>
         </div>
         <div class="col s3">
             Fecha Funeral: <span id="f_date">No informado</span>
         </div>
-        <div class="col s3">
+        <div class="col s2">
             Hora de Llegada: <span id="f_time">No informado</span>
         </div>
     </div>
@@ -102,7 +102,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     </div>
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s7">
             <p class="just">
                 La persona que firma el presente contrato privado, se
                 responsabiliza por todo el pago del servicio, así como
@@ -125,7 +125,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             <span id="v_insurance_name">No informado</span><br>
             Saldo
         </div>
-        <div class="col s3">
+        <div class="col s2">
             <b id="v_cost">0</b><br>
             <b id="v_discount">0</b><br>
             <b id="v_total">0</b><br>
@@ -136,7 +136,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     </div>
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s7">
             <b>
                 Para pago con transferencia electrónica los datos son:
                 Cuenta Corriente, Banco BBVA Nº 4330100037682,
@@ -144,7 +144,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                 alejandra@funerariadelbuenpastor.cl
             </b>
         </div>
-        <div class="col s6">
+        <div class="col s5">
             El saldo es pagado con:<br>
             <i id="p_transfer" class="far fa-square"></i> Transferencia<br>
             <i id="p_cash" class="far fa-square"></i> Efectivo<br>
