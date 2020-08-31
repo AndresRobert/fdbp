@@ -358,9 +358,10 @@ Form.clear = (containerId) => {
         strings = container.find('textarea, input[type=text]'),
         numerics = container.find('input[type=number]'),
         booleans = container.find('input[type=checkbox]');
-    strings.each( (_, input) => {
+    selects.each( (_, input) => {
         if (input.id !== "") {
             input.value = 1;
+            $(input).trigger('change');
         }
     });
     strings.each( (_, input) => {
@@ -371,7 +372,7 @@ Form.clear = (containerId) => {
     numerics.each( (_, input) => {
         if (input.id !== "") {
             input.value = 0;
-            $(input).trigger('change');
+            $(input).trigger('input');
         }
     });
     booleans.each( (_, input) => {
