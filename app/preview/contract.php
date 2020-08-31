@@ -203,22 +203,22 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         $('#v_coverage').html(Helper.setDefault(Number(_data.v_coverage).toLocaleString('es-CL'), '0'));
         $('#v_payment').html(Helper.setDefault(Number(_data.v_payment).toLocaleString('es-CL'), '0'));
 
-        if (_data.p_cash === true || _data.p_cash === '1') {
+        if (_data.p_cash === true || _data.p_cash === '1' || _data.p_cash === 1) {
             $('#p_cash').html('check');
         }
-        if (_data.p_check === true || _data.p_check === '1') {
+        if (_data.p_check === true || _data.p_check === '1' || _data.p_check === 1) {
             $('#p_check').html('check');
         }
-        if (_data.p_check_defered === true || _data.p_check_defered === '1') {
+        if (_data.p_check_defered === true || _data.p_check_defered === '1' || _data.p_check_defered === 1) {
             $('#p_check_defered').html('check');
         }
-        if (_data.p_credit_card === true || _data.p_credit_card === '1') {
+        if (_data.p_credit_card === true || _data.p_credit_card === '1' || _data.p_credit_card === 1) {
             $('#p_credit_card').html('check');
         }
-        if (_data.p_other === true || _data.p_other === '1') {
+        if (_data.p_other === true || _data.p_other === '1' || _data.p_other === 1) {
             $('#p_other').html('check');
         }
-        if (_data.p_transfer === true || _data.p_transfer === '1') {
+        if (_data.p_transfer === true || _data.p_transfer === '1' || _data.p_transfer === 1) {
             $('#p_transfer').html('check');
         }
     }
