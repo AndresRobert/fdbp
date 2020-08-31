@@ -16,10 +16,10 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     <div>
 
         <div>
-            <div>
-                <img src="/src/img/isotype.png" alt="" class="isotype">
+            <div class="isotype">
+                <img src="/src/img/isotype.png" alt="">
             </div>
-            <div>
+            <div class="info">
                 <span style="font-family:'Great Vibes',cursive;font-size:48px">Funeraria del Buen Pastor</span>
                 <p>Avda. Vicuña Mackenna 10.634</p>
                 <p>P.23 1/2 La Florida</p>
