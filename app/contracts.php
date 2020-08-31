@@ -429,7 +429,7 @@
     <div class="modal-footer">
         <a href="#!" class="waves-effect waves-light blue btn-small">Vista Previa</a>
         <a href="#!" onclick="saveThisContract()" class="waves-effect waves-light teal btn-small">Guardar</a>
-        <a href="#!" class="waves-effect waves-light grey btn-small left">Eliminar</a>
+        <a href="#!" class="waves-effect waves-light grey btn-small left">Limpiar</a>
     </div>
 </div>
 <script>
@@ -465,6 +465,10 @@ function saveThisContract() {
             }
         })
         .catch(error => { console.log('error', error) });
+}
+
+function contractView(id) {
+    Helper.openLink('/app/preview/contract.php?contract=' + id, '_blank');
 }
 </script>
 </body>
