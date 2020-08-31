@@ -225,6 +225,12 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
     $(() => {
         const urlParams = new URLSearchParams(location.search);
+        const comunes = Api.getList('comunes'),
+            regions = Api.getList('regions'),
+            cementeries = Api.getList('cementeries'),
+            insurances = Api.getList('insurances'),
+            services = Api.getList('services');
+        let data = JSON.parse(Helper.getCookie('fdbp_contract_data') || '{}');
         if (urlParams.get('contract') !== null) {
             $('#body').removeClass('preview');
             $('#id').html(urlParams.get('contract'));
@@ -238,12 +244,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                         M.toast({ html: 'Session expirada, cierre esta vista y vuelva a intentarlo'});
                     } else {
                         if (response.status !== 'fail' && response.contract !== []) {
-                            const comunes = Api.getList('comunes'),
-                                regions = Api.getList('regions'),
-                                cementeries = Api.getList('cementeries'),
-                                insurances = Api.getList('insurances'),
-                                services = Api.getList('services');
-                            let data = response.contract;
+                            data = response.contract;
                             data['c_comune_name'] = Helper.List.getById(comunes, data['c_comune_id']);
                             data['c_region_name'] = Helper.List.getById(regions, data['c_region_id']);
                             data['d_comune_name'] = Helper.List.getById(comunes, data['d_comune_id']);
@@ -255,17 +256,14 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                             data['s_region_name'] = Helper.List.getById(regions, data['s_region_id']);
                             data['v_insurance_name'] = Helper.List.getById(insurances, data['v_insurance_id']);
                             data['v_service_name'] = Helper.List.getById(services, data['v_service_id']);
-                            setPrintable(data);
                         } else {
                             M.toast({ html: 'Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo' });
                         }
                     }
                 })
                 .catch( e => console.log(e) );
-        } else {
-            let data = JSON.parse(Helper.getCookie('fdbp_contract_data') || '{}');
-            setPrintable(data);
         }
+        setPrintable(data);
     });
 
 </script>
