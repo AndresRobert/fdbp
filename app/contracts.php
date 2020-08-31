@@ -468,6 +468,7 @@ function saveThisContract() {
 }
 
 function previewThisContract() {
+    Form.getValues('#newContract');
     Helper.openLink('/app/preview/contract.php', '_blank');
 }
 
