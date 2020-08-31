@@ -230,7 +230,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         if (urlParams.get('contract') !== null) {
             $('#body').removeClass('preview');
             $('#id').html(urlParams.get('contract'));
-            Api.post(Api.endpoints['one_contract'], { id: urlParams.get('contract') }, true)
+            Api.post(Api.endpoints['one_contract'], true, { id: urlParams.get('contract') })
                 .then(({ status, response }) => {
                     if (status === 'error') {
                         $('#body').addClass('preview');
