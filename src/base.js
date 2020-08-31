@@ -165,6 +165,12 @@ Helper.Options.timepicker = () => {
         }
     };
 };
+Helper.List = {};
+Helper.List.getById = (list, id) => {
+    $.each(list, function( _, { _id, _name } ) {
+        if (id === _id) { return _name; }
+    });
+};
 
 let Api = {};
 Api.endpoints = {

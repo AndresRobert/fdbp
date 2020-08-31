@@ -234,7 +234,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                 .then(({ status, response }) => {
                     if (status === 'error') {
                         $('#body').addClass('preview');
-                        M.toast({ html: 'Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo'});
+                        M.toast({ html: 'Hubo un error al intentar obtener el contrato, cierre esta vista y vuelva a intentarlo'});
                     }
                     if (status === 'fail') {
                         M.toast({ html: 'Session expirada, cierre esta vista y vuelva a intentarlo'});
@@ -245,18 +245,19 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                                 cementeries = Api.getList('cementeries'),
                                 insurances = Api.getList('insurances'),
                                 services = Api.getList('services');
+                            console.log(comunes);
                             data = response.contract;
-                            data['c_comune_name'] = comunes[data['c_comune_id']];
-                            data['c_region_name'] = regions[data['c_region_id']];
-                            data['d_comune_name'] = comunes[data['d_comune_id']];
-                            data['d_region_name'] = regions[data['d_region_id']];
-                            data['f_cementery_name'] = cementeries[data['f_cementery_id']];
+                            data['c_comune_name'] = Helper.List.getById(comunes, data['c_comune_id']);
+                            data['c_region_name'] = Helper.List.getById(regions, data['c_region_id']);
+                            data['d_comune_name'] = Helper.List.getById(comunes, data['d_comune_id']);
+                            data['d_region_name'] = Helper.List.getById(regions, data['d_region_id']);
+                            data['f_cementery_name'] = Helper.List.getById(cementeries, data['f_cementery_id']);
                             data['f_date'] = data['f_datetime'].substring(0,10);
-                            data['f_time'] = (data['f_datetime'].substring(0,-8)).substring(0,5);
-                            data['s_comune_name'] = comunes[data['s_comune_id']];
-                            data['s_region_name'] = regions[data['s_region_id']];
-                            data['v_insurance_name'] = insurances[data['v_insurance_id']];
-                            data['v_service_name'] = services[data['v_service_id']];
+                            data['f_time'] = data['f_datetime'].substring(11,5);
+                            data['s_comune_name'] = Helper.List.getById(comunes, data['s_comune_id']);
+                            data['s_region_name'] = Helper.List.getById(regions, data['s_region_id']);
+                            data['v_insurance_name'] = Helper.List.getById(insurances, data['v_insurance_id']);
+                            data['v_service_name'] = Helper.List.getById(services, data['v_service_id']);
                             setPrintable(data);
                         } else {
                             M.toast({ html: 'Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo' });
