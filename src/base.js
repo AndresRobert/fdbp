@@ -167,9 +167,14 @@ Helper.Options.timepicker = () => {
 };
 Helper.List = {};
 Helper.List.getById = (list, id) => {
+    let response = "";
     $.each(list, function( _, item ) {
-        if (id == item.id) { return item.name; }
+        if (parseInt(id) === parseInt(item.id)) {
+            response = item.name;
+            return false;
+        }
     });
+    return response;
 };
 
 let Api = {};
