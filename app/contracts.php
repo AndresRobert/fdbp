@@ -17,6 +17,5 @@
     <?php include 'pages/contracts/list.php' ?>
 </div>
 <?php include 'pages/contracts/add.php' ?>
-<?php include 'pages/contracts/edit.php' ?>
 </body>
 </html>
