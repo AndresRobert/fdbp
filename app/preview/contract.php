@@ -145,19 +145,19 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         </div>
         <div class="col s5">
             El saldo es pagado con:<br>
-            <i class="material-icons t-icon">check</i> Transferencia<br>
-            <i class="material-icons t-icon">crop_square</i> Efectivo<br>
-            <i class="material-icons t-icon">crop_square</i> Cheque al día<br>
-            <i class="material-icons t-icon">crop_square</i> Cheque a fecha<br>
-            <i class="material-icons t-icon">crop_square</i> Tarjeta de crédito<br>
-            <i class="material-icons t-icon">crop_square</i> Otro
+            <i class="material-icons t-icon t-icon-padding">check</i> Transferencia<br>
+            <i class="material-icons t-icon t-icon-padding">crop_square</i> Efectivo<br>
+            <i class="material-icons t-icon t-icon-padding">crop_square</i> Cheque al día<br>
+            <i class="material-icons t-icon t-icon-padding">crop_square</i> Cheque a fecha<br>
+            <i class="material-icons t-icon t-icon-padding">crop_square</i> Tarjeta de crédito<br>
+            <i class="material-icons t-icon t-icon-padding">crop_square</i> Otro
         </div>
     </div>
 
     <div class="row">
-        <div class="col s5">Firma y RUT del contratante</div>
+        <div class="col s5 t-sign">Firma y RUT del contratante</div>
         <div class="col s2"></div>
-        <div class="col s5">Firma Jefe de Ventas</div>
+        <div class="col s5 t-sign">Firma Jefe de Ventas</div>
     </div>
 
 </div>
