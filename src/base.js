@@ -354,9 +354,15 @@ Form.getValues = (containerId) => {
 };
 Form.clear = (containerId) => {
     const container = $(containerId),
-        strings = container.find('select, textarea, input[type=text]'),
+        selects = container.find('select'),
+        strings = container.find('textarea, input[type=text]'),
         numerics = container.find('input[type=number]'),
         booleans = container.find('input[type=checkbox]');
+    strings.each( (_, input) => {
+        if (input.id !== "") {
+            input.value = 1;
+        }
+    });
     strings.each( (_, input) => {
         if (input.id !== "") {
             input.value = '';
@@ -365,6 +371,7 @@ Form.clear = (containerId) => {
     numerics.each( (_, input) => {
         if (input.id !== "") {
             input.value = 0;
+            $(input).trigger('change');
         }
     });
     booleans.each( (_, input) => {
