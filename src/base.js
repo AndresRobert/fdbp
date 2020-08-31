@@ -65,7 +65,7 @@ Helper.setCookie = (cname, cvalue, exdays = 1) => {
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     let expires = "expires="+ d.toUTCString();
     let fixCvalue = typeof cvalue !== 'object' ? cvalue : JSON.stringify(cvalue);
-    document.cookie = cname + "=" + fixCvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + encodeURIComponent(fixCvalue) + ";" + expires + ";path=/";
 };
 Helper.getCookie = (cname) => {
     let name = cname + "=";
