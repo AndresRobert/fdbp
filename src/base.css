@@ -29,6 +29,18 @@ tbody > tr > td {
     font-size:3rem
 }
 
+.t-text {
+    font-size:0.9rem
+}
+
+.t-icon {
+    font-size:1rem
+}
+
+.t-icon-padding {
+    padding-left: 5rem;
+}
+
 .t-small {
     font-size:0.7rem
 }

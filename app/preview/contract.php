@@ -143,14 +143,14 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                 alejandra@funerariadelbuenpastor.cl
             </b>
         </div>
-        <div class="col s5 t-right">
+        <div class="col s5">
             El saldo es pagado con:<br>
-            <i class="material-icons">check</i> Transferencia<br>
-            <i class="material-icons">crop_square</i> Efectivo<br>
-            <i class="material-icons">crop_square</i> Cheque al día<br>
-            <i class="material-icons">crop_square</i> Cheque a fecha<br>
-            <i class="material-icons">crop_square</i> Tarjeta de crédito<br>
-            <i class="material-icons">crop_square</i> Otro
+            <i class="material-icons t-icon">check</i> Transferencia<br>
+            <i class="material-icons t-icon">crop_square</i> Efectivo<br>
+            <i class="material-icons t-icon">crop_square</i> Cheque al día<br>
+            <i class="material-icons t-icon">crop_square</i> Cheque a fecha<br>
+            <i class="material-icons t-icon">crop_square</i> Tarjeta de crédito<br>
+            <i class="material-icons t-icon">crop_square</i> Otro
         </div>
     </div>
 
