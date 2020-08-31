@@ -25,6 +25,18 @@ tbody > tr > td {
     font-family:'Great Vibes',cursive;
 }
 
+.t-title {
+    font-size:3rem
+}
+
+.t-small {
+    font-size:0.8rem
+}
+
+.t-right {
+    text-align: right;
+}
+
 .btn-flat {
     border: 1px solid #EEE;
     margin-right: 2px;
