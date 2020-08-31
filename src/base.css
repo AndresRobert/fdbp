@@ -114,26 +114,6 @@ table.dataTable.no-footer {
     color: #000;
 }
 
-.printable-page > div {
-    display: table;
-    width: 100%;
-}
-
-.printable-page > div > div {
-    display: table-row;
-}
-
-.printable-page > div > div > div {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.printable-page .isotype {
-    width: 33%;
-    vertical-align: top;
-    text-align: center;
-}
-
 .printable-page .isotype > img {
     width: 10rem;
 }
