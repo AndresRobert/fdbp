@@ -21,6 +21,10 @@ tbody > tr > td {
     text-align: center;
 }
 
+.great-vives {
+    font-family:'Great Vibes',cursive;
+}
+
 .btn-flat {
     border: 1px solid #EEE;
     margin-right: 2px;

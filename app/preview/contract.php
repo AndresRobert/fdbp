@@ -18,16 +18,16 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         </div>
         <div class="col s9 info">
             <div class="row">
-                <div class="col s12" style="font-family:'Great Vibes',cursive;font-size:48px">Funeraria del Buen Pastor</div>
+                <div class="col s12 center great-vives" style="font-size:48px">Funeraria del Buen Pastor</div>
             </div>
             <div class="row">
-                <div class="col s6">
+                <div class="col s6 center">
                     Avda. Vicuña Mackenna 10.634<br>
                     P.23 1/2 La Florida<br>
                     FONO: 22 318 8248 CELULAR: +569 802 3195<br>
                     www.funerariadelbuenpastor.cl
                 </div>
-                <div class="col s6">
+                <div class="col s6 center">
                     <b>CONTRATO / PRESUPUESTO INTERNO</b>
                     <b style="font-size:18px">Nº: <span id="id">99999</span></b>
                 </div>
