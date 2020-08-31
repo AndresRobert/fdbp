@@ -30,7 +30,7 @@ tbody > tr > td {
 }
 
 .t-small {
-    font-size:0.8rem
+    font-size:0.7rem
 }
 
 .t-right {
@@ -39,6 +39,11 @@ tbody > tr > td {
 
 .t-just {
     text-align: justify;
+}
+
+.t-sign {
+    border-top: 2px solid #000;
+    margin-top: 2rem;
 }
 
 .btn-flat {

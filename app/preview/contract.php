@@ -10,7 +10,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     <link rel="stylesheet" href="/src/base.css">
     <script src="/src/base.js"></script>
 </head>
-<body style="background-color: #EEE; position: unset">
+<body style="background-color: #EEE; position: unset; font-size: 0.9rem">
 <div class="content printable-page">
     <div class="row">
         <div class="col s3 isotype">
@@ -116,7 +116,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                 exclusivamente el contratante del servicio.
             </p>
         </div>
-        <div class="col s3">
+        <div class="col s2">
             Valor del Servicio<br>
             Descuento<br>
             Valor Total<br>
@@ -124,7 +124,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             <span id="v_insurance_name">No informado</span><br>
             Saldo
         </div>
-        <div class="col s2">
+        <div class="col s3">
             <b id="v_cost">0</b><br>
             <b id="v_discount">0</b><br>
             <b id="v_total">0</b><br>
@@ -135,7 +135,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     </div>
 
     <div class="row">
-        <div class="col s8 t-small">
+        <div class="col s7 t-small">
             <b>
                 Para pago con transferencia electrónica los datos son:
                 Cuenta Corriente, Banco BBVA Nº 4330100037682,
@@ -143,14 +143,14 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                 alejandra@funerariadelbuenpastor.cl
             </b>
         </div>
-        <div class="col s4">
+        <div class="col s5 t-right">
             El saldo es pagado con:<br>
-            <i id="p_transfer" class="far fa-square"></i> Transferencia<br>
-            <i id="p_cash" class="far fa-square"></i> Efectivo<br>
-            <i id="p_check" class="far fa-square"></i> Cheque al día<br>
-            <i id="p_check_defered" class="far fa-square"></i> Cheque a fecha<br>
-            <i id="p_credit_card" class="far fa-square"></i> Tarjeta de crédito<br>
-            <i id="p_other" class="far fa-square"></i> Otro
+            <i class="material-icons">check</i> Transferencia<br>
+            <i class="material-icons">crop_square</i> Efectivo<br>
+            <i class="material-icons">crop_square</i> Cheque al día<br>
+            <i class="material-icons">crop_square</i> Cheque a fecha<br>
+            <i class="material-icons">crop_square</i> Tarjeta de crédito<br>
+            <i class="material-icons">crop_square</i> Otro
         </div>
     </div>
 
