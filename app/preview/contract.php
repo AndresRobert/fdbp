@@ -226,7 +226,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     }
 
     $(() => {
-        let data = JSON.parse(Helper.getCookie('fdbp_contract_data'));
+        let data = JSON.parse(Helper.getCookie('fdbp_contract_data') || {});
         const urlParams = new URLSearchParams(location.search);
         if (urlParams.get('contract') !== null) {
             $('#body').removeClass('preview');
