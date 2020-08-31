@@ -182,7 +182,7 @@
                             M.toast({html: 'No se encontraron contratos'});
                         }
                     })
-                    .catch(e => console.log(e));
+                    .catch( e => console.log(e) );
             </script>
         </div>
     </div>
@@ -464,7 +464,7 @@ function saveThisContract() {
                 }
             }
         })
-        .catch(e => console.log(e));
+        .catch( e => console.log(e) );
 }
 
 function previewThisContract() {

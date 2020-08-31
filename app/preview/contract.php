@@ -256,18 +256,15 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                             data['f_time'] = (data['f_datetime'].substring(0,-8)).substring(0,5);
                             data['s_comune_name'] = comunes[data['s_comune_id']];
                             data['s_region_name'] = regions[data['s_region_id']];
-                            data['v_insurance_name'] = _pairs[data['v_insurance_id']];
-                            data['v_service_name'] = _pairs[data['v_service_id']];
+                            data['v_insurance_name'] = insurances[data['v_insurance_id']];
+                            data['v_service_name'] = services[data['v_service_id']];
                             setPrintable(data);
                         } else {
-                            _$.snackbar('Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo', 'Cerrar');
+                            M.toast({ html: 'Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo' });
                         }
                     }
                 })
-                .catch( e => console.log(e));
-            _$.ajax('/api/contracts/get', { id: urlParams.get('contract') }, { headers: getBearerHeaders()}).then(
-
-            ).catch(e => console.log(e));
+                .catch( e => console.log(e) );
         } else {
             setPrintable(data);
         }
