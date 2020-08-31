@@ -244,14 +244,13 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                                 insurances = Api.getList('insurances'),
                                 services = Api.getList('services');
                             let data = response.contract;
-                            console.log(data);
                             data['c_comune_name'] = Helper.List.getById(comunes, data['c_comune_id']);
                             data['c_region_name'] = Helper.List.getById(regions, data['c_region_id']);
                             data['d_comune_name'] = Helper.List.getById(comunes, data['d_comune_id']);
                             data['d_region_name'] = Helper.List.getById(regions, data['d_region_id']);
                             data['f_cementery_name'] = Helper.List.getById(cementeries, data['f_cementery_id']);
                             data['f_date'] = data['f_datetime'].substring(0,10);
-                            data['f_time'] = data['f_datetime'].substring(11,5);
+                            data['f_time'] = data['f_datetime'].substring(11,16);
                             data['s_comune_name'] = Helper.List.getById(comunes, data['s_comune_id']);
                             data['s_region_name'] = Helper.List.getById(regions, data['s_region_id']);
                             data['v_insurance_name'] = Helper.List.getById(insurances, data['v_insurance_id']);
