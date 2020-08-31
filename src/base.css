@@ -37,6 +37,10 @@ tbody > tr > td {
     text-align: right;
 }
 
+.t-just {
+    text-align: justify;
+}
+
 .btn-flat {
     border: 1px solid #EEE;
     margin-right: 2px;
