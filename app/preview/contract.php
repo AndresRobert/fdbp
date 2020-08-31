@@ -81,13 +81,13 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     </div>
 
     <div class="row">
-        <div class="col s7">
+        <div class="col s5">
             <b>Cementerio</b>: <span id="f_cementery_name">No informado</span><br>
         </div>
-        <div class="col s3">
+        <div class="col s4">
             Fecha Funeral: <span id="f_date">No informado</span>
         </div>
-        <div class="col s2">
+        <div class="col s3">
             Hora de Llegada: <span id="f_time">No informado</span>
         </div>
     </div>
@@ -164,46 +164,46 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 <script>
 
     function setPrintable(_data) {
-        $('#id').html(setDefault(_data.id, '999999'));
+        $('#id').html(Helper.setDefault(_data.id, '999999'));
 
-        $('#s_name').html(setDefault(_data.s_name, 'Sin nombre'));
-        $('#s_last_name').html(setDefault(_data.s_last_name, 'Sin apellido'));
-        $('#s_address').html(setDefault(_data.s_address, 'Sin dirección'));
-        $('#s_mobile').html(setDefault(_data.s_mobile, '9 0000 0000'));
-        $('#s_email').html(setDefault(_data.s_email, 'sin_mail@mail.cl'));
-        $('#s_id').html(setDefault(_data.s_id, '00000000-K'));
-        $('#s_comune_name').html(setDefault(_data.s_comune_name, 'Sin Comuna'));
-        $('#s_region_name').html(setDefault(_data.s_region_name, 'Sin Region'));
+        $('#s_name').html(Helper.setDefault(_data.s_name, 'Sin nombre'));
+        $('#s_last_name').html(Helper.setDefault(_data.s_last_name, 'Sin apellido'));
+        $('#s_address').html(Helper.setDefault(_data.s_address, 'Sin dirección'));
+        $('#s_mobile').html(Helper.setDefault(_data.s_mobile, '9 0000 0000'));
+        $('#s_email').html(Helper.setDefault(_data.s_email, 'sin_mail@mail.cl'));
+        $('#s_id').html(Helper.setDefault(_data.s_id, '00000000-K'));
+        $('#s_comune_name').html(Helper.setDefault(_data.s_comune_name, 'Sin Comuna'));
+        $('#s_region_name').html(Helper.setDefault(_data.s_region_name, 'Sin Region'));
 
-        $('#d_name').html(setDefault(_data.d_name, 'Sin nombre'));
-        $('#d_id').html(setDefault(_data.d_id, '00000000-K'));
-        $('#d_marital_status').html(setDefault(_data.d_marital_status, 'No informado'));
-        $('#d_address').html(setDefault(_data.d_address, 'Sin dirección'));
-        $('#d_place').html(setDefault(_data.d_place, 'No informado'));
-        $('#d_occupation').html(setDefault(_data.d_occupation, 'No informado'));
-        $('#d_education').html(setDefault(_data.d_education, 'No informado'));
-        $('#d_comune_name').html(setDefault(_data.d_comune_name, 'Sin Comuna'));
-        $('#d_region_name').html(setDefault(_data.d_region_name, 'Sin Region'));
+        $('#d_name').html(Helper.setDefault(_data.d_name, 'Sin nombre'));
+        $('#d_id').html(Helper.setDefault(_data.d_id, '00000000-K'));
+        $('#d_marital_status').html(Helper.setDefault(_data.d_marital_status, 'No informado'));
+        $('#d_address').html(Helper.setDefault(_data.d_address, 'Sin dirección'));
+        $('#d_place').html(Helper.setDefault(_data.d_place, 'No informado'));
+        $('#d_occupation').html(Helper.setDefault(_data.d_occupation, 'No informado'));
+        $('#d_education').html(Helper.setDefault(_data.d_education, 'No informado'));
+        $('#d_comune_name').html(Helper.setDefault(_data.d_comune_name, 'Sin Comuna'));
+        $('#d_region_name').html(Helper.setDefault(_data.d_region_name, 'Sin Region'));
 
-        $('#c_church').html(setDefault(_data.c_church, 'No informado'));
-        $('#c_address').html(setDefault(_data.c_address, 'Sin dirección'));
-        $('#c_comune_name').html(setDefault(_data.c_comune_name, 'Sin Comuna'));
-        $('#c_region_name').html(setDefault(_data.c_region_name, 'Sin Region'));
+        $('#c_church').html(Helper.setDefault(_data.c_church, 'No informado'));
+        $('#c_address').html(Helper.setDefault(_data.c_address, 'Sin dirección'));
+        $('#c_comune_name').html(Helper.setDefault(_data.c_comune_name, 'Sin Comuna'));
+        $('#c_region_name').html(Helper.setDefault(_data.c_region_name, 'Sin Region'));
 
-        $('#v_service_name').html(setDefault(_data.v_service_name, 'No informado'));
-        $('#v_include').html(setDefault(_data.v_include, ''));
-        $('#v_warning').html(setDefault(_data.v_warning, ''));
-        $('#v_observation').html(setDefault(_data.v_observation, ''));
+        $('#v_service_name').html(Helper.setDefault(_data.v_service_name, 'No informado'));
+        $('#v_include').html(Helper.setDefault(_data.v_include, ''));
+        $('#v_warning').html(Helper.setDefault(_data.v_warning, ''));
+        $('#v_observation').html(Helper.setDefault(_data.v_observation, ''));
 
-        $('#f_cementery_name').html(setDefault(_data.f_cementery_name, 'No informado'));
-        $('#f_date').html(setDefault(_data.f_date, ''));
-        $('#f_time').html(setDefault(_data.f_time, ''));
+        $('#f_cementery_name').html(Helper.setDefault(_data.f_cementery_name, 'No informado'));
+        $('#f_date').html(Helper.setDefault(_data.f_date, ''));
+        $('#f_time').html(Helper.setDefault(_data.f_time, ''));
 
-        $('#v_cost').html(setDefault(Number(_data.v_cost).toLocaleString('es-CL'), '0'));
-        $('#v_discount').html(setDefault(Number(_data.v_discount).toLocaleString('es-CL'), '0'));
-        $('#v_total').html(setDefault(Number(_data.v_total).toLocaleString('es-CL'), '0'));
-        $('#v_coverage').html(setDefault(Number(_data.v_coverage).toLocaleString('es-CL'), '0'));
-        $('#v_payment').html(setDefault(Number(_data.v_payment).toLocaleString('es-CL'), '0'));
+        $('#v_cost').html(Helper.setDefault(Number(_data.v_cost).toLocaleString('es-CL'), '0'));
+        $('#v_discount').html(Helper.setDefault(Number(_data.v_discount).toLocaleString('es-CL'), '0'));
+        $('#v_total').html(Helper.setDefault(Number(_data.v_total).toLocaleString('es-CL'), '0'));
+        $('#v_coverage').html(Helper.setDefault(Number(_data.v_coverage).toLocaleString('es-CL'), '0'));
+        $('#v_payment').html(Helper.setDefault(Number(_data.v_payment).toLocaleString('es-CL'), '0'));
 
         if (_data.p_cash === true || _data.p_cash === '1') {
             $('#p_cash').removeClass('fa-square').addClass('fa-check-square');
