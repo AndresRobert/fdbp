@@ -5,10 +5,10 @@
     <title>Contract</title>
     <link href="../../src/vendor/acode.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="../../src/invoice.css" rel="stylesheet">
+    <link href="../../src/base.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a93fffc8fc.js" crossorigin="anonymous"></script>
     <script src="../../src/vendor/acode.js"></script>
-    <script src="../../src/invoice.js"></script>
+    <script src="../../src/base.js"></script>
 </head>
 <body class="preview">
 <div id="content" class="grid printable">

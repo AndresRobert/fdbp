@@ -102,3 +102,26 @@ table.dataTable.no-footer {
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
     background: none !important;
 }
+
+/* Preview */
+
+.printable-page {
+    display: block;
+    width: 60rem;
+    margin: 0 auto;
+    padding: 3rem;
+    background-color: #FFF;
+    color: #000;
+}
+
+.printable-page > div {
+    display: table;
+}
+
+.printable-page > div > div {
+    display: table-row;
+}
+
+.printable-page > div > div > div {
+    display: table-cell;
+}
