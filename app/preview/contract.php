@@ -245,8 +245,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                                 cementeries = Api.getList('cementeries'),
                                 insurances = Api.getList('insurances'),
                                 services = Api.getList('services');
-                            console.log(comunes);
-                            data = response.contract;
+                            let data = response.contract;
                             data['c_comune_name'] = Helper.List.getById(comunes, data['c_comune_id']);
                             data['c_region_name'] = Helper.List.getById(regions, data['c_region_id']);
                             data['d_comune_name'] = Helper.List.getById(comunes, data['d_comune_id']);
