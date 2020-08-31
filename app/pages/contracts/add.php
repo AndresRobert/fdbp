@@ -239,7 +239,6 @@
     <div class="modal-footer">
         <a href="#!" onclick="previewThisContract()" class="waves-effect waves-light blue btn-small">Vista Previa</a>
         <a href="#!" onclick="saveThisContract()" class="waves-effect waves-light teal btn-small">Guardar</a>
-        <a href="#!" onclick="Form.clear('#newContract')" class="waves-effect waves-light grey btn-small left">Limpiar</a>
     </div>
 </div>
 <script>

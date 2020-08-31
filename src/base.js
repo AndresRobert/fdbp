@@ -352,36 +352,6 @@ Form.getValues = (containerId) => {
     Helper.setCookie('fdbp_contract_data', formData);
     return formData;
 };
-Form.clear = (containerId) => {
-    const container = $(containerId),
-        selects = container.find('select'),
-        strings = container.find('textarea, input[type=text]'),
-        numerics = container.find('input[type=number]'),
-        booleans = container.find('input[type=checkbox]');
-    selects.each( (_, input) => {
-        if (input.id !== "") {
-            input.value = 1;
-            $(input).trigger('change');
-        }
-    });
-    strings.each( (_, input) => {
-        if (input.id !== "") {
-            input.value = '';
-        }
-    });
-    numerics.each( (_, input) => {
-        if (input.id !== "") {
-            input.value = 0;
-            $(input).trigger('input');
-        }
-    });
-    booleans.each( (_, input) => {
-        if (input.id !== "") {
-            $(input).prop("checked", false);
-        }
-    });
-    Helper.setCookie('fdbp_contract_data', {});
-};
 Form.Calc = {};
 Form.Calc.payment = () => {
     let cost = parseInt($('#v_cost').val()) || 0;
