@@ -45,7 +45,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             Teléfono: <span id="s_mobile">No informado</span><br>
             Email: <span id="s_email">No informado</span>
         </div>
-        <div class="col s3">
+        <div class="col s5">
             R.U.T. <span id="s_id">No informado</span><br>
             Comuna: <span id="s_comune_name">No informado</span><br>
             Región: <span id="s_region_name">No informado</span>
@@ -60,7 +60,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             Dirección: <span id="d_address">No informado</span><br>
             Lugar de Fallecimiento: <span id="d_place">No informado</span>
         </div>
-        <div class="col s3">
+        <div class="col s5">
             Q.E.P.D.<br>
             Ocupación: <span id="d_occupation">No informado</span><br>
             Estudios: <span id="d_education">No informado</span><br>
@@ -74,20 +74,18 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             <b>Lugar del Velatorio</b>: <span id="c_church">No informado</span><br>
             Dirección: <span id="c_address">No informado</span>
         </div>
-        <div class="col s3">
+        <div class="col s5">
             Comuna: <span id="c_comune_name">No informado</span><br>
             Región: <span id="c_region_name">No informado</span>
         </div>
     </div>
 
     <div class="row">
-        <div class="col s5">
+        <div class="col s7">
             <b>Cementerio</b>: <span id="f_cementery_name">No informado</span><br>
         </div>
-        <div class="col s4">
-            Fecha Funeral: <span id="f_date">No informado</span>
-        </div>
-        <div class="col s3">
+        <div class="col s5">
+            Fecha Funeral: <span id="f_date">No informado</span><br>
             Hora de Llegada: <span id="f_time">No informado</span>
         </div>
     </div>
@@ -123,7 +121,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             <span id="v_insurance_name">No informado</span><br>
             Saldo
         </div>
-        <div class="col s3">
+        <div class="col s2 t-right">
             <b id="v_cost">0</b><br>
             <b id="v_discount">0</b><br>
             <b id="v_total">0</b><br>
