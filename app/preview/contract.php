@@ -21,12 +21,20 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             </div>
             <div class="info">
                 <span style="font-family:'Great Vibes',cursive;font-size:48px">Funeraria del Buen Pastor</span>
-                <p>Avda. Vicuña Mackenna 10.634</p>
-                <p>P.23 1/2 La Florida</p>
-                <p>FONO: 22 318 8248 CELULAR: +569 802 3195</p>
-                <p>www.funerariadelbuenpastor.cl</p>
-                <p class="bold">CONTRATO / PRESUPUESTO INTERNO</p>
-                <p class="bold" style="font-size:18px">Nº: <span id="id">99999</span></p>
+                <table>
+                    <tr>
+                        <td>
+                            <p>Avda. Vicuña Mackenna 10.634</p>
+                            <p>P.23 1/2 La Florida</p>
+                            <p>FONO: 22 318 8248 CELULAR: +569 802 3195</p>
+                            <p>www.funerariadelbuenpastor.cl</p>
+                        </td>
+                        <td>
+                            <p class="bold">CONTRATO / PRESUPUESTO INTERNO</p>
+                            <p class="bold" style="font-size:18px">Nº: <span id="id">99999</span></p>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
 
