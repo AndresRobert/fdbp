@@ -141,3 +141,7 @@ table.dataTable.no-footer {
 .printable-page .info {
     width: 67%;
 }
+
+.printable-page p {
+    margin: 0;
+}
