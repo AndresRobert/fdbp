@@ -182,7 +182,7 @@
                             M.toast({html: 'No se encontraron contratos'});
                         }
                     })
-                    .catch(error => { console.log(error) });
+                    .catch(e => console.log(e));
             </script>
         </div>
     </div>
@@ -427,7 +427,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="waves-effect waves-light blue btn-small">Vista Previa</a>
+        <a href="#!" onclick="previewThisContract()" class="waves-effect waves-light blue btn-small">Vista Previa</a>
         <a href="#!" onclick="saveThisContract()" class="waves-effect waves-light teal btn-small">Guardar</a>
         <a href="#!" class="waves-effect waves-light grey btn-small left">Limpiar</a>
     </div>
@@ -464,7 +464,11 @@ function saveThisContract() {
                 }
             }
         })
-        .catch(error => { console.log('error', error) });
+        .catch(e => console.log(e));
+}
+
+function previewThisContract() {
+    Helper.openLink('/app/preview/contract.php', '_blank');
 }
 
 function contractView(id) {

@@ -7,10 +7,9 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 <html lang="es">
 <head>
     <title>Ver Contrato</title>
-    <link rel="stylesheet" href="/src/base.css">
-    <script src="/src/base.js"></script>
+    <?php include '../layout/head.php' ?>
 </head>
-<body style="background-color: #EEE; position: unset; font-size: 0.9rem">
+<body class="preview" style="background-color: #EEE; position: unset; font-size: 0.9rem">
 <div class="content printable-page">
     <div class="row">
         <div class="col s3 isotype">
@@ -226,38 +225,37 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         }
     }
 
-    getList('api_regions');
-    getList('api_comunes_list');
-    getList('api_cementeries');
-    getList('api_insurances');
-    getList('api_services');
-
     $(() => {
-        let data = JSON.parse(_$.cookie.get('fdbp_contract_data'));
+        let data = JSON.parse(Helper.getCookie('fdbp_contract_data'));
         const urlParams = new URLSearchParams(location.search);
         if (urlParams.get('contract') !== null) {
-            _$('#body').removeClass('preview');
+            $('#body').removeClass('preview');
             $('#id').html(urlParams.get('contract'));
-            _$.ajax('/api/contracts/get', { id: urlParams.get('contract') }, { headers: getBearerHeaders()}).then(
-                ({ status, response }) => {
+            Api.post(Api.endpoints['one_contract'], { id: urlParams.get('contract') }, true)
+                .then(({ status, response }) => {
                     if (status === 'error') {
-                        _$('#body').addClass('preview');
-                        _$.snackbar('Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo', 'Cerrar');
+                        $('#body').addClass('preview');
+                        M.toast({ html: 'Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo'});
                     }
                     if (status === 'fail') {
-                        _$.snackbar('Session expirada, cierre esta vista y vuelva a intentarlo', 'Cerrar');
+                        M.toast({ html: 'Session expirada, cierre esta vista y vuelva a intentarlo'});
                     } else {
                         if (response.status !== 'fail' && response.contract !== []) {
+                            const comunes = Api.getList('comunes'),
+                                regions = Api.getList('regions'),
+                                cementeries = Api.getList('cementeries'),
+                                insurances = Api.getList('insurances'),
+                                services = Api.getList('services');
                             data = response.contract;
-                            data['c_comune_name'] = _pairs[data['c_comune_id']];
-                            data['c_region_name'] = _pairs[data['c_region_id']];
-                            data['d_comune_name'] = _pairs[data['d_comune_id']];
-                            data['d_region_name'] = _pairs[data['d_region_id']];
-                            data['f_cementery_name'] = _pairs[data['f_cementery_id']];
+                            data['c_comune_name'] = comunes[data['c_comune_id']];
+                            data['c_region_name'] = regions[data['c_region_id']];
+                            data['d_comune_name'] = comunes[data['d_comune_id']];
+                            data['d_region_name'] = regions[data['d_region_id']];
+                            data['f_cementery_name'] = cementeries[data['f_cementery_id']];
                             data['f_date'] = data['f_datetime'].substring(0,10);
                             data['f_time'] = (data['f_datetime'].substring(0,-8)).substring(0,5);
-                            data['s_comune_name'] = _pairs[data['s_comune_id']];
-                            data['s_region_name'] = _pairs[data['s_region_id']];
+                            data['s_comune_name'] = comunes[data['s_comune_id']];
+                            data['s_region_name'] = regions[data['s_region_id']];
                             data['v_insurance_name'] = _pairs[data['v_insurance_id']];
                             data['v_service_name'] = _pairs[data['v_service_id']];
                             setPrintable(data);
@@ -265,7 +263,10 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                             _$.snackbar('Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo', 'Cerrar');
                         }
                     }
-                }
+                })
+                .catch( e => console.log(e));
+            _$.ajax('/api/contracts/get', { id: urlParams.get('contract') }, { headers: getBearerHeaders()}).then(
+
             ).catch(e => console.log(e));
         } else {
             setPrintable(data);

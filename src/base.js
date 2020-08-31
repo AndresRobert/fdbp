@@ -180,7 +180,8 @@ Api.endpoints = {
     'providers': '/api/list/providers',
     'providers_by_service': '/api/list/providersByService',
     'colors_by_service': '/api/list/colorsByService',
-    'contract': '/api/contract'
+    'contract': '/api/contract',
+    'one_contract': '/api/contract/one'
 };
 Api.setList = (name = 'none') => {
     if (name === 'none') {
@@ -337,7 +338,7 @@ Form.getValues = (containerId) => {
             }
         }
     });
-    console.log(formData);
+    Helper.setCookie('fdbp_contract_data', formData);
     return formData;
 };
 Form.Calc = {};
