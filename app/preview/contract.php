@@ -132,8 +132,8 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     </div>
 
     <div class="row">
-        <div class="col s7">
-            <b class="t-just t-small">
+        <div class="col s7 t-just t-small">
+            <b>
                 Para pago con transferencia electrónica los datos son:
                 Cuenta Corriente, Banco BBVA Nº 4330100037682,
                 Rut 12.060.286-1, Alejandra Silva Morales, email:
