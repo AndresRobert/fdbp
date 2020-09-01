@@ -177,14 +177,13 @@
             function contractEdit (id) {
                 // Abrir el modal
                 const Modal = $('#editContract');
-                Modal.modal();
-                Modal.modal('open');
+                Modal.openModal();
                 // Cargar los datos del contrato
                 Api.post(Api.endpoints['one_contract'], true, { id: id })
                     .then(({ status, response }) => {
                         if (status === 'error') {
                             M.toast({ html: 'Hubo un error al intentar obtener el contrato'});
-                            Modal.modal('close');
+                            Modal.closeModal();
                         }
                         if (status === 'fail') {
                             M.toast({ html: 'Session expirada, cierre esta vista y vuelva a intentarlo'});
