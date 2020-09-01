@@ -233,7 +233,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         let data = JSON.parse(Helper.getCookie('fdbp_contract_data') || '{}');
         console.log(urlParams.get('contract'));
         if (urlParams.get('contract') !== null) {
-            $('#body').removeClass('preview');
+            $('body').removeClass('preview');
             $('#id').html(urlParams.get('contract'));
             Api.post(Api.endpoints['one_contract'], true, { id: urlParams.get('contract') })
                 .then(({ status, response }) => {

@@ -66,12 +66,20 @@ class Contracts extends Response {
                     $fields['v_payment'] = $fields['v_total'] - (intVal($fields['v_coverage']) ?? 0);
                     $fields['f_datetime'] = $fields['f_date'].' '.$fields['f_time'];
                     $Contract->set($fields);
-
-                    if ($Contract->create()) {
-                        $contractId = $Contract->get('id');
+                    if (isset($fields['id']) && $fields['id'] > 0) {
+                        if ($Contract->update()) {
+                            $contractId = $fields['id'];
+                        } else {
+                            $status = 'fail';
+                            $message = 'No fue posible actualizar el contrato';
+                        }
                     } else {
-                        $status = 'fail';
-                        $message = 'No fue posible guardar el contrato';
+                        if ($Contract->create()) {
+                            $contractId = $Contract->get('id');
+                        } else {
+                            $status = 'fail';
+                            $message = 'No fue posible guardar el contrato';
+                        }
                     }
                 }
 

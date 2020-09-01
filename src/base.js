@@ -333,7 +333,7 @@ Adaptor.Connect.services = (selectId, inputId, listName) => {
 };
 
 let Form = {};
-Form.getValues = (containerId) => {
+Form.getValues = (containerId, prefix = '') => {
     let formData = {};
     const container = $(containerId),
         strings = container.find('select, textarea, input[type=text]'),
@@ -341,20 +341,20 @@ Form.getValues = (containerId) => {
         booleans = container.find('input[type=checkbox]');
     strings.each( (_, input) => {
         if (input.id !== "") {
-            formData[input.id] = input.value;
+            formData[input.id.replace(prefix,'')] = input.value;
         }
     });
     numerics.each( (_, input) => {
         if (input.id !== "") {
-            formData[input.id] = parseInt(input.value) || 0;
+            formData[input.id.replace(prefix,'')] = parseInt(input.value) || 0;
         }
     });
     booleans.each( (_, input) => {
         if (input.id !== "") {
             if ($(input).prop("checked") === true) {
-                formData[input.id] = 1;
+                formData[input.id.replace(prefix,'')] = 1;
             } else {
-                formData[input.id] = 0;
+                formData[input.id.replace(prefix,'')] = 0;
             }
         }
     });

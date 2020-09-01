@@ -1,5 +1,5 @@
 <div id="editContract" class="modal bottom-sheet eighty-percent">
-    <input type="hidden" id="e_id">
+    <input id="e_id" type="hidden">
     <div class="modal-content">
         <h5>Solicitante</h5>
         <div class="row">
@@ -53,7 +53,7 @@
         <h5>Fallecido</h5>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="ej.: 12345678-9" id=e_"d_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$" required>
+                <input placeholder="ej.: 12345678-9" id="e_d_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$" required>
                 <label for="e_d_id">Rut</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
@@ -138,14 +138,12 @@
                 <label for="e_v_service_id">Tipo</label>
             </div>
             <div class="input-field col s12 m3">
-                <input value="Sin proveedor" id="e_v_provider_name" type="text" readonly>
-                <label for="e_v_provider_name">Provider</label>
-                <span class="helper-text">Según tipo de servicio</span>
+                <select id="e_v_provider_id"></select>
+                <label for="e_v_provider_id">Proveedor</label>
             </div>
             <div class="input-field col s12 m3">
-                <input value="Sin Color" id="e_v_color" type="text" readonly>
+                <input value="Sin Color" id="e_v_color" type="text">
                 <label for="e_v_color">Color</label>
-                <span class="helper-text">Según tipo de servicio</span>
             </div>
         </div>
         <div class="row">
@@ -242,31 +240,30 @@
     </div>
 </div>
 <script>
-    Adaptor.select('#c_s_region_id','regions');
-    Adaptor.select('#c_d_region_id','regions');
-    Adaptor.select('#c_c_region_id','regions');
-    Adaptor.select('#c_f_cementery_id','cementeries');
-    Adaptor.select('#c_v_service_id','services');
-    Adaptor.select('#c_v_insurance_id','insurances');
-    Adaptor.comunes('#c_s_comune_id', 1);
-    Adaptor.comunes('#c_d_comune_id', 1);
-    Adaptor.comunes('#c_c_comune_id', 1);
-    Adaptor.Connect.comunes('#c_s_region_id', '#c_s_comune_id');
-    Adaptor.Connect.comunes('#c_d_region_id', '#c_d_comune_id');
-    Adaptor.Connect.comunes('#c_c_region_id', '#c_c_comune_id');
-    Adaptor.Connect.services('#c_v_service_id', '#c_v_provider_name', 'providers_by_service');
-    Adaptor.Connect.services('#c_v_service_id', '#c_v_color', 'colors_by_service');
+    Adaptor.select('#e_s_region_id','regions');
+    Adaptor.select('#e_d_region_id','regions');
+    Adaptor.select('#e_c_region_id','regions');
+    Adaptor.select('#e_f_cementery_id','cementeries');
+    Adaptor.select('#e_v_service_id','services');
+    Adaptor.select('#e_v_service_id','services');
+    Adaptor.select('#e_v_insurance_id','insurances');
+    Adaptor.select('#e_v_provider_id','providers');
+    Adaptor.comunes('#e_s_comune_id', 1);
+    Adaptor.comunes('#e_d_comune_id', 1);
+    Adaptor.comunes('#e_c_comune_id', 1);
+    Adaptor.Connect.comunes('#e_s_region_id', '#e_s_comune_id');
+    Adaptor.Connect.comunes('#e_d_region_id', '#e_d_comune_id');
+    Adaptor.Connect.comunes('#e_c_region_id', '#e_c_comune_id');
 
     function editThisContract() {
-        let data = Form.getValues('#editContract');
-        console.log(data);
+        let data = Form.getValues('#editContract', 'e_');
         Api.post(Api.endpoints['contract'], true, data)
             .then(({ status, response }) => {
                 if (status === 'OK') {
                     M.toast({ html: response.message });
                     if (response.status === 'fail') {
                         $.each(response.errors, function( _, id ) {
-                            $('#' + id).addClass('invalid');
+                            $('#e_' + id).addClass('invalid');
                         });
                     } else {
                         Helper.openLink();
