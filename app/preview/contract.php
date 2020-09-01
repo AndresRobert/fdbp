@@ -192,6 +192,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         $('#v_include').html(Helper.setDefault(_data.v_include, ''));
         $('#v_warning').html(Helper.setDefault(_data.v_warning, ''));
         $('#v_observation').html(Helper.setDefault(_data.v_observation, ''));
+        $('#v_insurance_name').html(Helper.setDefault(_data.v_insurance_name, 'No Informado'));
 
         $('#f_cementery_name').html(Helper.setDefault(_data.f_cementery_name, 'No informado'));
         $('#f_date').html(Helper.setDefault(_data.f_date, ''));
