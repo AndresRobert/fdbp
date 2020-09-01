@@ -61,6 +61,8 @@ class Contract extends Model {
             TIME(c.f_datetime) f_time,
             c.v_service_id,
             ser.name v_service_name,
+            c.v_provider_id,
+            pro.name v_provider_name,
             c.v_color,
             c.v_include,
             c.v_observation,
@@ -84,6 +86,7 @@ class Contract extends Model {
             INNER JOIN comunes cc ON cc.id = c.c_comune_id
             INNER JOIN cementeries cem ON cem.id = c.f_cementery_id
             INNER JOIN services ser ON ser.id = c.v_service_id
+            INNER JOIN providers pro ON pro.id = c.v_provider_id
             INNER JOIN insurances ins ON ins.id = c.v_insurance_id
         WHERE c.status = 1';
         $result = MySQL::ComplexSelect($query);

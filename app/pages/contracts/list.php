@@ -31,6 +31,7 @@
                 <th>Funeral Fecha</th>
                 <th>Funeral Hora</th>
                 <th>Servicio Tipo</th>
+                <th>Servicio Proveedor</th>
                 <th>Servicio Color</th>
                 <th>Servicio Incluye</th>
                 <th>Servicio Observación</th>
@@ -89,6 +90,7 @@
                                     { "data" : "f_date" },
                                     { "data" : "f_time" },
                                     { "data" : "v_service_name" },
+                                    { "data" : "v_provider_name" },
                                     { "data" : "v_color" },
                                     { "data" : "v_include" },
                                     { "data" : "v_observation" },
