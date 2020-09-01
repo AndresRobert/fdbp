@@ -225,7 +225,7 @@
             </div>
             <div class="input-field col s12 m4">
                 <label>
-                    <input id="e_p_credit" type="checkbox">
+                    <input id="e_p_credit_card" type="checkbox">
                     <span>Tarjeta de Crédito</span>
                 </label>
             </div>

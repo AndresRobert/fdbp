@@ -146,7 +146,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             <i id="p_cash" class="material-icons t-icon t-icon-padding">crop_square</i> Efectivo<br>
             <i id="p_check" class="material-icons t-icon t-icon-padding">crop_square</i> Cheque al día<br>
             <i id="p_check_defered" class="material-icons t-icon t-icon-padding">crop_square</i> Cheque a fecha<br>
-            <i id="p_credit" class="material-icons t-icon t-icon-padding">crop_square</i> Tarjeta de crédito<br>
+            <i id="p_credit_card" class="material-icons t-icon t-icon-padding">crop_square</i> Tarjeta de crédito<br>
             <i id="p_other" class="material-icons t-icon t-icon-padding">crop_square</i> Otro
         </div>
     </div>
