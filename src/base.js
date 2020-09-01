@@ -82,6 +82,13 @@ Helper.getCookie = (cname) => {
     }
     return "";
 };
+Helper.deleteAllCookies = () => {
+    document.cookie.split(";").forEach(function(c) {
+        document.cookie = c
+            .replace(/^ +/, "")
+            .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+    });
+};
 Helper.Object = {};
 Helper.Object.save = (name, object) => {
     localStorage.setItem(name, JSON.stringify(object));
@@ -251,7 +258,8 @@ Auth.login = (email, password) => {
 Auth.logout = () => {
     Api.post(Api.endpoints['logout'], false)
         .then(() => {
-            Helper.openLink('/')
+            Helper.deleteAllCookies();
+            Helper.openLink('/');
         });
 };
 Auth.getHeaders = () => {
