@@ -152,8 +152,8 @@
                                     {
                                         "mRender": function (d, t, row) {
                                             return '<button onclick="contractView(' + row.id + ')" class="btn-flat waves-effect waves-googleBlue">Ver</button>' +
-                                                '<button onclick="contractPublish(' + row.id + ')" class="btn-flat waves-effect waves-googleGreen">Publicar</button>' +
                                                 '<button onclick="contractEdit(' + row.id + ')" class="btn-flat waves-effect waves-googleYellow">Editar</button>' +
+                                                '<button onclick="contractPublish(' + row.id + ')" class="btn-flat waves-effect waves-googleGreen">Publicar</button>' +
                                                 '<button onclick="contractDelete(' + row.id + ')" class="btn-flat waves-effect waves-googleRed">Eliminar</button>';
                                         }
                                     }
@@ -173,6 +173,111 @@
             function contractView(id) {
                 Helper.openLink('/app/preview/contract.php?contract=' + id, '_blank');
             }
+
+            function contractEdit (id) {
+                // Abrir el modal
+                const Modal = $('.editContract');
+                Modal.modal('open');
+                // Cargar los datos del contrato
+                Api.post(Api.endpoints['one_contract'], true, { id: id })
+                    .then(({ status, response }) => {
+                        if (status === 'error') {
+                            M.toast({ html: 'Hubo un error al intentar obtener el contrato'});
+                            Modal.modal('close');
+                        }
+                        if (status === 'fail') {
+                            M.toast({ html: 'Session expirada, cierre esta vista y vuelva a intentarlo'});
+                            Helper.openLink('/');
+                        } else {
+                            if (response.status !== 'fail' && response.contract !== []) {
+                                let data = response.contract;
+                                data['f_date'] = data['f_datetime'].substring(0,10);
+                                data['f_time'] = data['f_datetime'].substring(11,16);
+                                M.toast({ html: 'Contrato cargado' });
+                            } else {
+                                M.toast({ html: 'Hubo un error al intentar cargar el contrato' });
+                            }
+                            setDataOnModal(data, 'e_');
+                        }
+                    })
+                    .catch( e => console.log(e) );
+            }
+
+            function setDataOnModal(_data, prefix) {
+                $('#' + prefix + 'id').val(Helper.setDefault(_data.id, '999999'));
+
+                $('#' + prefix + 's_name').val(Helper.setDefault(_data.s_name, ''));
+                $('#' + prefix + 's_last_name').val(Helper.setDefault(_data.s_last_name, ''));
+                $('#' + prefix + 's_address').val(Helper.setDefault(_data.s_address, ''));
+                $('#' + prefix + 's_mobile').val(Helper.setDefault(_data.s_mobile, ''));
+                $('#' + prefix + 's_email').val(Helper.setDefault(_data.s_email, ''));
+                $('#' + prefix + 's_id').val(Helper.setDefault(_data.s_id, ''));
+                $('#' + prefix + 's_comune_id').val(Helper.setDefault(_data.s_comune_id, '1'));
+                $('#' + prefix + 's_region_id').val(Helper.setDefault(_data.s_region_id, '1'));
+
+                $('#' + prefix + 'd_name').val(Helper.setDefault(_data.d_name, ''));
+                $('#' + prefix + 'd_id').val(Helper.setDefault(_data.d_id, ''));
+                $('#' + prefix + 'd_marital_status').val(Helper.setDefault(_data.d_marital_status, ''));
+                $('#' + prefix + 'd_address').val(Helper.setDefault(_data.d_address, ''));
+                $('#' + prefix + 'd_place').val(Helper.setDefault(_data.d_place, ''));
+                $('#' + prefix + 'd_occupation').val(Helper.setDefault(_data.d_occupation, ''));
+                $('#' + prefix + 'd_education').val(Helper.setDefault(_data.d_education, ''));
+                $('#' + prefix + 'd_comune_id').val(Helper.setDefault(_data.d_comune_id, '1'));
+                $('#' + prefix + 'd_region_id').val(Helper.setDefault(_data.d_region_id, '1'));
+
+                $('#' + prefix + 'c_church').val(Helper.setDefault(_data.c_church, ''));
+                $('#' + prefix + 'c_address').val(Helper.setDefault(_data.c_address, ''));
+                $('#' + prefix + 'c_comune_id').val(Helper.setDefault(_data.c_comune_id, '1'));
+                $('#' + prefix + 'c_region_id').val(Helper.setDefault(_data.c_region_id, '1'));
+
+                $('#' + prefix + 'v_service_id').val(Helper.setDefault(_data.v_service_id, '1'));
+                $('#' + prefix + 'v_include').val(Helper.setDefault(_data.v_include, ''));
+                $('#' + prefix + 'v_warning').val(Helper.setDefault(_data.v_warning, ''));
+                $('#' + prefix + 'v_observation').val(Helper.setDefault(_data.v_observation, ''));
+                $('#' + prefix + 'v_insurance_id').val(Helper.setDefault(_data.v_insurance_id, '1'));
+
+                $('#' + prefix + 'f_cementery_id').val(Helper.setDefault(_data.f_cementery_id, '1'));
+                $('#' + prefix + 'f_date').val(Helper.setDefault(_data.f_date, ''));
+                $('#' + prefix + 'f_time').val(Helper.setDefault(_data.f_time, ''));
+
+                $('#' + prefix + 'v_cost').val(Helper.setDefault(Number(_data.v_cost).toLocaleString('es-CL'), '0'));
+                $('#' + prefix + 'v_discount').val(Helper.setDefault(Number(_data.v_discount).toLocaleString('es-CL'), '0'));
+                $('#' + prefix + 'v_total').val(Helper.setDefault(Number(_data.v_total).toLocaleString('es-CL'), '0'));
+                $('#' + prefix + 'v_coverage').val(Helper.setDefault(Number(_data.v_coverage).toLocaleString('es-CL'), '0'));
+                $('#' + prefix + 'v_payment').val(Helper.setDefault(Number(_data.v_payment).toLocaleString('es-CL'), '0'));
+
+                if (_data.p_cash === true || _data.p_cash === '1' || _data.p_cash === 1) {
+                    $('#' + prefix + 'p_cash').attr('checked', true);
+                } else {
+                    $('#' + prefix + 'p_cash').attr('checked', false);
+                }
+                if (_data.p_check === true || _data.p_check === '1' || _data.p_check === 1) {
+                    $('#' + prefix + 'p_check').attr('checked', true);
+                } else {
+                    $('#' + prefix + 'p_check').attr('checked', false);
+                }
+                if (_data.p_check_defered === true || _data.p_check_defered === '1' || _data.p_check_defered === 1) {
+                    $('#' + prefix + 'p_check_defered').attr('checked', true);
+                } else {
+                    $('#' + prefix + 'p_check_defered').attr('checked', false);
+                }
+                if (_data.p_credit_card === true || _data.p_credit_card === '1' || _data.p_credit_card === 1) {
+                    $('#' + prefix + 'p_credit_card').attr('checked', true);
+                } else {
+                    $('#' + prefix + 'p_credit_card').attr('checked', false);
+                }
+                if (_data.p_other === true || _data.p_other === '1' || _data.p_other === 1) {
+                    $('#' + prefix + 'p_other').attr('checked', true);
+                } else {
+                    $('#' + prefix + 'p_other').attr('checked', false);
+                }
+                if (_data.p_transfer === true || _data.p_transfer === '1' || _data.p_transfer === 1) {
+                    $('#' + prefix + 'p_transfer').attr('checked', true);
+                } else {
+                    $('#' + prefix + 'p_transfer').attr('checked', false);
+                }
+            }
+
         </script>
     </div>
 </div>

@@ -171,7 +171,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         $('#s_email').html(Helper.setDefault(_data.s_email, 'sin_mail@mail.cl'));
         $('#s_id').html(Helper.setDefault(_data.s_id, '00000000-K'));
         $('#s_comune_name').html(Helper.setDefault(_data.s_comune_name, 'Sin Comuna'));
-        $('#s_region_name').html(Helper.setDefault(_data.s_region_name, 'Sin Region'));
+        $('#s_region_name').html(Helper.setDefault(_data.s_region_name, 'Sin Región'));
 
         $('#d_name').html(Helper.setDefault(_data.d_name, 'Sin nombre'));
         $('#d_id').html(Helper.setDefault(_data.d_id, '00000000-K'));
@@ -181,12 +181,12 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         $('#d_occupation').html(Helper.setDefault(_data.d_occupation, 'No informado'));
         $('#d_education').html(Helper.setDefault(_data.d_education, 'No informado'));
         $('#d_comune_name').html(Helper.setDefault(_data.d_comune_name, 'Sin Comuna'));
-        $('#d_region_name').html(Helper.setDefault(_data.d_region_name, 'Sin Region'));
+        $('#d_region_name').html(Helper.setDefault(_data.d_region_name, 'Sin Región'));
 
         $('#c_church').html(Helper.setDefault(_data.c_church, 'No informado'));
         $('#c_address').html(Helper.setDefault(_data.c_address, 'Sin dirección'));
         $('#c_comune_name').html(Helper.setDefault(_data.c_comune_name, 'Sin Comuna'));
-        $('#c_region_name').html(Helper.setDefault(_data.c_region_name, 'Sin Region'));
+        $('#c_region_name').html(Helper.setDefault(_data.c_region_name, 'Sin Región'));
 
         $('#v_service_name').html(Helper.setDefault(_data.v_service_name, 'No informado'));
         $('#v_include').html(Helper.setDefault(_data.v_include, ''));
@@ -239,7 +239,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             Api.post(Api.endpoints['one_contract'], true, { id: urlParams.get('contract') })
                 .then(({ status, response }) => {
                     if (status === 'error') {
-                        $('#body').addClass('preview');
+                        $('body').addClass('preview');
                         M.toast({ html: 'Hubo un error al intentar obtener el contrato, cierre esta vista y vuelva a intentarlo'});
                     }
                     if (status === 'fail') {
@@ -258,7 +258,6 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                             data['s_region_name'] = Helper.List.getById(regions, data['s_region_id']);
                             data['v_insurance_name'] = Helper.List.getById(insurances, data['v_insurance_id']);
                             data['v_service_name'] = Helper.List.getById(services, data['v_service_id']);
-                            console.log(data);
                             M.toast({ html: 'Contrato cargado' });
                         } else {
                             M.toast({ html: 'Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo' });
