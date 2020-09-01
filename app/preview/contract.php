@@ -246,6 +246,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                     } else {
                         if (response.status !== 'fail' && response.contract !== []) {
                             data = response.contract;
+                            console.log(data);
                             M.toast({ html: 'Contrato cargado' });
                         } else {
                             M.toast({ html: 'Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo' });
