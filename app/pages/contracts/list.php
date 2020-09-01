@@ -176,7 +176,8 @@
 
             function contractEdit (id) {
                 // Abrir el modal
-                const Modal = M.Modal.getInstance($('#editContract'));
+                const Modal = $('#editContract');
+                Modal.modal();
                 Modal.modal('open');
                 // Cargar los datos del contrato
                 Api.post(Api.endpoints['one_contract'], true, { id: id })
