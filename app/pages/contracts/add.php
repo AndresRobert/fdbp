@@ -137,14 +137,12 @@
                 <label for="v_service_id">Tipo</label>
             </div>
             <div class="input-field col s12 m3">
-                <input value="Sin proveedor" id="v_provider_name" type="text" readonly>
-                <label for="v_provider_name">Provider</label>
-                <span class="helper-text">Según tipo de servicio</span>
+                <select id="v_provider_id"></select>
+                <label for="v_provider_id">Proveedor</label>
             </div>
             <div class="input-field col s12 m3">
-                <input value="Sin Color" id="v_color" type="text" readonly>
+                <input value="Sin Color" id="v_color" type="text">
                 <label for="v_color">Color</label>
-                <span class="helper-text">Según tipo de servicio</span>
             </div>
         </div>
         <div class="row">
@@ -247,15 +245,15 @@
     Adaptor.select('#c_region_id','regions');
     Adaptor.select('#f_cementery_id','cementeries');
     Adaptor.select('#v_service_id','services');
+    Adaptor.select('#v_service_id','services');
     Adaptor.select('#v_insurance_id','insurances');
+    Adaptor.select('#v_provider_id','providers');
     Adaptor.comunes('#s_comune_id', 1);
     Adaptor.comunes('#d_comune_id', 1);
     Adaptor.comunes('#c_comune_id', 1);
     Adaptor.Connect.comunes('#s_region_id', '#s_comune_id');
     Adaptor.Connect.comunes('#d_region_id', '#d_comune_id');
     Adaptor.Connect.comunes('#c_region_id', '#c_comune_id');
-    Adaptor.Connect.services('#v_service_id', '#v_provider_name', 'providers_by_service');
-    Adaptor.Connect.services('#v_service_id', '#v_color', 'colors_by_service');
 
     function previewThisContract() {
         Form.getValues('#newContract');
@@ -264,7 +262,6 @@
 
     function saveThisContract() {
         let data = Form.getValues('#newContract');
-        console.log(data);
         Api.post(Api.endpoints['contract'], true, data)
             .then(({ status, response }) => {
                 if (status === 'OK') {
