@@ -193,11 +193,11 @@
                                 let data = response.contract;
                                 data['f_date'] = data['f_datetime'].substring(0,10);
                                 data['f_time'] = data['f_datetime'].substring(11,16);
+                                setDataOnModal(data, 'e_');
                                 M.toast({ html: 'Contrato cargado' });
                             } else {
                                 M.toast({ html: 'Hubo un error al intentar cargar el contrato' });
                             }
-                            setDataOnModal(data, 'e_');
                         }
                     })
                     .catch( e => console.log(e) );
