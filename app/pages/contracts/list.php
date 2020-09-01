@@ -213,7 +213,9 @@
                 $('#' + prefix + 's_email').val(Helper.setDefault(_data.s_email, ''));
                 $('#' + prefix + 's_id').val(Helper.setDefault(_data.s_id, ''));
                 $('#' + prefix + 's_comune_id').val(Helper.setDefault(_data.s_comune_id, '1'));
+                $('#' + prefix + 's_comune_id').formSelect();
                 $('#' + prefix + 's_region_id').val(Helper.setDefault(_data.s_region_id, '1'));
+                $('#' + prefix + 's_region_id').formSelect();
 
                 $('#' + prefix + 'd_name').val(Helper.setDefault(_data.d_name, ''));
                 $('#' + prefix + 'd_id').val(Helper.setDefault(_data.d_id, ''));
@@ -223,20 +225,27 @@
                 $('#' + prefix + 'd_occupation').val(Helper.setDefault(_data.d_occupation, ''));
                 $('#' + prefix + 'd_education').val(Helper.setDefault(_data.d_education, ''));
                 $('#' + prefix + 'd_comune_id').val(Helper.setDefault(_data.d_comune_id, '1'));
+                $('#' + prefix + 'd_comune_id').formSelect();
                 $('#' + prefix + 'd_region_id').val(Helper.setDefault(_data.d_region_id, '1'));
+                $('#' + prefix + 'd_region_id').formSelect();
 
                 $('#' + prefix + 'c_church').val(Helper.setDefault(_data.c_church, ''));
                 $('#' + prefix + 'c_address').val(Helper.setDefault(_data.c_address, ''));
                 $('#' + prefix + 'c_comune_id').val(Helper.setDefault(_data.c_comune_id, '1'));
+                $('#' + prefix + 'c_comune_id').formSelect();
                 $('#' + prefix + 'c_region_id').val(Helper.setDefault(_data.c_region_id, '1'));
+                $('#' + prefix + 'c_region_id').formSelect();
 
                 $('#' + prefix + 'v_service_id').val(Helper.setDefault(_data.v_service_id, '1'));
+                $('#' + prefix + 'v_service_id').formSelect();
                 $('#' + prefix + 'v_include').val(Helper.setDefault(_data.v_include, ''));
                 $('#' + prefix + 'v_warning').val(Helper.setDefault(_data.v_warning, ''));
                 $('#' + prefix + 'v_observation').val(Helper.setDefault(_data.v_observation, ''));
                 $('#' + prefix + 'v_insurance_id').val(Helper.setDefault(_data.v_insurance_id, '1'));
+                $('#' + prefix + 'v_insurance_id').formSelect();
 
                 $('#' + prefix + 'f_cementery_id').val(Helper.setDefault(_data.f_cementery_id, '1'));
+                $('#' + prefix + 'f_cementery_id').formSelect();
                 $('#' + prefix + 'f_date').val(Helper.setDefault(_data.f_date, ''));
                 $('#' + prefix + 'f_time').val(Helper.setDefault(_data.f_time, ''));
 
