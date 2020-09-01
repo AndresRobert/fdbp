@@ -247,6 +247,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                             data = response.contract;
                             data['f_date'] = data['f_datetime'].substring(0,10);
                             data['f_time'] = data['f_datetime'].substring(11,16);
+                            M.toast({ html: 'Contrato cargado' });
                         } else {
                             M.toast({ html: 'Hubo un error al intentar guardar el contrato, cierre esta vista y vuelva a intentarlo' });
                         }
