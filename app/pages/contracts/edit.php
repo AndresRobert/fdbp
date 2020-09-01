@@ -266,7 +266,7 @@
                             $('#e_' + id).addClass('invalid');
                         });
                     } else {
-                        Helper.openLink();
+                        $('#editContract').modal('close');
                     }
                 }
             })
