@@ -19,12 +19,12 @@ Helper.clearAllFields = (id) => {
     _container.find('input, textarea').each( function () { this.val('') });
     _container.find('select').each( function () { this.val('1').change() });
 };
-Helper.calcTotal = () => {
-    const v_cost = $('#v_cost').val(),
-        v_discount = $('#v_discount').val(),
-        v_coverage = $('#v_coverage').val();
-    $('#v_total').val(v_cost - v_discount);
-    $('#v_payment').val(v_cost - v_discount - v_coverage);
+Helper.calcTotal = (prefix = '') => {
+    const v_cost = $('#' + prefix + 'v_cost').val(),
+        v_discount = $('#' + prefix + 'v_discount').val(),
+        v_coverage = $('#' + prefix + 'v_coverage').val();
+    $('#' + prefix + 'v_total').val(v_cost - v_discount);
+    $('#' + prefix + 'v_payment').val(v_cost - v_discount - v_coverage);
 };
 Helper.Datatable = {};
 Helper.Datatable.init = (id, data = {}) => {
