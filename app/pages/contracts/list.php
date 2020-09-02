@@ -158,7 +158,10 @@
                                                 '<a href="#!" onclick="contractPublish(' + row.id + ')" data-tooltip="Publicar" class="tooltipped btn-floating waves-effect waves-light"><i class="material-icons">record_voice_over</i></a>';
                                         }
                                     }
-                                ]
+                                ],
+                                "initComplete": function (settings, json) {
+                                    $('.tooltipped').tooltip();
+                                }
                             }
                         );
                     }
