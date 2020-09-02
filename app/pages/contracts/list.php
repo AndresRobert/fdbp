@@ -162,6 +162,7 @@
                                         }
                                     }
                                 ],
+                                "order": [[ 0, "desc" ]],
                                 "initComplete": function (settings, json) {
                                     $('.tooltipped').tooltip();
                                 }
@@ -178,9 +179,9 @@
                 .catch( e => console.log(e) );
 
             function contractAddInvoice(id) {
-                $('#aso_id').addClass('active').val(id);
                 const Modal = $('#invoiceContract');
                 Modal.modal('open');
+                $('#aso_id').val(id).addClass('active');
             }
 
             function contractView(id) {
