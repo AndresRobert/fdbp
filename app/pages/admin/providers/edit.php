@@ -1,4 +1,4 @@
-<div id="editProvider" class="modal bottom-sheet eighty-percent">
+<div id="editProvider" class="modal">
     <input id="pro_edit_id" type="hidden">
     <div class="modal-content">
         <div class="row">

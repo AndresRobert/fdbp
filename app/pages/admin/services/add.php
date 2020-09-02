@@ -1,30 +1,30 @@
-<div id="editCementery" class="modal">
-    <input id="cem_edit_id" type="hidden">
+<div id="addService" class="modal">
+    <input id="ser_add_id" type="hidden">
     <div class="modal-content">
         <div class="row">
             <div class="input-field col s12">
-                <input id="cem_edit_name" type="text" class="validate" required>
-                <label for="cem_edit_name">Nombre</label>
+                <input id="ser_add_name" type="text" class="validate" required>
+                <label for="ser_add_name">Nombre</label>
             </div>
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" onclick="editThisCementery()" class="waves-effect waves-light teal btn-small">Editar</a>
+        <a href="#!" onclick="addThisService()" class="waves-effect waves-light teal btn-small">Agregar</a>
     </div>
 </div>
 <script>
-    function editThisCementery() {
-        let data = Form.getValues('#editCementery', 'cem_edit_');
-        Api.post(Api.endpoints['cementery_add'], true, data)
+    function addThisService() {
+        let data = Form.getValues('#addService', 'ser_add_');
+        Api.post(Api.endpoints['service_add'], true, data)
             .then(({ status, response }) => {
                 if (status === 'OK') {
                     M.toast({ html: response.message });
                     if (response.status === 'fail') {
                         $.each(response.errors, function( _, id ) {
-                            $('#cem_edit_' + id).addClass('invalid');
+                            $('#ser_add_' + id).addClass('invalid');
                         });
                     } else {
-                        $('#editCementery').modal('close');
+                        $('#addService').modal('close');
                         Helper.openLink();
                     }
                 }
