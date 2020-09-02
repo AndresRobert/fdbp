@@ -27,6 +27,7 @@ Route::Create('GET', '/contracts/list', 'contracts/list');
 Route::Create('POST', '/contracts/list/one', 'contracts/list');
 Route::Create('POST', '/contract/add', 'contracts/save');
 Route::Create('POST', '/contract/delete', 'contracts/delete');
+Route::Create('POST', '/contract/invoice', 'contracts/addInvoice');
 
 // RENDER RESPONSE
 echo Route::Read(METHOD, REQUEST, BODY);

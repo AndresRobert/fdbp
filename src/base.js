@@ -197,7 +197,8 @@ Api.endpoints = {
     'contracts': '/api/contracts/list',
     'contract_get': '/api/contracts/list/one',
     'contract_add': '/api/contract/add',
-    'contract_del': '/api/contract/delete'
+    'contract_del': '/api/contract/delete',
+    'contract_invoice': '/api/contract/invoice'
 };
 Api.setList = (name = 'none') => {
     if (name === 'none') {

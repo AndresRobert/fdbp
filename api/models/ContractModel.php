@@ -21,6 +21,7 @@ class Contract extends Model {
     public function list (): array {
         $query = 'SELECT 
             c.id, 
+            if(c.invoice = 0, "", c.invoice) invoice, 
             c.date, 
             c.s_id, 
             c.s_name, 
