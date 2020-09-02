@@ -11,7 +11,7 @@
             <tbody id="servicesTable"></tbody>
         </table>
         <script>
-            Api.get(Api.endpoints['services'], true)
+            Api.post(Api.endpoints['services'], true)
                 .then(({ status, response }) => {
                     if (status === 'OK') {
                         Helper.Datatable.init(
@@ -49,7 +49,6 @@
                 $('#ser_edit_name').val(name);
                 const Modal = $('#editService');
                 Modal.modal('open');
-                // TODO: Load form
             }
 
             function serviceDelete(id, name) {

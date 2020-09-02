@@ -208,7 +208,7 @@ Api.setList = (name = 'none') => {
         console.error('setList', 'No name');
         return;
     }
-    Api.get(Api.endpoints[name])
+    Api.post(Api.endpoints[name])
         .then(({ _, response }) => {
             Helper.Object.save(name, response.list);
         });
@@ -231,16 +231,6 @@ Api.post = async function (endpoint = '', auth = false, data = {}) {
             referrerPolicy: 'no-referrer',
             headers: headers,
             body: JSON.stringify(data)
-        });
-    return await response.json();
-};
-Api.get = async function (endpoint = '', auth = false) {
-    const headers = auth ? Auth.getHeaders() : { 'Content-Type': 'application/json' },
-        response = await fetch(endpoint, {
-            method: 'GET',
-            cache: 'no-cache',
-            referrerPolicy: 'no-referrer',
-            headers: headers
         });
     return await response.json();
 };

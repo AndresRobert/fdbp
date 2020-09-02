@@ -11,7 +11,7 @@
             <tbody id="insuranceTable"></tbody>
         </table>
         <script>
-            Api.get(Api.endpoints['insurances'], true)
+            Api.post(Api.endpoints['insurances'], true)
                 .then(({ status, response }) => {
                     if (status === 'OK') {
                         Helper.Datatable.init(
@@ -46,10 +46,9 @@
 
             function insuranceEdit(id, name) {
                 $('#ins_edit_id').val(id);
-                $('#ins_edit_name').val(id);
+                $('#ins_edit_name').val(name);
                 const Modal = $('#editInsurance');
                 Modal.modal('open');
-                // TODO: Load form
             }
 
             function insuranceDelete(id, name) {

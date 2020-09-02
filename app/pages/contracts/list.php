@@ -55,7 +55,7 @@
             <tbody id="contractsTable"></tbody>
         </table>
         <script>
-            Api.get(Api.endpoints['contracts'], true)
+            Api.post(Api.endpoints['contracts'], true)
                 .then(({ status, response }) => {
                     if (status === 'OK') {
                         Helper.Datatable.init(

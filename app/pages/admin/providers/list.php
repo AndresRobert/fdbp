@@ -11,7 +11,7 @@
             <tbody id="providersTable"></tbody>
         </table>
         <script>
-            Api.get(Api.endpoints['providers'], true)
+            Api.post(Api.endpoints['providers'], true)
                 .then(({ status, response }) => {
                     if (status === 'OK') {
                         Helper.Datatable.init(
@@ -49,7 +49,6 @@
                 $('#pro_edit_name').val(name);
                 const Modal = $('#editProvider');
                 Modal.modal('open');
-                // TODO: Load form
             }
 
             function providerDelete(id, name) {

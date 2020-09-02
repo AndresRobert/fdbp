@@ -11,7 +11,7 @@
             <tbody id="cementeriesTable"></tbody>
         </table>
         <script>
-            Api.get(Api.endpoints['cementeries'], true)
+            Api.post(Api.endpoints['cementeries'], true)
                 .then(({ status, response }) => {
                     if (status === 'OK') {
                         Helper.Datatable.init(
@@ -46,7 +46,7 @@
 
             function cementeryEdit(id, name) {
                 $('#cem_edit_id').val(id);
-                $('#cem_edit_name').val(id);
+                $('#cem_edit_name').val(name);
                 const Modal = $('#editCementery');
                 Modal.modal('open');
             }
