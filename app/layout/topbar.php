@@ -1,4 +1,4 @@
-<div class="navbar-fixed">
+<div>
     <nav class="grey darken-4 nav-extended">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo" style="font-family:'Great Vibes',cursive;font-size:26px">Funeraria del Buen Pastor</a>
