@@ -3,7 +3,7 @@
         <h5>Asociar Factura</h5>
         <div class="row">
             <div class="input-field col s4">
-                <input id="aso_id" class="active" type="number" readonly>
+                <input id="aso_id" type="number" readonly>
                 <label for="aso_id">Contrato</label>
             </div>
             <div class="col s4 center" style="line-height:5rem">

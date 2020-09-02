@@ -178,7 +178,7 @@
                 .catch( e => console.log(e) );
 
             function contractAddInvoice(id) {
-                $('#aso_id').val(id);
+                $('#aso_id').addClass('active').val(id);
                 const Modal = $('#invoiceContract');
                 Modal.modal('open');
             }
