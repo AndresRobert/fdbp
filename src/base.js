@@ -371,8 +371,6 @@ Api.setList('insurances');
 Api.setList('cementeries');
 Api.setList('services');
 Api.setList('providers');
-Api.setList('providers_by_service');
-Api.setList('colors_by_service');
 
 // Init
 Helper.ready(() => {
