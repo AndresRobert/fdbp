@@ -18,15 +18,19 @@ Route::Create('POST', '/comunes/list', 'admin/getComunes');
 Route::Create('POST', '/comunes/list/byRegion', 'admin/getComunesByRegion');
 
 Route::Create('POST', '/cementeries/list', 'admin/getCementeries');
+Route::Create('POST', '/cementery/add', 'admin/saveCementery');
 Route::Create('POST', '/cementery/delete', 'admin/deleteCementery');
 
 Route::Create('POST', '/insurances/list', 'admin/getInsurances');
+Route::Create('POST', '/insurance/add', 'admin/saveInsurance');
 Route::Create('POST', '/insurance/delete', 'admin/deleteInsurance');
 
 Route::Create('POST', '/services/list', 'admin/getServices');
+Route::Create('POST', '/service/add', 'admin/saveService');
 Route::Create('POST', '/service/delete', 'admin/deleteService');
 
 Route::Create('POST', '/providers/list', 'admin/getProviders');
+Route::Create('POST', '/provider/add', 'admin/saveProvider');
 Route::Create('POST', '/provider/delete', 'admin/deleteProvider');
 
 Route::Create('POST', '/contracts/list', 'contracts/list');

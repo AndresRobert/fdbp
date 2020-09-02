@@ -94,26 +94,184 @@ class Admin extends Response {
         ];
     }
 
-    public function getProvidersByService(): array
-    {
-        $list = (new Service())->providers();
+    public function saveProvider (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Proveedor guardado correctamente';
+                $errorIds = [];
+                $id = -1;
 
-        return [
-            'status' => 'success',
-            'message' => 'Proveedores por servicio cargados',
-            'list' => $list['response'],
-        ];
+                if ($fields['name'] === '') {
+                    $message = 'Debe ingresar un nombre para el proveedor';
+                    $errorIds[] = 'name';
+                    $status = 'fail';
+                }
+
+                if ($status === 'success') {
+                    $Provider = new Provider();
+                    $Provider->set($fields);
+                    if (isset($fields['id']) && $Provider->get('id') > 0) {
+                        if ($Provider->update()) {
+                            $id = $fields['id'];
+                        } else {
+                            $status = 'fail';
+                            $message = 'No fue posible actualizar el proveedor';
+                        }
+                    } else {
+                        if ($Provider->create()) {
+                            $id = $Provider->get('id');
+                        } else {
+                            $status = 'fail';
+                            $message = 'No fue posible guardar el proveedor';
+                        }
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message,
+                    'id' => $id,
+                    'errors' => $errorIds,
+                    'fields' => $fields
+                ];
+            }
+        );
     }
 
-    public function getColorsByService(): array
-    {
-        $list = (new Service())->colors();
+    public function saveInsurance (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Insurance guardado correctamente';
+                $errorIds = [];
+                $id = -1;
 
-        return [
-            'status' => 'success',
-            'message' => 'Colores por servicio cargados',
-            'list' => $list['response'],
-        ];
+                if ($fields['name'] === '') {
+                    $message = 'Debe ingresar un nombre para la aseguradora';
+                    $errorIds[] = 'name';
+                    $status = 'fail';
+                }
+
+                if ($status === 'success') {
+                    $Insurance = new Insurance();
+                    $Insurance->set($fields);
+                    if (isset($fields['id']) && $Insurance->get('id') > 0) {
+                        if ($Insurance->update()) {
+                            $id = $fields['id'];
+                        } else {
+                            $status = 'fail';
+                            $message = 'No fue posible actualizar la aseguradora';
+                        }
+                    } else {
+                        if ($Insurance->create()) {
+                            $id = $Insurance->get('id');
+                        } else {
+                            $status = 'fail';
+                            $message = 'No fue posible guardar la aseguradora';
+                        }
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message,
+                    'id' => $id,
+                    'errors' => $errorIds,
+                    'fields' => $fields
+                ];
+            }
+        );
+    }
+
+    public function saveCementery (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Cementerio guardado correctamente';
+                $errorIds = [];
+                $id = -1;
+
+                if ($fields['name'] === '') {
+                    $message = 'Debe ingresar un nombre para el cementerio';
+                    $errorIds[] = 'name';
+                    $status = 'fail';
+                }
+
+                if ($status === 'success') {
+                    $Cementery = new Cementery();
+                    $Cementery->set($fields);
+                    if (isset($fields['id']) && $Cementery->get('id') > 0) {
+                        if ($Cementery->update()) {
+                            $id = $fields['id'];
+                        } else {
+                            $status = 'fail';
+                            $message = 'No fue posible actualizar el cementerio';
+                        }
+                    } else {
+                        if ($Cementery->create()) {
+                            $id = $Cementery->get('id');
+                        } else {
+                            $status = 'fail';
+                            $message = 'No fue posible guardar el cementerio';
+                        }
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message,
+                    'id' => $id,
+                    'errors' => $errorIds,
+                    'fields' => $fields
+                ];
+            }
+        );
+    }
+
+    public function saveService (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Servicio guardado correctamente';
+                $errorIds = [];
+                $id = -1;
+
+                if ($fields['name'] === '') {
+                    $message = 'Debe ingresar un nombre para el servicio';
+                    $errorIds[] = 'name';
+                    $status = 'fail';
+                }
+
+                if ($status === 'success') {
+                    $Service = new Service();
+                    $Service->set($fields);
+                    if (isset($fields['id']) && $Service->get('id') > 0) {
+                        if ($Service->update()) {
+                            $id = $fields['id'];
+                        } else {
+                            $status = 'fail';
+                            $message = 'No fue posible actualizar el servicio';
+                        }
+                    } else {
+                        if ($Service->create()) {
+                            $id = $Service->get('id');
+                        } else {
+                            $status = 'fail';
+                            $message = 'No fue posible guardar el servicio';
+                        }
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message,
+                    'id' => $id,
+                    'errors' => $errorIds,
+                    'fields' => $fields
+                ];
+            }
+        );
     }
 
     public function deleteProvider (array $fields): array {
