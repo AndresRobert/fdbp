@@ -26,6 +26,7 @@ Route::Create('GET', '/list/colorsByService', 'admin/getColorsByService');
 Route::Create('POST', '/contract', 'contracts/save');
 Route::Create('GET', '/contract', 'contracts/list');
 Route::Create('POST', '/contract/one', 'contracts/list');
+Route::Create('POST', '/contract/delete', 'contracts/delete');
 
 // RENDER RESPONSE
 echo Route::Read(METHOD, REQUEST, BODY);

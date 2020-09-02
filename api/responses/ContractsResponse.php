@@ -126,4 +126,31 @@ class Contracts extends Response {
         );
     }
 
+    public function delete (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Contrato eliminado correctamente';
+
+                if (isset($fields['id']) && $fields['id'] !== '') {
+                    $Contract = new Contract();
+                    $Contract->set(['id' => $fields['id']]);
+                    $Contract->read();
+                    $Contract->set(['active' => 0]);
+                    if ($Contract->update()) {
+                        $contractId = $fields['id'];
+                    } else {
+                        $status = 'fail';
+                        $message = 'No fue posible eliminar el contrato';
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message
+                ];
+            }
+        );
+    }
+
 }

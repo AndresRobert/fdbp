@@ -200,7 +200,8 @@ Api.endpoints = {
     'providers_by_service': '/api/list/providersByService',
     'colors_by_service': '/api/list/colorsByService',
     'contract': '/api/contract',
-    'one_contract': '/api/contract/one'
+    'one_contract': '/api/contract/one',
+    'contract_del': '/api/contract/delete'
 };
 Api.setList = (name = 'none') => {
     if (name === 'none') {

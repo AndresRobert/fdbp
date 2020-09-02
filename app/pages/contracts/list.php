@@ -203,6 +203,20 @@
                     .catch( e => console.log(e) );
             }
 
+            function contractPublish () {
+                M.toast({ html: 'To be implemented' });
+            }
+
+            function contractDelete(id) {
+                Api.post(Api.endpoints['contract_del'], true, { id: id })
+                    .then(({ status, response }) => {
+                        M.toast({ html: response.message });
+                        if (status === 'OK') {
+                            Helper.openLink();
+                        }
+                    });
+            }
+
             function setDataOnModal(_data, prefix) {
                 $('#' + prefix + 'id').val(Helper.setDefault(_data.id, '999999'));
 
