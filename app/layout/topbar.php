@@ -5,9 +5,9 @@
             <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="tooltipped" href="contracts.php" data-position="bottom" data-tooltip="Contratos"><i class="material-icons">business_center</i></a></li>
-                <li><a class="tooltipped" href="quotations.php" data-position="bottom" data-tooltip="Cotizaciones"><i class="material-icons">content_paste</i></a></li>
+                <li><a class="tooltipped" href="#!" data-position="bottom" data-tooltip="Cotizaciones"><i class="material-icons">content_paste</i></a></li>
                 <li><a class="tooltipped" href="admin.php" data-position="bottom" data-tooltip="Administración"><i class="material-icons">tune</i></a></li>
-                <li><a class="tooltipped" href="#" onclick="Auth.logout()" data-position="bottom" data-tooltip="Salir"><i class="material-icons">power_settings_new</i></a></li>
+                <li><a class="tooltipped" href="#!" onclick="Auth.logout()" data-position="bottom" data-tooltip="Salir"><i class="material-icons">power_settings_new</i></a></li>
             </ul>
         </div>
     </nav>

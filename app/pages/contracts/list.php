@@ -151,11 +151,11 @@
                                     },
                                     {
                                         "mRender": function (d, t, row) {
-                                            return '<button onclick="contractView(' + row.id + ')" class="btn-flat waves-effect waves-googleBlue">Ver</button>' +
-                                                '<button onclick="contractEdit(' + row.id + ')" class="btn-flat waves-effect waves-googleYellow">Editar</button>' +
-                                                '<button onclick="contractDelete(' + row.id + ')" class="btn-flat waves-effect waves-googleRed">Eliminar</button>' +
-                                                '<button onclick="contractSend(' + row.id + ')" class="btn-flat waves-effect waves-googleGreen">Publicar</button>' +
-                                                '<button onclick="contractPublish(' + row.id + ')" class="btn-flat waves-effect waves-googleGreen">Publicar</button>';
+                                            return '<a href="#!" onclick="contractView(' + row.id + ')" data-tooltip="Ver" class="tooltipped btn-flat waves-effect waves-googleBlue"><i class="material-icons">remove_red_eye</i></a>' +
+                                                '<a href="#!" onclick="contractEdit(' + row.id + ')" data-tooltip="Editar" class="tooltipped btn-flat waves-effect waves-googleYellow"><i class="material-icons">edit</i></a>' +
+                                                '<a href="#!" onclick="contractDelete(' + row.id + ')" data-tooltip="Eliminar" class="tooltipped btn-flat waves-effect waves-googleRed"><i class="material-icons">delete_forever</i></a>' +
+                                                '<a href="#!" onclick="contractSend(' + row.id + ')" data-tooltip="Enviar" class="tooltipped btn-flat waves-effect waves-googleGreen"><i class="material-icons">mail</i></a>' +
+                                                '<a href="#!" onclick="contractPublish(' + row.id + ')" data-tooltip="Publicar" class="tooltipped btn-flat waves-effect waves-googleGreen"><i class="material-icons">record_voice_over</i></a>';
                                         }
                                     }
                                 ]
