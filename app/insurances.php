@@ -18,7 +18,7 @@
     <?php include 'pages/admin/insurances/list.php' ?>
 </div>
 <?php //include 'pages/admin/insurances/add.php' ?>
-<?php //include 'pages/admin/insurances/edit.php' ?>
+<?php include 'pages/admin/insurances/edit.php' ?>
 <?php include 'pages/admin/insurances/delete.php' ?>
 </body>
 </html>

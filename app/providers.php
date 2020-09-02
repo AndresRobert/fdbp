@@ -18,7 +18,7 @@
     <?php include 'pages/admin/providers/list.php' ?>
 </div>
 <?php //include 'pages/admin/providers/add.php' ?>
-<?php //include 'pages/admin/providers/edit.php' ?>
+<?php include 'pages/admin/providers/edit.php' ?>
 <?php include 'pages/admin/providers/delete.php' ?>
 </body>
 </html>

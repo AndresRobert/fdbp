@@ -18,7 +18,7 @@
     <?php include 'pages/admin/cementeries/list.php' ?>
 </div>
 <?php //include 'pages/admin/services/add.php' ?>
-<?php //include 'pages/admin/services/edit.php' ?>
+<?php include 'pages/admin/services/edit.php' ?>
 <?php include 'pages/admin/cementeries/delete.php' ?>
 </body>
 </html>
