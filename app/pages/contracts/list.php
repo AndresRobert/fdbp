@@ -4,6 +4,7 @@
             <thead>
             <tr>
                 <th>Número</th>
+                <th>Factura</th>
                 <th>Fecha</th>
                 <th>Solicitante RUT</th>
                 <th>Solicitante Nombres</th>
@@ -63,6 +64,7 @@
                                 "data" : response.contract,
                                 "columns" : [
                                     { "data" : "id" },
+                                    { "data" : "invoice" },
                                     { "data" : "date" },
                                     { "data" : "s_id" },
                                     { "data" : "s_name" },
