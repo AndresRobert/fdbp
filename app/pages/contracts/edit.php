@@ -164,12 +164,12 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input id="e_v_cost" onchange="Form.Calc.payment()" type="number" min="1" class="validate" required>
+                <input id="e_v_cost" onchange="Form.Calc.payment('e_')" type="number" min="1" class="validate" required>
                 <label for="e_v_cost">Valor del Servicio</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input id="e_v_discount" onchange="Form.Calc.payment()" type="number" min="0" class="validate" required>
+                <input id="e_v_discount" onchange="Form.Calc.payment('e_')" type="number" min="0" class="validate" required>
                 <label for="e_v_discount">Descuento</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
@@ -184,7 +184,7 @@
                 <label for="e_v_insurance_id">Previsión</label>
             </div>
             <div class="input-field col s12 m4">
-                <input id="e_v_coverage" onchange="Form.Calc.payment()" type="number" min="0" class="validate" required>
+                <input id="e_v_coverage" onchange="Form.Calc.payment('e_')" type="number" min="0" class="validate" required>
                 <label for="e_v_coverage">Aporte Previsión</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
