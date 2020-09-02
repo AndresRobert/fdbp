@@ -24,7 +24,7 @@
                                     {
                                         "mRender": function (d, t, row) {
                                             return '<a href="#!" onclick="providerEdit(' + row.id + ', ' + row.name + ')" data-tooltip="Editar" class="tooltipped btn-flat"><i class="material-icons">edit</i></a>' +
-                                                '<a href="#!" onclick="providerDelete(' + row.id + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>';
+                                                '<a href="#!" onclick="providerDelete(' + row.id + ', ' + row.name + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>';
                                         }
                                     }
                                 ],
@@ -46,14 +46,15 @@
 
             function providerEdit(id, name) {
                 $('#pro_edit_id').val(id);
-                $('#pro_edit_name').val(id);
+                $('#pro_edit_name').val(name);
                 const Modal = $('#editProvider');
                 Modal.modal('open');
                 // TODO: Load form
             }
 
-            function providerDelete(id) {
-                $('#pro_del_id').html(id);
+            function providerDelete(id, name) {
+                $('#pro_del_id').val(id);
+                $('#pro_del_name').html(name);
                 const Modal = $('#deleteProvider');
                 Modal.modal('open');
             }

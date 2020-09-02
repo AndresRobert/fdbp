@@ -116,4 +116,104 @@ class Admin extends Response {
         ];
     }
 
+    public function deleteProvider (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Proveedor eliminado correctamente';
+
+                $Provider = new Provider();
+                if (isset($fields['id']) && $fields['id'] !== '' && $Provider->exists('id', $fields['id'])) {
+                    $Provider->set(['id' => $fields['id']]);
+                    $Provider->read();
+                    $Provider->set(['active' => 0]);
+                    if (!$Provider->update()) {
+                        $status = 'fail';
+                        $message = 'No fue posible eliminar el proveedor';
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message
+                ];
+            }
+        );
+    }
+
+    public function deleteInsurance (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Aseguradora eliminado correctamente';
+
+                $Insurance = new Insurance();
+                if (isset($fields['id']) && $fields['id'] !== '' && $Insurance->exists('id', $fields['id'])) {
+                    $Insurance->set(['id' => $fields['id']]);
+                    $Insurance->read();
+                    $Insurance->set(['active' => 0]);
+                    if (!$Insurance->update()) {
+                        $status = 'fail';
+                        $message = 'No fue posible eliminar la aseguradora';
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message
+                ];
+            }
+        );
+    }
+
+    public function deleteServices (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Tipo de servicio eliminado correctamente';
+
+                $Service = new Service();
+                if (isset($fields['id']) && $fields['id'] !== '' && $Service->exists('id', $fields['id'])) {
+                    $Service->set(['id' => $fields['id']]);
+                    $Service->read();
+                    $Service->set(['active' => 0]);
+                    if (!$Service->update()) {
+                        $status = 'fail';
+                        $message = 'No fue posible eliminar el tipo de servicio';
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message
+                ];
+            }
+        );
+    }
+
+    public function deleteCementery (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Cementerio eliminado correctamente';
+
+                $Cementery = new Cementery();
+                if (isset($fields['id']) && $fields['id'] !== '' && $Cementery->exists('id', $fields['id'])) {
+                    $Cementery->set(['id' => $fields['id']]);
+                    $Cementery->read();
+                    $Cementery->set(['active' => 0]);
+                    if (!$Cementery->update()) {
+                        $status = 'fail';
+                        $message = 'No fue posible eliminar el cementerio';
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message
+                ];
+            }
+        );
+    }
+
 }

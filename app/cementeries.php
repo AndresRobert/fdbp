@@ -1,4 +1,4 @@
-<?php $admin = $services = true; ?>
+<?php $admin = $cementeries = true; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,15 +10,15 @@
 <div class="container">
     <div class="row">
         <div class="col s12">
-            <h4>Tipos de Servicio</h4>
-            <p>Listado de servicios disponibles</p>
+            <h4>Cementerios</h4>
+            <p>Listado de cementerios disponibles</p>
             <a href="#newService" class="btn-floating btn-fixed btn-large waves-effect waves-light teal tooltipped modal-trigger" data-position="left" data-tooltip="Nuevo Servicio"><i class="material-icons">add</i></a>
         </div>
     </div>
-    <?php include 'pages/admin/services/list.php' ?>
+    <?php include 'pages/admin/cementeries/list.php' ?>
 </div>
 <?php //include 'pages/admin/services/add.php' ?>
 <?php //include 'pages/admin/services/edit.php' ?>
-<?php include 'pages/admin/services/delete.php' ?>
+<?php include 'pages/admin/cementeries/delete.php' ?>
 </body>
 </html>

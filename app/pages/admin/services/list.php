@@ -24,7 +24,7 @@
                                     {
                                         "mRender": function (d, t, row) {
                                             return '<a href="#!" onclick="serviceEdit(' + row.id + ', ' + row.name + ')" data-tooltip="Editar" class="tooltipped btn-flat"><i class="material-icons">edit</i></a>' +
-                                                '<a href="#!" onclick="serviceDelete(' + row.id + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>';
+                                                '<a href="#!" onclick="serviceDelete(' + row.id + ', ' + row.name + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>';
                                         }
                                     }
                                 ],
@@ -46,14 +46,15 @@
 
             function serviceEdit(id, name) {
                 $('#ser_edit_id').val(id);
-                $('#ser_edit_name').val(id);
+                $('#ser_edit_name').val(name);
                 const Modal = $('#editService');
                 Modal.modal('open');
                 // TODO: Load form
             }
 
-            function serviceDelete(id) {
-                $('#pro_ser_id').html(id);
+            function serviceDelete(id, name) {
+                $('#ser_del_id').val(id);
+                $('#ser_del_name').html(name);
                 const Modal = $('#deleteService');
                 Modal.modal('open');
             }

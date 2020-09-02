@@ -136,7 +136,7 @@ class Contracts extends Response {
                 if (isset($fields['id']) && $fields['id'] !== '' && $Contract->exists('id', $fields['id'])) {
                     $Contract->set(['id' => $fields['id']]);
                     $Contract->read();
-                    $Contract->set(['status' => 0]);
+                    $Contract->set(['active' => 0]);
                     if (!$Contract->update()) {
                         $status = 'fail';
                         $message = 'No fue posible eliminar el contrato';

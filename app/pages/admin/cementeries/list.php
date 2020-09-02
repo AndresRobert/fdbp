@@ -1,21 +1,21 @@
 <div class="row card-panel">
     <div class="col s12">
-        <table id="insurances_list" class="dTable striped highlight">
+        <table id="cementeries_list" class="dTable striped highlight">
             <thead>
             <tr>
                 <th>#</th>
-                <th>Aseguradora</th>
+                <th>Cementerio</th>
                 <th data-placeholder="none">Acciones</th>
             </tr>
             </thead>
-            <tbody id="insuranceTable"></tbody>
+            <tbody id="cementeriesTable"></tbody>
         </table>
         <script>
-            Api.get(Api.endpoints['insurances'], true)
+            Api.get(Api.endpoints['cementeries'], true)
                 .then(({ status, response }) => {
                     if (status === 'OK') {
                         Helper.Datatable.init(
-                            "#insurances_list",
+                            "#cementeries_list",
                             {
                                 "data" : response.list,
                                 "columns" : [
@@ -23,8 +23,8 @@
                                     { "data" : "name" },
                                     {
                                         "mRender": function (d, t, row) {
-                                            return '<a href="#!" onclick="insuranceEdit(' + row.id + ', ' + row.name + ')" data-tooltip="Editar" class="tooltipped btn-flat"><i class="material-icons">edit</i></a>' +
-                                                '<a href="#!" onclick="insuranceDelete(' + row.id + ', ' + row.name + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>';
+                                            return '<a href="#!" onclick="cementeryEdit(' + row.id + ', ' + row.name + ')" data-tooltip="Editar" class="tooltipped btn-flat"><i class="material-icons">edit</i></a>' +
+                                                '<a href="#!" onclick="cementeryDelete(' + row.id + ', ' + row.name + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>';
                                         }
                                     }
                                 ],
@@ -39,23 +39,22 @@
                         Helper.openLink('/');
                     }
                     else {
-                        M.toast({html: 'No se encontraron proveedores'});
+                        M.toast({html: 'No se encontraron cementerios'});
                     }
                 })
                 .catch( e => console.log(e) );
 
-            function insuranceEdit(id, name) {
-                $('#ins_edit_id').val(id);
-                $('#ins_edit_name').val(id);
-                const Modal = $('#editInsurance');
+            function cementeryEdit(id, name) {
+                $('#cem_edit_id').val(id);
+                $('#cem_edit_name').val(id);
+                const Modal = $('#editCementery');
                 Modal.modal('open');
-                // TODO: Load form
             }
 
-            function insuranceDelete(id, name) {
-                $('#ins_del_id').val(id);
-                $('#ins_del_name').html(name);
-                const Modal = $('#deleteInsurance');
+            function cementeryDelete(id, name) {
+                $('#cem_del_id').val(id);
+                $('#cem_del_name').html(name);
+                const Modal = $('#deleteCementery');
                 Modal.modal('open');
             }
 
