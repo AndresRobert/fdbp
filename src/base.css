@@ -65,6 +65,10 @@ tbody > tr > td {
     right: 9rem;
 }
 
+.tabs .tab a:hover, .tabs .tab a.active {
+    border-bottom: 2px solid #FFF;
+}
+
 .waves-effect.waves-googleRed .waves-ripple {
     background-color: rgba(219, 68, 55, 0.65);
 }

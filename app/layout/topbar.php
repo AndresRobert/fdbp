@@ -18,9 +18,6 @@
                     <li class="tab"><a class="<?php echo isset($insurances) && $insurances === true ? 'active' : '' ?>" href="insurances.php">Aseguradoras</a></li>
                 </ul>
             </div>
-            <script>
-                $('.tabs').tabs('updateTabIndicator');
-            </script>
         <?php endif; ?>
     </nav>
 </div>
