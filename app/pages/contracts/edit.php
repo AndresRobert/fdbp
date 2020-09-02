@@ -257,8 +257,6 @@
 
     function editThisContract() {
         let data = Form.getValues('#editContract', 'e_');
-        console.log(data);
-        return;
         Api.post(Api.endpoints['contract_add'], true, data)
             .then(({ status, response }) => {
                 if (status === 'OK') {
