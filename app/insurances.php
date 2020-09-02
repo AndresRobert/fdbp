@@ -15,7 +15,7 @@
             <a href="#newInsurance" class="btn-floating btn-fixed btn-large waves-effect waves-light teal tooltipped modal-trigger" data-position="left" data-tooltip="Nueva Aseguradora"><i class="material-icons">add</i></a>
         </div>
     </div>
-    <?php //include 'pages/admin/insurances/list.php' ?>
+    <?php include 'pages/admin/insurances/list.php' ?>
 </div>
 <?php //include 'pages/admin/insurances/add.php' ?>
 <?php //include 'pages/admin/insurances/edit.php' ?>
