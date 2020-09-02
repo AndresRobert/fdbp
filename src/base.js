@@ -190,17 +190,20 @@ Api.endpoints = {
     'login': '/api/login',
     'logout': '/api/logout',
     'check': '/api/check',
-    'regions': '/api/list/regions',
-    'comunes': '/api/list/comunes',
-    'comunes_by_region': '/api/list/comunesByRegion',
-    'insurances': '/api/list/insurances',
-    'cementeries': '/api/list/cementeries',
-    'services': '/api/list/services',
-    'providers': '/api/list/providers',
-    'providers_by_service': '/api/list/providersByService',
-    'colors_by_service': '/api/list/colorsByService',
-    'contract': '/api/contract',
-    'one_contract': '/api/contract/one',
+
+    'regions': '/api/regions/list',
+    'comunes': '/api/comunes/list',
+    'comunes_by_region': '/api/comunes/list/byRegion',
+    'insurances': '/api/insurances/list',
+    'cementeries': '/api/cementeries/list',
+    'services': '/api/services/list',
+    'providers': '/api/providers/list',
+    'providers_by_service': '/api/providers/list/byService',
+    'colors_by_service': '/api/colors/list/byService',
+    'contracts': '/api/contracts/list',
+
+    'contract_add': '/api/contract',
+    'contract_get': '/api/contract/one',
     'contract_del': '/api/contract/delete'
 };
 Api.setList = (name = 'none') => {

@@ -16,11 +16,6 @@ class Contract extends Model {
     /**
      * Gets all contracts for listing
      *
-     * @param array  $columns
-     * @param array  $filters
-     * @param string $order
-     * @param string $limit
-     *
      * @return array
      */
     public function list (): array {

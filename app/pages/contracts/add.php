@@ -262,7 +262,7 @@
 
     function saveThisContract() {
         let data = Form.getValues('#newContract');
-        Api.post(Api.endpoints['contract'], true, data)
+        Api.post(Api.endpoints['contract_add'], true, data)
             .then(({ status, response }) => {
                 if (status === 'OK') {
                     M.toast({ html: response.message });

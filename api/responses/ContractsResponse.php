@@ -132,14 +132,12 @@ class Contracts extends Response {
                 $status = 'success';
                 $message = 'Contrato eliminado correctamente';
 
-                if (isset($fields['id']) && $fields['id'] !== '') {
-                    $Contract = new Contract();
+                $Contract = new Contract();
+                if (isset($fields['id']) && $fields['id'] !== '' && $Contract->exists('id', $fields['id'])) {
                     $Contract->set(['id' => $fields['id']]);
                     $Contract->read();
-                    $Contract->set(['active' => 0]);
-                    if ($Contract->update()) {
-                        $contractId = $fields['id'];
-                    } else {
+                    $Contract->set(['status' => 0]);
+                    if (!$Contract->update()) {
                         $status = 'fail';
                         $message = 'No fue posible eliminar el contrato';
                     }
