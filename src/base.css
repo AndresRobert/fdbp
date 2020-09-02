@@ -59,15 +59,6 @@ tbody > tr > td {
     text-align: center;
 }
 
-.btn-flat {
-    border: 1px solid #EEE;
-    margin-right: 2px;
-}
-
-.btn-flat:hover {
-    border: 1px solid #CCC;
-}
-
 .btn-floating.btn-fixed {
     position: absolute;
     top: 6rem;

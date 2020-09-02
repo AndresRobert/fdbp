@@ -153,8 +153,9 @@
                                         "mRender": function (d, t, row) {
                                             return '<button onclick="contractView(' + row.id + ')" class="btn-flat waves-effect waves-googleBlue">Ver</button>' +
                                                 '<button onclick="contractEdit(' + row.id + ')" class="btn-flat waves-effect waves-googleYellow">Editar</button>' +
-                                                '<button onclick="contractPublish(' + row.id + ')" class="btn-flat waves-effect waves-googleGreen">Publicar</button>' +
-                                                '<button onclick="contractDelete(' + row.id + ')" class="btn-flat waves-effect waves-googleRed">Eliminar</button>';
+                                                '<button onclick="contractDelete(' + row.id + ')" class="btn-flat waves-effect waves-googleRed">Eliminar</button>' +
+                                                '<button onclick="contractSend(' + row.id + ')" class="btn-flat waves-effect waves-googleGreen">Publicar</button>' +
+                                                '<button onclick="contractPublish(' + row.id + ')" class="btn-flat waves-effect waves-googleGreen">Publicar</button>';
                                         }
                                     }
                                 ]
@@ -204,6 +205,10 @@
             }
 
             function contractPublish () {
+                M.toast({ html: 'To be implemented' });
+            }
+
+            function contractSend () {
                 M.toast({ html: 'To be implemented' });
             }
 
