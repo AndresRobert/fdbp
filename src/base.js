@@ -333,7 +333,7 @@ let Form = {};
 Form.getValues = (containerId, prefix = '') => {
     let formData = {};
     const container = $(containerId),
-        strings = container.find('select, textarea, input[type=text]'),
+        strings = container.find('select, textarea, input[type=text], input[type=hidden]'),
         numerics = container.find('input[type=number]'),
         booleans = container.find('input[type=checkbox]');
     strings.each( (_, input) => {
