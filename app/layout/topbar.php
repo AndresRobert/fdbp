@@ -6,10 +6,19 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="tooltipped" href="contracts.php" data-position="bottom" data-tooltip="Contratos"><i class="material-icons">business_center</i></a></li>
                 <li><a class="tooltipped" href="#!" data-position="bottom" data-tooltip="Cotizaciones"><i class="material-icons">content_paste</i></a></li>
-                <li><a class="tooltipped" href="admin.php" data-position="bottom" data-tooltip="Administración"><i class="material-icons">tune</i></a></li>
+                <li><a class="tooltipped" href="services.php" data-position="bottom" data-tooltip="Administración"><i class="material-icons">tune</i></a></li>
                 <li><a class="tooltipped" href="#!" onclick="Auth.logout()" data-position="bottom" data-tooltip="Salir"><i class="material-icons">power_settings_new</i></a></li>
             </ul>
         </div>
+        <?php if (isset($admin) && $admin === true) : ?>
+            <div class="nav-content">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab"><a class="<?php echo isset($services) && $services === true ? 'active' : '' ?>" href="services.php">Tipos de Servicio</a></li>
+                    <li class="tab"><a class="<?php echo isset($providers) && $providers === true ? 'active' : '' ?>" href="providers.php">Proveedores</a></li>
+                    <li class="tab"><a class="<?php echo isset($insurances) && $insurances === true ? 'active' : '' ?>" href="insurances.php">Aseguradoras</a></li>
+                </ul>
+            </div>
+        <?php endif; ?>
     </nav>
 </div>
 
