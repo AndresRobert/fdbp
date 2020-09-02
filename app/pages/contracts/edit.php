@@ -267,6 +267,7 @@
                         });
                     } else {
                         $('#editContract').modal('close');
+                        Helper.openLink();
                     }
                 }
             })
