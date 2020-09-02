@@ -23,8 +23,8 @@
                                     { "data" : "name" },
                                     {
                                         "mRender": function (d, t, row) {
-                                            return '<a href="#!" onclick="providerEdit(' + row.id + ', ' + row.name + ')" data-tooltip="Editar" class="tooltipped btn-flat"><i class="material-icons">edit</i></a>' +
-                                                '<a href="#!" onclick="providerDelete(' + row.id + ', ' + row.name + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>';
+                                            return '<a href="#!" onclick="providerEdit(' + row.id + ', \"' + row.name + '\")" data-tooltip="Editar" class="tooltipped btn-flat"><i class="material-icons">edit</i></a>' +
+                                                '<a href="#!" onclick="providerDelete(' + row.id + ', \"' + row.name + '\")" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>';
                                         }
                                     }
                                 ],
