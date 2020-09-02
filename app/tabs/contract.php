@@ -388,6 +388,6 @@
     $('#d_region_id').on('change', function() { loadComunes('#d_comune_id', this.value) });
     $('#c_region_id').on('change', function() { loadComunes('#c_comune_id', this.value) });
 
-    $('#v_cost, #v_discount, #v_coverage').on('change', () => { calcTotal() });
+    $('#v_cost, #v_discount, #v_coverage, #e_v_cost, #e_v_discount, #e_v_coverage').on('change', () => { Helper.calcTotal() });
 
 </script>

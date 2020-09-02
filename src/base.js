@@ -203,7 +203,7 @@ Api.endpoints = {
 
     'contracts': '/api/contracts/list',
     'contract_get': '/api/contracts/list/one',
-    'contract_add': '/api/contract',
+    'contract_add': '/api/contract/add',
     'contract_del': '/api/contract/delete'
 };
 Api.setList = (name = 'none') => {
