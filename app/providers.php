@@ -15,7 +15,7 @@
             <a href="#newProvider" class="btn-floating btn-fixed btn-large waves-effect waves-light teal tooltipped modal-trigger" data-position="left" data-tooltip="Nuevo Proveedor"><i class="material-icons">add</i></a>
         </div>
     </div>
-    <?php //include 'pages/admin/providers/list.php' ?>
+    <?php include 'pages/admin/providers/list.php' ?>
 </div>
 <?php //include 'pages/admin/providers/add.php' ?>
 <?php //include 'pages/admin/providers/edit.php' ?>
