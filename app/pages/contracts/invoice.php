@@ -3,10 +3,12 @@
         <h5>Asociar Factura</h5>
         <div class="row">
             <div class="input-field col s4">
-                <input id="aso_id" type="number" readonly>
+                <input id="aso_id" class="active" type="number" readonly>
                 <label for="aso_id">Contrato</label>
             </div>
-            <div class="col s4 center"></div>
+            <div class="col s4 center" style="line-height:5rem">
+                <i class="material-icons">arrow_forward</i>
+            </div>
             <div class="input-field col s4">
                 <input id="aso_invoice" type="text" class="validate" min="1" required>
                 <label for="aso_invoice">Factura</label>
