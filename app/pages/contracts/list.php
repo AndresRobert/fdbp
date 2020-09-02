@@ -242,13 +242,11 @@
                 $('#' + prefix + 'v_service_id').val(Helper.setDefault(_data.v_service_id, '1'));
                 $('#' + prefix + 'v_service_id').formSelect();
                 $('#' + prefix + 'v_include').val(Helper.setDefault(_data.v_include, ''));
-                $('#' + prefix + 'v_include').trigger('input');
                 $('#' + prefix + 'v_warning').val(Helper.setDefault(_data.v_warning, ''));
-                $('#' + prefix + 'v_warning').trigger('input');
                 $('#' + prefix + 'v_observation').val(Helper.setDefault(_data.v_observation, ''));
-                $('#' + prefix + 'v_observation').trigger('input');
                 $('#' + prefix + 'v_insurance_id').val(Helper.setDefault(_data.v_insurance_id, '1'));
                 $('#' + prefix + 'v_insurance_id').formSelect();
+                $('textarea').trigger('focus');
 
                 $('#' + prefix + 'f_cementery_id').val(Helper.setDefault(_data.f_cementery_id, '1'));
                 $('#' + prefix + 'f_cementery_id').formSelect();
@@ -260,6 +258,7 @@
                 $('#' + prefix + 'v_total').val(Helper.setDefault(_data.v_total, '0'));
                 $('#' + prefix + 'v_coverage').val(Helper.setDefault(_data.v_coverage, '0'));
                 $('#' + prefix + 'v_payment').val(Helper.setDefault(_data.v_payment, '0'));
+                $('input[type=number]').trigger('focus');
 
                 if (_data.p_cash === true || _data.p_cash === '1' || _data.p_cash === 1) {
                     $('#' + prefix + 'p_cash').attr('checked', true);
