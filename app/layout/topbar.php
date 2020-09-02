@@ -16,6 +16,7 @@
                     <li class="tab"><a class="<?php echo isset($services) && $services === true ? 'active' : '' ?>" href="services.php">Tipos de Servicio</a></li>
                     <li class="tab"><a class="<?php echo isset($providers) && $providers === true ? 'active' : '' ?>" href="providers.php">Proveedores</a></li>
                     <li class="tab"><a class="<?php echo isset($insurances) && $insurances === true ? 'active' : '' ?>" href="insurances.php">Aseguradoras</a></li>
+                    <li class="tab"><a class="<?php echo isset($cementeries) && $cementeries === true ? 'active' : '' ?>" href="cementeries.php">Cementerios</a></li>
                 </ul>
             </div>
         <?php endif; ?>
