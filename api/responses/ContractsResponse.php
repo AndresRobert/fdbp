@@ -66,7 +66,7 @@ class Contracts extends Response {
                     $fields['v_payment'] = $fields['v_total'] - (intVal($fields['v_coverage']) ?? 0);
                     $fields['f_datetime'] = $fields['f_date'].' '.$fields['f_time'];
                     $Contract->set($fields);
-                    if (isset($fields['id']) && $fields['id'] > 0) {
+                    if (isset($fields['id']) && $Contract->get('id') > 0) {
                         if ($Contract->update()) {
                             $contractId = $fields['id'];
                         } else {
