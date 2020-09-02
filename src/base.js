@@ -388,4 +388,5 @@ Helper.ready(() => {
     $('select').formSelect();
     $('.datepicker').datepicker(Helper.Options.datepicker());
     $('.timepicker').timepicker(Helper.Options.timepicker());
+    $('.tabs').tabs();
 });
