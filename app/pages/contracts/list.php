@@ -5,6 +5,7 @@
             <tr>
                 <th>Número</th>
                 <th>Factura</th>
+                <th>Pagado</th>
                 <th>Fecha</th>
                 <th>Solicitante RUT</th>
                 <th>Solicitante Nombres</th>
