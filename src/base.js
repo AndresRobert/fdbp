@@ -189,13 +189,17 @@ Api.endpoints = {
     'comunes_by_region': '/api/comunes/list/byRegion',
 
     'insurances': '/api/insurances/list',
+    'insurance_add': '/api/insurances/add',
     'insurance_del': '/api/insurances/delete',
     'cementeries': '/api/cementeries/list',
+    'cementery_add': '/api/cementery/add',
     'cementery_del': '/api/cementery/delete',
     'services': '/api/services/list',
+    'service_add': '/api/service/add',
     'service_del': '/api/service/delete',
     'providers': '/api/providers/list',
     'provider_del': '/api/provider/delete',
+    'provider_add': '/api/provider/add',
 
     'contracts': '/api/contracts/list',
     'contract_get': '/api/contracts/list/one',
