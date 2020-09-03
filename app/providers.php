@@ -12,7 +12,7 @@
         <div class="col s12">
             <h4>Proveedores</h4>
             <p>Listado de proveedores disponibles</p>
-            <a href="#newProvider" class="btn-floating btn-fixed btn-large waves-effect waves-light teal tooltipped modal-trigger" data-position="left" data-tooltip="Nuevo Proveedor"><i class="material-icons">add</i></a>
+            <a href="#addProvider" class="btn-floating btn-fixed btn-large waves-effect waves-light teal tooltipped modal-trigger" data-position="left" data-tooltip="Nuevo Proveedor"><i class="material-icons">add</i></a>
         </div>
     </div>
     <?php include 'pages/admin/providers/list.php' ?>

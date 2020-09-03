@@ -12,7 +12,7 @@
         <div class="col s12">
             <h4>Tipos de Servicio</h4>
             <p>Listado de servicios disponibles</p>
-            <a href="#newService" class="btn-floating btn-fixed btn-large waves-effect waves-light teal tooltipped modal-trigger" data-position="left" data-tooltip="Nuevo Servicio"><i class="material-icons">add</i></a>
+            <a href="#addService" class="btn-floating btn-fixed btn-large waves-effect waves-light teal tooltipped modal-trigger" data-position="left" data-tooltip="Nuevo Servicio"><i class="material-icons">add</i></a>
         </div>
     </div>
     <?php include 'pages/admin/services/list.php' ?>
