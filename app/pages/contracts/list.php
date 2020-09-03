@@ -65,6 +65,17 @@
                                 "columns" : [
                                     { "data" : "id" },
                                     { "data" : "invoice" },
+                                    {
+                                        "mRender": function (d, t, row) {
+                                            if (row.paid === '1') {
+                                                return '<i class="material-icons green-text">radio_button_checked</i>';
+                                            }
+                                            else if (row.paid === '0') {
+                                                return '<i class="material-icons red-text">radio_button_unchecked</i>';
+                                            }
+                                            return '';
+                                        }
+                                    },
                                     { "data" : "date" },
                                     { "data" : "s_id" },
                                     { "data" : "s_name" },
