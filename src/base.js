@@ -189,8 +189,8 @@ Api.endpoints = {
     'comunes_by_region': '/api/comunes/list/byRegion',
 
     'insurances': '/api/insurances/list',
-    'insurance_add': '/api/insurances/add',
-    'insurance_del': '/api/insurances/delete',
+    'insurance_add': '/api/insurance/add',
+    'insurance_del': '/api/insurance/delete',
     'cementeries': '/api/cementeries/list',
     'cementery_add': '/api/cementery/add',
     'cementery_del': '/api/cementery/delete',
