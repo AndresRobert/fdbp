@@ -235,7 +235,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-light btn-flat">Cancelar</a>
+        <a href="#!" class="modal-close waves-effect waves-googleBlue btn-flat">Cancelar</a>
         <a href="#!" onclick="previewThisContract()" class="waves-effect waves-light blue btn-small">Vista Previa</a>
         <a href="#!" onclick="saveThisContract()" class="waves-effect waves-light teal btn-small">Guardar</a>
     </div>

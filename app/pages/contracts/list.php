@@ -165,10 +165,10 @@
                                     },
                                     {
                                         "mRender": function (d, t, row) {
-                                            return '<a href="#!" onclick="contractAddInvoice(' + row.id + ')" data-tooltip="Asociar Factura" class="tooltipped btn-flat"><i class="material-icons">local_atm</i></a>' +
-                                                '<a href="#!" onclick="contractView(' + row.id + ')" data-tooltip="Ver" class="tooltipped btn-flat"><i class="material-icons">remove_red_eye</i></a>' +
+                                            return '<a href="#!" onclick="contractView(' + row.id + ')" data-tooltip="Ver" class="tooltipped btn-flat"><i class="material-icons">remove_red_eye</i></a>' +
                                                 '<a href="#!" onclick="contractEdit(' + row.id + ')" data-tooltip="Editar" class="tooltipped btn-flat"><i class="material-icons">edit</i></a>' +
                                                 '<a href="#!" onclick="contractDelete(' + row.id + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>' +
+                                                '<a href="#!" onclick="contractAddInvoice(' + row.id + ')" data-tooltip="Asociar Factura" class="tooltipped btn-flat"><i class="material-icons">local_atm</i></a>' +
                                                 '<a href="#!" onclick="contractSend(' + row.id + ')" data-tooltip="Enviar" class="tooltipped btn-flat"><i class="material-icons">mail</i></a>' +
                                                 '<a href="#!" onclick="contractPublish(' + row.id + ')" data-tooltip="Publicar" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
                                         }

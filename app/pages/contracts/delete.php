@@ -4,7 +4,7 @@
         <p>¿Está seguro de que desea eliminar este contrato Nro.<span id="del_id"></span>?</p>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-light btn-flat">Cancelar</a>
+        <a href="#!" class="modal-close waves-effect waves-googleBlue btn-flat">Cancelar</a>
         <a href="#!" onclick="deleteThisContract()" class="modal-close waves-effect waves-light red btn-small">Eliminar</a>
     </div>
 </div>
