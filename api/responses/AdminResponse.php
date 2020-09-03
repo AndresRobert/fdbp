@@ -324,7 +324,7 @@ class Admin extends Response {
         );
     }
 
-    public function deleteServices (array $fields): array {
+    public function deleteService (array $fields): array {
         return self::RequiresAuthorization(
             static function () use ($fields) {
                 $status = 'success';
