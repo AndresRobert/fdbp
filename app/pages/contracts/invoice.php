@@ -16,6 +16,7 @@
         </div>
     </div>
     <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-light btn-small">Cancelar</a>
         <a href="#!" onclick="invoiceThisContract()" class="modal-close waves-effect waves-light green btn-small">Asociar</a>
     </div>
 </div>
