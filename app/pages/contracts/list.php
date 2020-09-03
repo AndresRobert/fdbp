@@ -69,10 +69,10 @@
                                     {
                                         "mRender": function (d, t, row) {
                                             if (row.paid === '1') {
-                                                return '<i class="material-icons green-text">radio_button_checked</i>';
+                                                return '<i data-tooltip="Pagado" class="tooltipped material-icons green-text">radio_button_checked</i>';
                                             }
                                             else if (row.paid === '0') {
-                                                return '<i class="material-icons red-text">radio_button_unchecked</i>';
+                                                return '<i data-tooltip="Pendiente" class="tooltipped material-icons red-text">radio_button_unchecked</i>';
                                             }
                                             return '';
                                         }
