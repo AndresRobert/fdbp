@@ -1,5 +1,4 @@
 <div id="addProvider" class="modal">
-    <input id="pro_add_id" type="hidden">
     <div class="modal-content">
         <div class="row">
             <div class="input-field col s12">

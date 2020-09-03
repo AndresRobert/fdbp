@@ -1,5 +1,4 @@
 <div id="addService" class="modal">
-    <input id="ser_add_id" type="hidden">
     <div class="modal-content">
         <div class="row">
             <div class="input-field col s12">
