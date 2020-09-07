@@ -3,12 +3,11 @@
         <h5>Asociar Pago</h5>
         <div class="row">
             <div class="input-field col s12 m6">
-                <p>Esta operación indica que el contrato <span id="pay_id"></span> está pagado.</p>
+                <p>Esta operación indica que el contrato <span id="pay_id"></span> ha sido pagado.</p>
             </div>
             <div class="input-field col s12 m6">
-                <input placeholder="Seleccione una fecha" id="pay_f_date" type="text" class="datepicker validate" required>
-                <label for="pay_f_date">Fecha</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
+                <input placeholder="Seleccione una fecha" id="pay_f_date" type="date" required>
+                <label for="pay_f_date">Fecha de Pago</label>
             </div>
         </div>
     </div>
