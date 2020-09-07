@@ -171,7 +171,7 @@
                                                 btnPayment = '<a href="#!" onclick="contractAddPayment(' + row.id + ')" data-tooltip="Informar Pago" class="tooltipped btn-flat"><i class="material-icons">local_atm</i></a>',
                                                 btnEmailSend = '<a href="#!" onclick="contractSend(' + row.id + ')" data-tooltip="Enviar Email" class="tooltipped btn-flat"><i class="material-icons">mail</i></a>',
                                                 btnPublish = '<a href="#!" onclick="contractPublish(' + row.id + ')" data-tooltip="Publicar en Facebook" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
-                                            if (row.invoice === 0) {
+                                            if (row.invoice === '') {
                                                 btnPayment = '<a href="#!" data-tooltip="Sin Factura" class="tooltipped btn-flat disabled" ><i class="material-icons">local_atm</i></a>';
                                             } else {
                                                 if (row.paid === '1') {
@@ -180,10 +180,10 @@
                                                     btnInvoice = '<a href="#!" data-tooltip="Factura Ya Asociada" class="tooltipped btn-flat disabled"><i class="material-icons">description</i></a>';
                                                 }
                                             }
-                                            if (row.s_email === '') {
+                                            if (row.s_email === 'No Informado') {
                                                 btnEmailSend = '<a href="#!" data-tooltip="Sin Email" class="tooltipped btn-flat disabled"><i class="material-icons">mail</i></a>';
                                             }
-                                            if (row.warning === '') {
+                                            if (row.v_warning === '') {
                                                 btnPublish = '<a href="#!" data-tooltip="Sin Aviso" class="tooltipped btn-flat disabled"><i class="material-icons">record_voice_over</i></a>';
                                             }
                                             return '<a href="#!" onclick="contractView(' + row.id + ')" data-tooltip="Ver" class="tooltipped btn-flat"><i class="material-icons">remove_red_eye</i></a>' +
