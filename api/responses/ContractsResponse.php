@@ -164,7 +164,37 @@ class Contracts extends Response {
                     $Contract->set(['invoice' => $fields['invoice']]);
                     if (!$Contract->update()) {
                         $status = 'fail';
-                        $message = 'No fue posible eliminar el contrato';
+                        $message = 'No fue posible modificar el contrato';
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message
+                ];
+            }
+        );
+    }
+
+    public function togglePayment (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Contrato actualizado correctamente';
+
+                $Contract = new Contract();
+                if (isset($fields['id']) && $fields['id'] !== '' && $Contract->exists('id', $fields['id'])) {
+                    $Contract->set(['id' => $fields['id']]);
+                    $Contract->read();
+                    if (isset($fields['date']) && $fields['date'] !== '') {
+                        $Contract->set(['payment' => $fields['date']]);
+                    } else {
+                        $Contract->set(['payment' => null]);
+                    }
+
+                    if (!$Contract->update()) {
+                        $status = 'fail';
+                        $message = 'No fue posible modificar el contrato';
                     }
                 }
 

@@ -165,12 +165,29 @@
                                     },
                                     {
                                         "mRender": function (d, t, row) {
+                                            let btnEdit = '<a href="#!" onclick="contractEdit(' + row.id + ')" data-tooltip="Editar" class="tooltipped btn-flat"><i class="material-icons">edit</i></a>',
+                                                btnDelete = '<a href="#!" onclick="contractDelete(' + row.id + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>',
+                                                btnInvoice = '<a href="#!" onclick="contractAddInvoice(' + row.id + ')" data-tooltip="Asociar Factura" class="tooltipped btn-flat"><i class="material-icons">description</i></a>',
+                                                btnPayment = '<a href="#!" onclick="contractAddPayment(' + row.id + ')" data-tooltip="Informar Pago" class="tooltipped btn-flat"><i class="material-icons">local_atm</i></a>',
+                                                btnEmailSend = '<a href="#!" onclick="contractSend(' + row.id + ')" data-tooltip="Enviar Email" class="tooltipped btn-flat"><i class="material-icons">mail</i></a>',
+                                                btnPublish = '<a href="#!" onclick="contractPublish(' + row.id + ')" data-tooltip="Publicar en Facebook" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
+                                            if (row.invoice === 0) {
+                                                btnPayment = '<a href="#!" data-tooltip="Sin Factura" class="tooltipped btn-flat disabled" ><i class="material-icons">local_atm</i></a>';
+                                            } else {
+                                                if (row.paid === '1') {
+                                                    btnEdit = '<a href="#!" data-tooltip="No Editable" class="tooltipped btn-flat disabled"><i class="material-icons">edit</i></a>';
+                                                    btnDelete = '<a href="#!" data-tooltip="No Eliminable" class="tooltipped btn-flat disabled"><i class="material-icons">delete_forever</i></a>';
+                                                    btnInvoice = '<a href="#!" data-tooltip="Factura Ya Asociada" class="tooltipped btn-flat disabled"><i class="material-icons">description</i></a>';
+                                                }
+                                            }
+                                            if (row.s_email === '') {
+                                                btnEmailSend = '<a href="#!" data-tooltip="Sin Email" class="tooltipped btn-flat disabled"><i class="material-icons">mail</i></a>';
+                                            }
+                                            if (row.warning === '') {
+                                                btnPublish = '<a href="#!" data-tooltip="Sin Aviso" class="tooltipped btn-flat disabled"><i class="material-icons">record_voice_over</i></a>';
+                                            }
                                             return '<a href="#!" onclick="contractView(' + row.id + ')" data-tooltip="Ver" class="tooltipped btn-flat"><i class="material-icons">remove_red_eye</i></a>' +
-                                                '<a href="#!" onclick="contractEdit(' + row.id + ')" data-tooltip="Editar" class="tooltipped btn-flat"><i class="material-icons">edit</i></a>' +
-                                                '<a href="#!" onclick="contractDelete(' + row.id + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>' +
-                                                '<a href="#!" onclick="contractAddInvoice(' + row.id + ')" data-tooltip="Asociar Factura" class="tooltipped btn-flat"><i class="material-icons">local_atm</i></a>' +
-                                                '<a href="#!" onclick="contractSend(' + row.id + ')" data-tooltip="Enviar" class="tooltipped btn-flat"><i class="material-icons">mail</i></a>' +
-                                                '<a href="#!" onclick="contractPublish(' + row.id + ')" data-tooltip="Publicar" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
+                                                btnEdit + btnDelete + btnInvoice + btnPayment + btnEmailSend + btnPublish;
                                         }
                                     }
                                 ],
@@ -196,15 +213,19 @@
                 $('#aso_id').val(id).addClass('active');
             }
 
+            function contractAddPayment(id) {
+                const Modal = $('#paymentContract');
+                Modal.modal('open');
+                $('#pay_id').html(id);
+            }
+
             function contractView(id) {
                 Helper.openLink('/app/preview/contract.php?contract=' + id, '_blank');
             }
 
             function contractEdit(id) {
-                // Abrir el modal
                 const Modal = $('#editContract');
                 Modal.modal('open');
-                // Cargar los datos del contrato
                 Api.post(Api.endpoints['contract_get'], true, { id: id })
                     .then(({ status, response }) => {
                         if (status === 'error') {
