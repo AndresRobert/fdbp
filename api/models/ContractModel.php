@@ -22,7 +22,7 @@ class Contract extends Model {
         $query = 'SELECT 
             c.id, 
             if(c.invoice = 0, "", c.invoice) invoice,
-            if(c.invoice = 0, "", if(c.paid_date IS NULL, 0, 1)) paid,
+            if(c.invoice = 0, "", if(c.paid_date IS NULL OR c.paid_date = "0000-00-00", 0, 1)) paid,
             c.paid_date,
             c.date, 
             c.s_id, 

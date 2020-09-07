@@ -186,7 +186,7 @@ class Contracts extends Response {
                 if (isset($fields['id']) && $fields['id'] !== '' && $Contract->exists('id', $fields['id'])) {
                     $Contract->set(['id' => $fields['id']]);
                     $Contract->read();
-                    if (isset($fields['date']) && $fields['date'] !== '') {
+                    if (isset($fields['date']) && $fields['date'] !== '' && $fields['date'] !== '0000-00-00') {
                         $Contract->set(['payment' => $fields['date']]);
                     } else {
                         $Contract->set(['payment' => null]);
