@@ -20,5 +20,6 @@
 <?php include 'pages/contracts/edit.php' ?>
 <?php include 'pages/contracts/delete.php' ?>
 <?php include 'pages/contracts/invoice.php' ?>
+<?php include 'pages/contracts/payment.php' ?>
 </body>
 </html>
