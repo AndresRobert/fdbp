@@ -282,12 +282,10 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             setPrintable(data);
         }
 
-        Api.post(Api.endpoints['texts'], true)
+        Api.post(Api.endpoints['texts'])
             .then(({ status, response }) => {
                 if (status === 'OK') {
-                    M.toast({ html: response.message });
                     if (response.status === 'success') {
-                        let textsContainer = $('#texts_container');
                         $.each( response.list, function( _, text ) {
                             if (text.id === 5) {
                                 return false;

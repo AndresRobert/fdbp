@@ -377,17 +377,12 @@ class Admin extends Response {
 
     public function getTexts(): array
     {
-        return self::RequiresAuthorization(
-            static function () {
-                $list = (new Text())->filter(['id', 'text', 'observation']);
-
-                return [
-                    'status' => 'success',
-                    'message' => 'Textos cargados',
-                    'list' => $list['response'],
-                ];
-            }
-        );
+        $list = (new Text())->filter(['id', 'text', 'observation']);
+        return [
+            'status' => 'success',
+            'message' => 'Textos cargados',
+            'list' => $list['response'],
+        ];
     }
 
 }

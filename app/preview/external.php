@@ -22,14 +22,14 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                 <div class="col s12 center t-title"><span class="great-vives">Funeraria del Buen Pastor</span>®</div>
             </div>
             <div class="row">
-                <div class="col s6 center t-small">
+                <div id="text_1" class="col s6 center t-small">
                     Avda. Vicuña Mackenna 10.634<br>
                     P.23 1/2 La Florida<br>
                     FONO: 22 318 8248 CELULAR: +569 802 3195<br>
                     www.funerariadelbuenpastor.cl
                 </div>
                 <div class="col s6 center">
-                    <b>CONTRATO / PRESUPUESTO<br> INTERNO</b>
+                    <b id="text_2">CONTRATO / PRESUPUESTO<br> INTERNO</b>
                     <b style="font-size:18px"><br>Nº: <span id="id"><?php echo $contract[0]['id'] ?></span></b>
                 </div>
             </div>
@@ -101,7 +101,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
     <div class="row">
         <div class="col s7">
-            <p class="t-just t-small">
+            <p id="text_3" class="t-just t-small">
                 La persona que firma el presente contrato privado, se
                 responsabiliza por todo el pago del servicio, así como
                 también de los cheques que pudieran extenderse con el
@@ -135,7 +135,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
     <div class="row">
         <div class="col s7 t-just t-small">
-            <b>
+            <b id="text_4">
                 Para pago con transferencia electrónica los datos son:
                 Cuenta Corriente, Banco BBVA Nº 4330100037682,
                 Rut 12.060.286-1, Alejandra Silva Morales, email:
@@ -163,48 +163,58 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
 <script>
 
-    function setPrintable() {
+    let v_cost = <?php echo $contract[0]['v_cost'] ?>,
+        v_discount = <?php echo $contract[0]['v_discount'] ?>,
+        v_total = <?php echo $contract[0]['v_total'] ?>,
+        v_coverage = <?php echo $contract[0]['v_coverage'] ?>,
+        v_payment = <?php echo $contract[0]['v_payment'] ?>;
 
-        let v_cost = <?php echo $contract[0]['v_cost'] ?>,
-            v_discount = <?php echo $contract[0]['v_discount'] ?>,
-            v_total = <?php echo $contract[0]['v_total'] ?>,
-            v_coverage = <?php echo $contract[0]['v_coverage'] ?>,
-            v_payment = <?php echo $contract[0]['v_payment'] ?>;
+    $('#v_cost').html(Number(v_cost).toLocaleString('es-CL'));
+    $('#v_discount').html(Number(v_discount).toLocaleString('es-CL'));
+    $('#v_total').html(Number(v_total).toLocaleString('es-CL'));
+    $('#v_coverage').html(Number(v_coverage).toLocaleString('es-CL'));
+    $('#v_payment').html(Number(v_payment).toLocaleString('es-CL'));
 
-        $('#v_cost').html(Number(v_cost).toLocaleString('es-CL'));
-        $('#v_discount').html(Number(v_discount).toLocaleString('es-CL'));
-        $('#v_total').html(Number(v_total).toLocaleString('es-CL'));
-        $('#v_coverage').html(Number(v_coverage).toLocaleString('es-CL'));
-        $('#v_payment').html(Number(v_payment).toLocaleString('es-CL'));
+    let p_cash = <?php echo $contract[0]['p_cash'] ?>,
+        p_check = <?php echo $contract[0]['p_check'] ?>,
+        p_check_defered = <?php echo $contract[0]['p_check_defered'] ?>,
+        p_credit_card = <?php echo $contract[0]['p_credit_card'] ?>,
+        p_other = <?php echo $contract[0]['p_other'] ?>,
+        p_transfer = <?php echo $contract[0]['p_transfer'] ?>;
 
-        let p_cash = <?php echo $contract[0]['p_cash'] ?>,
-            p_check = <?php echo $contract[0]['p_check'] ?>,
-            p_check_defered = <?php echo $contract[0]['p_check_defered'] ?>,
-            p_credit_card = <?php echo $contract[0]['p_credit_card'] ?>,
-            p_other = <?php echo $contract[0]['p_other'] ?>,
-            p_transfer = <?php echo $contract[0]['p_transfer'] ?>;
-
-        if (p_cash === true || p_cash === '1' || p_cash === 1) {
-            $('#p_cash').html('check');
-        }
-        if (p_check === true || p_check === '1' || p_check === 1) {
-            $('#p_check').html('check');
-        }
-        if (p_check_defered === true || p_check_defered === '1' || p_check_defered === 1) {
-            $('#p_check_defered').html('check');
-        }
-        if (p_credit_card === true || p_credit_card === '1' || p_credit_card === 1) {
-            $('#p_credit_card').html('check');
-        }
-        if (p_other === true || p_other === '1' || p_other === 1) {
-            $('#p_other').html('check');
-        }
-        if (p_transfer === true || p_transfer === '1' || p_transfer === 1) {
-            $('#p_transfer').html('check');
-        }
+    if (p_cash === true || p_cash === '1' || p_cash === 1) {
+        $('#p_cash').html('check');
+    }
+    if (p_check === true || p_check === '1' || p_check === 1) {
+        $('#p_check').html('check');
+    }
+    if (p_check_defered === true || p_check_defered === '1' || p_check_defered === 1) {
+        $('#p_check_defered').html('check');
+    }
+    if (p_credit_card === true || p_credit_card === '1' || p_credit_card === 1) {
+        $('#p_credit_card').html('check');
+    }
+    if (p_other === true || p_other === '1' || p_other === 1) {
+        $('#p_other').html('check');
+    }
+    if (p_transfer === true || p_transfer === '1' || p_transfer === 1) {
+        $('#p_transfer').html('check');
     }
 
-    setPrintable();
+    Api.post(Api.endpoints['texts'])
+        .then(({ status, response }) => {
+            if (status === 'OK') {
+                if (response.status === 'success') {
+                    $.each( response.list, function( _, text ) {
+                        if (text.id === 5) {
+                            return false;
+                        }
+                        $('#text_' + text.id).html(text.text);
+                    });
+                }
+            }
+        })
+        .catch( e => console.log(e) );
 
 </script>
 </body>

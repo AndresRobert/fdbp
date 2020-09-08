@@ -2,7 +2,7 @@
     <div id="texts_container" class="col s12"></div>
 </div>
 <script>
-    Api.post(Api.endpoints['texts'], true)
+    Api.post(Api.endpoints['texts'])
         .then(({ status, response }) => {
             if (status === 'OK') {
                 M.toast({ html: response.message });
