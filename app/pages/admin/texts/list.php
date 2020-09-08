@@ -18,7 +18,7 @@
                                 '       <textarea style="height:20rem" id="text_' + text.id + '" class="materialize-textarea">' + text.text + '</textarea>' +
                                 '       <a onclick="updateThisText(' + text.id + ')" class="waves-effect waves-light btn-small">Actualizar</a>' +
                                 '   </div>' +
-                                '</div>');
+                                '</div><hr>');
                     });
                 }
             }
