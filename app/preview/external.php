@@ -179,7 +179,17 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         $('#p_transfer').html('check');
     }
 
-    Api.post(Api.endpoints['texts'])
+    getTexts = async function () {
+        const response = await fetch('/api/texts/list', {
+            method: 'POST',
+            cache: 'no-cache',
+            referrerPolicy: 'no-referrer',
+            headers: { 'Content-Type': 'application/json' }
+        });
+        return await response.json();
+    };
+
+    getTexts()
         .then(({ status, response }) => {
             if (status === 'OK') {
                 if (response.status === 'success') {
