@@ -2,8 +2,8 @@
 $content = base64_decode($_GET['content']);
 $contract = unserialize($content);
 setlocale(LC_ALL,"es_ES");
-//$date = DateTime::createFromFormat("Y-m-d", $contract['date']);
-//$strDate = strftime("%e de %B del %G",$date->getTimestamp());
+$date = DateTime::createFromFormat("Y-m-d", $contract[0]['date']);
+$strDate = strftime("%e de %B del %G",$date->getTimestamp());
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -11,8 +11,8 @@ setlocale(LC_ALL,"es_ES");
     <title>Ver Contrato</title>
     <?php include '../layout/ext_head.php' ?>
 </head>
-<body class="preview" style="background-color: #EEE; position: unset; font-size: 0.9rem">
-<pre><?php print_r($contract) ?></pre>
+<body style="background-color: #EEE; position: unset; font-size: 0.9rem">
+<pre><?php print_r($contract[0]) ?></pre>
 <div class="content printable-page">
     <div class="row">
         <div class="col s3 isotype">
@@ -31,7 +31,7 @@ setlocale(LC_ALL,"es_ES");
                 </div>
                 <div class="col s6 center">
                     <b>CONTRATO / PRESUPUESTO<br> INTERNO</b>
-                    <b style="font-size:18px"><br>Nº: <span id="id"><?php echo $contract['id'] ?></span></b>
+                    <b style="font-size:18px"><br>Nº: <span id="id"><?php echo $contract[0]['id'] ?></span></b>
                 </div>
             </div>
         </div>
@@ -43,60 +43,60 @@ setlocale(LC_ALL,"es_ES");
 
     <div class="row">
         <div class="col s7">
-            <b>Solicitado por</b>: <span id="s_name"><?php echo $contract['s_name'] ?></span> <span id="s_last_name"><?php echo $contract['s_last_name'] ?></span><br>
-            Dirección: <span id="s_address"><?php echo $contract['s_address'] ?></span><br>
-            Teléfono: <span id="s_mobile"><?php echo $contract['s_mobile'] ?></span><br>
-            Email: <span id="s_email"><?php echo $contract['s_email'] ?></span>
+            <b>Solicitado por</b>: <span id="s_name"><?php echo $contract[0]['s_name'] ?></span> <span id="s_last_name"><?php echo $contract[0]['s_last_name'] ?></span><br>
+            Dirección: <span id="s_address"><?php echo $contract[0]['s_address'] ?></span><br>
+            Teléfono: <span id="s_mobile"><?php echo $contract[0]['s_mobile'] ?></span><br>
+            Email: <span id="s_email"><?php echo $contract[0]['s_email'] ?></span>
         </div>
         <div class="col s5">
-            R.U.T. <span id="s_id"><?php echo $contract['s_id'] ?></span><br>
-            Comuna: <span id="s_comune_name"><?php echo $contract['s_comune_name'] ?></span><br>
-            Región: <span id="s_region_name"><?php echo $contract['s_region_name'] ?></span>
+            R.U.T. <span id="s_id"><?php echo $contract[0]['s_id'] ?></span><br>
+            Comuna: <span id="s_comune_name"><?php echo $contract[0]['s_comune_name'] ?></span><br>
+            Región: <span id="s_region_name"><?php echo $contract[0]['s_region_name'] ?></span>
         </div>
     </div>
 
     <div class="row">
         <div class="col s7">
-            <b>Nombre del Fallecido</b>: <span id="d_name"><?php echo $contract['d_name'] ?></span><br>
-            R.U.T. <span id="d_id"><?php echo $contract['d_id'] ?></span><br>
-            Estado Civil: <span id="d_marital_status"><?php echo $contract['d_marital_status'] ?></span><br>
-            Dirección: <span id="d_address"><?php echo $contract['d_address'] ?></span><br>
-            Lugar de Fallecimiento: <span id="d_place"><?php echo $contract['d_place'] ?></span>
+            <b>Nombre del Fallecido</b>: <span id="d_name"><?php echo $contract[0]['d_name'] ?></span><br>
+            R.U.T. <span id="d_id"><?php echo $contract[0]['d_id'] ?></span><br>
+            Estado Civil: <span id="d_marital_status"><?php echo $contract[0]['d_marital_status'] ?></span><br>
+            Dirección: <span id="d_address"><?php echo $contract[0]['d_address'] ?></span><br>
+            Lugar de Fallecimiento: <span id="d_place"><?php echo $contract[0]['d_place'] ?></span>
         </div>
         <div class="col s5">
             Q.E.P.D.<br>
-            Ocupación: <span id="d_occupation"><?php echo $contract['d_occupation'] ?></span><br>
-            Estudios: <span id="d_education"><?php echo $contract['d_education'] ?></span><br>
-            Comuna: <span id="d_comune_name"><?php echo $contract['d_comune_name'] ?></span><br>
-            Región: <span id="d_region_name"><?php echo $contract['d_region_name'] ?></span>
+            Ocupación: <span id="d_occupation"><?php echo $contract[0]['d_occupation'] ?></span><br>
+            Estudios: <span id="d_education"><?php echo $contract[0]['d_education'] ?></span><br>
+            Comuna: <span id="d_comune_name"><?php echo $contract[0]['d_comune_name'] ?></span><br>
+            Región: <span id="d_region_name"><?php echo $contract[0]['d_region_name'] ?></span>
         </div>
     </div>
 
     <div class="row">
         <div class="col s7">
-            <b>Lugar del Velatorio</b>: <span id="c_church"><?php echo $contract['c_church'] ?></span><br>
-            Dirección: <span id="c_address"><?php echo $contract['c_address'] ?></span>
+            <b>Lugar del Velatorio</b>: <span id="c_church"><?php echo $contract[0]['c_church'] ?></span><br>
+            Dirección: <span id="c_address"><?php echo $contract[0]['c_address'] ?></span>
         </div>
         <div class="col s5">
-            Comuna: <span id="c_comune_name"><?php echo $contract['c_comune_name'] ?></span><br>
-            Región: <span id="c_region_name"><?php echo $contract['c_region_name'] ?></span>
+            Comuna: <span id="c_comune_name"><?php echo $contract[0]['c_comune_name'] ?></span><br>
+            Región: <span id="c_region_name"><?php echo $contract[0]['c_region_name'] ?></span>
         </div>
     </div>
 
     <div class="row">
         <div class="col s7">
-            <b>Cementerio</b>: <span id="f_cementery_name"><?php echo $contract['f_cementery_name'] ?></span><br>
+            <b>Cementerio</b>: <span id="f_cementery_name"><?php echo $contract[0]['f_cementery_name'] ?></span><br>
         </div>
         <div class="col s5">
-            Fecha Funeral: <span id="f_date"><?php echo $contract['f_date'] ?></span><br>
-            Hora de Llegada: <span id="f_time"><?php echo $contract['f_time'] ?></span>
+            Fecha Funeral: <span id="f_date"><?php echo $contract[0]['f_date'] ?></span><br>
+            Hora de Llegada: <span id="f_time"><?php echo $contract[0]['f_time'] ?></span>
         </div>
     </div>
 
     <div class="row">
         <div class="col s12">
-            <b>Tipo Servicio</b>: <span id="v_service_name"><?php echo $contract['v_service_name'] ?></span><br>
-            El servicio Incluye: <span id="v_include"><?php echo $contract['v_include'] ?></span>
+            <b>Tipo Servicio</b>: <span id="v_service_name"><?php echo $contract[0]['v_service_name'] ?></span><br>
+            El servicio Incluye: <span id="v_include"><?php echo $contract[0]['v_include'] ?></span>
         </div>
     </div>
 
@@ -121,16 +121,16 @@ setlocale(LC_ALL,"es_ES");
             Descuento<br>
             Valor Total<br>
             Aporte<br>
-            <span id="v_insurance_name"><?php echo $contract['v_insurance_name'] ?></span><br>
+            <span id="v_insurance_name"><?php echo $contract[0]['v_insurance_name'] ?></span><br>
             Saldo
         </div>
         <div class="col s2 t-right">
-            <b id="v_cost"><?php echo $contract['v_cost'] ?></b><br>
-            <b id="v_discount"><?php echo $contract['v_discount'] ?></b><br>
-            <b id="v_total"><?php echo $contract['v_total'] ?></b><br>
-            <b id="v_coverage"><?php echo $contract['v_coverage'] ?></b><br>
+            <b id="v_cost"><?php echo $contract[0]['v_cost'] ?></b><br>
+            <b id="v_discount"><?php echo $contract[0]['v_discount'] ?></b><br>
+            <b id="v_total"><?php echo $contract[0]['v_total'] ?></b><br>
+            <b id="v_coverage"><?php echo $contract[0]['v_coverage'] ?></b><br>
             <br>
-            <b id="v_payment"><?php echo $contract['v_payment'] ?></b>
+            <b id="v_payment"><?php echo $contract[0]['v_payment'] ?></b>
         </div>
     </div>
 
@@ -166,12 +166,12 @@ setlocale(LC_ALL,"es_ES");
 
     function setPrintable() {
 
-        let p_cash = <?php echo $contract['p_cash'] ?>,
-            p_check = <?php echo $contract['p_check'] ?>,
-            p_check_defered = <?php echo $contract['p_check_defered'] ?>,
-            p_credit_card = <?php echo $contract['p_credit_card'] ?>,
-            p_other = <?php echo $contract['p_other'] ?>,
-            p_transfer = <?php echo $contract['p_transfer'] ?>;
+        let p_cash = <?php echo $contract[0]['p_cash'] ?>,
+            p_check = <?php echo $contract[0]['p_check'] ?>,
+            p_check_defered = <?php echo $contract[0]['p_check_defered'] ?>,
+            p_credit_card = <?php echo $contract[0]['p_credit_card'] ?>,
+            p_other = <?php echo $contract[0]['p_other'] ?>,
+            p_transfer = <?php echo $contract[0]['p_transfer'] ?>;
 
         if (p_cash === true || p_cash === '1' || p_cash === 1) {
             $('#p_cash').html('check');
