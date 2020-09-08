@@ -124,12 +124,12 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             Saldo
         </div>
         <div class="col s2 t-right">
-            <b id="v_cost"><?php echo $contract[0]['v_cost'] ?></b><br>
-            <b id="v_discount"><?php echo $contract[0]['v_discount'] ?></b><br>
-            <b id="v_total"><?php echo $contract[0]['v_total'] ?></b><br>
-            <b id="v_coverage"><?php echo $contract[0]['v_coverage'] ?></b><br>
+            <b id="v_cost"></b><br>
+            <b id="v_discount"></b><br>
+            <b id="v_total"></b><br>
+            <b id="v_coverage"></b><br>
             <br>
-            <b id="v_payment"><?php echo $contract[0]['v_payment'] ?></b>
+            <b id="v_payment"></b>
         </div>
     </div>
 
@@ -169,13 +169,13 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             v_discount = <?php echo $contract[0]['v_discount'] ?>,
             v_total = <?php echo $contract[0]['v_total'] ?>,
             v_coverage = <?php echo $contract[0]['v_coverage'] ?>,
-            v_payment = <?php echo $contract[0]['v_payment'] ?> ;
+            v_payment = <?php echo $contract[0]['v_payment'] ?>;
 
-        $('#v_cost').html(Helper.setDefault(Number(v_cost).toLocaleString('es-CL'), '0'));
-        $('#v_discount').html(Helper.setDefault(Number(v_discount).toLocaleString('es-CL'), '0'));
-        $('#v_total').html(Helper.setDefault(Number(v_total).toLocaleString('es-CL'), '0'));
-        $('#v_coverage').html(Helper.setDefault(Number(v_coverage).toLocaleString('es-CL'), '0'));
-        $('#v_payment').html(Helper.setDefault(Number(v_payment).toLocaleString('es-CL'), '0'));
+        $('#v_cost').html(Number(v_cost).toLocaleString('es-CL'));
+        $('#v_discount').html(Number(v_discount).toLocaleString('es-CL'));
+        $('#v_total').html(Number(v_total).toLocaleString('es-CL'));
+        $('#v_coverage').html(Number(v_coverage).toLocaleString('es-CL'));
+        $('#v_payment').html(Number(v_payment).toLocaleString('es-CL'));
 
         let p_cash = <?php echo $contract[0]['p_cash'] ?>,
             p_check = <?php echo $contract[0]['p_check'] ?>,
