@@ -17,7 +17,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 <div class="container">
     <div class="card center" style="font-family:initial;font-size:1.3rem;border:1px solid #777;padding:3rem">
         <div class="row">
-            <div class="col s12"><img style="height:50px" src="/src/img/obi.svg"></div>
+            <div class="col s12"><img style="height:50px" src="/src/img/obi.png"></div>
         </div>
         <div class="row">
             <div class="col s12">Se comunica el sensible fallecimiento de <span><?php echo $_GET['fdbpname'] ?></span> (Q.E.P.D)</div>
