@@ -22,14 +22,9 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                 <div class="col s12 center t-title"><span class="great-vives">Funeraria del Buen Pastor</span>®</div>
             </div>
             <div class="row">
-                <div id="text_1" class="col s6 center t-small">
-                    Avda. Vicuña Mackenna 10.634<br>
-                    P.23 1/2 La Florida<br>
-                    FONO: 22 318 8248 CELULAR: +569 802 3195<br>
-                    www.funerariadelbuenpastor.cl
-                </div>
+                <div id="text_1" class="col s6 center t-small"></div>
                 <div class="col s6 center">
-                    <b id="text_2">CONTRATO / PRESUPUESTO<br> INTERNO</b>
+                    <b id="text_2"></b>
                     <b style="font-size:18px"><br>Nº: <span id="id"><?php echo $contract[0]['id'] ?></span></b>
                 </div>
             </div>
@@ -101,19 +96,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
     <div class="row">
         <div class="col s7">
-            <p id="text_3" class="t-just t-small">
-                La persona que firma el presente contrato privado, se
-                responsabiliza por todo el pago del servicio, así como
-                también de los cheques que pudieran extenderse con el
-                fin de pagar a la Funeraria del Buen Pastor en los
-                plazos y fechas pactadas y específicas en el contrato,
-                las cuotas mortuorias del IPS y de AFP se darán por
-                pagadas unicamente cuando estas las hagan efectivas, de
-                lo contrario el contratante se responsabilizará del
-                pago a la funeraria del total de los aranceles que
-                cubran estos beneficios, el presente contrato lo firma
-                exclusivamente el contratante del servicio.
-            </p>
+            <p id="text_3" class="t-just t-small"></p>
         </div>
         <div class="col s2">
             Valor del Servicio<br>
@@ -135,12 +118,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
     <div class="row">
         <div class="col s7 t-just t-small">
-            <b id="text_4">
-                Para pago con transferencia electrónica los datos son:
-                Cuenta Corriente, Banco BBVA Nº 4330100037682,
-                Rut 12.060.286-1, Alejandra Silva Morales, email:
-                alejandra@funerariadelbuenpastor.cl
-            </b>
+            <b id="text_4"></b>
         </div>
         <div class="col s5">
             El saldo es pagado con:<br>
