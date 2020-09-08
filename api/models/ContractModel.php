@@ -18,7 +18,7 @@ class Contract extends Model {
      *
      * @return array
      */
-    public function list (): array {
+    public function list ($id = 0): array {
         $query = 'SELECT 
             c.id, 
             if(c.invoice = 0, "", c.invoice) invoice,
@@ -87,6 +87,9 @@ class Contract extends Model {
             INNER JOIN providers pro ON pro.id = c.v_provider_id
             INNER JOIN insurances ins ON ins.id = c.v_insurance_id
         WHERE c.active = 1';
+        if ($id !== 0) {
+            $query .= ' AND c.id = ' . $id;
+        }
         $result = MySQL::ComplexSelect($query);
         if ($result['status'] === 'success') {
             return $result['response'];

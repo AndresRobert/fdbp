@@ -217,10 +217,15 @@ class Contracts extends Response {
                     $to = $fields['email'];
                     $subject = "Contrato Funeraria del Buen Pastor";
 
-                    $headers = "MIME-Version: 1.0?" . "\r\n";
-                    $headers .= "Content-type: text/html; charset=iso-8859-1?" . "\r\n";
+                    $headers = "From: " . strip_tags("contacto@funerariadelbuenpastor.cl") . "\r\n";
+                    $headers .= "Reply-To: ". strip_tags("contacto@funerariadelbuenpastor.cl") . "\r\n";
+                    $headers .= "MIME-Version: 1.0\r\n";
+                    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-                    $message = file_get_contents("https://fdbp.acode.cl/app/preview/contract.php?contract=" . $fields['id']);
+                    $Contract = new Contract();
+                    $contract = $Contract->list($fields['id']);
+                    $content = base64_encode(serialize($contract));
+                    $message = '<a href="fdbp.acode.cl/app/preview/external.php?content=' . $content . '">Ver Contrato</a>';
 
                     $ok = mail($to, $subject, $message, $headers);
 
