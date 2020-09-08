@@ -20,14 +20,14 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                 <div class="col s12 center t-title"><span class="great-vives">Funeraria del Buen Pastor</span>®</div>
             </div>
             <div class="row">
-                <div class="col s6 center t-small">
+                <div id="text_1" class="col s6 center t-small">
                     Avda. Vicuña Mackenna 10.634<br>
                     P.23 1/2 La Florida<br>
                     FONO: 22 318 8248 CELULAR: +569 802 3195<br>
                     www.funerariadelbuenpastor.cl
                 </div>
                 <div class="col s6 center">
-                    <b>CONTRATO / PRESUPUESTO<br> INTERNO</b>
+                    <b id="text_2">CONTRATO / PRESUPUESTO<br> INTERNO</b>
                     <b style="font-size:18px"><br>Nº: <span id="id">99999</span></b>
                 </div>
             </div>
@@ -99,7 +99,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
     <div class="row">
         <div class="col s7">
-            <p class="t-just t-small">
+            <p id="text_3" class="t-just t-small">
                 La persona que firma el presente contrato privado, se
                 responsabiliza por todo el pago del servicio, así como
                 también de los cheques que pudieran extenderse con el
@@ -133,7 +133,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
     <div class="row">
         <div class="col s7 t-just t-small">
-            <b>
+            <b id="text_4">
                 Para pago con transferencia electrónica los datos son:
                 Cuenta Corriente, Banco BBVA Nº 4330100037682,
                 Rut 12.060.286-1, Alejandra Silva Morales, email:
@@ -266,7 +266,8 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                     }
                 })
                 .catch( e => console.log(e) );
-        } else {
+        }
+        else {
             data['f_date'] = data['f_datetime'].substring(0,10);
             data['f_time'] = data['f_datetime'].substring(11,16);
             data['c_comune_name'] = Helper.List.getById(comunes, data['c_comune_id']);
@@ -280,6 +281,23 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             data['v_service_name'] = Helper.List.getById(services, data['v_service_id']);
             setPrintable(data);
         }
+
+        Api.post(Api.endpoints['texts'], true)
+            .then(({ status, response }) => {
+                if (status === 'OK') {
+                    M.toast({ html: response.message });
+                    if (response.status === 'success') {
+                        let textsContainer = $('#texts_container');
+                        $.each( response.list, function( _, text ) {
+                            if (text.id === 5) {
+                                return false;
+                            }
+                            $('#text_' + text.id).html(text.text);
+                        });
+                    }
+                }
+            })
+            .catch( e => console.log(e) );
     });
 
 </script>
