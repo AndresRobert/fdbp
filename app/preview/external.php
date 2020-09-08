@@ -12,6 +12,7 @@ setlocale(LC_ALL,"es_ES");
     <?php include '../layout/ext_head.php' ?>
 </head>
 <body class="preview" style="background-color: #EEE; position: unset; font-size: 0.9rem">
+<pre><?php print_r($contract) ?></pre>
 <div class="content printable-page">
     <div class="row">
         <div class="col s3 isotype">
