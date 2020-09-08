@@ -7,7 +7,8 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 <html lang="es">
 
 <head>
-    <title>Obituario</title>
+    <title>Obituario <?php echo $_GET['fdbpname'] ?></title>
+    <description><?php echo $_GET['fdbpmessage'] ?></description>
     <?php include '../layout/head.php' ?>
 </head>
 
