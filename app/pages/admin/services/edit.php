@@ -3,7 +3,7 @@
     <div class="modal-content">
         <div class="row">
             <div class="input-field col s12">
-                <input id="ser_edit_name" type="text" class="validate" required>
+                <input placeholder="Tipo de Servicio" id="ser_edit_name" type="text" class="validate" required>
                 <label for="ser_edit_name">Nombre</label>
             </div>
         </div>
