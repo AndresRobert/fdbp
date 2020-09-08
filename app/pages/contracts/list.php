@@ -69,7 +69,7 @@
                                     {
                                         "mRender": function (d, t, row) {
                                             if (row.paid === '1') {
-                                                return '<i data-tooltip="Pagado" class="tooltipped material-icons green-text">radio_button_checked</i>';
+                                                return '<i data-tooltip="Pagado ' + row.paid_date + '" class="tooltipped material-icons green-text">radio_button_checked</i>';
                                             }
                                             else if (row.paid === '0') {
                                                 return '<i data-tooltip="Pendiente" class="tooltipped material-icons red-text">radio_button_unchecked</i>';
@@ -172,19 +172,20 @@
                                                 btnEmailSend = '<a href="#!" onclick="contractSend(' + row.id + ')" data-tooltip="Enviar Email" class="tooltipped btn-flat"><i class="material-icons">mail</i></a>',
                                                 btnPublish = '<a href="#!" onclick="contractPublish(' + row.id + ')" data-tooltip="Publicar en Facebook" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
                                             if (row.invoice === '') {
-                                                btnPayment = '<a href="#!" data-tooltip="Sin Factura" class="tooltipped btn-flat disabled" ><i class="material-icons">local_atm</i></a>';
+                                                btnPayment = '<a href="#!" data-tooltip="Sin Factura" class="tooltipped btn-flat grey-text" ><i class="material-icons">local_atm</i></a>';
                                             } else {
                                                 if (row.paid === '1') {
-                                                    btnEdit = '<a href="#!" data-tooltip="No Editable" class="tooltipped btn-flat disabled"><i class="material-icons">edit</i></a>';
-                                                    btnDelete = '<a href="#!" data-tooltip="No Eliminable" class="tooltipped btn-flat disabled"><i class="material-icons">delete_forever</i></a>';
-                                                    btnInvoice = '<a href="#!" data-tooltip="Factura Ya Asociada" class="tooltipped btn-flat disabled"><i class="material-icons">description</i></a>';
+                                                    btnEdit = '<a href="#!" data-tooltip="No Editable" class="tooltipped btn-flat grey-text"><i class="material-icons">edit</i></a>';
+                                                    btnDelete = '<a href="#!" data-tooltip="No Eliminable" class="tooltipped btn-flat grey-text"><i class="material-icons">delete_forever</i></a>';
+                                                    btnInvoice = '<a href="#!" data-tooltip="Factura Ya Asociada" class="tooltipped btn-flat grey-text"><i class="material-icons">description</i></a>';
+                                                    btnPayment = '<a href="#!" data-tooltip="Pagado" class="tooltipped btn-flat grey-text"><i class="material-icons">local_atm</i></a>';
                                                 }
                                             }
                                             if (row.s_email === 'No Informado') {
-                                                btnEmailSend = '<a href="#!" data-tooltip="Sin Email" class="tooltipped btn-flat disabled"><i class="material-icons">mail</i></a>';
+                                                btnEmailSend = '<a href="#!" data-tooltip="Sin Email" class="tooltipped btn-flat grey-text"><i class="material-icons">mail</i></a>';
                                             }
                                             if (row.v_warning === '') {
-                                                btnPublish = '<a href="#!" data-tooltip="Sin Aviso" class="tooltipped btn-flat disabled"><i class="material-icons">record_voice_over</i></a>';
+                                                btnPublish = '<a href="#!" data-tooltip="Sin Aviso" class="tooltipped btn-flat grey-text"><i class="material-icons">record_voice_over</i></a>';
                                             }
                                             return '<a href="#!" onclick="contractView(' + row.id + ')" data-tooltip="Ver" class="tooltipped btn-flat"><i class="material-icons">remove_red_eye</i></a>' +
                                                 btnEdit + btnDelete + btnInvoice + btnPayment + btnEmailSend + btnPublish;
