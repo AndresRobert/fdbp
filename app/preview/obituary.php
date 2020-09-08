@@ -19,16 +19,16 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             <div class="col s12"><img style="height:50px" src="/src/img/obi.png"></div>
         </div>
         <div class="row">
-            <div class="col s12"><span id="text_9">Se comunica el sensible fallecimiento de </span><?php echo $_GET['fdbpname'] ?> (Q.E.P.D)</div>
+            <div class="col s12"><span id="text_9"></span> <?php echo $_GET['fdbpname'] ?> (Q.E.P.D)</div>
         </div>
         <div class="row">
-            <div class="col s12"><span id="text_10">El funeral se llevará a cabo en </span><?php echo $_GET['fdbpplace'] ?> el dia <span><?php echo $strDate ?></span> a las <span><?php echo substr($_GET['fdbptime'], 0, 5) ?> horas.</span></div>
+            <div class="col s12"><span id="text_10"></span> <?php echo $_GET['fdbpplace'] ?> el dia <span><?php echo $strDate ?></span> a las <span><?php echo substr($_GET['fdbptime'], 0, 5) ?> horas.</span></div>
         </div>
         <div class="row">
             <div class="col s12"><i>"<?php echo $_GET['fdbpmessage'] ?>"</i></div>
         </div>
         <div class="row">
-            <div class="col s12 gray-text" style="font-size:1rem"><span id="text_11">Obituario, gentileza de la Funeraria del Buen Pastor</span></div>
+            <div class="col s12 gray-text" style="font-size:1rem"><span id="text_11"></span></div>
         </div>
     </div>
 </div>
