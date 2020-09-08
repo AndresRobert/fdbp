@@ -1,9 +1,9 @@
 <?php
 $contract = base64_decode($_GET['content']);
 //$u_contract = unserialize($contract, false);
-setlocale(LC_ALL,"es_ES");
-$date = DateTime::createFromFormat("Y-m-d", $contract['date']);
-$strDate = strftime("%e de %B del %G",$date->getTimestamp());
+//setlocale(LC_ALL,"es_ES");
+//$date = DateTime::createFromFormat("Y-m-d", $contract['date']);
+//$strDate = strftime("%e de %B del %G",$date->getTimestamp());
 ?>
 <!DOCTYPE html>
 <html lang="es">
