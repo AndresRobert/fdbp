@@ -252,7 +252,7 @@
             }
 
             function contractPublish(name, message, date) {
-                Helper.openLink('https://fdbp.acode.cl/app/obituary.php?name=' + name + '&message=' + message + '&date=' + date, '_blank');
+                Helper.openLink('https://fdbp.acode.cl/app/preview/obituary.php?name=' + name + '&message=' + message + '&date=' + date, '_blank');
                 //Helper.openLink('https://www.facebook.com/sharer/sharer.php?u=' + Config.siteHome + '&quote=' + encodeURIComponent(text), '_blank');
                 //M.toast({ html: 'To be implemented' });
             }
