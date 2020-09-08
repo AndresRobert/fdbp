@@ -225,7 +225,13 @@ class Contracts extends Response {
                     $Contract = new Contract();
                     $contract = $Contract->list($fields['id']);
                     $content = base64_encode(serialize($contract));
-                    $message = '<a href="fdbp.acode.cl/app/preview/external.php?content=' . $content . '">Ver Contrato</a>';
+
+                    $message = '
+                    <h5>Funeraria del Buen Pastor</h5>
+                    <p>Adjunto en este correo va un link para revisar el contrato generado</p><br>
+                    <a href="fdbp.acode.cl/app/preview/external.php?content=' . $content . '">Ver Contrato</a><br><br>
+                    <p><small><i>Si usted no ha realizado ningun contrato con la funeraria, por favor ignore este correo.</i></small></p>
+                    ';
 
                     $ok = mail($to, $subject, $message, $headers);
 
