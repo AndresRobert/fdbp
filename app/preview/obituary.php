@@ -8,7 +8,6 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
 <head>
     <title>Obituario <?php echo $_GET['fdbpname'] ?></title>
-    <description><?php echo $_GET['fdbpmessage'] ?></description>
     <?php include '../layout/head.php' ?>
 </head>
 

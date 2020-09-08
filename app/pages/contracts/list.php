@@ -254,7 +254,7 @@
             function contractPublish(name, message, place, date, time) {
                 let url = 'https://fdbp.acode.cl/app/preview/obituary.php?fdbpname=' + name + '&fdbpmessage=' + message + '&fdbpplace=' + place + '&fdbpdate=' + date + '&fdbptime=' + time;
                 //Helper.openLink(url, '_blank');
-                Helper.openLink('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(name), '_blank');
+                Helper.openLink('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(message), '_blank');
                 //M.toast({ html: 'To be implemented' });
             }
 
