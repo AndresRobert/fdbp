@@ -4,7 +4,7 @@ $date = DateTime::createFromFormat("Y-m-d", $_GET['fdbpdate']);
 $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="background-color:#ddd">
 
 <head>
     <title>Obituario <?php echo $_GET['fdbpname'] ?></title>
@@ -13,8 +13,8 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 
 <body>
 
-<div class="container">
-    <div class="card center" style="font-family:initial;font-size:1.3rem;border:1px solid #777;padding:3rem">
+<div class="container" style="max-width:45rem;padding-top:5rem">
+    <div class="card center" style="font-family:initial;font-size:1.3rem;padding:3rem">
         <div class="row">
             <div class="col s12"><img style="height:50px" src="/src/img/obi.png"></div>
         </div>
