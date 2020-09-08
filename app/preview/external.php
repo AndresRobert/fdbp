@@ -12,7 +12,6 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     <?php include '../layout/ext_head.php' ?>
 </head>
 <body style="background-color: #EEE; position: unset; font-size: 0.9rem">
-<pre><?php print_r($contract[0]) ?></pre>
 <div class="content printable-page">
     <div class="row">
         <div class="col s3 isotype">
@@ -89,7 +88,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         </div>
         <div class="col s5">
             Fecha Funeral: <span id="f_date"><?php echo $contract[0]['f_date'] ?></span><br>
-            Hora de Llegada: <span id="f_time"><?php echo $contract[0]['f_time'] ?></span>
+            Hora de Llegada: <span id="f_time"><?php echo substr($contract[0]['f_time'], 0, 5) ?></span>
         </div>
     </div>
 
@@ -165,6 +164,18 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 <script>
 
     function setPrintable() {
+
+        let v_cost = <?php echo $contract[0]['v_cost'] ?>,
+            v_discount = <?php echo $contract[0]['v_discount'] ?>,
+            v_total = <?php echo $contract[0]['v_total'] ?>,
+            v_coverage = <?php echo $contract[0]['v_coverage'] ?>,
+            v_payment = <?php echo $contract[0]['v_payment'] ?> ;
+
+        $('#v_cost').html(Helper.setDefault(Number(v_cost).toLocaleString('es-CL'), '0'));
+        $('#v_discount').html(Helper.setDefault(Number(v_discount).toLocaleString('es-CL'), '0'));
+        $('#v_total').html(Helper.setDefault(Number(v_total).toLocaleString('es-CL'), '0'));
+        $('#v_coverage').html(Helper.setDefault(Number(v_coverage).toLocaleString('es-CL'), '0'));
+        $('#v_payment').html(Helper.setDefault(Number(v_payment).toLocaleString('es-CL'), '0'));
 
         let p_cash = <?php echo $contract[0]['p_cash'] ?>,
             p_check = <?php echo $contract[0]['p_check'] ?>,
