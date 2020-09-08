@@ -17,7 +17,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         </div>
         <div class="col s9 info">
             <div class="row">
-                <div class="col s12 center great-vives t-title">Funeraria del Buen Pastor</div>
+                <div class="col s12 center t-title"><span class="great-vives">Funeraria del Buen Pastor</span>®</div>
             </div>
             <div class="row">
                 <div class="col s6 center t-small">
