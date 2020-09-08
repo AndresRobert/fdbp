@@ -1,3 +1,6 @@
+let Config = {};
+Config.siteHome = 'http://www.funerariadelbuenpastor.cl';
+
 let Helper = {};
 Helper.openLink = (link = '', target = '') => {
     if (link !== '') {
