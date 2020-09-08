@@ -34,6 +34,7 @@ Route::Create('POST', '/provider/add', 'admin/saveProvider');
 Route::Create('POST', '/provider/delete', 'admin/deleteProvider');
 
 Route::Create('POST', '/texts/list', 'admin/getTexts');
+Route::Create('POST', '/texts/save', 'admin/saveText');
 
 Route::Create('POST', '/contracts/list', 'contracts/list');
 Route::Create('POST', '/contracts/list/one', 'contracts/list');

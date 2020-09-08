@@ -205,6 +205,7 @@ Api.endpoints = {
     'provider_add': '/api/provider/add',
 
     'texts': '/api/texts/list',
+    'text_update': '/api/texts/save',
 
     'contracts': '/api/contracts/list',
     'contract_get': '/api/contracts/list/one',

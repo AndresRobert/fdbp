@@ -385,4 +385,40 @@ class Admin extends Response {
         ];
     }
 
+    public function saveText (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Texto guardado correctamente';
+
+                if (!isset($fields['id']) && $fields['id'] === '') {
+                    $message = 'El texto solicitado no existe';
+                    $status = 'fail';
+                }
+
+                if ($fields['text'] === '') {
+                    $message = 'Debe ingresar un texto';
+                    $status = 'fail';
+                }
+
+                if ($status === 'success') {
+                    $Text = new Text();
+                    $Text->set(['id' => $fields['id']]);
+                    $Text->read();
+                    $Text->set(['text' => $fields['text']]);
+                    if (!$Text->update()) {
+                        $status = 'fail';
+                        $message = 'No fue posible actualizar el texto';
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message,
+                    'fields' => $fields
+                ];
+            }
+        );
+    }
+
 }
