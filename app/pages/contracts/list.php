@@ -169,7 +169,7 @@
                                                 btnDelete = '<a href="#!" onclick="contractDelete(' + row.id + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>',
                                                 btnInvoice = '<a href="#!" onclick="contractAddInvoice(' + row.id + ')" data-tooltip="Asociar Factura" class="tooltipped btn-flat"><i class="material-icons">description</i></a>',
                                                 btnPayment = '<a href="#!" onclick="contractAddPayment(' + row.id + ')" data-tooltip="Informar Pago" class="tooltipped btn-flat"><i class="material-icons">local_atm</i></a>',
-                                                btnEmailSend = '<a href="#!" onclick="contractSend(' + row.id + ')" data-tooltip="Enviar Email" class="tooltipped btn-flat"><i class="material-icons">mail</i></a>',
+                                                btnEmailSend = '<a href="#!" onclick="contractSend(' + row.id + ', \'' + row.s_email + '\')" data-tooltip="Enviar Email" class="tooltipped btn-flat"><i class="material-icons">mail</i></a>',
                                                 btnPublish = '<a href="#!" onclick="contractPublish(\'' + row.d_name + '\', \'' + row.v_warning + '\', \'' + row.c_church + '\', \'' + row.f_date + '\', \'' + row.f_time + '\')" data-tooltip="Publicar en Facebook" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
                                             if (row.invoice === '') {
                                                 btnPayment = '<a href="#!" data-tooltip="Sin Factura" class="tooltipped btn-flat grey-text" ><i class="material-icons">local_atm</i></a>';
@@ -253,13 +253,27 @@
 
             function contractPublish(name, message, place, date, time) {
                 let url = 'https://fdbp.acode.cl/app/preview/obituary.php?fdbpname=' + name + '&fdbpmessage=' + message + '&fdbpplace=' + place + '&fdbpdate=' + date + '&fdbptime=' + time;
-                //Helper.openLink(url, '_blank');
                 Helper.openLink('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(message), '_blank');
-                //M.toast({ html: 'To be implemented' });
             }
 
-            function contractSend() {
-                M.toast({ html: 'To be implemented' });
+            function contractSend(id, email) {
+                Api.post(Api.endpoints['contract_email'], true, { id: id, email: email })
+                    .then(({ status, response }) => {
+                        if (status === 'error') {
+                            M.toast({ html: 'Hubo un error al intentar enviar el contrato'});
+                        }
+                        if (status === 'fail') {
+                            M.toast({ html: 'Session expirada, cierre esta vista y vuelva a intentarlo'});
+                            Helper.openLink('/');
+                        } else {
+                            if (response.status !== 'fail') {
+                                M.toast({ html: 'Contrato enviado' });
+                            } else {
+                                M.toast({ html: 'Hubo un error al intentar enviar el contrato' });
+                            }
+                        }
+                    })
+                    .catch( e => console.log(e) );
             }
 
             function contractDelete(id) {

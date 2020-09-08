@@ -206,4 +206,36 @@ class Contracts extends Response {
         );
     }
 
+    public function sendByEmail (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Contrato enviado correctamente';
+
+                if (isset($fields['id']) && $fields['id'] !== '') {
+
+                    $to = $fields['email'];
+                    $subject = "Contrato Funeraria del Buen Pastor";
+
+                    $headers = "MIME-Version: 1.0?" . "\r\n";
+                    $headers .= "Content-type: text/html; charset=iso-8859-1?" . "\r\n";
+
+                    $message = file_get_contents("https://fdbp.acode.cl/app/preview/contract.php?contract=" . $fields['id']);
+
+                    $ok = mail($to, $subject, $message, $headers);
+
+                    if (!$ok) {
+                        $status = 'fail';
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message,
+                    'fields' => $fields
+                ];
+            }
+        );
+    }
+
 }

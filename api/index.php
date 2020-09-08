@@ -39,6 +39,7 @@ Route::Create('POST', '/contract/add', 'contracts/save');
 Route::Create('POST', '/contract/delete', 'contracts/delete');
 Route::Create('POST', '/contract/invoice', 'contracts/addInvoice');
 Route::Create('POST', '/contract/payment', 'contracts/togglePayment');
+Route::Create('POST', '/contract/byEmail', 'contracts/sendByEmail');
 
 // RENDER RESPONSE
 echo Route::Read(METHOD, REQUEST, BODY);
