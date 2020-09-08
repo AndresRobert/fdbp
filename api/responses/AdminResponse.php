@@ -5,6 +5,7 @@ require_once MDL.'ComuneModel.php';
 require_once MDL.'InsuranceModel.php';
 require_once MDL.'ProviderModel.php';
 require_once MDL.'ServiceModel.php';
+require_once MDL.'TextModel.php';
 
 use Base\Response;
 
@@ -369,6 +370,21 @@ class Admin extends Response {
                 return [
                     'status' => $status,
                     'message' => $message
+                ];
+            }
+        );
+    }
+
+    public function getTexts(): array
+    {
+        return self::RequiresAuthorization(
+            static function () {
+                $list = (new Text())->filter(['id', 'text', 'observation']);
+
+                return [
+                    'status' => 'success',
+                    'message' => 'Textos cargados',
+                    'list' => $list['response'],
                 ];
             }
         );

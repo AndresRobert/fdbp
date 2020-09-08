@@ -204,6 +204,8 @@ Api.endpoints = {
     'provider_del': '/api/provider/delete',
     'provider_add': '/api/provider/add',
 
+    'texts': '/texts/list',
+
     'contracts': '/api/contracts/list',
     'contract_get': '/api/contracts/list/one',
     'contract_add': '/api/contract/add',
