@@ -6,7 +6,11 @@
         .then(({ status, response }) => {
             if (status === 'OK') {
                 M.toast({ html: response.message });
-                console.log(response);
+                if (response.status === 'success') {
+                    $.each( response.list, function( _, text ) {
+                        console.log(text);
+                    });
+                }
             }
         })
         .catch( e => console.log(e) );
