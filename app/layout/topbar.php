@@ -25,7 +25,15 @@
 
 <ul class="sidenav" id="mobile-nav">
     <li><a href="contracts.php"><i class="material-icons">business_center</i>Contratos</a></li>
-    <li><a href="quotations.php"><i class="material-icons">content_paste</i>Cotizaciones</a></li>
-    <li><a href="admin.php"><i class="material-icons">tune</i>Administración</a></li>
-    <li><a href="#" onclick="Auth.logout()"><i class="material-icons">power_settings_new</i>Salir</a></li>
+    <li><a href="#!"><i class="material-icons">content_paste</i>Cotizaciones</a></li>
+    <li>
+        <a href="#!"><i class="material-icons">tune</i>Administración</a>
+        <ul>
+            <li><a href="services.php">Tipos de Servicio</a></li>
+            <li><a href="providers.php">Proveedores</a></li>
+            <li><a href="insurances.php">Aseguradoras</a></li>
+            <li><a href="cementeries.php">Cementerios</a></li>
+        </ul>
+    </li>
+    <li><a href="#!" onclick="Auth.logout()"><i class="material-icons">power_settings_new</i>Salir</a></li>
 </ul>
