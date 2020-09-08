@@ -11,10 +11,10 @@
                     $.each( response.list, function( _, text ) {
                         textsContainer
                             .append('<div class="row"><div class="col s6">' +
-                                '   <p>' + text.observation + '</p>' +
+                                '   <p class="teal-text">' + text.observation + '</p>' +
                                 '</div>' +
                                 '<div class="col s6">' +
-                                '   <textarea id="text_' + text.id + '" class="materialize-textarea">' + text.text + '</textarea>' +
+                                '   <textarea style="height:20rem" id="text_' + text.id + '" class="materialize-textarea">' + text.text + '</textarea>' +
                                 '</div></div>');
                     });
                 }
