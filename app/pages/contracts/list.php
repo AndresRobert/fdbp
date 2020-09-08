@@ -170,7 +170,7 @@
                                                 btnInvoice = '<a href="#!" onclick="contractAddInvoice(' + row.id + ')" data-tooltip="Asociar Factura" class="tooltipped btn-flat"><i class="material-icons">description</i></a>',
                                                 btnPayment = '<a href="#!" onclick="contractAddPayment(' + row.id + ')" data-tooltip="Informar Pago" class="tooltipped btn-flat"><i class="material-icons">local_atm</i></a>',
                                                 btnEmailSend = '<a href="#!" onclick="contractSend(' + row.id + ')" data-tooltip="Enviar Email" class="tooltipped btn-flat"><i class="material-icons">mail</i></a>',
-                                                btnPublish = '<a href="#!" onclick="contractPublish(\'' + row.v_warning + '\')" data-tooltip="Publicar en Facebook" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
+                                                btnPublish = '<a href="#!" onclick="contractPublish(\'' + row.d_name + '\', \'' + row.v_warning + '\', \'' + row.f_date + '\')" data-tooltip="Publicar en Facebook" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
                                             if (row.invoice === '') {
                                                 btnPayment = '<a href="#!" data-tooltip="Sin Factura" class="tooltipped btn-flat grey-text" ><i class="material-icons">local_atm</i></a>';
                                             } else {
@@ -251,8 +251,9 @@
                     .catch( e => console.log(e) );
             }
 
-            function contractPublish(text) {
-                Helper.openLink('https://www.facebook.com/sharer/sharer.php?u=' + Config.siteHome + '&quote=' + encodeURIComponent(text), '_blank');
+            function contractPublish(name, message, date) {
+                Helper.openLink('https://fdbp.acode.cl/app/obituary.php?name=' + name + '&message=' + message + '&date=' + date, '_blank');
+                //Helper.openLink('https://www.facebook.com/sharer/sharer.php?u=' + Config.siteHome + '&quote=' + encodeURIComponent(text), '_blank');
                 //M.toast({ html: 'To be implemented' });
             }
 
