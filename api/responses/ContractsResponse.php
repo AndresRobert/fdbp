@@ -227,7 +227,7 @@ class Contracts extends Response {
                     $content = base64_encode(serialize($contract));
 
                     $message = '<div style="background-color:#EEE;padding:40px">
-                        <div style="border-radius:5px;border:1px solid #eee;background:#FFF;padding:20px;box-shadow:0 10px 25px -20px black">
+                        <div style="border-radius:5px;border:1px solid #eee;background:#FFF;padding:20px;box-shadow:0 10px 25px -20px #000">
                             <h3 style="font-size:20px;margin:10px 0">Funeraria del Buen Pastor</h3>
                             <p>Adjunto en este correo va un link para revisar e imprimir el contrato generado</p><br>
                             <a style="border: 1px solid #BBB;padding:10px 20px;border-radius:3px;color:#444;text-decoration:none" href="https://fdbp.acode.cl/app/preview/external.php?content=' . $content . '">Ver Contrato</a><br><br>
