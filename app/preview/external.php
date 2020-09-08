@@ -1,9 +1,9 @@
 <?php
-$contract = base64_decode($_GET['content']);
-$u_contract = unserialize($contract);
-//setlocale(LC_ALL,"es_ES");
-//$date = DateTime::createFromFormat("Y-m-d", $contract['date']);
-//$strDate = strftime("%e de %B del %G",$date->getTimestamp());
+$content = base64_decode($_GET['content']);
+$contract = unserialize($contract);
+setlocale(LC_ALL,"es_ES");
+$date = DateTime::createFromFormat("Y-m-d", $contract['date']);
+$strDate = strftime("%e de %B del %G",$date->getTimestamp());
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,9 +12,6 @@ $u_contract = unserialize($contract);
     <?php include '../layout/ext_head.php' ?>
 </head>
 <body class="preview" style="background-color: #EEE; position: unset; font-size: 0.9rem">
-<pre><?php print_r($_GET['content']) ?></pre>
-<pre><?php print_r($contract) ?></pre>
-<pre><?php print_r($u_contract) ?></pre>
 <div class="content printable-page">
     <div class="row">
         <div class="col s3 isotype">
