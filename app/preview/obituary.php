@@ -14,7 +14,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 <body>
 
 <div class="container">
-    <div class="card center" style="border:1px solid #777;padding:3rem">
+    <div class="card center" style="font-family:initial;font-size:1.3rem;border:1px solid #777;padding:3rem">
         <div class="row">
             <div class="col s12"><img style="height:50px" src="/src/img/obi.svg"></div>
         </div>
@@ -28,7 +28,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             <div class="col s12"><i>"<?php echo $_GET['message'] ?>"</i></div>
         </div>
         <div class="row">
-            <div class="col s12 gray-text">Obituario, gentileza <span>Funeraria del Buen Pastor</span></div>
+            <div class="col s12 gray-text" style="font-size:1rem">Obituario, gentileza <span>Funeraria del Buen Pastor</span></div>
         </div>
     </div>
 </div>
