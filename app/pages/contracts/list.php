@@ -170,7 +170,7 @@
                                                 btnInvoice = '<a href="#!" onclick="contractAddInvoice(' + row.id + ')" data-tooltip="Asociar Factura" class="tooltipped btn-flat"><i class="material-icons">description</i></a>',
                                                 btnPayment = '<a href="#!" onclick="contractAddPayment(' + row.id + ')" data-tooltip="Informar Pago" class="tooltipped btn-flat"><i class="material-icons">local_atm</i></a>',
                                                 btnEmailSend = '<a href="#!" onclick="contractSend(' + row.id + ')" data-tooltip="Enviar Email" class="tooltipped btn-flat"><i class="material-icons">mail</i></a>',
-                                                btnPublish = '<a href="#!" onclick="contractPublish(' + row.v_warning + ')" data-tooltip="Publicar en Facebook" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
+                                                btnPublish = '<a href="#!" onclick="contractPublish(\'' + row.v_warning + '\')" data-tooltip="Publicar en Facebook" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
                                             if (row.invoice === '') {
                                                 btnPayment = '<a href="#!" data-tooltip="Sin Factura" class="tooltipped btn-flat grey-text" ><i class="material-icons">local_atm</i></a>';
                                             } else {
