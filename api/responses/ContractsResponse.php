@@ -226,12 +226,14 @@ class Contracts extends Response {
                     $contract = $Contract->list($fields['id']);
                     $content = base64_encode(serialize($contract));
 
-                    $message = '
-                    <h5>Funeraria del Buen Pastor</h5>
-                    <p>Adjunto en este correo va un link para revisar el contrato generado</p><br>
-                    <a href="fdbp.acode.cl/app/preview/external.php?content=' . $content . '">Ver Contrato</a><br><br>
-                    <p><small><i>Si usted no ha realizado ningun contrato con la funeraria, por favor ignore este correo.</i></small></p>
-                    ';
+                    $message = '<div style="background-color:#EEE;padding:40px">
+                        <div style="border-radius:3px;border:1px solid #ddd">
+                            <h3 style="font-size:20px;margin:10px 0">Funeraria del Buen Pastor</h3>
+                            <p>Adjunto en este correo va un link para revisar e imprimir el contrato generado</p><br>
+                            <a style="border: 1px solid #BBB;padding:10px 20px;border-radius:3px;color:#444;text-decoration:none" href="https://fdbp.acode.cl/app/preview/external.php?content=' . $content . '">Ver Contrato</a><br><br>
+                            <p style="text-align:right;color:#999"><small><i>Si usted no ha realizado ningun contrato con la funeraria, por favor ignore este correo.</i></small></p>
+                        </div>
+                    </div>';
 
                     $ok = mail($to, $subject, $message, $headers);
 
