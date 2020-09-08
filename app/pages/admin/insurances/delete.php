@@ -5,6 +5,7 @@
         <p>¿Está seguro de que desea eliminar esta aseguradora: <span id="ins_del_name"></span>?</p>
     </div>
     <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-googleBlue btn-flat">Cancelar</a>
         <a href="#!" onclick="deleteThisInsurance()" class="modal-close waves-effect waves-light red btn-small">Eliminar</a>
     </div>
 </div>

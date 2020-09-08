@@ -5,6 +5,7 @@
         <p>¿Está seguro de que desea eliminar este tipo de servicio: <span id="ser_del_name"></span>?</p>
     </div>
     <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-googleBlue btn-flat">Cancelar</a>
         <a href="#!" onclick="deleteThisService()" class="modal-close waves-effect waves-light red btn-small">Eliminar</a>
     </div>
 </div>

@@ -46,7 +46,7 @@
 
             function insuranceEdit(id, name) {
                 $('#ins_edit_id').val(id);
-                $('#ins_edit_name').val(name);
+                $('#ins_edit_name').val(name).trigger('focus');
                 const Modal = $('#editInsurance');
                 Modal.modal('open');
             }

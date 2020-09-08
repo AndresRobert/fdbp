@@ -46,7 +46,7 @@
 
             function cementeryEdit(id, name) {
                 $('#cem_edit_id').val(id);
-                $('#cem_edit_name').val(name);
+                $('#cem_edit_name').val(name).trigger('focus');
                 const Modal = $('#editCementery');
                 Modal.modal('open');
             }

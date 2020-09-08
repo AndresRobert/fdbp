@@ -46,7 +46,7 @@
 
             function providerEdit(id, name) {
                 $('#pro_edit_id').val(id);
-                $('#pro_edit_name').val(name);
+                $('#pro_edit_name').val(name).trigger('focus');
                 const Modal = $('#editProvider');
                 Modal.modal('open');
             }

@@ -46,7 +46,7 @@
 
             function serviceEdit(id, name) {
                 $('#ser_edit_id').val(id);
-                $('#ser_edit_name').val(name);
+                $('#ser_edit_name').val(name).trigger('focus');
                 const Modal = $('#editService');
                 Modal.modal('open');
             }

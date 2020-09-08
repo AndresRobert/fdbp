@@ -9,6 +9,7 @@
         </div>
     </div>
     <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-googleBlue btn-flat">Cancelar</a>
         <a href="#!" onclick="editThisInsurance()" class="waves-effect waves-light teal btn-small">Editar</a>
     </div>
 </div>
