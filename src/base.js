@@ -329,11 +329,17 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
             AutoLists[listName] = {};
             let autocompleteArray = [];
             $.each(list, function( _, { id, name } ) {
+                AutoLists[listName].put = {id: id, name: name};
                 autocompleteArray.push('"' + name + '": null');
             });
             let autocompleteData = '{' + autocompleteArray.join(',') + '}';
             $(autocompleteId).autocomplete({
-                data: JSON.parse(autocompleteData)
+                data: JSON.parse(autocompleteData),
+                minLength: 0,
+                onAutocomplete: (target) => {
+                    console.log('element', target);
+                    console.log('list', )
+                },
             });
         }
     } else {
