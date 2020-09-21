@@ -31,8 +31,7 @@
                 if (status === 'OK') {
                     M.toast({ html: response.message });
                     if (response.status !== 'fail') {
-                        Helper.openLink('/app/preview/contract.php?contract=' + response.id, '_blank');
-                        Helper.openLink(();)
+                        Helper.openLink();
                     }
                 }
             })

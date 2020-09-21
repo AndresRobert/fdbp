@@ -272,6 +272,7 @@
                             $('#' + id).addClass('invalid');
                         });
                     } else {
+                        Helper.openLink('/app/preview/contract.php?contract=' + response.id, '_blank');
                         Helper.openLink();
                     }
                 }
