@@ -193,15 +193,15 @@
                                             } else {
                                                 return 'Eliminado';
                                             }
-                                        },
-                                        "createdRow": function ( row, data, i ) {
-                                            if (data.active !== '1') {
-                                                $(row).addClass( 'deleted' );
-                                            }
-                                            console.log( row, data, i );
                                         }
                                     }
                                 ],
+                                "rowCallback": function (row, data) {
+                                    console.log(row, data);
+                                    if (data.active === '1') {
+                                        $(row).addClass('deleted');
+                                    }
+                                },
                                 "order": [[ 0, "desc" ]],
                                 "initComplete": function (settings, json) {
                                     $('.tooltipped').tooltip();
