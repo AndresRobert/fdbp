@@ -191,10 +191,14 @@
                                                 return '<a href="#!" onclick="contractView(' + row.id + ')" data-tooltip="Ver" class="tooltipped btn-flat"><i class="material-icons">remove_red_eye</i></a>' +
                                                     btnEdit + btnDelete + btnInvoice + btnPayment + btnEmailSend + btnPublish;
                                             } else {
-                                                $(row).addClass("deleted");
-                                                console.log(d, t, row);
                                                 return 'Eliminado';
                                             }
+                                        },
+                                        "createdRow": function ( row, data, i ) {
+                                            if (data.active !== '1') {
+                                                $(row).addClass( 'deleted' );
+                                            }
+                                            console.log( row, data, i );
                                         }
                                     }
                                 ],
