@@ -382,7 +382,7 @@ Form.Calc = {
             digv = tmp[1],
             rut = tmp[0];
         if ( digv == 'K' ) digv = 'k' ;
-        return (Fn.checkRutDV(rut) == digv );
+        return (Form.Calc.checkRutDV(rut) == digv );
     },
     checkRutDV : function(T){
         let M=0,S=1;
