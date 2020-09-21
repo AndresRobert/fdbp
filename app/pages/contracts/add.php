@@ -116,7 +116,7 @@
         <h5>Funeral</h5>
         <div class="row">
             <div class="input-field col s12 m6">
-                <select id="f_cementery_id"></select>
+                <input type="text" id="f_cementery_id" class="autocomplete"></input>
                 <label for="f_cementery_id">Cementerio</label>
             </div>
             <div class="input-field col s12 m3">
@@ -244,7 +244,7 @@
     Adaptor.select('#s_region_id','regions');
     Adaptor.select('#d_region_id','regions');
     Adaptor.select('#c_region_id','regions');
-    Adaptor.select('#f_cementery_id','cementeries');
+    Adaptor.autocomplete('#f_cementery_id','cementeries');
     Adaptor.select('#v_service_id','services');
     Adaptor.select('#v_service_id','services');
     Adaptor.select('#v_insurance_id','insurances');

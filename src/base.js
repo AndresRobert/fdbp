@@ -284,6 +284,9 @@ Auth.checkStatus = () => {
         });
 }
 
+let AutoLists = {};
+let AutoRevLists = {};
+
 let Adaptor = {};
 Adaptor.select = (selectId = '', listName = '') => {
     let select = $(selectId);
@@ -315,6 +318,29 @@ Adaptor.comunes = (selectId = '', regionId = '') => {
         }
     } else {
         console.log('select is not present');
+    }
+};
+Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
+    let autocomplete = $(autocompleteId);
+    if (autocomplete.length > 0) {
+        let list = Api.getList(listName);
+        if (list === []) {
+            console.log('Data not available for autocomplete')
+        } else {
+            AutoLists[listName] = {};
+            let autocompleteData = {};
+            $.each(list, function( _, { id, name } ) {
+                AutoLists[listName][id] = name;
+                AutoRevLists[listName][name] = list;
+                autocompleteData[name] = null;
+            });
+
+            $('input.autocomplete').autocomplete({
+                data: autocompleteData,
+            });
+        }
+    } else {
+        console.log('autocomplete is not present');
     }
 };
 Adaptor.Connect = {};
