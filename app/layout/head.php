@@ -1,6 +1,7 @@
 <?php
 $path = $_SERVER['SERVER_NAME'];
-$ver = '?v=1.4.0';
+$ver = '?v=1.5.0';
+$_SESSION['version'] = $ver;
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://<?= $path ?>/src/base.css<?= $ver ?>" rel="stylesheet">
