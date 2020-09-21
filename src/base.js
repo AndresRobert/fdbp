@@ -285,6 +285,7 @@ Auth.checkStatus = () => {
 }
 
 let AutoLists = {};
+let AutoRevLists = {};
 
 let Adaptor = {};
 Adaptor.select = (selectId = '', listName = '') => {
@@ -330,6 +331,7 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
             let autocompleteArray = [];
             $.each(list, function( _, { id, name } ) {
                 AutoLists[listName][id] = name;
+                AutoRevLists[listName][name] = id;
                 autocompleteArray.push('"' + name + '": null');
             });
             let autocompleteData = '{' + autocompleteArray.join(',') + '}';
@@ -338,7 +340,7 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
                 minLength: 0,
                 onAutocomplete: (selected) => {
                     console.log('element', selected);
-                    console.log('list', AutoLists[listName])
+                    console.log('list', AutoRevLists[listName])
                 },
             });
         }
