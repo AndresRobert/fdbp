@@ -328,7 +328,7 @@
                 $('textarea').trigger('focus');
 
                 $('#' + prefix + 'f_cementery_id').val(Helper.setDefault(_data.f_cementery_id, '1'));
-                $('#' + prefix + 'f_cementery_id').formSelect();
+                $('#' + prefix + 'f_cementery_name').val(Helper.setDefault(AutoLists['cementeries'][_data.f_cementery_id], ''));
                 $('#' + prefix + 'f_date').val(Helper.setDefault(_data.f_date, ''));
                 $('#' + prefix + 'f_time').val(Helper.setDefault(_data.f_time, ''));
 
