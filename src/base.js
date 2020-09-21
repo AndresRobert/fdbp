@@ -328,6 +328,7 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
             console.log('Data not available for autocomplete')
         } else {
             AutoLists[listName] = {};
+            AutoRevLists[listName] = {};
             let autocompleteArray = [];
             $.each(list, function( _, { id, name } ) {
                 AutoLists[listName][id] = name;
