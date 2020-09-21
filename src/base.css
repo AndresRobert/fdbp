@@ -25,7 +25,7 @@ sub {
     font-weight: 300;
 }
 
-row.deleted {
+tr.deleted {
     background-color: #FCC;
     color: #999;
 }
