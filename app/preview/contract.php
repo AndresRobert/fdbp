@@ -17,7 +17,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         </div>
         <div class="col s9 info">
             <div class="row">
-                <div class="col s12 center t-title"><span class="great-vives">Funeraria del Buen Pastor</span>®</div>
+                <div class="col s12 center t-title"><span class="great-vives">Funeraria del Buen Pastor</span><small>®</small></div>
             </div>
             <div class="row">
                 <div id="text_1" class="col s6 center t-small"></div>
@@ -210,7 +210,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             insurances = Api.getList('insurances'),
             services = Api.getList('services');
         let data = JSON.parse(Helper.getCookie('fdbp_contract_data') || '{}');
-        console.log(urlParams.get('contract'));
+        console.log(data);
         if (urlParams.get('contract') !== null) {
             $('body').removeClass('preview');
             $('#id').html(urlParams.get('contract'));
