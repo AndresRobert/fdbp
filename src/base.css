@@ -20,6 +20,11 @@ tbody > tr > td {
     text-align: center;
 }
 
+sub {
+    font-size: 1.7rem;
+    font-weight: 300;
+}
+
 .great-vives {
     font-family:'Great Vibes',cursive;
 }
@@ -160,9 +165,4 @@ table.dataTable.no-footer {
 
 .printable-page p {
     margin: 0;
-}
-
-.printable-page sub {
-    font-size: 1.5rem;
-    font-weight: 200;
 }
