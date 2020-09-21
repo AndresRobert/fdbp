@@ -1,7 +1,7 @@
 <div>
     <nav class="grey darken-4 nav-extended">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo"><span style="font-family:'Great Vibes',cursive;font-size:26px">Funeraria del Buen Pastor</span>®</a>
+            <a href="#" class="brand-logo"><span style="font-family:'Great Vibes',cursive;font-size:26px">Funeraria del Buen Pastor </span><sub>®</sub></a>
             <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="tooltipped" href="contracts.php" data-position="bottom" data-tooltip="Contratos"><i class="material-icons">business_center</i></a></li>
