@@ -30,6 +30,12 @@ tr.deleted {
     color: #999;
 }
 
+span.invisible {
+    display:block;
+    height:0;
+    color: transparent;
+}
+
 .great-vives {
     font-family:'Great Vibes',cursive;
 }
