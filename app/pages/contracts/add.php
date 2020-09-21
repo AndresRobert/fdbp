@@ -3,7 +3,7 @@
         <h5>Solicitante</h5>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="ej.: 12345678-9" id="s_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$" required>
+                <input onchange="checkRut(this.value)" placeholder="ej.: 12345678-9" id="s_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$" required>
                 <label for="s_id">Rut</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
@@ -52,7 +52,7 @@
         <h5>Fallecido</h5>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="ej.: 12345678-9" id="d_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$" required>
+                <input onchange="checkRut(this.value)" placeholder="ej.: 12345678-9" id="d_id" type="text" class="validate" pattern="^\d{6,8}(-)[\dK]$" required>
                 <label for="d_id">Rut</label>
                 <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
@@ -278,6 +278,12 @@
                 }
             })
             .catch( e => console.log(e) );
+    }
+
+    function checkRut(rut) {
+        if (!Form.Calc.checkRut(rut)) {
+            M.toast({html: 'El RUT no es válido'});
+        }
     }
 
 </script>

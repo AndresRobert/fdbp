@@ -375,6 +375,27 @@ Form.Calc.payment = (prefix = '') => {
     $('#' + prefix + 'v_payment').val(cost - discount - coverage);
 };
 
+Form.Calc.checkRutDV = (rut) => {
+    let count=0, dv=1;
+    for(;rut;rut = Math.floor(rut/10)) {
+        dv = (dv + rut % 10 * (9 - count++ % 6)) % 11;
+    }
+    return dv ? dv - 1 : 'k';
+}
+
+Form.Calc.checkRut = (rut) => {
+    if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( rut )) {
+        return false;
+    }
+    let rutArray = rut.split('-'),
+        rutDV = rutArray[1],
+        rutNumber = rutArray[0];
+    if (rutDV === 'K') {
+        rutDV = 'k';
+    }
+    return Form.Calc.checkRutDV(rutNumber) === rutDV;
+}
+
 // Pre-Init
 
 Api.setList('regions');
