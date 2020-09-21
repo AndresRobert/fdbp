@@ -283,7 +283,9 @@
     function checkRut(input) {
         if (!Form.Calc.checkRut(input.value)) {
             M.toast({html: 'El RUT no es válido'});
-            $(input).addClass('invalid');
+            $(input).removeClass('valid').addClass('invalid');
+        } else {
+            $(input).removeClass('invalid').addClass('valid');
         }
     }
 
