@@ -321,7 +321,7 @@ Adaptor.comunes = (selectId = '', regionId = '') => {
     }
 };
 Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
-    let autocomplete = $(autocompleteId);
+    let autocomplete = $(autocompleteId + '_name');
     if (autocomplete.length > 0) {
         let list = Api.getList(listName);
         if (list === []) {
@@ -336,11 +336,11 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
                 autocompleteArray.push('"' + name + '": null');
             });
             let autocompleteData = '{' + autocompleteArray.join(',') + '}';
-            $(autocompleteId).autocomplete({
+            autocomplete.autocomplete({
                 data: JSON.parse(autocompleteData),
                 minLength: 0,
                 onAutocomplete: (selected) => {
-                    $(autocompleteId).val(AutoRevLists[listName][selected]);
+                    $(autocompleteId + '_id').val(AutoRevLists[listName][selected]);
                     console.log('id', AutoRevLists[listName][selected]);
                 },
             });

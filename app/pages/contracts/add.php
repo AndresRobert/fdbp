@@ -116,8 +116,9 @@
         <h5>Funeral</h5>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input type="text" id="f_cementery_id" class="autocomplete"></input>
-                <label for="f_cementery_id">Cementerio</label>
+                <input type="text" id="f_cementery_name" class="autocomplete"></input>
+                <input type="hidden" id="f_cementery_id" class="autocomplete"></input>
+                <label for="f_cementery_name">Cementerio</label>
             </div>
             <div class="input-field col s12 m3">
                 <input placeholder="Seleccione una fecha" id="f_date" type="text" class="datepicker validate" required>
@@ -244,7 +245,7 @@
     Adaptor.select('#s_region_id','regions');
     Adaptor.select('#d_region_id','regions');
     Adaptor.select('#c_region_id','regions');
-    Adaptor.autocomplete('#f_cementery_id','cementeries');
+    Adaptor.autocomplete('#f_cementery','cementeries');
     Adaptor.select('#v_service_id','services');
     Adaptor.select('#v_service_id','services');
     Adaptor.select('#v_insurance_id','insurances');
