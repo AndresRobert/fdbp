@@ -366,34 +366,30 @@ Form.getValues = (containerId, prefix = '') => {
     Helper.setCookie('fdbp_contract_data', formData);
     return formData;
 };
-Form.Calc = {};
-Form.Calc.payment = (prefix = '') => {
-    let cost = parseInt($('#' + prefix + 'v_cost').val()) || 0;
-    let discount = parseInt($('#' + prefix + 'v_discount').val()) || 0;
-    $('#' + prefix + 'v_total').val(cost - discount);
-    let coverage = parseInt($('#' + prefix + 'v_coverage').val()) || 0;
-    $('#' + prefix + 'v_payment').val(cost - discount - coverage);
-};
 
-Form.Calc.checkRutDV = (rut) => {
-    let count=0, dv=1;
-    for(;rut;rut = Math.floor(rut/10)) {
-        dv = (dv + rut % 10 * (9 - count++ % 6)) % 11;
+Form.Calc = {
+    payment : function (prefix = '') {
+        let cost = parseInt($('#' + prefix + 'v_cost').val()) || 0;
+        let discount = parseInt($('#' + prefix + 'v_discount').val()) || 0;
+        $('#' + prefix + 'v_total').val(cost - discount);
+        let coverage = parseInt($('#' + prefix + 'v_coverage').val()) || 0;
+        $('#' + prefix + 'v_payment').val(cost - discount - coverage);
+    },
+    checkRut : function (rutCompleto) {
+        if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( rutCompleto ))
+            return false;
+        let tmp = rutCompleto.split('-'),
+            digv = tmp[1],
+            rut = tmp[0];
+        if ( digv == 'K' ) digv = 'k' ;
+        return (Fn.checkRutDV(rut) == digv );
+    },
+    checkRutDV : function(T){
+        let M=0,S=1;
+        for(;T;T=Math.floor(T/10))
+            S=(S+T%10*(9-M++%6))%11;
+        return S?S-1:'k';
     }
-    return dv ? dv - 1 : 'k';
-}
-
-Form.Calc.checkRut = (rut) => {
-    if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( rut )) {
-        return false;
-    }
-    let rutArray = rut.split('-'),
-        rutDV = rutArray[1],
-        rutNumber = rutArray[0];
-    if (rutDV === 'K') {
-        rutDV = 'k';
-    }
-    return Form.Calc.checkRutDV(rutNumber) === rutDV;
 }
 
 // Pre-Init
