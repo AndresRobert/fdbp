@@ -11,7 +11,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 </head>
 <body class="preview" style="background-color: #EEE; position: unset; font-size: 0.9rem">
 <div class="content printable-page">
-    <div class="row">
+    <div class="row" style="margin:0">
         <div class="col s3 isotype">
             <img src="/src/img/isotype.png<?= $ver ?>" alt="">
         </div>
