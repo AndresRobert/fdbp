@@ -285,7 +285,6 @@ Auth.checkStatus = () => {
 }
 
 let AutoLists = {};
-let AutoRevLists = {};
 
 let Adaptor = {};
 Adaptor.select = (selectId = '', listName = '') => {
@@ -328,15 +327,13 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
             console.log('Data not available for autocomplete')
         } else {
             AutoLists[listName] = {};
-            let autocompleteData = {};
+            let autocompleteArray = [];
             $.each(list, function( _, { id, name } ) {
-                AutoLists[listName][id] = name;
-                AutoRevLists[listName][name] = list;
-                autocompleteData[name] = null;
+                autocompleteArray.push('"' + name + '": null');
             });
-
-            $('input.autocomplete').autocomplete({
-                data: autocompleteData,
+            let autocompleteData = '{' + autocompleteArray.join(',') + '}';
+            $(autocompleteId).autocomplete({
+                data: JSON.parse(autocompleteData)
             });
         }
     } else {
