@@ -116,8 +116,8 @@
         <h5>Funeral</h5>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input type="text" id="f_cementery_name" class="autocomplete"></input>
-                <input type="hidden" id="f_cementery_id" class="autocomplete"></input>
+                <input type="text" id="f_cementery_name" class="autocomplete">
+                <input type="hidden" id="f_cementery_id">
                 <label for="f_cementery_name">Cementerio</label>
             </div>
             <div class="input-field col s12 m3">

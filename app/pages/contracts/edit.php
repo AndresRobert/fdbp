@@ -117,9 +117,9 @@
         <h5>Funeral</h5>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input type="text" id="e_f_cementery_name" class="autocomplete"></input>
-                <input type="hidden" id="e_f_cementery_id" class="autocomplete"></input>
-                <label for="e_f_cementery_id">Cementerio</label>
+                <input type="text" id="e_f_cementery_name" class="autocomplete" placeholder="ej.: Parque del Recuerdo">
+                <input type="hidden" id="e_f_cementery_id">
+                <label for="e_f_cementery_id" class="active">Cementerio</label>
             </div>
             <div class="input-field col s12 m3">
                 <input placeholder="Seleccione una fecha" id="e_f_date" type="text" class="datepicker validate" required>
