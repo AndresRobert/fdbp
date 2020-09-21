@@ -246,8 +246,6 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
                 .catch( e => console.log(e) );
         }
         else {
-            data['f_date'] = data['f_datetime'].substring(0,10);
-            data['f_time'] = data['f_datetime'].substring(11,16);
             data['c_comune_name'] = Helper.List.getById(comunes, data['c_comune_id']);
             data['c_region_name'] = Helper.List.getById(regions, data['c_region_id']);
             data['d_comune_name'] = Helper.List.getById(comunes, data['d_comune_id']);
