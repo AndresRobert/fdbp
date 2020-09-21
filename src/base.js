@@ -336,9 +336,9 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
             $(autocompleteId).autocomplete({
                 data: JSON.parse(autocompleteData),
                 minLength: 0,
-                onAutocomplete: (target) => {
-                    console.log('element', target);
-                    console.log('list', )
+                onAutocomplete: (selected) => {
+                    console.log('element', selected);
+                    console.log('list', AutoLists[listName])
                 },
             });
         }
