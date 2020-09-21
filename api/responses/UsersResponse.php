@@ -23,14 +23,14 @@ class Users extends Response {
                 if ($User->create()) {
                     $response = [
                         'status' => 'success',
-                        'message' => 'User successfully registered',
+                        'message' => 'Usuario registrado correctamente',
                         'id' => $User->get('id'),
                     ];
                 } else {
-                    $response['message'] = 'User could not be registered';
+                    $response['message'] = 'No se pudo registrar el usuario';
                 }
             } else {
-                $response['message'] = 'Email is already taken';
+                $response['message'] = 'El email ya existe';
             }
         }
         return $response;
@@ -52,18 +52,18 @@ class Users extends Response {
                     Session::Create('user', $User->get('id'));
                     $response = [
                         'response_code' => 200,
-                        'message' => 'Successful login',
+                        'message' => 'Acceso permitido',
                         'token' => $tokenData['token']
                     ];
                 }
                 else {
                     $response['response_code'] = 401;
-                    $response['message'] = 'Wrong password';
+                    $response['message'] = 'Credenciales incorrectas';
                 }
             }
             else {
                 $response['response_code'] = 401;
-                $response['message'] = 'User not found';
+                $response['message'] = 'El usuario no existe';
             }
         }
         return $response;
