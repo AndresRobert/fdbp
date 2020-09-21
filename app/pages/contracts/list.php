@@ -118,49 +118,49 @@
                                     {
                                         "mRender": function (d, t, row) {
                                             if (row.p_transfer === '1') {
-                                                return '<span style="width:0;height:0">si</span><i class="material-icons">check_box</i>';
+                                                return '<span style="display:block;height:0">si</span><i class="material-icons">check_box</i>';
                                             }
-                                            return '<span style="width:0;height:0">no</span><i class="material-icons no">crop_din</i>';
+                                            return '<span style="display:block;height:0">no</span><i class="material-icons no">crop_din</i>';
                                         }
                                     },
                                     {
                                         "mRender": function (d, t, row) {
                                             if (row.p_cash === '1') {
-                                                return '<span style="width:0;height:0">si</span><i class="material-icons">check_box</i>';
+                                                return '<span style="display:block;height:0">si</span><i class="material-icons">check_box</i>';
                                             }
-                                            return '<span style="width:0;height:0">no</span><i class="material-icons no">crop_din</i>';
+                                            return '<span style="display:block;height:0">no</span><i class="material-icons no">crop_din</i>';
                                         }
                                     },
                                     {
                                         "mRender": function (d, t, row) {
                                             if (row.p_check === '1') {
-                                                return '<span style="width:0;height:0">si</span><i class="material-icons">check_box</i>';
+                                                return '<span style="display:block;height:0">si</span><i class="material-icons">check_box</i>';
                                             }
-                                            return '<span style="width:0;height:0">no</span><i class="material-icons no">crop_din</i>';
+                                            return '<span style="display:block;height:0">no</span><i class="material-icons no">crop_din</i>';
                                         }
                                     },
                                     {
                                         "mRender": function (d, t, row) {
                                             if (row.p_check_defered === '1') {
-                                                return '<span style="width:0;height:0">si</span><i class="material-icons">check_box</i>';
+                                                return '<span style="display:block;height:0">si</span><i class="material-icons">check_box</i>';
                                             }
-                                            return '<span style="width:0;height:0">no</span><i class="material-icons no">crop_din</i>';
+                                            return '<span style="display:block;height:0">no</span><i class="material-icons no">crop_din</i>';
                                         }
                                     },
                                     {
                                         "mRender": function (d, t, row) {
                                             if (row.p_credit_card === '1') {
-                                                return '<span style="width:0;height:0">si</span><i class="material-icons">check_box</i>';
+                                                return '<span style="display:block;height:0">si</span><i class="material-icons">check_box</i>';
                                             }
-                                            return '<span style="width:0;height:0">no</span><i class="material-icons no">crop_din</i>';
+                                            return '<span style="display:block;height:0">no</span><i class="material-icons no">crop_din</i>';
                                         }
                                     },
                                     {
                                         "mRender": function (d, t, row) {
                                             if (row.p_other === '1') {
-                                                return '<span style="width:0;height:0">si</span><i class="material-icons">check_box</i>';
+                                                return '<span style="display:block;height:0">si</span><i class="material-icons">check_box</i>';
                                             }
-                                            return '<span style="width:0;height:0">no</span><i class="material-icons no">crop_din</i>';
+                                            return '<span style="display:block;height:0">no</span><i class="material-icons no">crop_din</i>';
                                         }
                                     },
                                     {
