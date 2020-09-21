@@ -192,7 +192,7 @@
                                                     btnEdit + btnDelete + btnInvoice + btnPayment + btnEmailSend + btnPublish;
                                             } else {
                                                 $(row).addClass("deleted");
-                                                console.log(row);
+                                                console.log(d, t, row);
                                                 return 'Eliminado';
                                             }
                                         }
