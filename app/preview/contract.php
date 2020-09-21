@@ -210,7 +210,6 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             insurances = Api.getList('insurances'),
             services = Api.getList('services');
         let data = JSON.parse(Helper.getCookie('fdbp_contract_data') || '{}');
-        console.log(data);
         if (urlParams.get('contract') !== null) {
             $('body').removeClass('preview');
             $('#id').html(urlParams.get('contract'));

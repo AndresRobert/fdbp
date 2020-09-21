@@ -237,7 +237,6 @@ Api.getList = (name = 'none') => {
     return Helper.Object.load(name);
 };
 Api.post = async function (endpoint = '', auth = false, data = {}) {
-    console.log(endpoint, auth, data);
     const headers = auth ? Auth.getHeaders() : { 'Content-Type': 'application/json' },
         response = await fetch(endpoint, {
             method: 'POST',
@@ -341,7 +340,6 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
                 minLength: 0,
                 onAutocomplete: (selected) => {
                     $(autocompleteId + '_id').val(AutoRevLists[listName][selected]);
-                    console.log('id', AutoRevLists[listName][selected]);
                 },
             });
         }

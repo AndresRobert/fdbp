@@ -197,7 +197,6 @@
                                     }
                                 ],
                                 "rowCallback": function (row, data) {
-                                    console.log(row, data);
                                     if (data.active !== '1') {
                                         $(row).addClass('deleted');
                                     }
