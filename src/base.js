@@ -329,7 +329,7 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
             AutoLists[listName] = {};
             let autocompleteArray = [];
             $.each(list, function( _, { id, name } ) {
-                AutoLists[listName].put = {id: id, name: name};
+                AutoLists[listName][id] = name;
                 autocompleteArray.push('"' + name + '": null');
             });
             let autocompleteData = '{' + autocompleteArray.join(',') + '}';
