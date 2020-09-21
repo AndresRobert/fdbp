@@ -345,6 +345,7 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
                 },
             });
         }
+
     } else {
         console.log('autocomplete is not present');
     }

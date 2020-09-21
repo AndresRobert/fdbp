@@ -21,6 +21,7 @@ class Contract extends Model {
     public function list ($id = 0): array {
         $query = 'SELECT 
             c.id, 
+            c.active,
             if(c.invoice = 0, "", c.invoice) invoice,
             if(c.invoice = 0, "", if(c.paid_date IS NULL OR c.paid_date = "0000-00-00", 0, 1)) paid,
             c.paid_date,
@@ -86,7 +87,7 @@ class Contract extends Model {
             INNER JOIN services ser ON ser.id = c.v_service_id
             INNER JOIN providers pro ON pro.id = c.v_provider_id
             INNER JOIN insurances ins ON ins.id = c.v_insurance_id
-        WHERE c.active = 1';
+        WHERE c.active IN (0, 1)';
         if ($id !== 0) {
             $query .= ' AND c.id = ' . $id;
         }

@@ -165,30 +165,35 @@
                                     },
                                     {
                                         "mRender": function (d, t, row) {
-                                            let btnEdit = '<a href="#!" onclick="contractEdit(' + row.id + ')" data-tooltip="Editar" class="tooltipped btn-flat"><i class="material-icons">edit</i></a>',
-                                                btnDelete = '<a href="#!" onclick="contractDelete(' + row.id + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>',
-                                                btnInvoice = '<a href="#!" onclick="contractAddInvoice(' + row.id + ')" data-tooltip="Asociar Factura" class="tooltipped btn-flat"><i class="material-icons">description</i></a>',
-                                                btnPayment = '<a href="#!" onclick="contractAddPayment(' + row.id + ')" data-tooltip="Informar Pago" class="tooltipped btn-flat"><i class="material-icons">local_atm</i></a>',
-                                                btnEmailSend = '<a href="#!" onclick="contractSend(' + row.id + ', \'' + row.s_email + '\')" data-tooltip="Enviar Email" class="tooltipped btn-flat"><i class="material-icons">mail</i></a>',
-                                                btnPublish = '<a href="#!" onclick="contractPublish(\'' + row.d_name + '\', \'' + row.v_warning + '\', \'' + row.c_church + '\', \'' + row.f_date + '\', \'' + row.f_time + '\')" data-tooltip="Publicar en Facebook" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
-                                            if (row.invoice === '') {
-                                                btnPayment = '<a href="#!" data-tooltip="Sin Factura" class="tooltipped btn-flat grey-text" ><i class="material-icons">local_atm</i></a>';
-                                            } else {
-                                                if (row.paid === '1') {
-                                                    btnEdit = '<a href="#!" data-tooltip="No Editable" class="tooltipped btn-flat grey-text"><i class="material-icons">edit</i></a>';
-                                                    btnDelete = '<a href="#!" data-tooltip="No Eliminable" class="tooltipped btn-flat grey-text"><i class="material-icons">delete_forever</i></a>';
-                                                    btnInvoice = '<a href="#!" data-tooltip="Factura Ya Asociada" class="tooltipped btn-flat grey-text"><i class="material-icons">description</i></a>';
-                                                    btnPayment = '<a href="#!" data-tooltip="Pagado" class="tooltipped btn-flat grey-text"><i class="material-icons">local_atm</i></a>';
+                                            if (row.active === '1') {
+                                                let btnEdit = '<a href="#!" onclick="contractEdit(' + row.id + ')" data-tooltip="Editar" class="tooltipped btn-flat"><i class="material-icons">edit</i></a>',
+                                                    btnDelete = '<a href="#!" onclick="contractDelete(' + row.id + ')" data-tooltip="Eliminar" class="tooltipped btn-flat"><i class="material-icons">delete_forever</i></a>',
+                                                    btnInvoice = '<a href="#!" onclick="contractAddInvoice(' + row.id + ')" data-tooltip="Asociar Factura" class="tooltipped btn-flat"><i class="material-icons">description</i></a>',
+                                                    btnPayment = '<a href="#!" onclick="contractAddPayment(' + row.id + ')" data-tooltip="Informar Pago" class="tooltipped btn-flat"><i class="material-icons">local_atm</i></a>',
+                                                    btnEmailSend = '<a href="#!" onclick="contractSend(' + row.id + ', \'' + row.s_email + '\')" data-tooltip="Enviar Email" class="tooltipped btn-flat"><i class="material-icons">mail</i></a>',
+                                                    btnPublish = '<a href="#!" onclick="contractPublish(\'' + row.d_name + '\', \'' + row.v_warning + '\', \'' + row.c_church + '\', \'' + row.f_date + '\', \'' + row.f_time + '\')" data-tooltip="Publicar en Facebook" class="tooltipped btn-flat"><i class="material-icons">record_voice_over</i></a>';
+                                                if (row.invoice === '') {
+                                                    btnPayment = '<a href="#!" data-tooltip="Sin Factura" class="tooltipped btn-flat grey-text" ><i class="material-icons">local_atm</i></a>';
+                                                } else {
+                                                    if (row.paid === '1') {
+                                                        btnEdit = '<a href="#!" data-tooltip="No Editable" class="tooltipped btn-flat grey-text"><i class="material-icons">edit</i></a>';
+                                                        btnDelete = '<a href="#!" data-tooltip="No Eliminable" class="tooltipped btn-flat grey-text"><i class="material-icons">delete_forever</i></a>';
+                                                        btnInvoice = '<a href="#!" data-tooltip="Factura Ya Asociada" class="tooltipped btn-flat grey-text"><i class="material-icons">description</i></a>';
+                                                        btnPayment = '<a href="#!" data-tooltip="Pagado" class="tooltipped btn-flat grey-text"><i class="material-icons">local_atm</i></a>';
+                                                    }
                                                 }
+                                                if (row.s_email === 'No Informado') {
+                                                    btnEmailSend = '<a href="#!" data-tooltip="Sin Email" class="tooltipped btn-flat grey-text"><i class="material-icons">mail</i></a>';
+                                                }
+                                                if (row.v_warning === '') {
+                                                    btnPublish = '<a href="#!" data-tooltip="Sin Aviso" class="tooltipped btn-flat grey-text"><i class="material-icons">record_voice_over</i></a>';
+                                                }
+                                                return '<a href="#!" onclick="contractView(' + row.id + ')" data-tooltip="Ver" class="tooltipped btn-flat"><i class="material-icons">remove_red_eye</i></a>' +
+                                                    btnEdit + btnDelete + btnInvoice + btnPayment + btnEmailSend + btnPublish;
+                                            } else {
+                                                $(row).addClass("deleted");
+                                                return 'Eliminado';
                                             }
-                                            if (row.s_email === 'No Informado') {
-                                                btnEmailSend = '<a href="#!" data-tooltip="Sin Email" class="tooltipped btn-flat grey-text"><i class="material-icons">mail</i></a>';
-                                            }
-                                            if (row.v_warning === '') {
-                                                btnPublish = '<a href="#!" data-tooltip="Sin Aviso" class="tooltipped btn-flat grey-text"><i class="material-icons">record_voice_over</i></a>';
-                                            }
-                                            return '<a href="#!" onclick="contractView(' + row.id + ')" data-tooltip="Ver" class="tooltipped btn-flat"><i class="material-icons">remove_red_eye</i></a>' +
-                                                btnEdit + btnDelete + btnInvoice + btnPayment + btnEmailSend + btnPublish;
                                         }
                                     }
                                 ],

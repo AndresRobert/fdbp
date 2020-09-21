@@ -25,6 +25,11 @@ sub {
     font-weight: 300;
 }
 
+row.deleted {
+    background-color: #FCC;
+    color: #999;
+}
+
 .great-vives {
     font-family:'Great Vibes',cursive;
 }
