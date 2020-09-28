@@ -351,7 +351,12 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
 };
 Adaptor.addInPlace = (autocompleteId = '', listName = '') => {
     let autocomplete = $(autocompleteId + '_name');
-    console.log([listName][autocomplete.val()]);
+    autocomplete.on('blur', () => {
+        if (typeof AutoRevLists[listName][autocomplete.val()] === 'undefined') {
+            console.log('Agregar', autocomplete.val());
+        }
+    });
+    console.log();
 };
 Adaptor.Connect = {};
 Adaptor.Connect.comunes = (regionId, comuneId) => {
