@@ -351,8 +351,9 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
 };
 Adaptor.addInPlace = (autocompleteId = '', listName = '') => {
     let autocomplete = $(autocompleteId + '_name');
-    autocomplete.on('blur', () => {
-        if (typeof AutoRevLists[listName][autocomplete.val()] === 'undefined') {
+    autocomplete.on('change', () => {
+        let _text = autocomplete.val();
+        if (_text !== '' && typeof AutoRevLists[listName][_text] === 'undefined') {
             console.log('Agregar', autocomplete.val());
         }
     });
