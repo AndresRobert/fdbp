@@ -351,11 +351,16 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
 };
 Adaptor.addInPlace = (autocompleteId = '', listName = '', endpoint = '') => {
     let autocomplete = $(autocompleteId + '_name');
+    console.log('tag', autocomplete);
+    console.log('list', listName);
+    console.log('api', endpoint);
     autocomplete.on('change', () => {
         let _text = autocomplete.val();
+        console.log('changed', _text);
         if (_text !== '' && typeof AutoRevLists[listName][_text] === 'undefined') {
             Api.post(Api.endpoints[endpoint], true, {name: _text})
                 .then(({status, response}) => {
+                    console.log('add', status, response);
                     if (status === 'OK') {
                         M.toast({html: response.message});
                         if (response.status === 'fail') {
