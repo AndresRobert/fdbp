@@ -246,7 +246,7 @@
     Adaptor.select('#d_region_id','regions');
     Adaptor.select('#c_region_id','regions');
     Adaptor.autocomplete('#f_cementery','cementeries');
-    Adaptor.addInPlace('#f_cementery','cementeries');
+    Adaptor.addInPlace('#f_cementery','cementeries','cementery_add');
     Adaptor.select('#v_service_id','services');
     Adaptor.select('#v_service_id','services');
     Adaptor.select('#v_insurance_id','insurances');

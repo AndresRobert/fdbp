@@ -349,15 +349,25 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
         console.log('autocomplete is not present');
     }
 };
-Adaptor.addInPlace = (autocompleteId = '', listName = '') => {
+Adaptor.addInPlace = (autocompleteId = '', listName = '', endpoint = '') => {
     let autocomplete = $(autocompleteId + '_name');
     autocomplete.on('change', () => {
         let _text = autocomplete.val();
         if (_text !== '' && typeof AutoRevLists[listName][_text] === 'undefined') {
-            console.log('Agregar', autocomplete.val());
+            Api.post(Api.endpoints[endpoint], true, {name: _text})
+                .then(({status, response}) => {
+                    if (status === 'OK') {
+                        M.toast({html: response.message});
+                        if (response.status === 'fail') {
+                            $(autocompleteId + '_name').val('');
+                        } else {
+                            $(autocompleteId + '_id').val(response.id);
+                        }
+                    }
+                })
+                .catch(e => console.log(e));
         }
     });
-    console.log();
 };
 Adaptor.Connect = {};
 Adaptor.Connect.comunes = (regionId, comuneId) => {
