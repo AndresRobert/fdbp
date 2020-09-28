@@ -151,6 +151,31 @@ class Contracts extends Response {
         );
     }
 
+    public function recover (array $fields): array {
+        return self::RequiresAuthorization(
+            static function () use ($fields) {
+                $status = 'success';
+                $message = 'Contrato reactivado correctamente';
+
+                $Contract = new Contract();
+                if (isset($fields['id']) && $fields['id'] !== '' && $Contract->exists('id', $fields['id'])) {
+                    $Contract->set(['id' => $fields['id']]);
+                    $Contract->read();
+                    $Contract->set(['active' => 1]);
+                    if (!$Contract->update()) {
+                        $status = 'fail';
+                        $message = 'No fue posible reactivar el contrato';
+                    }
+                }
+
+                return [
+                    'status' => $status,
+                    'message' => $message
+                ];
+            }
+        );
+    }
+
     public function addInvoice (array $fields): array {
         return self::RequiresAuthorization(
             static function () use ($fields) {

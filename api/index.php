@@ -40,6 +40,7 @@ Route::Create('POST', '/contracts/list', 'contracts/list');
 Route::Create('POST', '/contracts/list/one', 'contracts/list');
 Route::Create('POST', '/contract/add', 'contracts/save');
 Route::Create('POST', '/contract/delete', 'contracts/delete');
+Route::Create('POST', '/contract/recover', 'contracts/recover');
 Route::Create('POST', '/contract/invoice', 'contracts/addInvoice');
 Route::Create('POST', '/contract/payment', 'contracts/togglePayment');
 Route::Create('POST', '/contract/byEmail', 'contracts/sendByEmail');

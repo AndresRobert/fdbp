@@ -211,6 +211,7 @@ Api.endpoints = {
     'contract_get': '/api/contracts/list/one',
     'contract_add': '/api/contract/add',
     'contract_del': '/api/contract/delete',
+    'contract_undel': '/api/contract/recover',
     'contract_invoice': '/api/contract/invoice',
     'contract_payment': '/api/contract/payment',
     'contract_email': '/api/contract/byEmail'

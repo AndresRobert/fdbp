@@ -191,7 +191,7 @@
                                                 return '<a href="#!" onclick="contractView(' + row.id + ')" data-tooltip="Ver" class="tooltipped btn-flat"><i class="material-icons">remove_red_eye</i></a>' +
                                                     btnEdit + btnDelete + btnInvoice + btnPayment + btnEmailSend + btnPublish;
                                             } else {
-                                                return 'Eliminado';
+                                                return '<a href="#!" onclick="contractUndelete(' + row.id + ')" class="btn white btn-flat">Reactivar</a>';
                                             }
                                         }
                                     }
@@ -288,6 +288,12 @@
             function contractDelete(id) {
                 $('#del_id').html(id);
                 const Modal = $('#deleteContract');
+                Modal.modal('open');
+            }
+
+            function contractUndelete(id) {
+                $('#undel_id').html(id);
+                const Modal = $('#undeleteContract');
                 Modal.modal('open');
             }
 
