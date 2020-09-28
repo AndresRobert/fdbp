@@ -349,6 +349,10 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
         console.log('autocomplete is not present');
     }
 };
+Adaptor.addInPlace = (autocompleteId = '', listName = '') => {
+    let autocomplete = $(autocompleteId + '_name');
+    console.log([listName][autocomplete.val()]);
+};
 Adaptor.Connect = {};
 Adaptor.Connect.comunes = (regionId, comuneId) => {
     $(document).on('change', regionId, function () {
