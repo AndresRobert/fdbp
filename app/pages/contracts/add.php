@@ -77,19 +77,29 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12 m3">
+            <div class="input-field col s12 m4">
                 <input placeholder="" id="d_place" type="text">
                 <label for="d_place">Lugar de Fallecimiento</label>
             </div>
-            <div class="input-field col s12 m3">
+            <div class="input-field col s12 m4">
+                <input placeholder="Seleccione una fecha" id="d_date" type="text" class="datepicker validate" required>
+                <label for="d_date">Fecha de Fallecimiento</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="" id="d_insurance" type="text">
+                <label for="d_insurance">Tipo de Previsión</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
                 <input placeholder="ej.: Casado(a)" id="d_marital_status" type="text">
                 <label for="d_marital_status">Estado Civil</label>
             </div>
-            <div class="input-field col s12 m3">
+            <div class="input-field col s12 m4">
                 <input placeholder="ej.: Profesor(a)" id="d_occupation" type="text">
                 <label for="d_occupation">Ocupación</label>
             </div>
-            <div class="input-field col s12 m3">
+            <div class="input-field col s12 m4">
                 <input placeholder="ej.: Media Completa" id="d_education" type="text">
                 <label for="d_education">Educación</label>
             </div>
