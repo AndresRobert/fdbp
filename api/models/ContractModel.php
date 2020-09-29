@@ -48,6 +48,8 @@ class Contract extends Model {
             c.d_education,
             c.d_occupation,
             c.d_place,
+            c.d_date,
+            c.d_insurance,
             c.c_church,
             c.c_address,
             c.c_comune_id,

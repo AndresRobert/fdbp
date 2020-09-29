@@ -22,40 +22,49 @@ class Contracts extends Response {
                     $errorIds[] = 's_id';
                     $status = 'fail';
                 }
-                if ($fields['s_email'] === '' || $fields['s_mobile'] === '') {
+                if ($fields['s_address'] === '' || $fields['s_region_id'] === '0' || $fields['s_comune_id'] === '0') {
+                    $message = 'Debe ingresar una dirección, región y comuna para el solicitante';
+                    $errorIds[] = 's_address';
+                    $errorIds[] = 's_region_id';
+                    $errorIds[] = 's_comune_id';
                     $status = 'fail';
-                    $message = 'Debe ingresar un email y un número de telefono móvil para el solicitante';
-                    $errorIds[] = 's_email';
+                }
+                if ($fields['s_mobile'] === '') {
+                    $status = 'fail';
+                    $message = 'Debe ingresar un número de telefono móvil para el solicitante';
                     $errorIds[] = 's_mobile';
                 }
+
                 if ($fields['d_name'] === '' || $fields['d_id'] === '') {
                     $status = 'fail';
                     $message = 'Debe ingresar un nombre y un rut para identificar al fallecido';
                     $errorIds[] = 'd_name';
                     $errorIds[] = 'd_id';
                 }
-                if ($fields['f_date'] === '' || $fields['f_time'] === '') {
+                if ($fields['d_address'] === '' || $fields['d_region_id'] === '0' || $fields['d_comune_id'] === '0') {
+                    $message = 'Debe ingresar una dirección, región y comuna para el fallecido';
+                    $errorIds[] = 'd_address';
+                    $errorIds[] = 'd_region_id';
+                    $errorIds[] = 'd_comune_id';
                     $status = 'fail';
-                    $message = 'Debe ingresar una fecha y una hora del funeral';
-                    $errorIds[] = 'f_date';
-                    $errorIds[] = 'f_time';
                 }
-                if ($fields['v_type'] === '' || $fields['v_include'] === '') {
+                if ($fields['d_place'] === '' || $fields['d_date'] === '' || $fields['d_insurance'] === '') {
+                    $message = 'Debe ingresar un lugar, una fecha y un tipo de previsión del fallecimiento';
+                    $errorIds[] = 'd_place';
+                    $errorIds[] = 'd_date';
+                    $errorIds[] = 'd_insurance';
                     $status = 'fail';
-                    $message = 'Debe ingresar un tipo y lo que incluye el servicio';
-                    $errorIds[] = 'v_service_id';
-                    $errorIds[] = 'v_include';
                 }
+                if ($fields['d_marital_status'] === '' || $fields['d_occupation'] === '' || $fields['d_education'] === '') {
+                    $message = 'Debe ingresar un estado civil, una ocupación y un nivel educacional para el fallecido';
+                    $errorIds[] = 'd_marital_status';
+                    $errorIds[] = 'd_occupation';
+                    $errorIds[] = 'd_education';
+                    $status = 'fail';
+                }
+
                 if ($fields['v_cost'] === '' || $fields['v_cost'] <= 0) {
-                    $status = 'fail';
-                    $message = 'Debe ingresar el valor del servicio';
-                    $errorIds[] = 'v_cost';
-                }
-                if ($fields['p_transfer'] === false && $fields['p_cash'] === false &&
-                    $fields['p_check'] === false && $fields['p_check_defered'] === false &&
-                    $fields['p_credit_card'] === false && $fields['p_other'] === false) {
-                    $status = 'fail';
-                    $message = 'Debe ingresar al menos un medio de pago para el servicio';
+                    $fields['v_cost'] = 0;
                 }
 
                 if ($status === 'success') {

@@ -78,21 +78,31 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12 m3">
-                <input placeholder="" id="e_d_place" type="text">
-                <label for="e_d_place">Lugar de Fallecimiento</label>
-            </div>
-            <div class="input-field col s12 m3">
+            <div class="input-field col s12 m4">
                 <input placeholder="ej.: Casado(a)" id="e_d_marital_status" type="text">
                 <label for="e_d_marital_status">Estado Civil</label>
             </div>
-            <div class="input-field col s12 m3">
+            <div class="input-field col s12 m4">
                 <input placeholder="ej.: Profesor(a)" id="e_d_occupation" type="text">
                 <label for="e_d_occupation">Ocupación</label>
             </div>
-            <div class="input-field col s12 m3">
+            <div class="input-field col s12 m4">
                 <input placeholder="ej.: Media Completa" id="e_d_education" type="text">
                 <label for="e_d_education">Educación</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input placeholder="" id="e_d_place" type="text">
+                <label for="e_d_place">Lugar de Fallecimiento</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="Seleccione una fecha" id="e_d_date" type="text" class="datepicker validate" required>
+                <label for="e_d_date">Fecha de Fallecimiento</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="" id="e_d_insurance" type="text">
+                <label for="e_d_insurance">Tipo de Previsión</label>
             </div>
         </div>
         <h5>Velatorio</h5>

@@ -78,20 +78,6 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="" id="d_place" type="text">
-                <label for="d_place">Lugar de Fallecimiento</label>
-            </div>
-            <div class="input-field col s12 m4">
-                <input placeholder="Seleccione una fecha" id="d_date" type="text" class="datepicker validate" required>
-                <label for="d_date">Fecha de Fallecimiento</label>
-            </div>
-            <div class="input-field col s12 m4">
-                <input placeholder="" id="d_insurance" type="text">
-                <label for="d_insurance">Tipo de Previsión</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12 m4">
                 <input placeholder="ej.: Casado(a)" id="d_marital_status" type="text">
                 <label for="d_marital_status">Estado Civil</label>
             </div>
@@ -102,6 +88,20 @@
             <div class="input-field col s12 m4">
                 <input placeholder="ej.: Media Completa" id="d_education" type="text">
                 <label for="d_education">Educación</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input placeholder="" id="d_place" type="text">
+                <label for="d_place">Lugar de Fallecimiento</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="Seleccione una fecha" id="d_date" type="text" class="datepicker validate" required>
+                <label for="d_date">Fecha de Fallecimiento</label>
+            </div>
+            <div class="input-field col s12 m4">
+                <input placeholder="" id="d_insurance" type="text">
+                <label for="d_insurance">Tipo de Previsión</label>
             </div>
         </div>
         <h5>Velatorio</h5>
@@ -261,9 +261,9 @@
     Adaptor.select('#v_service_id','services');
     Adaptor.select('#v_insurance_id','insurances');
     Adaptor.select('#v_provider_id','providers');
-    Adaptor.comunes('#s_comune_id', 1);
-    Adaptor.comunes('#d_comune_id', 1);
-    Adaptor.comunes('#c_comune_id', 1);
+    Adaptor.comunes('#s_comune_id', 0);
+    Adaptor.comunes('#d_comune_id', 0);
+    Adaptor.comunes('#c_comune_id', 0);
     Adaptor.Connect.comunes('#s_region_id', '#s_comune_id');
     Adaptor.Connect.comunes('#d_region_id', '#d_comune_id');
     Adaptor.Connect.comunes('#c_region_id', '#c_comune_id');

@@ -25,6 +25,8 @@
                 <th>Fallecido Estudios</th>
                 <th>Fallecido Ocupación</th>
                 <th>Fallecido Lugar de Fallecimiento</th>
+                <th>Fallecido Fecha de Fallecimiento</th>
+                <th>Fallecido Tipo de Previsión</th>
                 <th>Velatorio Capilla</th>
                 <th>Velatorio Dirección</th>
                 <th>Velatorio Comuna</th>
@@ -96,6 +98,8 @@
                                     { "data" : "d_education" },
                                     { "data" : "d_occupation" },
                                     { "data" : "d_place" },
+                                    { "data" : "d_date" },
+                                    { "data" : "d_insurance" },
                                     { "data" : "c_church" },
                                     { "data" : "c_address" },
                                     { "data" : "c_comune_name" },
