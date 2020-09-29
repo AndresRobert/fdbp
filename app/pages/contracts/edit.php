@@ -6,47 +6,48 @@
             <div class="input-field col s12 m4">
                 <input onblur="checkRut(this)" placeholder="ej.: 12345678-9" id="e_s_id" type="text" class="validate" required>
                 <label for="e_s_id">Rut</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
                 <input placeholder="" id="e_s_name" type="text" class="validate" pattern="[\S\s]+[\S]+" required>
                 <label for="e_s_name">Nombre</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
                 <input placeholder="" id="e_s_last_name" type="text" class="validate" pattern="[\S\s]+[\S]+" required>
                 <label for="e_s_last_name">Apellido</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
                 <input placeholder="" id="e_s_address" type="text" class="validate" pattern="[\S\s]+[\S]+" required>
                 <label for="e_s_address">Dirección</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m3">
-                <select id="e_s_region_id"></select>
+                <select id="e_s_region_id" class="validate" required></select>
                 <label for="e_s_region_id">Región</label>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m3">
-                <select id="e_s_comune_id"></select>
+                <select id="e_s_comune_id" class="validate" required></select>
                 <label for="e_s_comune_id">Comuna</label>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="ej.: nombre@gmail.com" id="e_s_email" type="text" class="validate" pattern="^((?!\.)[\w_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$" required>
+                <input placeholder="ej.: nombre@gmail.com" id="e_s_email" type="text" pattern="^((?!\.)[\w_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$">
                 <label for="e_s_email">Email</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="9 8765 4321" id="e_s_mobile" type="text" class="validate" pattern="^(9)( ?)[98765]\d{3}( ?)\d{4}$" required>
+                <input placeholder="ej.: 9 8765 4321" id="e_s_mobile" type="text" class="validate" pattern="^(9)( ?)[98765]\d{3}( ?)\d{4}$" required>
                 <label for="e_s_mobile">Celular</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="2 9876 5432" id="e_s_phone" type="text">
+                <input placeholder="ej.: 2 9876 5432" id="e_s_phone" type="text">
                 <label for="e_s_phone">Teléfono</label>
             </div>
         </div>
@@ -55,54 +56,63 @@
             <div class="input-field col s12 m4">
                 <input onblur="checkRut(this)" placeholder="ej.: 12345678-9" id="e_d_id" type="text" class="validate" required>
                 <label for="e_d_id">Rut</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m8">
                 <input placeholder="" id="e_d_name" type="text" class="validate" pattern="[\S\s]+[\S]+" required>
                 <label for="e_d_name">Nombre</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m6">
-                <input placeholder="" id="e_d_address" type="text">
+                <input placeholder="" id="e_d_address" type="text" class="validate" required>
                 <label for="e_d_address">Dirección</label>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m3">
-                <select id="e_d_region_id"></select>
+                <select id="e_d_region_id" class="validate" required></select>
                 <label for="e_d_region_id">Región</label>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m3">
-                <select id="e_d_comune_id"></select>
+                <select id="e_d_comune_id" class="validate" required></select>
                 <label for="e_d_comune_id">Comuna</label>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="ej.: Casado(a)" id="e_d_marital_status" type="text">
+                <input placeholder="ej.: Casado(a)" id="e_d_marital_status" type="text" class="validate" required>
                 <label for="e_d_marital_status">Estado Civil</label>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="ej.: Profesor(a)" id="e_d_occupation" type="text">
+                <input placeholder="ej.: Profesor(a)" id="e_d_occupation" type="text" class="validate" required>
                 <label for="e_d_occupation">Ocupación</label>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="ej.: Media Completa" id="e_d_education" type="text">
+                <input placeholder="ej.: Media Completa" id="e_d_education" type="text" class="validate" required>
                 <label for="e_d_education">Educación</label>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input placeholder="" id="e_d_place" type="text">
+                <input placeholder="" id="e_d_place" type="text" class="validate" required>
                 <label for="e_d_place">Lugar de Fallecimiento</label>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
                 <input placeholder="Seleccione una fecha" id="e_d_date" type="text" class="datepicker validate" required>
                 <label for="e_d_date">Fecha de Fallecimiento</label>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input placeholder="" id="e_d_insurance" type="text">
+                <input placeholder="" id="e_d_insurance" type="text" class="validate" required>
                 <label for="e_d_insurance">Tipo de Previsión</label>
+                <span class="helper-text" data-error="Requerido" data-success="OK"></span>
             </div>
         </div>
         <h5>Velatorio</h5>
@@ -132,14 +142,12 @@
                 <label for="e_f_cementery_id" class="active">Cementerio</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="Seleccione una fecha" id="e_f_date" type="text" class="datepicker validate" required>
+                <input placeholder="Seleccione una fecha" id="e_f_date" type="text" class="datepicker">
                 <label for="e_f_date">Fecha</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="Seleccione una hora (24H)" id="e_f_time" type="text" class="timepicker validate" required>
+                <input placeholder="Seleccione una hora (24H)" id="e_f_time" type="text" class="timepicker">
                 <label for="e_f_time">Hora</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
         </div>
         <h5>Servicio</h5>
@@ -159,30 +167,27 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="e_v_include" class="materialize-textarea validate" required></textarea>
+                <textarea id="e_v_include" class="materialize-textarea"></textarea>
                 <label for="e_v_include">Incluye</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12">
                 <textarea id="e_v_observation" class="materialize-textarea"></textarea>
                 <label for="e_v_observation">Observación</label>
             </div>
             <div class="input-field col s12">
-                <textarea placeholder="Obituario" id="e_v_warning" class="materialize-textarea"></textarea>
+                <textarea placeholder="ej.: Se comunica el sentido fallecimiento de José Miguel Carrera [1785 - 1821]" id="e_v_warning" class="materialize-textarea"></textarea>
                 <label for="e_v_warning">Aviso</label>
                 <span class="helper-text">Se publicará en redes sociales</span>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m4">
-                <input id="e_v_cost" onchange="Form.Calc.payment('e_')" type="number" min="1" class="validate" required>
+                <input id="e_v_cost" onchange="Form.Calc.payment('e_')" type="number" min="0">
                 <label for="e_v_cost">Valor del Servicio</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
-                <input id="e_v_discount" onchange="Form.Calc.payment('e_')" type="number" min="0" class="validate" required>
+                <input id="e_v_discount" onchange="Form.Calc.payment('e_')" type="number" min="0">
                 <label for="e_v_discount">Descuento</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
                 <input value="0" id="e_v_total" type="number" readonly>
@@ -195,9 +200,8 @@
                 <label for="e_v_insurance_id">Previsión</label>
             </div>
             <div class="input-field col s12 m4">
-                <input id="e_v_coverage" onchange="Form.Calc.payment('e_')" type="number" min="0" class="validate" required>
+                <input id="e_v_coverage" onchange="Form.Calc.payment('e_')" type="number" min="0">
                 <label for="e_v_coverage">Aporte Previsión</label>
-                <span class="helper-text" data-error="Error" data-success="OK"></span>
             </div>
             <div class="input-field col s12 m4">
                 <input value="0" id="e_v_payment" type="number" readonly>
