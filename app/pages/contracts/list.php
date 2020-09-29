@@ -195,7 +195,7 @@
                                                 return '<a href="#!" onclick="contractView(' + row.id + ')" data-tooltip="Ver" class="tooltipped btn-flat"><i class="material-icons">remove_red_eye</i></a>' +
                                                     btnEdit + btnDelete + btnInvoice + btnPayment + btnEmailSend + btnPublish;
                                             } else {
-                                                return '<a href="#!" onclick="contractUndelete(' + row.id + ')" class="btn white btn-flat">Reactivar</a>';
+                                                return '<a href="#!" onclick="contractUndelete(' + row.id + ')" class="waves-effect waves-light teal btn-small">Reactivar</a>';
                                             }
                                         }
                                     }

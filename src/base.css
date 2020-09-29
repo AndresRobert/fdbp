@@ -26,8 +26,9 @@ sub {
 }
 
 tr.deleted {
-    background-color: #FCC !important;
-    color: #999;
+    color: #F88;
+    text-decoration: line-through;
+    font-style: italic;
 }
 
 span.invisible {
