@@ -57,7 +57,7 @@ span.invisible {
 }
 
 .t-small {
-    font-size:0.85rem
+    font-size:1rem
 }
 
 .t-right {
@@ -163,11 +163,12 @@ table.dataTable.no-footer {
 
 .printable-page {
     display: block;
-    width: 60rem;
+    width: 73rem;
     margin: 3rem auto;
     padding: 3rem;
     background-color: #FFF;
     color: #000;
+    font-size: 20px;
 }
 
 .printable-page .isotype > img {
