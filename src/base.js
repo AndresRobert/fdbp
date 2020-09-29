@@ -438,8 +438,8 @@ Form.Calc = {
         let tmp = rutCompleto.split('-'),
             digv = tmp[1],
             rut = tmp[0];
-        if ( digv === 'K' ) digv = 'k' ;
-        return (Form.Calc.checkRutDV(rut) === digv);
+        if ( digv == 'K' ) digv = 'k' ;
+        return (Form.Calc.checkRutDV(rut) == digv);
     },
     checkRutDV : function(T){
         let M=0,S=1;
