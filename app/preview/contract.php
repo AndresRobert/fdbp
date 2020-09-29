@@ -10,6 +10,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     <?php include '../layout/head.php' ?>
 </head>
 <body class="preview" style="background-color: #EEE; position: unset; font-size: 0.9rem">
+<a class="btn btn-floating btn-fixed" href="javascript:window.print()">Imprimir</a>
 <div class="content printable-page">
     <div class="row" style="margin:0">
         <div class="col s3 isotype">

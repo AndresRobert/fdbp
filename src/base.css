@@ -157,8 +157,8 @@ table.dataTable.no-footer {
     background: #FFF url(../src/img/preview.svg) 0 0 / 8rem 8rem;
 }
 
-.preview .row {
-    margin-bottom: 5px;
+.printable-page > .row {
+    margin-bottom: 7px;
 }
 
 .printable-page {
@@ -181,4 +181,10 @@ table.dataTable.no-footer {
 
 .printable-page p {
     margin: 0;
+}
+
+@media print {
+    .btn {
+        display: none;
+    }
 }
