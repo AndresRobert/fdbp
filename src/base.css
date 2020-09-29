@@ -182,15 +182,3 @@ table.dataTable.no-footer {
 .printable-page p {
     margin: 0;
 }
-
-@media print {
-    .btn-floating,
-    .material-tooltip {
-        display: none;
-    }
-
-    .printable-page {
-        margin: 0;
-        width: 100%;
-    }
-}

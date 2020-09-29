@@ -8,6 +8,18 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
 <head>
     <title>Ver Contrato</title>
     <?php include '../layout/head.php' ?>
+    <style>
+        @media print {
+            .btn-floating,
+            .material-tooltip {
+                display: none;
+            }
+
+            .printable-page {
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
 <body class="preview" style="background-color: #EEE; position: unset; font-size: 0.9rem">
 <a href="javascript:window.print()" class="btn-floating btn-fixed btn-large waves-effect waves-light teal tooltipped modal-trigger" data-position="left" data-tooltip="Imprimir"><i class="material-icons">local_printshop</i></a>
