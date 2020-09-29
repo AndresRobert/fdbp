@@ -190,5 +190,6 @@ table.dataTable.no-footer {
 
     .printable-page {
         margin: 0;
+        width: 100%;
     }
 }
