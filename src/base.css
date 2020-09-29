@@ -57,7 +57,7 @@ span.invisible {
 }
 
 .t-small {
-    font-size:0.7rem
+    font-size:0.85rem
 }
 
 .t-right {
@@ -70,7 +70,7 @@ span.invisible {
 
 .t-sign {
     border-top: 2px solid #000;
-    margin-top: 2rem;
+    margin-top: 4rem;
     text-align: center;
 }
 
@@ -109,10 +109,6 @@ span.invisible {
 .modal.datepicker-modal.open,
 .modal.timepicker-modal.open {
     top: 20% !important;
-}
-
-.row {
-    margin-bottom: 15px;
 }
 
 @media only screen and (min-width: 993px) {
@@ -161,6 +157,10 @@ table.dataTable.no-footer {
     background: #FFF url(../src/img/preview.svg) 0 0 / 8rem 8rem;
 }
 
+.preview .row {
+    margin-bottom: 5px;
+}
+
 .printable-page {
     display: block;
     width: 60rem;
@@ -171,7 +171,8 @@ table.dataTable.no-footer {
 }
 
 .printable-page .isotype > img {
-    width: 6.5rem;
+    width: 8.5rem;
+    margin: -12px 0 -24px 36px;
 }
 
 .printable-page .info {
