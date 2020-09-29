@@ -187,4 +187,8 @@ table.dataTable.no-footer {
     .btn {
         display: none;
     }
+
+    .printable-page {
+        margin: 0;
+    }
 }
