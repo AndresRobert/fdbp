@@ -184,7 +184,8 @@ table.dataTable.no-footer {
 }
 
 @media print {
-    .btn {
+    .btn-floating,
+    .material-tooltip {
         display: none;
     }
 
