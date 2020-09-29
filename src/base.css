@@ -171,7 +171,7 @@ table.dataTable.no-footer {
 }
 
 .printable-page .isotype > img {
-    width: 8.5rem;
+    width: 9.5rem;
     margin: -12px 0 -24px 36px;
 }
 
@@ -181,4 +181,15 @@ table.dataTable.no-footer {
 
 .printable-page p {
     margin: 0;
+}
+
+@media print {
+    .btn-floating,
+    .material-tooltip {
+        display: none !important;
+    }
+
+    .printable-page {
+        margin: 0 auto !important;
+    }
 }
