@@ -464,7 +464,10 @@ Helper.ready(() => {
     $('.sidenav').sidenav();
     $('.tooltipped').tooltip();
     $('.modal').modal();
-    $('select').formSelect();
+    $('select:not(.validate)').formSelect();
+    $('select.validate').formSelect({
+        "classes": "validate"
+    });
     $('.datepicker').datepicker(Helper.Options.datepicker());
     $('.timepicker').timepicker(Helper.Options.timepicker());
 });
