@@ -354,26 +354,25 @@ Adaptor.addInPlace = (autocompleteId = '', listName = '', endpoint = '') => {
     //console.log('tag', autocomplete);
     //console.log('list', listName);
     //console.log('api', endpoint);
-    autocomplete.on('change', () => {
-        let _text = autocomplete.val();
-        //console.log('changed', _text);
-        if (_text !== '' && typeof AutoRevLists[listName][_text] === 'undefined') {
-            Api.post(Api.endpoints[endpoint], true, {name: _text})
-                .then(({status, response}) => {
-                    //console.log('add', status, response);
-                    if (status === 'OK') {
-                        M.toast({html: response.message});
-                        if (response.status === 'fail') {
-                            $(autocompleteId + '_name').val('');
-                        } else {
-                            $(autocompleteId + '_id').val(response.id);
-                        }
+    let _text = autocomplete.val();
+    //console.log('changed', _text);
+    if (_text !== '' && typeof AutoRevLists[listName][_text] === 'undefined') {
+        Api.post(Api.endpoints[endpoint], true, {name: _text})
+            .then(({status, response}) => {
+                //console.log('add', status, response);
+                if (status === 'OK') {
+                    M.toast({html: response.message});
+                    if (response.status === 'fail') {
+                        $(autocompleteId + '_name').val('');
+                    } else {
+                        $(autocompleteId + '_id').val(response.id);
                     }
-                })
-                .catch(e => console.log(e));
-        }
-    });
+                }
+            })
+            .catch(e => console.log(e));
+    }
 };
+
 Adaptor.Connect = {};
 Adaptor.Connect.comunes = (regionId, comuneId) => {
     $(document).on('change', regionId, function () {

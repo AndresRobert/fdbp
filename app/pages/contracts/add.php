@@ -268,9 +268,7 @@
     Adaptor.select('#d_region_id','regions');
     Adaptor.select('#c_region_id','regions');
     Adaptor.autocomplete('#f_cementery','cementeries');
-    Adaptor.addInPlace('#f_cementery','cementeries','cementery_add');
     Adaptor.autocomplete('#v_service','services');
-    Adaptor.addInPlace('#v_service','services','service_add');
     Adaptor.select('#v_insurance_id','insurances');
     Adaptor.select('#v_provider_id','providers');
     Adaptor.comunes('#s_comune_id', 0);
@@ -287,6 +285,8 @@
 
     function saveThisContract() {
         let data = Form.getValues('#newContract');
+        Adaptor.addInPlace('#f_cementery','cementeries','cementery_add');
+        Adaptor.addInPlace('#v_service','services','service_add');
         Api.post(Api.endpoints['contract_add'], true, data)
             .then(({ status, response }) => {
                 if (status === 'OK') {
