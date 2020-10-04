@@ -141,7 +141,7 @@
                 <label for="f_cementery_name">Cementerio</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="Seleccione una fecha" id="f_date" type="text" class="datepicker">
+                <input placeholder="Seleccione una fecha" id="f_date" type="text" class="datepicker" onchange="Adaptor.addInPlace('#f_cementery','cementeries','cementery_add')">
                 <label for="f_date">Fecha</label>
             </div>
             <div class="input-field col s12 m3">
@@ -157,7 +157,7 @@
                 <label for="v_service_id" class="active">Tipo</label>
             </div>
             <div class="input-field col s12 m3">
-                <select id="v_provider_id"></select>
+                <select id="v_provider_id" onchange="Adaptor.addInPlace('#v_service','services','service_add')"></select>
                 <label for="v_provider_id">Proveedor</label>
             </div>
             <div class="input-field col s12 m3">
@@ -285,8 +285,6 @@
 
     function saveThisContract() {
         let data = Form.getValues('#newContract');
-        Adaptor.addInPlace('#f_cementery','cementeries','cementery_add');
-        Adaptor.addInPlace('#v_service','services','service_add');
         Api.post(Api.endpoints['contract_add'], true, data)
             .then(({ status, response }) => {
                 if (status === 'OK') {
