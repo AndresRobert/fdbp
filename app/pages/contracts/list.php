@@ -318,16 +318,18 @@
 
                 $('#' + prefix + 'd_name').val(Helper.setDefault(_data.d_name, ''));
                 $('#' + prefix + 'd_id').val(Helper.setDefault(_data.d_id, ''));
-                $('#' + prefix + 'd_marital_status').val(Helper.setDefault(_data.d_marital_status, ''));
                 $('#' + prefix + 'd_address').val(Helper.setDefault(_data.d_address, ''));
-                $('#' + prefix + 'd_place').val(Helper.setDefault(_data.d_place, ''));
-                $('#' + prefix + 'd_occupation').val(Helper.setDefault(_data.d_occupation, ''));
-                $('#' + prefix + 'd_education').val(Helper.setDefault(_data.d_education, ''));
                 $('#' + prefix + 'd_region_id').val(Helper.setDefault(_data.d_region_id, '1'));
                 $('#' + prefix + 'd_region_id').formSelect();
                 $('#' + prefix + 'd_region_id').trigger('change');
                 $('#' + prefix + 'd_comune_id').val(Helper.setDefault(_data.d_comune_id, '1'));
                 $('#' + prefix + 'd_comune_id').formSelect();
+                $('#' + prefix + 'd_marital_status').val(Helper.setDefault(_data.d_marital_status, ''));
+                $('#' + prefix + 'd_occupation').val(Helper.setDefault(_data.d_occupation, ''));
+                $('#' + prefix + 'd_education').val(Helper.setDefault(_data.d_education, ''));
+                $('#' + prefix + 'd_place').val(Helper.setDefault(_data.d_place, ''));
+                $('#' + prefix + 'd_date').val(Helper.setDefault(_data.d_date, ''));
+                $('#' + prefix + 'd_insurance').val(Helper.setDefault(_data.d_insurance, ''));
 
                 $('#' + prefix + 'c_church').val(Helper.setDefault(_data.c_church, ''));
                 $('#' + prefix + 'c_address').val(Helper.setDefault(_data.c_address, ''));
