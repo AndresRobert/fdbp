@@ -142,7 +142,7 @@
                 <label for="e_f_cementery_id" class="active">Cementerio</label>
             </div>
             <div class="input-field col s12 m3">
-                <input placeholder="Seleccione una fecha" id="e_f_date" type="text" class="datepicker" onchange="Adaptor.addInPlace('#e_f_cementery','cementeries','cementery_add')">
+                <input placeholder="Seleccione una fecha" id="e_f_date" type="text" class="datepicker" onfocusin="Adaptor.addInPlace('#e_f_cementery','cementeries','cementery_add')">
                 <label for="e_f_date">Fecha</label>
             </div>
             <div class="input-field col s12 m3">
@@ -158,7 +158,7 @@
                 <label for="e_v_service_id" class="active">Tipo</label>
             </div>
             <div class="input-field col s12 m3">
-                <select id="e_v_provider_id" onchange="Adaptor.addInPlace('#e_v_service','services','service_add')"></select>
+                <select id="e_v_provider_id" onfocusin="Adaptor.addInPlace('#e_v_service','services','service_add')"></select>
                 <label for="e_v_provider_id">Proveedor</label>
             </div>
             <div class="input-field col s12 m3">
