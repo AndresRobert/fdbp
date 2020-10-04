@@ -153,8 +153,9 @@
         <h5>Servicio</h5>
         <div class="row">
             <div class="input-field col s12 m6">
-                <select id="e_v_service_id"></select>
-                <label for="e_v_service_id">Tipo</label>
+                <input type="text" id="e_v_service_name" class="autocomplete" placeholder="ej.: PLANA ECO...">
+                <input type="hidden" id="e_v_service_id">
+                <label for="e_v_service_id" class="active">Tipo</label>
             </div>
             <div class="input-field col s12 m3">
                 <select id="e_v_provider_id"></select>
