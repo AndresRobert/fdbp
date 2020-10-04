@@ -268,8 +268,8 @@
     Adaptor.select('#c_region_id','regions');
     Adaptor.autocomplete('#f_cementery','cementeries');
     Adaptor.addInPlace('#f_cementery','cementeries','cementery_add');
-    Adaptor.select('#v_service_id','services');
-    Adaptor.select('#v_service_id','services');
+    Adaptor.autocomplete('#v_service','services');
+    Adaptor.addInPlace('#v_service','services','service_add');
     Adaptor.select('#v_insurance_id','insurances');
     Adaptor.select('#v_provider_id','providers');
     Adaptor.comunes('#s_comune_id', 0);

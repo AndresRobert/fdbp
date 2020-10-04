@@ -1,6 +1,6 @@
 <?php
 $path = $_SERVER['SERVER_NAME'];
-$ver = '?v=1.6.0';
+$ver = '?v=1.6.1';
 $_SESSION['version'] = $ver;
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

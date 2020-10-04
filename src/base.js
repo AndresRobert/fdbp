@@ -293,7 +293,7 @@ Adaptor.select = (selectId = '', listName = '') => {
     if (select.length > 0) {
         let list = Api.getList(listName);
         if (list === []) {
-            console.log('Data not available for select');
+            //console.log('Data not available for select');
         } else {
             select.empty();
             $.each(list, function( _, { id, name } ) {
@@ -301,7 +301,7 @@ Adaptor.select = (selectId = '', listName = '') => {
             });
         }
     } else {
-        console.log('select is not present');
+        //console.log('select is not present');
     }
 };
 Adaptor.comunes = (selectId = '', regionId = '') => {
@@ -309,7 +309,7 @@ Adaptor.comunes = (selectId = '', regionId = '') => {
     if (select.length > 0) {
         let list = Api.getList('comunes_by_region');
         if (list === []) {
-            console.log('Data not available for select')
+            //console.log('Data not available for select')
         } else {
             select.empty();
             $.each(list[regionId], function( _, { id, name } ) {
@@ -317,7 +317,7 @@ Adaptor.comunes = (selectId = '', regionId = '') => {
             });
         }
     } else {
-        console.log('select is not present');
+        //console.log('select is not present');
     }
 };
 Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
@@ -325,7 +325,7 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
     if (autocomplete.length > 0) {
         let list = Api.getList(listName);
         if (list === []) {
-            console.log('Data not available for autocomplete')
+            //console.log('Data not available for autocomplete')
         } else {
             AutoLists[listName] = {};
             AutoRevLists[listName] = {};
@@ -346,21 +346,21 @@ Adaptor.autocomplete = (autocompleteId = '', listName = '') => {
         }
 
     } else {
-        console.log('autocomplete is not present');
+        //console.log('autocomplete is not present');
     }
 };
 Adaptor.addInPlace = (autocompleteId = '', listName = '', endpoint = '') => {
     let autocomplete = $(autocompleteId + '_name');
-    console.log('tag', autocomplete);
-    console.log('list', listName);
-    console.log('api', endpoint);
+    //console.log('tag', autocomplete);
+    //console.log('list', listName);
+    //console.log('api', endpoint);
     autocomplete.on('change', () => {
         let _text = autocomplete.val();
-        console.log('changed', _text);
+        //console.log('changed', _text);
         if (_text !== '' && typeof AutoRevLists[listName][_text] === 'undefined') {
             Api.post(Api.endpoints[endpoint], true, {name: _text})
                 .then(({status, response}) => {
-                    console.log('add', status, response);
+                    //console.log('add', status, response);
                     if (status === 'OK') {
                         M.toast({html: response.message});
                         if (response.status === 'fail') {
