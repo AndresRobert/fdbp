@@ -52,7 +52,7 @@ try {
 
 // DATABASE
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'arcodepr_funeraria');
+define('DB_NAME', 'arcodepr_dev_funeraria');
 define('DB_USERNAME', 'arcodepr_funeraria');
 define('DB_PASSWORD', 'Funeraria.12345');
 define('DB_TABLE_PREFIX', '');
