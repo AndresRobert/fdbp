@@ -127,6 +127,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
             <i id="p_check" class="material-icons t-icon t-icon-padding">crop_square</i> Cheque al día<br>
             <i id="p_check_defered" class="material-icons t-icon t-icon-padding">crop_square</i> Cheque a fecha<br>
             <i id="p_credit_card" class="material-icons t-icon t-icon-padding">crop_square</i> Tarjeta de crédito<br>
+            <i id="p_debit_card" class="material-icons t-icon t-icon-padding">crop_square</i> Tarjeta de débito<br>
             <i id="p_other" class="material-icons t-icon t-icon-padding">crop_square</i> Otro
         </div>
     </div>
@@ -157,6 +158,7 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
         p_check = <?php echo $contract[0]['p_check'] ?>,
         p_check_defered = <?php echo $contract[0]['p_check_defered'] ?>,
         p_credit_card = <?php echo $contract[0]['p_credit_card'] ?>,
+        p_debit_card = <?php echo $contract[0]['p_debit_card'] ?>,
         p_other = <?php echo $contract[0]['p_other'] ?>,
         p_transfer = <?php echo $contract[0]['p_transfer'] ?>;
 
@@ -171,6 +173,9 @@ $strDate = strftime("%e de %B del %G",$date->getTimestamp());
     }
     if (p_credit_card === true || p_credit_card === '1' || p_credit_card === 1) {
         $('#p_credit_card').html('check');
+    }
+    if (p_debit_card === true || p_debit_card === '1' || p_debit_card === 1) {
+        $('#p_debit_card').html('check');
     }
     if (p_other === true || p_other === '1' || p_other === 1) {
         $('#p_other').html('check');

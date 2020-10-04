@@ -51,6 +51,7 @@
                 <th data-placeholder="si/no">Cheque al día</th>
                 <th data-placeholder="si/no">Cheque a fecha</th>
                 <th data-placeholder="si/no">Tarjeta de Crédito</th>
+                <th data-placeholder="si/no">Tarjeta de Débito</th>
                 <th data-placeholder="si/no">Otro</th>
                 <th data-placeholder="none">Acciones</th>
             </tr>
@@ -154,6 +155,14 @@
                                     {
                                         "mRender": function (d, t, row) {
                                             if (row.p_credit_card === '1') {
+                                                return '<span class="invisible">si</span><i class="material-icons">check_box</i>';
+                                            }
+                                            return '<span class="invisible">no</span><i class="material-icons no">crop_din</i>';
+                                        }
+                                    },
+                                    {
+                                        "mRender": function (d, t, row) {
+                                            if (row.p_debit_card === '1') {
                                                 return '<span class="invisible">si</span><i class="material-icons">check_box</i>';
                                             }
                                             return '<span class="invisible">no</span><i class="material-icons no">crop_din</i>';
@@ -379,6 +388,11 @@
                     $('#' + prefix + 'p_credit_card').attr('checked', true);
                 } else {
                     $('#' + prefix + 'p_credit_card').attr('checked', false);
+                }
+                if (_data.p_debit_card === true || _data.p_debit_card === '1' || _data.p_debit_card === 1) {
+                    $('#' + prefix + 'p_debit_card').attr('checked', true);
+                } else {
+                    $('#' + prefix + 'p_debit_card').attr('checked', false);
                 }
                 if (_data.p_other === true || _data.p_other === '1' || _data.p_other === 1) {
                     $('#' + prefix + 'p_other').attr('checked', true);

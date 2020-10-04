@@ -210,39 +210,45 @@
         </div>
         <h5>Forma de Pago</h5>
         <div class="row">
-            <div class="input-field col s12 m4">
+            <div class="input-field col s12 m3">
                 <label>
                     <input id="e_p_cash" type="checkbox">
                     <span>Efectivo</span>
                 </label>
             </div>
-            <div class="input-field col s12 m4">
+            <div class="input-field col s12 m3">
                 <label>
                     <input id="e_p_check" type="checkbox">
                     <span>Cheque al día</span>
                 </label>
             </div>
-            <div class="input-field col s12 m4">
+            <div class="input-field col s12 m3">
                 <label>
                     <input id="e_p_check_defered" type="checkbox">
                     <span>Cheque a Fecha</span>
                 </label>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12 m4">
+            <div class="input-field col s12 m3">
                 <label>
                     <input id="e_p_transfer" type="checkbox">
                     <span>Transferencia</span>
                 </label>
             </div>
-            <div class="input-field col s12 m4">
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m3">
                 <label>
                     <input id="e_p_credit_card" type="checkbox">
                     <span>Tarjeta de Crédito</span>
                 </label>
             </div>
-            <div class="input-field col s12 m4">
+            <div class="input-field col s12 m3">
+                <label>
+                    <input id="e_p_debit_card" type="checkbox">
+                    <span>Tarjeta de Débito</span>
+                </label>
+            </div>
+            <div class="input-field col s12 m3">
                 <label>
                     <input id="e_p_other" type="checkbox">
                     <span>Otro</span>

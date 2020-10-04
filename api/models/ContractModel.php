@@ -80,6 +80,7 @@ class Contract extends Model {
             c.p_check,
             c.p_check_defered,
             c.p_credit_card,
+            c.p_debit_card,
             c.p_other
         FROM contracts c
             INNER JOIN comunes sc ON sc.id = c.s_comune_id
