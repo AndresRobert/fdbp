@@ -311,6 +311,7 @@
             }
 
             function setDataOnModal(_data, prefix) {
+                console.log(AutoLists);
                 $('#' + prefix + 'id').val(Helper.setDefault(_data.id, '999999'));
 
                 $('#' + prefix + 's_name').val(Helper.setDefault(_data.s_name, ''));
@@ -349,7 +350,7 @@
                 $('#' + prefix + 'c_comune_id').formSelect();
 
                 $('#' + prefix + 'v_service_id').val(Helper.setDefault(_data.v_service_id, '1'));
-                $('#' + prefix + 'v_service_id').formSelect();
+                $('#' + prefix + 'v_service_name').val(Helper.setDefault(AutoLists['services'][_data.v_service_id], ''));
                 $('#' + prefix + 'v_include').val(Helper.setDefault(_data.v_include, ''));
                 $('#' + prefix + 'v_warning').val(Helper.setDefault(_data.v_warning, ''));
                 $('#' + prefix + 'v_observation').val(Helper.setDefault(_data.v_observation, ''));
